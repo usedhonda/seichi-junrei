@@ -1,0 +1,4 @@
+interface:
+  display_name: "Seichi Junrei"
+  short_description: "旅行予定からアニメ・映画の聖地巡礼候補を提案し、選んだ作品でスマホ旅ガイドを作る"
+  default_prompt: "$seichi-junrei を使って、Googleカレンダーの次の旅に合うアニメ・漫画・映画を3〜5作品提案して。私が作品を選んだ後でスマホ旅ガイドを作って。"

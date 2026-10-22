@@ -1,0 +1,68 @@
+{
+  "meta": {
+    "title": "STARDUST ON THE NILE",
+    "subtitle": "ジョジョ第3部と巡る、エジプト南部の旅",
+    "dates": "23–24 OCT 2026",
+    "regions": "ASWAN → ABU SIMBEL",
+    "hero_image": "assets/nile-original.webp",
+    "theme": "night-gold",
+    "visibility": "companions"
+  },
+  "selection": {
+    "primary_work_id": "jojo-3", "secondary_work_ids": [],
+    "user_confirmed": true, "delegated": false
+  },
+  "works": [{
+    "id": "jojo-3", "title": "ジョジョの奇妙な冒険 第3部 スターダストクルセイダース", "medium": "anime",
+    "episodes": [
+      {"number":"25", "title":"『愚者』のイギーと『ゲブ神』のンドゥール その1", "summary":"砂漠で新しい仲間イギーが登場。エジプト編が開幕する。", "image":"assets/water-original.webp", "source_url":"https://jojo-animation.com/sc/contents/story/25.html"},
+      {"number":"26", "title":"『愚者』のイギーと『ゲブ神』のンドゥール その2", "summary":"水のスタンドを操るンドゥールとの戦いの続き。", "image":"assets/water-original.webp", "source_url":"https://jojo-animation.com/sc/contents/story/26.html"},
+      {"number":"27", "title":"『クヌム神』のオインゴと『トト神』のボインゴ", "summary":"アスワンのカフェで予言の漫画本を巡る攻防が始まる。", "image":"assets/book-original.webp", "source_url":"https://jojo-animation.com/sc/contents/story/27.html"},
+      {"number":"28", "title":"『アヌビス神』 その1", "summary":"次なる敵は、剣に宿るスタンド。", "image":"assets/temple-original.webp", "source_url":"https://jojo-animation.com/sc/contents/story/28.html"},
+      {"number":"29", "title":"『アヌビス神』 その2", "summary":"記憶し学習する剣との対決が続く。", "image":"assets/temple-original.webp", "source_url":"https://jojo-animation.com/sc/contents/story/29.html"}
+    ]
+  }],
+  "stages": [
+    {
+      "id":"aswan", "label":"STAGE 01", "location":"ASWAN", "date":"OCT 23",
+      "hook":"予言は当たる。なのに、勝てない。", "image":"assets/nile-portrait.webp",
+      "location_note":"ナイルの岸に広がるアスワン。カフェの風景に、オインゴ・ボインゴ兄弟の騒動を重ねると、いつもの街歩きが一瞬で奇妙な冒険に変わる。",
+      "map_url":"https://www.google.com/maps/search/?api=1&query=Aswan+Egypt",
+      "connections":[{"type":"named_setting", "description":"第27話の公式あらすじにアスワンの街での休息とカフェが明記される。特定の実在カフェを公式聖地とは断定しない。", "source_url":"https://jojo-animation.com/sc/contents/story/27.html"}],
+      "scenes":[
+        {"title":"予言漫画と毒入り紅茶", "episode":"EP.27", "description":"弟ボインゴの漫画本が未来を描き、兄オインゴはカフェで暗殺を仕掛ける。どんなに用意周到でも、思いどおりにいかないのが、この回の面白さ。", "image":"assets/book-original.webp", "spoiler":false, "source_url":"https://jojo-animation.com/sc/contents/story/27.html"},
+        {"title":"なぜか外れない予言", "episode":"EP.27", "description":"未来は確かに示される。しかし、その『意味』が兄弟の期待どおりとは限らない。結末を知る人ほど現地で笑える。", "image":"assets/water-original.webp", "spoiler":true, "source_url":"https://jojo-animation.com/sc/contents/story/27.html"}
+      ],
+      "highlights":["ナイル川沿いの街並みと伝統的な帆船","エレファンティネ島周辺の古代エジプト史","川沿いのカフェで作中の小休止を思い出す"],
+      "events":[{"time":"午前", "label":"アスワンの街とナイル川を楽しむ"},{"time":"午後", "label":"次の目的地アブ・シンベルへ"}],
+      "missions":[{"id":"cafe", "text":"カフェで第27話を思い出す"},{"id":"nile", "text":"ナイルの帆船を見つける"}]
+    },
+    {
+      "id":"abu-simbel", "label":"STAGE 02", "location":"ABU SIMBEL", "date":"OCT 23–24",
+      "hook":"神々の巨大な姿と、運命の物語。", "image":"assets/temple-original.webp",
+      "location_note":"ラムセス2世の巨大な座像が並ぶ大神殿と王妃ネフェルタリの小神殿。エジプト神話の重みを現地で感じながら、物語の『神の名を持つスタンド』を思い返そう。",
+      "map_url":"https://www.google.com/maps/search/?api=1&query=Abu+Simbel+Temple+Egypt",
+      "connections":[{"type":"thematic", "description":"第3部エジプト編の古代神話モチーフと重ねて楽しむ場所。大神殿内部が第27話の公式戦闘舞台であるという主張はしない。", "source_url":"https://jojo-animation.com/sc/contents/bd_dvd/2nd2_bd/01.html"}],
+      "scenes":[
+        {"title":"未来を描く『トト神』", "episode":"EP.27", "description":"予言漫画という現代的な道具と、数千年前の神殿の対比。『神の名』の意味を考えながら古代の壁画を眺めよう。", "image":"assets/book-original.webp", "spoiler":false, "source_url":"https://jojo-animation.com/sc/contents/story/27.html"}
+      ],
+      "highlights":["正面に並ぶ4体のラムセス2世座像","至聖所と二度の採光現象の仕組み","王妃ネフェルタリの小神殿","UNESCOによる神殿移設の歴史"],
+      "events":[{"time":"午後", "label":"神殿見学は現地の最終入場時刻を確認"},{"time":"翌朝", "label":"アスワンへ戻る移動日"}],
+      "missions":[{"id":"four-statues", "text":"4体の巨大座像を正面から眺める"},{"id":"sunlight", "text":"太陽光が至聖所に届く仕組みを知る"}]
+    }
+  ],
+  "sources":[
+    {"label":"公式：第25話あらすじ", "url":"https://jojo-animation.com/sc/contents/story/25.html"},
+    {"label":"公式：第27話あらすじ", "url":"https://jojo-animation.com/sc/contents/story/27.html"},
+    {"label":"公式：エジプト編DVD第25〜28話収録", "url":"https://jojo-animation.com/sc/contents/bd_dvd/2nd2_bd/01.html"},
+    {"label":"エジプト観光考古省：アブ・シンベル", "url":"https://egymonuments.gov.eg/en/archaeological-sites/abu-simbel/"},
+    {"label":"エジプト政府チケット：最終入場", "url":"https://www.egymonuments.com/locations/details/AbuSimbelTemple"}
+  ],
+  "media_rights":[
+    {"file":"assets/nile-original.webp", "status":"original_generated", "creator":"OpenAI-generated original composition", "notes":"創作上の合成風景。実際の地理的位置関係を示さない"},
+    {"file":"assets/nile-portrait.webp", "status":"original_generated", "creator":"OpenAI-generated original composition", "notes":"創作上の風景"},
+    {"file":"assets/temple-original.webp", "status":"original_generated", "creator":"OpenAI-generated original composition", "notes":"創作上の神殿風景"},
+    {"file":"assets/book-original.webp", "status":"original_generated", "creator":"Original geometric illustration prepared for demonstration", "notes":"予言・本という概念を抽象的に表現"},
+    {"file":"assets/water-original.webp", "status":"original_generated", "creator":"Original geometric illustration prepared for demonstration", "notes":"水流の抽象表現"}
+  ]
+}

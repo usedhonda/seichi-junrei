@@ -1,0 +1,26 @@
+{
+  "trip": {"destination": "Aswan → Abu Simbel", "dates": "2026-10-23 – 2026-10-24", "source": "Illustrative, redacted trip outline"},
+  "candidates": [
+    {
+      "id": "jojo-3", "title": "ジョジョの奇妙な冒険 第3部 エジプト編", "medium": "アニメ・漫画", "connection_grade": "A",
+      "why": "第27話の舞台としてアスワンの街が明示されている。スタンド名に古代エジプトの神々が登場。", "scene": "第27話：オインゴとボインゴがアスワンのカフェで毒入り紅茶を仕掛ける。",
+      "caveat": "アブ・シンベルの神殿内部が戦闘の公式舞台であるとまでは断定しない。", "itinerary_feasible": true,
+      "evidence_urls": ["https://jojo-animation.com/sc/contents/story/27.html", "https://jojo-animation.com/sc/contents/bd_dvd/2nd2_bd/01.html"],
+      "score_components": {"evidence": 32, "access": 25, "story": 20, "companion": 13}
+    },
+    {
+      "id": "death-nile-1978", "title": "ナイル殺人事件（1978年映画）", "medium": "映画", "connection_grade": "A",
+      "why": "ナイル川の船旅を描く名作で、1978年版はエジプトでロケ。アブ・シンベル神殿もロケ地リストにある。", "scene": "豪華ナイル船の乗客たちの秘密が次々に明かされる。",
+      "caveat": "1978年版と2022年版、原作小説を混同しない。", "itinerary_feasible": true,
+      "evidence_urls": ["https://www.agathachristie.com/en/film-and-tv/death-on-the-nile-1978", "https://www.imdb.com/title/tt0077413/locations/"],
+      "score_components": {"evidence": 30, "access": 29, "story": 17, "companion": 14}
+    },
+    {
+      "id": "mummy-1999", "title": "ハムナプトラ／失われた砂漠の都（1999年）", "medium": "映画", "connection_grade": "D",
+      "why": "古代エジプトの冒険・呪い・神殿というテーマが旅行の雰囲気と合う。", "scene": "砂漠の遺跡と古代の謎を追う冒険。",
+      "caveat": "エジプトを舞台とするが、主な撮影はモロッコ・英国など。アブ・シンベルのロケ地とは紹介しない。", "itinerary_feasible": true,
+      "evidence_urls": ["https://www.imdb.com/title/tt0120616/locations/"],
+      "score_components": {"evidence": 14, "access": 20, "story": 18, "companion": 13}
+    }
+  ]
+}
