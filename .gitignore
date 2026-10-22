@@ -14,3 +14,11 @@ __pycache__/
 # Local platform noise
 .DS_Store
 Thumbs.db
+
+# Avoid accidental commits of local credentials and calendar exports
+.env
+.env.*
+!.env.example
+*.ics
+*.ical
+credentials.json

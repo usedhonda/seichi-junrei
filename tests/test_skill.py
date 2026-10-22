@@ -72,6 +72,14 @@ class SkillTests(unittest.TestCase):
         for secret in ("Alice", "Qwerty", "SECRET88", "PrivateGuest", "Bob"):
             self.assertNotIn(secret, encoded)
         self.assertEqual(2, len(draft["events"]))
+        flight = next(e for e in draft["events"] if e["kind"] == "flight")
+        self.assertEqual("MS80", flight["flight_code"])
+
+    def test_numeric_date_is_not_flight_number(self):
+        fixture = {"items": [{"summary": "Flight 2027 book a trip",
+                              "start": "2027-03-15", "end": "2027-03-16"}]}
+        flight = parse_export(fixture)["events"][0]
+        self.assertNotIn("flight_code", flight)
 
     def test_renderer_media_and_lint(self):
         html=render(self.data,ROOT)

@@ -11,10 +11,9 @@ from pathlib import Path
 
 FLIGHT = re.compile(r"\b(?:flight|flight to|フライト|航空便|航空券|飛行機|空港|[A-Z0-9]{2}\s?\d{2,4})\b", re.I)
 STAY = re.compile(r"hotel|resort|check[ -]?in|check[ -]?out|宿泊|滞在|ホテル|旅館", re.I)
-IATA = re.compile(r"\b[A-Z]{3}\b")
 # Never preserve original event titles in the exported summary. Event titles can
 # contain unlabeled names, locations or booking identifiers that regexes miss.
-FLIGHT_CODE = re.compile(r"(?<![A-Z0-9])([A-Z0-9]{2})[ -]?(\d{2,4})(?!\d)", re.I)
+FLIGHT_CODE = re.compile(r"(?<![A-Z0-9])([A-Z]{2}|[A-Z]\d|\d[A-Z])[ -]?(\d{2,4})(?![A-Z0-9])", re.I)
 ROUTE = re.compile(r"\b([A-Z]{3})\s*(?:→|->|to)\s*([A-Z]{3})\b", re.I)
 
 

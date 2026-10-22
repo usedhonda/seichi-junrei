@@ -2,7 +2,7 @@
   "meta": {
     "title": "STARDUST ON THE NILE",
     "subtitle": "ジョジョ第3部と巡る、エジプト南部の旅",
-    "dates": "23–24 OCT 2026",
+    "dates": "15–16 MAR 2027",
     "regions": "ASWAN → ABU SIMBEL",
     "hero_image": "assets/nile-original.webp",
     "theme": "night-gold",
@@ -24,7 +24,7 @@
   }],
   "stages": [
     {
-      "id":"aswan", "label":"STAGE 01", "location":"ASWAN", "date":"OCT 23",
+      "id":"aswan", "label":"STAGE 01", "location":"ASWAN", "date":"MAR 15",
       "hook":"予言は当たる。なのに、勝てない。", "image":"assets/nile-portrait.webp",
       "location_note":"ナイルの岸に広がるアスワン。カフェの風景に、オインゴ・ボインゴ兄弟の騒動を重ねると、いつもの街歩きが一瞬で奇妙な冒険に変わる。",
       "map_url":"https://www.google.com/maps/search/?api=1&query=Aswan+Egypt",
@@ -38,7 +38,7 @@
       "missions":[{"id":"cafe", "text":"カフェで第27話を思い出す"},{"id":"nile", "text":"ナイルの帆船を見つける"}]
     },
     {
-      "id":"abu-simbel", "label":"STAGE 02", "location":"ABU SIMBEL", "date":"OCT 23–24",
+      "id":"abu-simbel", "label":"STAGE 02", "location":"ABU SIMBEL", "date":"MAR 15–16",
       "hook":"神々の巨大な姿と、運命の物語。", "image":"assets/temple-original.webp",
       "location_note":"ラムセス2世の巨大な座像が並ぶ大神殿と王妃ネフェルタリの小神殿。エジプト神話の重みを現地で感じながら、物語の『神の名を持つスタンド』を思い返そう。",
       "map_url":"https://www.google.com/maps/search/?api=1&query=Abu+Simbel+Temple+Egypt",

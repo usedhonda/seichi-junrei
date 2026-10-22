@@ -6,7 +6,7 @@
 [![MIT License](https://img.shields.io/badge/code%20license-MIT-blue.svg)](LICENSE)
 [![Skill](https://img.shields.io/badge/Agent-Skill-8b5cf6.svg)](SKILL.md)
 
-![スマホガイドのサンプル](docs/preview-mobile.png)
+![スマホガイドのサンプル](docs/preview-mobile.svg)
 
 > **「今度の旅、勝手に聖地巡礼にして。」**
 >
@@ -31,7 +31,7 @@
 
 | 候補を選ぶ | 旅先で読む |
 | --- | --- |
-| ![作品候補を選ぶ画面](docs/choose-work.png) | ![旅ガイドの画面](docs/preview-mobile.png) |
+| ![作品候補を選ぶ画面](docs/choose-work.png) | ![旅ガイドの画面](docs/preview-mobile.svg) |
 
 **[サンプルのHTML](examples/sample-guide.html)** はジョジョ第3部とアスワン・アブ・シンベルを題材にした*説明用デモ*です。公式作品ではありません。デモの日付・内容は実際の旅行の予約情報ではありません。
 
@@ -77,7 +77,9 @@ Python 3.11以上が必要です。画像をHTML内蔵用に処理するため�
 ```bash
 git clone https://github.com/usedhonda/seichi-junrei.git
 cd seichi-junrei
-python3 -m pip install -r requirements.txt
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
 
 # 候補を評価して並べる（主役は自動決定しない）
 python3 scripts/rank_candidates.py examples/egypt_candidates.json

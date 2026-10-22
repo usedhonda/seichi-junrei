@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="390" height="750" viewBox="0 0 390 750" role="img" aria-label="Mobile travel guide design preview">
+<defs><linearGradient id="sky" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0b1537"/><stop offset=".45" stop-color="#273f69"/><stop offset=".75" stop-color="#d65b70"/><stop offset="1" stop-color="#ffb15e"/></linearGradient><linearGradient id="sea" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#c77c70"/><stop offset="1" stop-color="#07182e"/></linearGradient><linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffecb4"/><stop offset="1" stop-color="#d7a45a"/></linearGradient></defs>
+<rect width="390" height="750" rx="18" fill="#0a1526"/>
+<rect width="390" height="440" rx="18" fill="url(#sky)"/>
+<path d="M0 295Q84 270 125 292T240 280Q315 248 390 277V440H0Z" fill="#ab694b" opacity=".7"/>
+<path d="M0 320Q150 295 245 332T390 319V440H0Z" fill="#231f36" opacity=".73"/>
+<circle cx="266" cy="208" r="54" fill="#ffcb76" opacity=".84"/>
+<path d="M0 353Q160 325 390 362V440H0Z" fill="url(#sea)"/>
+<path d="M0 395Q170 380 390 417" stroke="#ffcc8c" stroke-width="5" opacity=".52" fill="none"/>
+<path d="M0 410Q170 393 390 430" stroke="#daaf88" stroke-width="3" opacity=".4" fill="none"/>
+<path d="M294 236L294 350" stroke="#241f2d" stroke-width="3"/>
+<path d="M292 244L241 331L292 332Z" fill="#fff0cc" opacity=".91"/>
+<path d="M295 264L330 333L295 333Z" fill="#c6c8bc" opacity=".8"/>
+<path d="M236 340L333 340L314 351L255 351Z" fill="#151924"/>
+<text x="21" y="36" font-family="Arial,sans-serif" font-size="11" font-weight="700" letter-spacing="2.5" fill="#ffdfa1">SEICHI JUNREI · FIELD EDITION</text>
+<text x="21" y="241" font-family="Georgia,serif" font-size="53" font-weight="700" letter-spacing="-2" fill="url(#gold)">STARDUST</text>
+<text x="21" y="292" font-family="Georgia,serif" font-size="54" font-weight="700" letter-spacing="-2" fill="url(#gold)">ON THE NILE</text>
+<text x="22" y="316" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#fff1d7">ジョジョ第3部と巡る、エジプト南部</text>
+<rect y="438" width="390" height="52" fill="#0d2035"/>
+<text x="22" y="469" font-family="Arial,sans-serif" font-size="12" font-weight="700" fill="#ffe4af">TOP</text>
+<text x="82" y="469" font-family="Arial,sans-serif" font-size="12" font-weight="700" fill="#ffe4af">EPISODES</text>
+<text x="193" y="469" font-family="Arial,sans-serif" font-size="12" font-weight="700" fill="#ffe4af">ASWAN</text>
+<text x="275" y="469" font-family="Arial,sans-serif" font-size="12" font-weight="700" fill="#ffe4af">ABU SIMBEL</text>
+<rect x="0" y="493" width="390" height="257" fill="#f4e6cb"/>
+<text x="22" y="530" font-family="Arial,sans-serif" font-size="10" font-weight="700" letter-spacing="3" fill="#915e4c">YOUR JOURNEY IS A STORY</text>
+<text x="22" y="565" font-family="Arial,sans-serif" font-size="26" font-weight="800" fill="#1c3045">いつもの観光を、</text>
+<text x="22" y="601" font-family="Arial,sans-serif" font-size="26" font-weight="800" fill="#1c3045">物語の中へ。</text>
+<rect x="22" y="620" width="346" height="104" rx="13" fill="#152740"/>
+<text x="42" y="650" font-family="Georgia,serif" font-size="23" font-weight="700" fill="#f2d298">ASWAN → ABU SIMBEL</text>
+<text x="42" y="680" font-family="Arial,sans-serif" font-size="13" fill="#e4e9e9">物語・名場面・実景を、</text>
+<text x="42" y="702" font-family="Arial,sans-serif" font-size="13" fill="#e4e9e9">実際の旅の順番でたどる。</text>
+</svg>
