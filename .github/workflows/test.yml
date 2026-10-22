@@ -1,16 +1,29 @@
 name: Tests
+
 on:
   push:
   pull_request:
+
+permissions:
+  contents: read
+
 jobs:
   unittest:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v6
         with:
           python-version: '3.11'
-      - run: python -m unittest discover -s tests -v
-      - run: |
+          cache: pip
+      - name: Install dependencies
+        run: python -m pip install -r requirements.txt
+      - name: Run tests
+        run: python -m unittest discover -s tests -v
+      - name: Render and validate sample
+        run: |
           python scripts/render_guide.py examples/egypt_guide.json --out /tmp/sample-guide.html
           python scripts/lint_guide.py /tmp/sample-guide.html --guide examples/egypt_guide.json
