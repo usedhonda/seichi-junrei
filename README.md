@@ -12,52 +12,40 @@
 >
 > *Turn an ordinary itinerary into a story-driven pilgrimage for your travel companions.*
 
-## インストール：Claude Code（CC）／Codex（CDX）
+## インストール：Codex（CDX）
 
-**makeloopと同じく、Claude Code用とCodex用のマーケットプレイスを備えたプラグイン**です。共通の本体は `plugins/seichi-junrei/skills/seichi-junrei/SKILL.md`。両ホストで**3〜5作品の候補を提示→ユーザーが主役を選択→旅のしおり制作**の流れは同じです。
+**v0.3.0からCodex専用Skillです。** この旅のしおりでは、単なるSVG装飾ではなく、物語のシーンを思い出すためのオリジナル挿絵が重要です。そこでClaude Code対応は終了し、**Codexで実際に利用可能なネイティブ画像生成機能を優先**します。別途のGemini APIキー、外部画像生成API、ローカル画像生成モデルは不要です。
 
-### Claude Code（CC）
+### Codexプラグインとして導入
 
-Claude Codeの入力欄で順番に実行：
-
-```text
-/plugin marketplace add usedhonda/seichi-junrei
-/plugin install seichi-junrei@seichi-junrei
-```
-
-インストール後、スラッシュメニューに表示される `/seichi-junrei:seichi-junrei` を選んでください。
-
-```text
-/seichi-junrei:seichi-junrei 次の旅行に合う聖地巡礼候補を3〜5作品提案して。作品は私が選ぶ。
-```
-
-### Codex（CDX）
-
-Codex CLIが利用できる**OSのターミナル**で：
+Codex CLIがプラグイン管理をサポートしている場合、OSのターミナルで：
 
 ```sh
 codex plugin marketplace add usedhonda/seichi-junrei
 codex plugin add seichi-junrei@seichi-junrei
 ```
 
-Codexのチャット入力欄またはスキルメニュー（`/skills`）で：
+Codexのチャット・アプリで、実際に表示されるスキルを選ぶか：
 
 ```text
-$seichi-junrei:seichi-junrei 次の旅行で聖地巡礼できる作品を3〜5本、根拠付きで提案して。選ぶのは私。
+$seichi-junrei:seichi-junrei 次の旅行の聖地巡礼候補を3〜5作品、根拠付きで提示して。主役は私が選ぶ。選んだ後はImageGenでオリジナル挿絵を作り、スマホ用ガイドにまとめて。
 ```
 
-**Codexにトップレベルの `/seichi-junrei` コマンドを追加しているわけではありません。** 必ずホストが実際に認識しているSkillを利用してください。
+Codex CLIにトップレベルの `/seichi-junrei` コマンドを追加するものではありません。スキルメニュー（`/skills`）など、現在のホストに認識されている呼び出し方を優先してください。
 
-### 直接導入（CodexのAgent Skillとして使う場合）
+### 直接Skillとして導入する方法
 
 ```sh
 git clone https://github.com/usedhonda/seichi-junrei.git ~/.agents/skills/seichi-junrei
 ```
 
-この場合は `$seichi-junrei` として見えることがあります。ルート `SKILL.md` は**共通本体を読むだけの互換ラッパー**です。重複登録を避けるため、通常はプラグイン方式・直接導入方式のどちらか一方を選びます。
+ルートの `SKILL.md` がプラグイン内の共通Skill本体を参照します。この場合は `$seichi-junrei` として見える場合があります。プラグイン版と直接導入版を両方入れる必要はありません。
 
-> **アクセス権限について**：このSkillを入れるだけでGoogleカレンダー・ブラウザ・画像生成・Sitesにアクセスできるわけではありません。実際に接続済みのツールを使用し、利用できないときは旅程テキストなどを受け取ります。Pythonで画像をHTMLに内蔵するときはプラグイン内の `requirements.txt` の依存関係が必要です。公開はオプションで、勝手に公開しません。
+### 画像制作の前提
 
+**Codexという名前だけでImageGenが必ず使えるわけではありません。** 実行セッションで画像生成ツールが使える場合に限り、表紙・作品の場面・現地モチーフをそれぞれ独立した画像として生成します。ImageGenが利用できない場合は、外部APIやローカルモデルを勝手に追加せず、画像制作が未完了であることを伝えます。許可を得ずにSVGだけの簡易版を「完成」と呼ばない設計です。
+
+画像は旅ごとの作業ディレクトリに保存し、プラグイン内の `render_guide.py --assets-root` でHTMLに直接埋め込みます。これにより読み込み失敗を防ぎます。画像制作やGoogleカレンダーへのアクセスは、ホストの権限・接続状況に依存します。
 
 ## 何ができる？
 
@@ -69,7 +57,7 @@ git clone https://github.com/usedhonda/seichi-junrei.git ~/.agents/skills/seichi
 | ② 作品を発見 | アニメ・漫画・映画など3〜5作品を関連の根拠付きで提示 | **主役1作品を選ぶ**（寄り道作品は最大2本） |
 | ③ 聖地を検証 | アニメ話数・漫画巻数・映画のシーン、実際の舞台・ロケ地を照合 | 必要なときだけ方向性を伝える |
 | ④ 旅を編集 | 実際の訪問順に、物語・歴史・観光情報を編み直す | 読んで楽しむ |
-| ⑤ ビジュアル制作 | 現地の画像と権利に配慮した独自イラストを組み合わせる | デザイン見本を指定してもよい |
+| ⑤ ビジュアル制作 | 利用可能なCodexの画像生成で独自挿絵を制作し、許諾済みの実景写真と組み合わせる | デザイン見本を指定してもよい |
 | ⑥ 完成 | 画像を埋め込んだ**オフラインでも読める単一HTML**を検証して渡す | 旅仲間と共有する |
 
 **作品の選択は必須の停止点です。** AIが候補の1位を勝手に採用したり、選ばれる前に本編を作ったりしません。「おまかせ」と明示された場合だけ選定を委任できます。
@@ -131,7 +119,7 @@ python3 scripts/extract_calendar.py examples/calendar_sanitization_test.json --o
 
 「作品の舞台」「実際のロケ地」「公式に確認できるモデル」「雰囲気が似ているだけ」は別物です。これらを混同せず、話数・巻数・シーン・地図・開館情報も根拠付きで確認します。裏付けがなければ聖地とは断定しません。
 
-**画像についても、「AI生成＝自由に使えるファンアート」とは限りません。** キャラクターの特徴や既存カットの再現を避け、適切な権利確認ができる素材を使います。詳しくは[アセットの扱い](ASSETS.md)と[編集・アート方針](references/editorial-and-art.md)を参照してください。
+**画像についても、「AI生成＝自由に使えるファンアート」とは限りません。** キャラクターの特徴や既存カットの再現を避け、適切な権利確認ができる素材を使います。詳しくは[アセットの扱い](ASSETS.md)と[編集・アート方針](plugins/seichi-junrei/references/editorial-and-art.md)を参照してください。
 
 ## プライバシーと共有
 
@@ -154,7 +142,7 @@ python3 scripts/extract_calendar.py examples/calendar_sanitization_test.json --o
 | [examples/](plugins/seichi-junrei/examples/) | 説明用データと生成例 |
 | [tests/](plugins/seichi-junrei/tests/) | 画面検証補助とPython単体テスト |
 
-ホストによる呼び出し・制限の違いは[CC/CDX互換ガイド](plugins/seichi-junrei/references/hosts.md)を参照。Claude CodeとCodexのSkillは**1本の本体**を共有し、今後も二重管理しません。
+Codexの実行時機能については[Codex実行ガイド](plugins/seichi-junrei/references/codex.md)を参照。追加の外部画像APIを前提とせず、ImageGenが使える場合は画像素材を旅行ごとに生成します。
 
 ## 協力・ライセンス
 

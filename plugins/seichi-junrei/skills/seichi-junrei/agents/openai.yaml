@@ -1,6 +1,6 @@
 interface:
   display_name: "勝手に聖地巡礼"
-  short_description: "旅行先の作品候補を選んで、スマホ旅ガイドに"
-  default_prompt: "Use $seichi-junrei:seichi-junrei to propose 3–5 travel-related works. Stop for my selection before building the guide."
+  short_description: "旅先の作品候補を選び、Codexの挿絵でモバイルガイドに"
+  default_prompt: "Use $seichi-junrei:seichi-junrei to offer 3–5 evidence-backed story choices for a trip. Wait for my selection; then use native ImageGen if available and create the guide."
 policy:
   allow_implicit_invocation: true

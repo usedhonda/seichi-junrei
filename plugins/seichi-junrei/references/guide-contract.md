@@ -18,3 +18,14 @@ Fields `selection.user_confirmed` and `selection.delegated` must be explicit boo
 `connections[].type` must be from: `named_setting`, `filming_location`, `official_inspiration`, `documented_connection`, `thematic`, `speculative`. The UI labels the strength of each connection. Prefer to omit speculation.
 
 No `private_calendar` or `booking` object is allowed anywhere in the guide. The output HTML rejects suspicious booking/ID field names, remote image URLs and disallowed source protocols. Private data must stay in a separate runtime-only file.
+
+
+## ImageGen-generated asset root
+
+For new trips, keep generated images in a writable workspace rather than the installed Skill directory. The CLI `--assets-root` points to that workspace; image paths in the JSON remain relative (for example `assets/scene-01.png`). The renderer rejects path traversal, remote image URLs and missing rights declarations. Pillow converts supported PNG/JPEG/WebP inputs into embedded WebP data URIs.
+
+```sh
+python /path/to/plugin/scripts/render_guide.py /path/to/trip/guide.json --assets-root /path/to/trip --out /path/to/trip/guide.html
+```
+
+Do not treat the sample's already-selected test fixture as a real user's current choice. Production requires an actual user selection/delegation record. ImageGen availability is checked by Codex at runtime, not assumed from the plugin manifest.

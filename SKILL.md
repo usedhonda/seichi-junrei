@@ -1,12 +1,12 @@
 ---
 name: seichi-junrei
-description: Direct-install wrapper for the Claude Code and Codex story-pilgrimage skill.
+description: Codex-only direct-install wrapper for an offline-first mobile story pilgrimage guide skill.
 ---
 
-# seichi-junrei — direct-install wrapper
+# seichi-junrei — Codex Skill
 
-**Read the canonical skill at plugins/seichi-junrei/skills/seichi-junrei/SKILL.md before doing any work.** Use plugins/seichi-junrei as the plugin root, and resolve all bundled scripts/references/assets/fixtures there.
+Read the **canonical skill** at `plugins/seichi-junrei/skills/seichi-junrei/SKILL.md` and follow it completely. Resolve all bundled scripts and demo assets relative to `plugins/seichi-junrei`, not the user's current project by guesswork.
 
-Codex plugin: $seichi-junrei:seichi-junrei; direct Codex skill: $seichi-junrei; Claude Code plugin: /seichi-junrei:seichi-junrei when actually discovered.
+Codex plugin: `$seichi-junrei:seichi-junrei`. Direct Agent Skill: `$seichi-junrei` if actually exposed. Check native ImageGen availability in the running session before promising original story artwork. Do not silently substitute external paid APIs, another host, or SVG-only art.
 
-**3–5 candidate works must be presented and user choice obtained** (or explicit delegation) before guide creation. Sharing is optional; private travel details must not be published.
+Present **3–5 researched candidate works and stop for the user's selection** (or explicit delegation) before guide creation. Keep companion HTML free of private calendar data. Publishing is optional.

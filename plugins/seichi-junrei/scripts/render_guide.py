@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Render a user-selected pilgrimage guide into one offline, self-contained HTML file.
 
-Requires selection consent in JSON. No network requests, remote media or runtime dependencies.
+Requires selection consent in JSON. Images are local and embedded; no network requests. Pillow is required.
 """
 import argparse
 import base64
@@ -194,9 +194,12 @@ def render(data, root):
 def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument("guide_json", type=Path)
+    p.add_argument("--assets-root", type=Path, help="Root of local image assets; defaults to the installed plugin directory")
     p.add_argument("--out", type=Path, required=True)
     a = p.parse_args()
-    root = Path(__file__).resolve().parents[1]
+    root = a.assets_root.resolve() if a.assets_root else Path(__file__).resolve().parents[1]
+    if not root.is_dir():
+        raise ValueError("Missing assets root: " + str(root))
     data = json.loads(a.guide_json.read_text(encoding="utf-8"))
     result = render(data, root)
     a.out.parent.mkdir(parents=True, exist_ok=True)

@@ -3,6 +3,8 @@ import copy
 import json
 import sys
 import tempfile
+import shutil
+import subprocess
 import unittest
 from pathlib import Path
 
@@ -87,6 +89,28 @@ class SkillTests(unittest.TestCase):
         self.assertFalse(errs,errs)
         self.assertGreaterEqual(len(parser.images),10)
         self.assertTrue(all(x['src'].startswith('data:image/webp;base64,') for x in parser.images))
+
+    def test_codex_generated_image_assets_root(self):
+        # Mimic ImageGen-exported art in a writable, per-trip workspace.
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            for media in self.data["media_rights"]:
+                original = ROOT / media["file"]
+                target = root / media["file"]
+                target.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copyfile(original, target)
+            spec_path = root / "guide.json"
+            output = root / "finished.html"
+            spec_path.write_text(json.dumps(self.data, ensure_ascii=False), encoding="utf-8")
+            cmd = [sys.executable, str(ROOT / "scripts/render_guide.py"),
+                   str(spec_path), "--assets-root", str(root), "--out", str(output)]
+            result = subprocess.run(cmd, capture_output=True, text=True)
+            self.assertEqual(result.returncode, 0, result.stderr)
+            html = output.read_text(encoding="utf-8")
+            issues, parsed = lint(html, self.data)
+            self.assertFalse(issues, issues)
+            self.assertGreaterEqual(len(parsed.images), 10)
+            self.assertTrue(all(x["src"].startswith("data:image/webp;base64,") for x in parsed.images))
 
     def test_remote_media_rejected(self):
         spec=copy.deepcopy(self.data)

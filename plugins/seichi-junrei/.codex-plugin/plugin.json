@@ -1,7 +1,7 @@
 {
   "name": "seichi-junrei",
-  "version": "0.2.0",
-  "description": "Generate user-selected evidence-based mobile pilgrimage guides from travel itineraries.",
+  "version": "0.3.0",
+  "description": "Build evidence-based illustrated travel pilgrimages with user-selected anime, manga and film themes using native Codex art tools.",
   "author": {
     "name": "usedhonda"
   },
@@ -17,7 +17,7 @@
   "interface": {
     "displayName": "勝手に聖地巡礼",
     "shortDescription": "Find story connections for travel and build a mobile guide.",
-    "longDescription": "Find 3–5 verified story candidates for a trip; stop for user selection; then create a share-safe offline mobile guide with original art. Publication optional.",
+    "longDescription": "Find 3–5 verified story candidates for a trip; stop for user choice; use native ImageGen when available to create original scene art, then produce a share-safe offline mobile HTML. No external image API; publishing optional.",
     "developerName": "usedhonda",
     "category": "Productivity",
     "capabilities": [
@@ -25,7 +25,7 @@
       "Write"
     ],
     "defaultPrompt": [
-      "$seichi-junrei:seichi-junrei 次の旅行の聖地巡礼候補を3〜5作品提案して。作品は私が選ぶ。"
+      "$seichi-junrei:seichi-junrei 次の旅行の聖地巡礼候補を3〜5本提示して。主役を選んだら、利用可能なImageGenで挿絵を作りスマホ用旅のしおりを制作して。"
     ]
   }
 }

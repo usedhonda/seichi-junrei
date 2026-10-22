@@ -14,6 +14,14 @@ Use real, precise scenes, but without dumping a plot summary. Thread narrative i
 - Story scene illustrations should be **interleaved** with real locations; not relegated to an episode strip while destination sections are text-only.
 - No dead controls. Interactive cards need real state and no external network dependency. On offline single-file outputs, local browser storage may behave differently by origin—provide graceful fallback.
 
+## Codex ImageGen art workflow
+
+The default production mode is **Codex-native image generation** if the current session exposes such a tool. No separately billed Google/Gemini/OpenAI API key or locally installed diffusion model is part of this Skill. Create meaningful **separate** cover and story-panel images and weave them through the travel story, rather than using one reused background.
+
+The agent must first verify the user's main work selection, research episodes/scenes and establish the location sequence. Then write an asset storyboard (subject, aspect ratio, usage location, scene source, safety/rights notes). Generate art, compare against the approved design reference, and export actual image files into a writable trip workspace. Build a visual-asset manifest; all image references in guide JSON are relative to the chosen `--assets-root`. If native ImageGen is not exposed, report the gap; **do not silently replace the illustrated result with SVG drawings or external API requests**.
+
+Typography, navigation, card interactions, spoiler controls and layout are HTML/CSS. AI illustration is **supporting media**, not the final website itself.
+
 ## Images and permissions
 
 1. Use user-owned, appropriately licensed real-world photographs or permission-cleared images. Keep a rights manifest with source, author, license URL, reuse constraints, attribution when needed.

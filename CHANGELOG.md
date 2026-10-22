@@ -4,6 +4,12 @@
 
 ## Unreleased
 
+- v0.3.0: Codex-only direction. Removed CC marketplace, command and plugin manifest.
+- Native ImageGen-first illustration workflow, no external image API keys or local diffusion installation.
+- New `--assets-root` lets Codex embed dynamically generated images from a separate trip workspace.
+- Tests ensure Codex-only packaging and writable external asset root while preserving user-choice/privacy checks.
+
+
 - v0.2.0: single self-contained skill shared by Claude Code and Codex, modelled after makeloop's marketplace design
 - Claude Code marketplace/command, Codex marketplace/plugin manifests, portable root plugin.json and direct-skill compatibility wrapper
 - Isolated plugin distribution tests, README install instructions and host-capability boundaries
