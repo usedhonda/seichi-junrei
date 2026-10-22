@@ -1,0 +1,15 @@
+name: "機能提案 / Feature request"
+description: "新しい聖地巡礼の体験や品質改善を提案する"
+title: "[Idea] "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: outcome
+    attributes:
+      label: "どんな旅の体験を良くしたい？"
+    validations:
+      required: true
+  - type: textarea
+    id: approach
+    attributes:
+      label: "実現のアイデアや参考資料"

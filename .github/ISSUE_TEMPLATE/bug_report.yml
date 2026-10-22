@@ -1,0 +1,26 @@
+name: "不具合報告 / Bug report"
+description: "個人情報を含まない再現手順で報告する"
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: "予約番号・メール・同行者名・生のカレンダー内容は貼らないでください。脆弱性はSECURITY.mdを参照。"
+  - type: textarea
+    id: description
+    attributes:
+      label: "何が起きた？"
+      placeholder: "期待したことと実際の結果"
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: "再現手順（架空データで）"
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: "実行環境"
+      placeholder: "OS、Pythonのバージョン、利用AIエージェントなど"

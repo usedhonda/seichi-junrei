@@ -59,6 +59,20 @@ class SkillTests(unittest.TestCase):
             self.assertNotIn(secret,encoded)
         self.assertEqual(2,len(draft['events']))
 
+    def test_unlabeled_name_in_title_not_exposed(self):
+        fixture = {"items": [
+            {"summary": "Flight MS80 for Alice Qwerty SECRET88 CAI → ASW",
+             "start": {"dateTime": "2027-03-15T10:00:00+02:00"},
+             "end": {"dateTime": "2027-03-15T11:00:00+02:00"}},
+            {"summary": "Hotel reserved for Bob PrivateGuest",
+             "start": {"date": "2027-03-15"}, "end": {"date": "2027-03-16"}},
+        ]}
+        draft = parse_export(fixture)
+        encoded = json.dumps(draft, ensure_ascii=False)
+        for secret in ("Alice", "Qwerty", "SECRET88", "PrivateGuest", "Bob"):
+            self.assertNotIn(secret, encoded)
+        self.assertEqual(2, len(draft["events"]))
+
     def test_renderer_media_and_lint(self):
         html=render(self.data,ROOT)
         errs,parser=lint(html,self.data)

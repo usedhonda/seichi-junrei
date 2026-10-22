@@ -1,59 +1,138 @@
-# seichi-junrei — 勝手に聖地巡礼ツアー
+# 勝手に聖地巡礼 — seichi-junrei
 
-**フライトやホテルが入った旅行予定から、その土地ゆかりのアニメ・漫画・映画・小説を見つけ、ユーザーが選んだ作品に沿ったスマホ用の聖地巡礼ガイドを制作するChatGPT/AI Agent向けSkill。**
+**旅行予定を見せるだけ。旅先にゆかりのあるアニメ・漫画・映画をAIが探し、あなたが選んだ物語で、旅仲間向けのスマホガイドを作るSkill。**
 
-> Googleカレンダーを見る → 候補を3〜5本提案 → ユーザーが主役の作品を選ぶ → エピソードと土地を調査 → オリジナルビジュアルと現地写真で、旅仲間が楽しめるHTMLしおりを作る。
+[![Tests](https://github.com/usedhonda/seichi-junrei/actions/workflows/test.yml/badge.svg)](https://github.com/usedhonda/seichi-junrei/actions/workflows/test.yml)
+[![MIT License](https://img.shields.io/badge/code%20license-MIT-blue.svg)](LICENSE)
+[![Skill](https://img.shields.io/badge/Agent-Skill-8b5cf6.svg)](SKILL.md)
 
-![サンプルのモバイルしおり](docs/preview-mobile.png)
+![スマホガイドのサンプル](docs/preview-mobile.png)
 
-## 何を大切にしているか
+> **「今度の旅、勝手に聖地巡礼にして。」**
+>
+> *Turn an ordinary itinerary into a story-driven pilgrimage for your travel companions.*
 
-- **作品の選択はユーザーが行う** — 評価の高い作品を勝手に主役にしない。主役1本＋寄り道2本まで。
-- **その作品を現地で思い出せること** — アニメ話数・原作の巻/話・映画のシーンを照合。実在の登場舞台、ロケ地、モデル地、連想スポットは区別する。
-- **旅程に無理をさせない** — 移動・時差・開館時間を検証し、実際の訪問順で構成する。
-- **見た目の完成度** — 現地風景と物語の場面を交互に見せる、スマホ用の本物のサイトを作る。デザインモックを承認したら忠実に実装する。
-- **旅仲間向けが標準** — 画像内蔵の単一HTMLで完結。Web公開は任意。
-- **プライバシーと権利に配慮** — カレンダーの予約番号、座席、人物名、非公開URLを成果物に含めない。ファンアートだから自由に公開できるとは考えない。
+## 何ができる？
 
-## 含まれるもの
+旅行のフライト・ホテル・滞在先から、**その土地と本当に関係のある作品を3〜5本提案**。好きな作品を選んだら、作品の名場面と現地の見どころをつないだ、読み物として楽しい旅のしおりを制作します。
 
-| パス | 内容 |
+| ステップ | AIが行うこと | あなたが行うこと |
+| --- | --- | --- |
+| ① 旅行を把握 | 接続済みGoogleカレンダーなどから移動・宿泊・自由時間を読み取る | 旅行を指定する |
+| ② 作品を発見 | アニメ・漫画・映画など3〜5作品を関連の根拠付きで提示 | **主役1作品を選ぶ**（寄り道作品は最大2本） |
+| ③ 聖地を検証 | アニメ話数・漫画巻数・映画のシーン、実際の舞台・ロケ地を照合 | 必要なときだけ方向性を伝える |
+| ④ 旅を編集 | 実際の訪問順に、物語・歴史・観光情報を編み直す | 読んで楽しむ |
+| ⑤ ビジュアル制作 | 現地の画像と権利に配慮した独自イラストを組み合わせる | デザイン見本を指定してもよい |
+| ⑥ 完成 | 画像を埋め込んだ**オフラインでも読める単一HTML**を検証して渡す | 旅仲間と共有する |
+
+**作品の選択は必須の停止点です。** AIが候補の1位を勝手に採用したり、選ばれる前に本編を作ったりしません。「おまかせ」と明示された場合だけ選定を委任できます。
+
+### 完成イメージ
+
+| 候補を選ぶ | 旅先で読む |
 | --- | --- |
-| `SKILL.md` | エージェントの進行・停止条件・品質基準 |
-| `agents/openai.yaml` | Skillの表示名と呼び出し例 |
-| `references/` | 旅程の扱い、聖地の根拠、編集・著作権、HTMLのデータ形式 |
-| `scripts/` | カレンダー抽出、作品ランキング、候補選択画面、HTML生成、プライバシー検査 |
-| `examples/` | エジプト旅行のテスト用データ・生成例 |
-| `tests/` | ユーザー選択、個人情報、画像埋め込みなどの検証 |
-| `docs/` | モバイル画面プレビュー |
+| ![作品候補を選ぶ画面](docs/choose-work.png) | ![旅ガイドの画面](docs/preview-mobile.png) |
 
-## デモ（ローカル）
+**[サンプルのHTML](examples/sample-guide.html)** はジョジョ第3部とアスワン・アブ・シンベルを題材にした*説明用デモ*です。公式作品ではありません。デモの日付・内容は実際の旅行の予約情報ではありません。
 
-`examples/sample-guide.html` をブラウザで開くと、サンプルガイドを閲覧できます。これは一般公開されたサイトではなく、作り方のサンプルです。
+## 使い方：AIエージェントから
+
+このリポジトリは **Agent Skill（SKILL.md）** です。Codexなど対応エージェントは、インストール済みSkillを読み取ってワークフローを実行できます。**GitHubに置くだけでGoogleカレンダーやSitesが自動接続されるものではありません。** それぞれのツールへのアクセス許可は実行環境で必要です。
+
+### Codexに入れる（macOS / Linux）
 
 ```bash
-python scripts/rank_candidates.py examples/egypt_candidates.json
-python scripts/make_ballot.py examples/egypt_candidates.json --out /tmp/choose-work.html
-python scripts/render_guide.py examples/egypt_guide.json --out /tmp/seichi-guide.html
-python scripts/lint_guide.py /tmp/seichi-guide.html --guide examples/egypt_guide.json
-python -m unittest discover -s tests -v
+git clone https://github.com/usedhonda/seichi-junrei.git ~/.agents/skills/seichi-junrei
+cd ~/.agents/skills/seichi-junrei
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
 ```
 
-実際のGoogleカレンダー接続、Web検索、画像制作、ブラウザ表示確認には、実行するAIエージェント側の権限と対応ツールが必要です。スクリプト単体で外部アプリを操作するものではありません。
+Codexを開き、以下のように依頼してください。
 
-## 標準フロー
+```text
+$seichi-junrei
+Googleカレンダーから次の旅行を見つけて、その土地にゆかりのある
+アニメ・漫画・映画を3〜5本、根拠とおすすめ理由つきで提案して。
+作品は私が選ぶ。選んだら旅仲間用のスマホガイドを作って。
+```
 
-1. 旅行予定を読み、プライベートな旅程概要を作る。
-2. 実在の関係を調べた3〜5作品を根拠・所要時間とともに提示。
-3. **ユーザーの選択を待つ。** 明示の委任がない限り主役を決めない。
-4. 選ばれた作品を深掘りして、ストーリー・史実・観光ポイントを編集。
-5. ビジュアルの方向性を固定し、画像埋め込みHTMLを制作・検証。
-6. 旅仲間に渡せるファイルを完成品とする。公開URLは求められた場合にのみ作る。
+Skillが見つからない場合はCodexを再起動してください。CodexのSkill配置については[公式ドキュメント](https://learn.chatgpt.com/docs/build-skills)を参照してください。ChatGPTへのSkill導入方法や利用できる連携機能は、利用する製品・プラン・環境によって異なります。
 
-## 画像・作品について
+### 会話の例
 
-サンプルには独自制作の概念画や風景画が含まれます。作中の場面を示す正規の画像とは異なり、具体的なキャラクター画像を複製するための素材ではありません。実在の作品名・登場人物・ロゴ・特徴的な表現の利用は、二次創作や商標を含む権利上の検討が必要です。少人数で見ることや非営利であることだけで、無条件に利用が許されるわけではありません。
+**ユーザー：**「今週末の旅行を聖地巡礼ツアーにして」
 
-## 現時点の範囲
+**AI：**「旅程はアスワン → アブ・シンベル。候補は『ジョジョの奇妙な冒険 第3部』『ナイル殺人事件（1978）』『ハムナプトラ（1999）』です。作品の舞台なのか、ロケ地なのか、単にテーマが近いだけなのかも分けて説明します。どれを主役にしますか？」
 
-これは **Skillの初版**です。カレンダー・調査・画像生成などは接続されたAIが行う構成で、何も入力しなくてもクラウドで完全自動実行される製品ではありません。GitHubへの公開設定や再配布に関するライセンスは別途決める前提で、ライセンスファイルは未設定です。
+**ユーザー：**「ジョジョを主役に。あとは任せる」
+
+**AI：** 第25〜29話と現地の場所を確認し、聖地と単なる連想スポットを区別。アニメの場面の振り返り・歴史・見どころを交え、スマホで読めるHTMLを制作。
+
+## ローカルでデモを動かす（カレンダー接続不要）
+
+Python 3.11以上が必要です。画像をHTML内蔵用に処理するため、**Pillow**を使います。
+
+```bash
+git clone https://github.com/usedhonda/seichi-junrei.git
+cd seichi-junrei
+python3 -m pip install -r requirements.txt
+
+# 候補を評価して並べる（主役は自動決定しない）
+python3 scripts/rank_candidates.py examples/egypt_candidates.json
+
+# 候補選択用のHTMLを作る
+python3 scripts/make_ballot.py examples/egypt_candidates.json --out /tmp/choose.html
+
+# 選択済みのテストデータからスマホガイドを作る
+python3 scripts/render_guide.py examples/egypt_guide.json --out /tmp/guide.html
+
+# 出力検査とテスト
+python3 scripts/lint_guide.py /tmp/guide.html --guide examples/egypt_guide.json
+python3 -m unittest discover -s tests -v
+```
+
+`/tmp/choose.html` と `/tmp/guide.html` をブラウザで開いてください。**サンプルJSONの `selection.user_confirmed=true` は動作確認用に設定された架空の選択記録です。実旅行で流用せず、必ずその都度ユーザーの選択を取ります。**
+
+カレンダーのJSONを書き出した場合の補助コマンド：
+
+```bash
+python3 scripts/extract_calendar.py examples/calendar_sanitization_test.json --out /tmp/trip.private.json
+```
+
+`/tmp/trip.private.json` は*内部作業用*です。共有用HTMLにそのまま入れないでください。
+
+## 聖地の事実を守る
+
+「作品の舞台」「実際のロケ地」「公式に確認できるモデル」「雰囲気が似ているだけ」は別物です。これらを混同せず、話数・巻数・シーン・地図・開館情報も根拠付きで確認します。裏付けがなければ聖地とは断定しません。
+
+**画像についても、「AI生成＝自由に使えるファンアート」とは限りません。** キャラクターの特徴や既存カットの再現を避け、適切な権利確認ができる素材を使います。詳しくは[アセットの扱い](ASSETS.md)と[編集・アート方針](references/editorial-and-art.md)を参照してください。
+
+## プライバシーと共有
+
+標準成果物は **単一HTMLファイル**。公開URLやアカウントは不要です。旅仲間とのAirDrop・ファイル共有を想定し、画像は原則内蔵します。公開サイトを作るのはユーザーが明示的に希望した場合だけです。
+
+予約番号・チケット番号・座席・電話番号・メールアドレス・同行者名・カレンダーの本文や非公開リンクは共有版に含めません。抽出スクリプトも元の予定タイトルをそのまま出力しません。ただし自動検査は万能ではないため、**他人に渡す前の目視確認は必須**です。
+
+## リポジトリの中身
+
+| ディレクトリ | 役割 |
+| --- | --- |
+| [SKILL.md](SKILL.md) | エージェントの手順と選択・調査・品質ゲート |
+| [agents/](agents/) | Skillメタデータ |
+| [references/](references/) | 旅程・根拠・制作・データ契約 |
+| [scripts/](scripts/) | 旅程抽出／候補順位／選択UI／ガイド生成／検査 |
+| [assets/](assets/) | 説明用の独自ビジュアル素材 |
+| [examples/](examples/) | 説明用データと生成例 |
+| [tests/](tests/) | 画面検証補助とPython単体テスト |
+
+## 協力・ライセンス
+
+不具合報告や改善提案はIssueへ。コードの変更は[CONTRIBUTING.md](CONTRIBUTING.md)を参照してください。脆弱性の連絡方法は[SECURITY.md](SECURITY.md)に記載しています。
+
+**コードとオリジナルのドキュメントはMITライセンス**です（[LICENSE](LICENSE)）。画像・デモ内の図版はこのMIT許諾の対象外です。取り扱いは[ASSETS.md](ASSETS.md)を確認してください。作品名や商標は各権利者に帰属します。本プロジェクトは各作品の公式・公認サービスではありません。
+
+---
+
+<small>seichi-junrei · 勝手に聖地巡礼 · 旅先を「知っている物語」の中にする。</small>

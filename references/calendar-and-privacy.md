@@ -18,4 +18,4 @@ The static HTML must not contain source calendar JSON in comments, script tags, 
 
 ## Export helper
 
-`scripts/extract_calendar.py` accepts Google Calendar-style `items` or `events`, summarizes flight and stay events and optional landmarks, writes *private* JSON only, and does not include freeform description text. This is a deterministic helper, not a substitute for interpreting ambiguous bookings or getting live data.
+`scripts/extract_calendar.py` accepts Google Calendar-style `items` or `events`, summarizes flight and stay events into *private* JSON only. It does not retain the original event title or description (which may contain unlabeled names or secrets); route codes are hints and must be verified. This is a deterministic helper, not a substitute for interpreting ambiguous bookings or getting live data.

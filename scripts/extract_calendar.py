@@ -12,16 +12,10 @@ from pathlib import Path
 FLIGHT = re.compile(r"\b(?:flight|flight to|フライト|航空便|航空券|飛行機|空港|[A-Z0-9]{2}\s?\d{2,4})\b", re.I)
 STAY = re.compile(r"hotel|resort|check[ -]?in|check[ -]?out|宿泊|滞在|ホテル|旅館", re.I)
 IATA = re.compile(r"\b[A-Z]{3}\b")
-EMAIL = re.compile(r"[\w.+-]+@[\w.-]+\.[A-Za-z]{2,}")
-TEL = re.compile(r"(?<!\w)\+?\d[\d() .-]{8,}\d(?!\w)")
-PNR = re.compile(r"\b(?:PNR|booking|confirmation|record locator|予約番号|確認番号)\s*[:：=#-]?\s*[\w-]+", re.I)
-
-
-def clean_title(s):
-    s = EMAIL.sub("[redacted]", s)
-    s = TEL.sub("[redacted]", s)
-    s = PNR.sub("[redacted]", s)
-    return s[:180]
+# Never preserve original event titles in the exported summary. Event titles can
+# contain unlabeled names, locations or booking identifiers that regexes miss.
+FLIGHT_CODE = re.compile(r"(?<![A-Z0-9])([A-Z0-9]{2})[ -]?(\d{2,4})(?!\d)", re.I)
+ROUTE = re.compile(r"\b([A-Z]{3})\s*(?:→|->|to)\s*([A-Z]{3})\b", re.I)
 
 
 def moment(v):
@@ -44,16 +38,21 @@ def parse_export(obj):
         if not kind:
             continue
         # Private helper output is intentionally minimal. The guide renderer does not accept raw events.
-        rec = {"kind": kind, "title_redacted": clean_title(title),
+        rec = {"kind": kind,
                "start": moment(e.get("start")), "end": moment(e.get("end")),
                "needs_verification": True}
         if kind == "flight":
-            rec["possible_iata_codes"] = IATA.findall(title)[:4]
+            found = FLIGHT_CODE.search(title)
+            if found:
+                rec["flight_code"] = (found.group(1) + found.group(2)).upper()
+            route = ROUTE.search(title)
+            if route:
+                rec["route_codes_unverified"] = [route.group(1).upper(), route.group(2).upper()]
         data.append(rec)
     data.sort(key=lambda x: x["start"])
     return {"private_planning_only": True, "events": data,
             "notes": ["Titles/times are tentative until verified against actual reservations.",
-                      "No email, phone, seat, PNR or source descriptions are exported.",
+                      "No free-form title, name, email, phone, seat, PNR or event description is exported.",
                       "Never attach this private draft to the shared guide."]}
 
 
