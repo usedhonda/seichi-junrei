@@ -12,6 +12,53 @@
 >
 > *Turn an ordinary itinerary into a story-driven pilgrimage for your travel companions.*
 
+## インストール：Claude Code（CC）／Codex（CDX）
+
+**makeloopと同じく、Claude Code用とCodex用のマーケットプレイスを備えたプラグイン**です。共通の本体は `plugins/seichi-junrei/skills/seichi-junrei/SKILL.md`。両ホストで**3〜5作品の候補を提示→ユーザーが主役を選択→旅のしおり制作**の流れは同じです。
+
+### Claude Code（CC）
+
+Claude Codeの入力欄で順番に実行：
+
+```text
+/plugin marketplace add usedhonda/seichi-junrei
+/plugin install seichi-junrei@seichi-junrei
+```
+
+インストール後、スラッシュメニューに表示される `/seichi-junrei:seichi-junrei` を選んでください。
+
+```text
+/seichi-junrei:seichi-junrei 次の旅行に合う聖地巡礼候補を3〜5作品提案して。作品は私が選ぶ。
+```
+
+### Codex（CDX）
+
+Codex CLIが利用できる**OSのターミナル**で：
+
+```sh
+codex plugin marketplace add usedhonda/seichi-junrei
+codex plugin add seichi-junrei@seichi-junrei
+```
+
+Codexのチャット入力欄またはスキルメニュー（`/skills`）で：
+
+```text
+$seichi-junrei:seichi-junrei 次の旅行で聖地巡礼できる作品を3〜5本、根拠付きで提案して。選ぶのは私。
+```
+
+**Codexにトップレベルの `/seichi-junrei` コマンドを追加しているわけではありません。** 必ずホストが実際に認識しているSkillを利用してください。
+
+### 直接導入（CodexのAgent Skillとして使う場合）
+
+```sh
+git clone https://github.com/usedhonda/seichi-junrei.git ~/.agents/skills/seichi-junrei
+```
+
+この場合は `$seichi-junrei` として見えることがあります。ルート `SKILL.md` は**共通本体を読むだけの互換ラッパー**です。重複登録を避けるため、通常はプラグイン方式・直接導入方式のどちらか一方を選びます。
+
+> **アクセス権限について**：このSkillを入れるだけでGoogleカレンダー・ブラウザ・画像生成・Sitesにアクセスできるわけではありません。実際に接続済みのツールを使用し、利用できないときは旅程テキストなどを受け取ります。Pythonで画像をHTMLに内蔵するときはプラグイン内の `requirements.txt` の依存関係が必要です。公開はオプションで、勝手に公開しません。
+
+
 ## 何ができる？
 
 旅行のフライト・ホテル・滞在先から、**その土地と本当に関係のある作品を3〜5本提案**。好きな作品を選んだら、作品の名場面と現地の見どころをつないだ、読み物として楽しい旅のしおりを制作します。
@@ -33,32 +80,7 @@
 | --- | --- |
 | ![作品候補を選ぶ画面](docs/choose-work.png) | ![旅ガイドの画面](docs/preview-mobile.svg) |
 
-**[サンプルのHTML](examples/sample-guide.html)** はジョジョ第3部とアスワン・アブ・シンベルを題材にした*説明用デモ*です。公式作品ではありません。デモの日付・内容は実際の旅行の予約情報ではありません。
-
-## 使い方：AIエージェントから
-
-このリポジトリは **Agent Skill（SKILL.md）** です。Codexなど対応エージェントは、インストール済みSkillを読み取ってワークフローを実行できます。**GitHubに置くだけでGoogleカレンダーやSitesが自動接続されるものではありません。** それぞれのツールへのアクセス許可は実行環境で必要です。
-
-### Codexに入れる（macOS / Linux）
-
-```bash
-git clone https://github.com/usedhonda/seichi-junrei.git ~/.agents/skills/seichi-junrei
-cd ~/.agents/skills/seichi-junrei
-python3 -m venv .venv
-source .venv/bin/activate
-python -m pip install -r requirements.txt
-```
-
-Codexを開き、以下のように依頼してください。
-
-```text
-$seichi-junrei
-Googleカレンダーから次の旅行を見つけて、その土地にゆかりのある
-アニメ・漫画・映画を3〜5本、根拠とおすすめ理由つきで提案して。
-作品は私が選ぶ。選んだら旅仲間用のスマホガイドを作って。
-```
-
-Skillが見つからない場合はCodexを再起動してください。CodexのSkill配置については[公式ドキュメント](https://learn.chatgpt.com/docs/build-skills)を参照してください。ChatGPTへのSkill導入方法や利用できる連携機能は、利用する製品・プラン・環境によって異なります。
+**[サンプルのHTML](plugins/seichi-junrei/examples/sample-guide.html)** はジョジョ第3部とアスワン・アブ・シンベルを題材にした*説明用デモ*です。公式作品ではありません。デモの日付・内容は実際の旅行の予約情報ではありません。
 
 ### 会話の例
 
@@ -76,7 +98,7 @@ Python 3.11以上が必要です。画像をHTML内蔵用に処理するため�
 
 ```bash
 git clone https://github.com/usedhonda/seichi-junrei.git
-cd seichi-junrei
+cd seichi-junrei/plugins/seichi-junrei
 python3 -m venv .venv
 source .venv/bin/activate
 python -m pip install -r requirements.txt
@@ -119,15 +141,20 @@ python3 scripts/extract_calendar.py examples/calendar_sanitization_test.json --o
 
 ## リポジトリの中身
 
+`plugins/seichi-junrei/` がインストール単体で動作する**共通プラグイン本体**です。ルートの `SKILL.md` は直接インストール用ラッパーに過ぎません。
+
+
 | ディレクトリ | 役割 |
 | --- | --- |
-| [SKILL.md](SKILL.md) | エージェントの手順と選択・調査・品質ゲート |
-| [agents/](agents/) | Skillメタデータ |
-| [references/](references/) | 旅程・根拠・制作・データ契約 |
-| [scripts/](scripts/) | 旅程抽出／候補順位／選択UI／ガイド生成／検査 |
-| [assets/](assets/) | 説明用の独自ビジュアル素材 |
-| [examples/](examples/) | 説明用データと生成例 |
-| [tests/](tests/) | 画面検証補助とPython単体テスト |
+| [Skill本体](plugins/seichi-junrei/skills/seichi-junrei/SKILL.md) | エージェントの手順と選択・調査・品質ゲート |
+| [Skill表示設定](plugins/seichi-junrei/skills/seichi-junrei/agents/openai.yaml) | Skillメタデータ |
+| [references/](plugins/seichi-junrei/references/) | 旅程・根拠・制作・データ契約 |
+| [scripts/](plugins/seichi-junrei/scripts/) | 旅程抽出／候補順位／選択UI／ガイド生成／検査 |
+| [assets/](plugins/seichi-junrei/assets/) | 説明用の独自ビジュアル素材 |
+| [examples/](plugins/seichi-junrei/examples/) | 説明用データと生成例 |
+| [tests/](plugins/seichi-junrei/tests/) | 画面検証補助とPython単体テスト |
+
+ホストによる呼び出し・制限の違いは[CC/CDX互換ガイド](plugins/seichi-junrei/references/hosts.md)を参照。Claude CodeとCodexのSkillは**1本の本体**を共有し、今後も二重管理しません。
 
 ## 協力・ライセンス
 

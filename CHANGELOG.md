@@ -4,6 +4,10 @@
 
 ## Unreleased
 
+- v0.2.0: single self-contained skill shared by Claude Code and Codex, modelled after makeloop's marketplace design
+- Claude Code marketplace/command, Codex marketplace/plugin manifests, portable root plugin.json and direct-skill compatibility wrapper
+- Isolated plugin distribution tests, README install instructions and host-capability boundaries
+
 - Public README with setup, limitations, example workflow, privacy and asset-rights notes
 - MIT license for code and original documentation; visual assets excluded
 - CONTRIBUTING, SECURITY, community guidance and issue templates

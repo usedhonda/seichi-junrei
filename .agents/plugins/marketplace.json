@@ -1,0 +1,20 @@
+{
+  "name": "seichi-junrei",
+  "interface": {
+    "displayName": "勝手に聖地巡礼"
+  },
+  "plugins": [
+    {
+      "name": "seichi-junrei",
+      "source": {
+        "source": "local",
+        "path": "./plugins/seichi-junrei"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

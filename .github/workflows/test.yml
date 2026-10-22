@@ -10,7 +10,7 @@ permissions:
 jobs:
   unittest:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 12
     steps:
       - uses: actions/checkout@v6
         with:
@@ -20,10 +20,19 @@ jobs:
           python-version: '3.11'
           cache: pip
       - name: Install dependencies
-        run: python -m pip install -r requirements.txt
-      - name: Run tests
+        run: python -m pip install -r plugins/seichi-junrei/requirements.txt
+      - name: Test shared skill and package
+        working-directory: plugins/seichi-junrei
         run: python -m unittest discover -s tests -v
-      - name: Render and validate sample
+      - name: Render and lint example
+        working-directory: plugins/seichi-junrei
         run: |
-          python scripts/render_guide.py examples/egypt_guide.json --out /tmp/sample-guide.html
-          python scripts/lint_guide.py /tmp/sample-guide.html --guide examples/egypt_guide.json
+          python scripts/render_guide.py examples/egypt_guide.json --out /tmp/seichi-demo.html
+          python scripts/lint_guide.py /tmp/seichi-demo.html --guide examples/egypt_guide.json
+      - name: Test plugin in isolation
+        run: |
+          cp -R plugins/seichi-junrei /tmp/seichi-junrei-isolated
+          cd /tmp/seichi-junrei-isolated
+          python -m unittest discover -s tests -v
+          python scripts/render_guide.py examples/egypt_guide.json --out /tmp/seichi-isolated-demo.html
+          python scripts/lint_guide.py /tmp/seichi-isolated-demo.html --guide examples/egypt_guide.json

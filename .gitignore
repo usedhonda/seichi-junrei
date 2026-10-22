@@ -22,3 +22,7 @@ Thumbs.db
 *.ics
 *.ical
 credentials.json
+
+# Local output and private notes
+checks/
+.output/

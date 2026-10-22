@@ -14,7 +14,7 @@
 1. Issueを探すか、新しいIssueで変更方針を共有します。
 2. フォークしてブランチを作ります。
 3. Python 3.11以上、`python -m pip install -r requirements.txt` を実行します。
-4. `python -m unittest discover -s tests -v` とガイド生成・lintを実行します。
+4. `cd plugins/seichi-junrei && python -m unittest discover -s tests -v` とガイド生成・lintを実行します。リポジトリ外へプラグインだけをコピーしても動くことを確認します。
 5. 変更理由、確認方法、権利やプライバシーへの影響をPR本文に記載してください。
 
 ### 変更時に守ること

@@ -2,17 +2,17 @@
 
 ## Scope of licenses
 
-The repository's [MIT License](LICENSE) covers original **source code, Skill instructions and original documentation text**. It **does not grant a license to reuse** the separate illustrative media in `assets/`, screenshot images in `docs/`, or embedded illustrations inside `examples/sample-guide.html`.
+The repository's [MIT License](LICENSE) covers original **source code, Skill instructions and original documentation text**. It **does not grant a license to reuse** the separate illustrative media in `plugins/seichi-junrei/assets/`, screenshot images in `docs/`, or embedded illustrations inside `plugins/seichi-junrei/examples/sample-guide.html`.
 
 These examples are shipped so the demonstration can be viewed and tested. **Do not assume the images or franchise-related story content may be separately copied, published, or commercially used** just because the code is open source.
 
 | File(s) | Nature | Notes |
 | --- | --- | --- |
-| `assets/nile-original.webp`, `assets/nile-portrait.webp` | AI-assisted original illustrative compositions | Not literal photos or geographical proof |
-| `assets/temple-original.webp` | AI-assisted stylized temple illustration | Not a site photograph |
-| `assets/book-original.webp`, `assets/water-original.webp` | Original abstract scene illustrations | Conceptual imagery, not anime stills |
-| `docs/choose-work.png`, `docs/preview-mobile.png` | Screenshots of the sample workflow | Include the above example art |
-| `examples/sample-guide.html` | Self-contained generated demonstration | Contains embedded versions of example illustrations |
+| `plugins/seichi-junrei/assets/nile-original.webp`, `plugins/seichi-junrei/assets/nile-portrait.webp` | AI-assisted original illustrative compositions | Not literal photos or geographical proof |
+| `plugins/seichi-junrei/assets/temple-original.webp` | AI-assisted stylized temple illustration | Not a site photograph |
+| `plugins/seichi-junrei/assets/book-original.webp`, `plugins/seichi-junrei/assets/water-original.webp` | Original abstract scene illustrations | Conceptual imagery, not anime stills |
+| `docs/choose-work.png`, `docs/preview-mobile.svg` | Screenshots of the sample workflow | Include the above example art |
+| `plugins/seichi-junrei/examples/sample-guide.html` | Self-contained generated demonstration | Contains embedded versions of example illustrations |
 
 ## Using your own content
 
