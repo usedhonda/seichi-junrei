@@ -1,0 +1,105 @@
+name: Mobile guide · GitHub Pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'site/**'
+      - 'stardust-pages-source.zip'
+      - 'scripts/pages/**'
+      - '.github/workflows/mobile-pages.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: mobile-pages
+  cancel-in-progress: false
+
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    outputs:
+      ready: ${{ steps.source.outputs.ready }}
+      sha: ${{ steps.source.outputs.sha }}
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Import approved sample once, or use tracked source
+        id: source
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ ! -f site/build.py ]; then
+            if [ ! -f stardust-pages-source.zip ]; then
+              echo 'ready=false' >> "$GITHUB_OUTPUT"
+              echo '### Initial sample upload required' >> "$GITHUB_STEP_SUMMARY"
+              echo 'Set Settings > Pages > Source to GitHub Actions, then upload stardust-pages-source.zip to the repository root. Nothing has been published.' >> "$GITHUB_STEP_SUMMARY"
+              exit 0
+            fi
+            python scripts/pages/import_mobile_bundle.py stardust-pages-source.zip .
+            python site/build.py --out /tmp/mobile-preflight.html
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git add -- site
+            git rm -- stardust-pages-source.zip
+            git commit -m 'feat: import reviewed character-art mobile guide source'
+            git push origin HEAD:main
+          fi
+          echo 'ready=true' >> "$GITHUB_OUTPUT"
+          echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+  build:
+    needs: prepare
+    if: needs.prepare.outputs.ready == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: ${{ needs.prepare.outputs.sha }}
+          persist-credentials: false
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Build self-contained public guide
+        run: |
+          python site/build.py --out _site/index.html
+          printf 'User-agent: *\nDisallow: /\n' > _site/robots.txt
+          touch _site/.nojekyll
+      - name: Install browser test dependencies
+        run: |
+          python -m pip install 'playwright>=1.48,<2'
+          python -m playwright install --with-deps chromium
+      - name: Test touch, counts, real reload persistence and character art
+        run: python scripts/pages/test_mobile.py _site/index.html
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Check Pages configuration
+        uses: actions/configure-pages@v5
+      - name: Deploy verified guide
+        id: deployment
+        uses: actions/deploy-pages@v4
+      - name: Record verified deployment URL
+        env:
+          PAGE_URL: ${{ steps.deployment.outputs.page_url }}
+        run: echo "Published mobile guide — $PAGE_URL" >> "$GITHUB_STEP_SUMMARY"
