@@ -1,4 +1,4 @@
-"""Codex-only plugin packaging and offline asset tests."""
+"""Codex packaging and instruction-regression checks; not visual image recognition."""
 import json
 import unittest
 from pathlib import Path
@@ -19,20 +19,33 @@ class DistributionTests(unittest.TestCase):
         required = [
             "skills/seichi-junrei/SKILL.md", "skills/seichi-junrei/agents/openai.yaml",
             "references/codex.md", "references/editorial-and-art.md",
-            "scripts/render_guide.py", "scripts/make_ballot.py",
-            "assets/nile-original.webp", "examples/egypt_guide.json", "requirements.txt",
+            "references/mobile-quality.md", "scripts/render_guide.py",
+            "scripts/make_ballot.py", "assets/nile-original.webp",
+            "examples/egypt_guide.json", "requirements.txt",
         ]
         for path in required:
             with self.subTest(path=path):
                 self.assertTrue((ROOT / path).is_file(), path)
         skill = (ROOT / "skills/seichi-junrei/SKILL.md").read_text()
-        self.assertIn("**STOP HERE.**", skill)
+        # Test the required stop wording, not a particular Markdown bold boundary.
+        self.assertIn("STOP HERE.", skill)
+        self.assertIn("current selection/delegation before guide generation", skill)
         self.assertIn("ImageGen", skill)
         self.assertIn("--assets-root", skill)
         self.assertNotIn("Claude Code", skill)
         host = (ROOT / "references/codex.md").read_text()
         self.assertIn("native image-generation", host)
         self.assertIn("No fabricated scene", host)
+
+    def test_character_retention_instruction(self):
+        skill = (ROOT / "skills/seichi-junrei/SKILL.md").read_text()
+        art = (ROOT / "references/editorial-and-art.md").read_text()
+        mobile = (ROOT / "references/mobile-quality.md").read_text()
+        self.assertIn("Character-retention gate", skill)
+        self.assertIn("Do not replace recognizable fictional characters", art)
+        self.assertIn("360, 390 and 430px", mobile)
+        self.assertIn("inspect pixels", mobile)
+        self.assertIn("not proof of persistent browser storage", mobile)
 
     def test_media_inside_plugin(self):
         guide = json.loads((ROOT / "examples/egypt_guide.json").read_text())

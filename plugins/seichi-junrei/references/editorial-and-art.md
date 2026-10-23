@@ -1,35 +1,48 @@
-# Narrative, art direction and reference matching
+# Narrative, character art and reference fidelity
 
-## Editorial design
+## The actual purpose
 
-A fan wants evocative story recall. A first-time viewer wants history, atmosphere and why a scene matters. Structure: cinematic hero + premise → short episode/scene gallery → days in **actual travel order** → alternate layer (myth / filming story / history) → checkable missions, sources and share-safe itinerary.
+Fans should recognize **their characters and remembered scenes** in the places they visit. A first-time companion should understand why the moment matters. A generic location image plus a franchise name does not deliver this experience.
 
-Use real, precise scenes, but without dumping a plot summary. Thread narrative into destination cards: "episode X / what happened / what you see / why it resonates". Use optional spoiler panels for twists. Each stop should contain at least one story beat and one real-world observation. Make a distinction between an official location and an imaginative thematic comparison.
+When the user asks for character fan art or approves a character-rich reference, keep it. Do not replace recognizable fictional characters with anonymous silhouettes, a book, water, scenery or a purely typographic treatment without agreement. Fan art can be newly composed artwork featuring the requested fictional characters. It need not be an official screenshot or copied manga panel.
 
-## Visual system and design lock
+## Character-retention contract
 
-- Produce a single first-pass visual mockup if needed; if user provides a specific visual, use it as an acceptance reference rather than a loose aesthetic reference. Record palette, typographic hierarchy, shape treatment, image placement, layout order and proportions.
-- Compare actual mobile screenshot at 390px to reference; inspect the fold, character/landmark cropping, legibility and scene-art insertion. Compare desktop/tablet too. Fix until materially matched; do not declare equivalence based on successful HTML compilation.
-- Mobile-first *real* page: responsive grid, persistent accessible navigation, large tap targets (44px), scannable cards, readable 15–17px body, high text contrast, text selectable, progressive disclosure, no horizontal overflow.
-- Story scene illustrations should be **interleaved** with real locations; not relegated to an episode strip while destination sections are text-only.
-- No dead controls. Interactive cards need real state and no external network dependency. On offline single-file outputs, local browser storage may behave differently by origin—provide graceful fallback.
+Before revising a guide, list the approved/requested characters, existing image files and where they must appear. Retain working art across revisions. For the JoJo example, the approved cast/scene palette includes Jotaro, Iggy, N'Doul, Oingo and Boingo, the disguised-Jotaro cigarette gag, and Polnareff/Anubis-related battle imagery.
 
-## Codex ImageGen art workflow
+At minimum, when this is the requested treatment:
 
-The default production mode is **Codex-native image generation** if the current session exposes such a tool. No separately billed Google/Gemini/OpenAI API key or locally installed diffusion model is part of this Skill. Create meaningful **separate** cover and story-panel images and weave them through the travel story, rather than using one reused background.
+- Hero: a recognizably character-led composition, readable on a narrow portrait screen; do not crop the protagonist off the edge.
+- Episode gallery: character/scene imagery for the corresponding episodes, not one generic background reused for every card.
+- Destination chapters: large scene-specific fan-art panels interleaved with landscape imagery and actual sightseeing information.
+- Optional enlargement: the user can inspect the illustration without removing the prose from the page.
 
-The agent must first verify the user's main work selection, research episodes/scenes and establish the location sequence. Then write an asset storyboard (subject, aspect ratio, usage location, scene source, safety/rights notes). Generate art, compare against the approved design reference, and export actual image files into a writable trip workspace. Build a visual-asset manifest; all image references in guide JSON are relative to the chosen `--assets-root`. If native ImageGen is not exposed, report the gap; **do not silently replace the illustrated result with SVG drawings or external API requests**.
+A phone screenshot that loses the cast fails even if the images exist somewhere in the HTML. Asset counts alone do not prove visual fidelity.
 
-Typography, navigation, card interactions, spoiler controls and layout are HTML/CSS. AI illustration is **supporting media**, not the final website itself.
+## Editing scenes with places
 
-## Images and permissions
+Use verified episode/adaptation labels and travel order. Keep fictional events, real history, thematic associations and creative visual composites distinct. A character shown before Abu Simbel in fan art is not evidence of an in-story battle there.
 
-1. Use user-owned, appropriately licensed real-world photographs or permission-cleared images. Keep a rights manifest with source, author, license URL, reuse constraints, attribution when needed.
-2. Original images may depict *ideas* (desert, obelisk, sword silhouette, a book of prophecies) without tracing or replicating recognizably protected anime frame composition, outfits, character likeness, title treatment or franchise marks. The style of a franchise itself is not a blanket authorization. Local/private companion sharing may still raise copyright issues.
-3. A generated image is not automatically non-infringing. Don't say "parody" or "fan art" automatically removes infringement risk. If the user supplies properly licensed stills, handle under that permission only.
-4. Distinguish "創作イラスト" from photographic documentation. Do not mislead about geographical composites or where scenes occurred.
-5. Embed image bytes as data URIs for the offline HTML, compress/resample as needed, and alt-text every meaningful photo. Never link to an unlicensed media asset solely for convenience.
+For the Egypt example: episodes 25–26 concern Iggy and N'Doul in the desert; episode 27 is the Aswan Oingo/Boingo story; episodes 28–29 lead into the Anubis battles around Kom Ombo. Do not relabel these to match an attractive mockup. An illustrated travel guide is not permission to invent episode summaries. Cite the official episode pages and monument sources; label uncertain details or omit them.
 
-## Publishing
+Give non-fans context; give fans specific emotional beats. Place story illustrations **throughout** the destination text, not only in the introduction. Use spoiler reveals for twists. Write new commentary, not long copied dialogue or lyrics.
 
-HTML is the finished default. An HTML file sent directly to companions is fine; link-based deployment is **optional**. For any Site-publication, run privacy and rights audits, receive an explicit go-ahead, and verify the live link. A public URL with noindex is not access control.
+## Art production
+
+Use native Codex ImageGen when actually available. Reuse suitable approved art before generating more. Generate separate missing assets with intentional subjects, aspect ratios, focal points and visual continuity. Text, navigation and layout are real HTML/CSS, never baked into a full-page generated image.
+
+No separate image API keys, billed fallback service or local model installation. If generation is unavailable, preserve existing art and disclose the limitation; do not silently replace the promised experience with SVG decorations or photos alone.
+
+Use clear provenance records: creator/method, supplied or generated origin, depicted characters/scene, source for actual documentary images, license terms where applicable, and non-official status. A generation/provenance field is not a legal clearance certificate. Retain the distinction between 'generated fan art' and 'licensed photograph'.
+
+## Rights and labels
+
+Do not represent newly generated fan art as official anime frames, manga scans, authorized merchandise or documentary photography. Do not scrape and republish original frames or panels merely because fan art was requested. Suitable supplied/permission-cleared images can be used within their conditions.
+
+Fan art and private companion sharing do not guarantee every distribution is permitted. Record limitations and review before optional public distribution. The code's MIT license does not automatically cover franchise imagery. These caveats **do not require deleting the requested fictional characters from original fan art**.
+
+## Mobile presentation
+
+Follow `mobile-quality.md`: actual portrait layout, strong art and legible live text, 44px controls, safe-area bottom navigation, horizontal card swipes, detail sheets, image zoom and motion controls. Preserve the approved palette and hierarchy. Prefer larger image files over visibly broken or overly compressed art; embed images for reliable offline display.
+
+Judge the implementation from real browser screenshots at 390 and 430px, not from an image-generator mockup. Inspect faces, scene placement, tap targets and overflowing captions. State physical-device and browser-engine coverage honestly.

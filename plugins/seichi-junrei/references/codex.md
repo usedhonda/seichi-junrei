@@ -1,40 +1,39 @@
 # Codex-native illustrated pilgrimage workflow
 
-`seichi-junrei` is now **Codex only**. The canonical behavioral rules live in `../skills/seichi-junrei/SKILL.md`.
+Codex only; canonical instructions: `../skills/seichi-junrei/SKILL.md`.
 
-## Before proposing any art
+## Start from a selected work
 
-1. Obtain the trip information from a connected calendar **if available** or from a minimal itinerary supplied by the user. Never imply that merely installing the plugin grants calendar permissions.
-2. Discover 3–5 **evidence-backed** candidate works, show the user, and **stop** until they choose a main work (or explicitly delegate). The image workflow starts **only after selection**.
-3. Verify key source facts and assemble an ordered sequence of real destinations, episode beats and attractive transitions.
+Read only the relevant trip through an actually connected calendar, or use a supplied itinerary. Present 3–5 evidence-backed works and stop for selection or explicit delegation. Do not repeat a choice already made. Verify the episode/scene-to-place links before composing the guide.
 
-## Native ImageGen, not an API integration
+## Native image-generation and preserved characters
 
-Check whether the Codex host session exposes a **native image-generation capability**. If it does:
+Check actual native image-generation availability. Use ImageGen where exposed, or reuse appropriate artwork already approved in the conversation. Do not request API keys, call paid fallback image services or install local diffusion models.
 
-- Use it to make **distinct visual assets**: one cinematic hero, multiple scene-driven original artworks, and one or more location-transition images. Construct images individually with appropriate orientation, cropping and visual continuity.
-- Keep original anime frames, recognizable character designs, logos and distinctive compositions out of the generated artwork without permission. A reference image sets **page design** expectations, not permission to copy protected art. Use motifs, moods, environments, new compositions, architecture and non-identical silhouettes.
-- For non-fans, make the scenes understandable via prose. For fans, evoke specific story beats. Pair each scene image with a verified episode/volume or film-sequence description.
-- Store the exported images in a writable **trip workspace**, e.g. `/path/to/trip/assets/scene-01.png`. In the guide specification, refer to `assets/scene-01.png` and add the related `media_rights` record with `status: "original_generated"`, the creator/method and a note on non-official status. Add photographer, source and license information for licensed real-world photos.
-- Do not render the entire page as an image. Use HTML/CSS for typography, menus, responsive layout, text selection, checks and directions.
+When the user wants character fan art, **keep the recognizable fictional cast** in new compositions. Do not replace the protagonist, companions and scene panels with scenery, anonymous silhouettes or props. Maintain a character/scene coverage list and compare it with the actual rendered phone screens. Follow `editorial-and-art.md`; rights cautions are not a blanket prohibition on original character fan art.
 
-If native ImageGen is not available, **do not** substitute a billed API call, add Gemini keys, install ComfyUI/MFLUX or claim that SVG sketches are equivalent. Surface the limitation. User-approved photo-only output may proceed but must be described as a limited alternative.
+Make separate assets for hero and scene panels. No copied official frames, false official affiliation or falsely documentary compositions. Label fan art and keep provenance/limitations. Actual photographs and third-party stills need their own appropriate usage basis. The label 'generated' is not proof of legal clearance for public reuse.
 
-## Render from a trip workspace
+## Build, do not keep making mockups
 
-The plugin install can be read-only. Run the renderer with a separate local workspace:
+Once a visual reference is approved, implement a working mobile HTML. Continue requests mean advancing implementation, not sending more static page pictures. Preserve the approved cast and imagery in the working artifact. Keep all lettering, menus, controls and responsive text in HTML/CSS.
+
+Put image files in a trip workspace outside the plugin cache. References such as `assets/scene-01.webp` are relative to `--assets-root`:
 
 ```sh
-python /path/to/installed-plugin/scripts/render_guide.py /path/to/trip/guide.json --assets-root /path/to/trip --out /path/to/trip/guide.html
-python /path/to/installed-plugin/scripts/lint_guide.py /path/to/trip/guide.html --guide /path/to/trip/guide.json
+python /path/to/plugin/scripts/render_guide.py /path/to/trip/guide.json --assets-root /path/to/trip --out /path/to/trip/guide.html
+python /path/to/plugin/scripts/lint_guide.py /path/to/trip/guide.html --guide /path/to/trip/guide.json
 ```
 
-Relative image paths are checked to remain **inside** `--assets-root`; the renderer embeds and compresses images with Pillow. The default root is the plugin directory for bundled examples.
+The baseline renderer may be adapted for the accepted mobile design. A generated screenshot is not the HTML and never satisfies interaction tests.
 
 ## Quality gates
 
-- No fabricated scene/place claims; sources verified.
-- Approved/mockup reference **faithfully** implemented, including art placement; actual mobile screenshot at 390 and 430px.
-- Each important story beat has appropriate visual treatment; original scene images **interleaved** with documentary photos and prose. No generic montage as a substitute for the whole guide.
-- Images actually load; no horizontal overflow or dead controls; guide works offline.
-- No sensitive calendar details included; publishing is optional and requires separate explicit approval.
+- No fabricated scene/place claims; sources checked and edition/episode labels accurate.
+- Requested characters visible in hero and story panels, including destination chapters; no silent scenic-only fallback.
+- Faithful layout, image placement and color hierarchy compared with the approved reference.
+- Phone-width page switching, thumb navigation, swipe cards, detail sheets and image zoom function.
+- Reduced-motion and storage-unavailable fallback work; no external image loading dependency.
+- Images readable even if output grows; disclose artifact size rather than silently stripping art.
+- Privacy checked, publication optional, actual generated files delivered with screenshots.
+- Report structural tests, browser emulation, mock-storage tests, physical devices and live deployment separately. Never describe an unperformed test or publication as complete.

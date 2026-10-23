@@ -1,64 +1,66 @@
 ---
 name: seichi-junrei
-description: Turn Google Calendar travel plans (flights, hotels, destinations) into an evidence-checked choice of 3–5 anime, manga, film or literary pilgrimage themes. After the user chooses, research scene-to-place connections and create a visually rich, offline-friendly mobile travel guide. Sharing/publication is optional. Use for travel planning, 聖地巡礼, anime or movie locations, trip companions' interactive itineraries, and travel storytelling.
+description: Turn travel plans into 3–5 evidence-backed anime, manga, film or literary pilgrimage candidates. After user selection, make an illustrated mobile companion guide with recognizable character fan art when requested. Native Codex ImageGen, offline HTML, publication optional.
 ---
 
-# Seichi Junrei — 勝手に聖地巡礼ツアー
+# Seichi Junrei — 勝手に聖地巡礼
 
-## Codex execution and native image generation
+## Product promise: the characters travel with the user
 
-This Skill targets **Codex only**. Invoke it as `$seichi-junrei:seichi-junrei` when the plugin is installed, or `$seichi-junrei` if a direct Agent Skill is registered. Follow the actual discovered host UI; do not invent commands.
+This is a **story pilgrimage**, not a generic sightseeing brochure. When the user requests character fan art or approves a reference containing it, **preserve the characters and scene illustrations**. The hero, episode cards and destination chapters must visibly connect the selected work to the real trip. Do not silently replace the cast with scenery, silhouettes, props, abstract motifs or text alone. Original fan art may depict the requested fictional characters in new compositions; do not present it as an official screenshot or automatically rights-cleared material.
 
-- Resolve the **plugin root** two levels above this file (from `skills/seichi-junrei/SKILL.md` to `plugin.json`, `scripts/`, `assets/`, `references/`, `examples/`). Use full paths or run scripts with that root as cwd; never assume the user's project is this root.
-- This Skill does not bundle Google Calendar or ImageGen privileges. **Check which tools exist in the current Codex execution session.** If Calendar is unavailable, ask for an itinerary or supplied export; never claim an unseen reservation.
-- After user selection, use Codex's **native image-generation tool** (e.g., ImageGen when exposed) for genuinely original, scene-specific cover and interleaved illustrations. Generate meaningful separate images, not one full-page screenshot or repeated generic artwork. Keep lettering and layout in HTML/CSS. Follow `references/codex.md` and `references/editorial-and-art.md`.
-- **No extra image API:** do not request a Gemini/OpenAI API key, invoke billed third-party image services or install/run local models such as ComfyUI/MFLUX as a workaround. If native image generation is missing or fails, report the missing capability and ask whether to proceed with licensed photographs only or to complete the visual step in a compatible Codex session. A photo-only guide must be explicitly marked as a compromise, not the promised full illustrated result.
-- Native-generated images are saved under a **trip workspace** (e.g., `guide-workspace/assets/`), not the read-only plugin install. Run the renderer with `--assets-root <trip-workspace>` and the guide JSON's relative `assets/...` paths. The renderer checks each path stays within that root. The sample data still uses the bundled assets when the option is omitted.
-- Keep private travel drafts, generated images and final HTML in an authorized workspace outside the plugin cache. No public deployment or sharing without a separate request.
+The user has explicitly said: **「なんのための聖地巡礼かわからないので、絵をなくさないで。」** Treat character retention as a product acceptance criterion. Refer to `references/editorial-and-art.md` and `references/mobile-quality.md`.
 
-**Goal:** Make a travel companion feel as though they have stepped into a story. A travel-booking calendar is only a starting signal. The core product is a beautiful, factual, enjoyable mobile guide for the actual trip—not a public website.
+## Codex execution
 
-## Core contract: candidate selection is mandatory
+- Target **Codex only**. Invoke `$seichi-junrei:seichi-junrei` for the plugin, or `$seichi-junrei` for a discovered direct skill. Do not invent commands.
+- This file is `skills/seichi-junrei/SKILL.md`. The plugin root is two directories above it, containing `scripts/`, `assets/`, `references/`, `examples/` and `requirements.txt`. Resolve paths from the installed plugin, not from the user's current project by assumption.
+- Check the session's actual calendar, search, local execution, browser and **native image-generation** capabilities. Installing this Skill grants none of them by itself.
+- Native **ImageGen** creates assets, not a frozen screenshot of the final page. Existing user-approved character artwork can be reused. Do not endlessly generate more mockup pictures instead of implementing HTML.
+- No extra image API: do not request an API key, call a billed image service or install a local diffusion model as a hidden fallback. If native image generation is unavailable, retain existing suitable images, report the gap and do not silently downgrade the requested art.
+- Write assets, private drafts and output outside the plugin/cache. Run `scripts/render_guide.py <guide.json> --assets-root <trip-workspace> --out <guide.html>` for local image embedding. The default renderer is a baseline, not a requirement to preserve an inferior layout: adapt it for the approved mobile design.
 
-1. Read the user's requested trip or the nearest relevant upcoming travel window from **Google Calendar**, if connected. Limit retrieval to the trip; read flight and lodging entries, deduplicate timezones, infer no reservation or transport leg that is not evidenced. If access is unavailable, request an itinerary or calendar export once; don't fake connector access. Read `references/calendar-and-privacy.md`; for exported events, run `scripts/extract_calendar.py`.
-2. Find **3–5 well-researched candidates** from anime, manga, film and, when appropriate, literature. This is discovery, not a single automated recommendation. Candidates need grounded scene/setting/filming evidence and feasible visits. Reject imaginary pilgrimage pins. Read `references/research-and-ranking.md`. Structured inputs can be ranked by `scripts/rank_candidates.py`.
-3. Present a concise **candidate ballot** including title, type, why it fits, a memorable scene, actual connection grade, itinerary fit and any caveat; supply one short question asking the user which work(s) they choose. **STOP HERE.** Do not select silently or generate the full guide. The user can select 1 main + up to 2 secondary works; an explicit "you decide" is a valid delegation. If a work has weak location evidence, clearly flag it before selection. Where UI controls exist, use a single multi-select with a designated main work; ordinary chat selections also work. Use `scripts/make_ballot.py` if a portable HTML ballot is useful. Do not interpret the top score as consent.
-4. Only after the choice, research selected works deeply using primary sources: exact episode numbers/titles, volume edition and chapter where verified, scenes, filming locations, map addresses, current opening hours, and the actual trip's time windows. Track all significant claims with URLs and access dates. Separate **confirmed fictional setting**, **real filming location**, **creator-confirmed inspiration**, **strong resemblance**, **thematic connection** and **unverified fan speculation**. Scenes from an adaptation do not automatically establish a filming location. Refer to `references/research-and-ranking.md`.
-5. Write a compelling narrative aligned to **travel order**, not necessarily episode order. Give non-fans sufficient context; give fans memorable beats with optional spoiler expansions. Keep both real history and episode recall enjoyable. Cite exact sources; do not misrepresent "fan interpretation" as production fact. See `references/editorial-and-art.md`.
-6. Design before implementation: use a clear visual direction or the user's supplied reference. **Design lock:** treat an approved mockup as an acceptance target, not vague inspiration. When native ImageGen is available, create **distinct original visuals** for the hero, pivotal episode beats and key location transitions. Alternate licensed real-world imagery with scene-specific story illustrations across the article; do not replace all scenes with a single mood picture or repeat a generic image. Compose actual text, menus and responsive layout in HTML/CSS, never as frozen text in an image. Record the generation method, creator and rights limits for each asset. See `references/editorial-and-art.md`.
-7. Produce a **self-contained mobile HTML** with embedded image bytes and interactive episode/story cards, route, date itinerary and map links. Use `scripts/render_guide.py <guide.json> --assets-root <trip-workspace> --out <guide.html>` with the contract in `references/guide-contract.md`, adapting the template where warranted. The example defaults to bundled assets; new trips use an external workspace image root. Never substitute a static generated screenshot for a working site. Use `scripts/lint_guide.py` and a real browser at 390px, 430px and desktop if available; inspect screenshots and fix clipping or unreadable text. Default output is an HTML artifact, not a live URL.
-8. Remove private fields before handing the file to companions: booking reference/PNR, seat, contact, hotel room, personal names, event descriptions, internal notes and private calendar links. Do not export raw calendar JSON. Separate private input and public guide. Verify no accidental leakage with `scripts/lint_guide.py` and review `references/calendar-and-privacy.md`.
-9. **Sharing is optional.** A single HTML file viewed offline or handed via AirDrop is a complete outcome. For user-requested link sharing, offer available Sites/hosting tools with restricted or unlisted settings where supported; never claim a Site was published or updated without a verified URL. Before a public/unlisted launch, get explicit confirmation after privacy/rights check. Unlisted/noindex is not authentication. If the direct publishing integration isn't available, deliver the working file and precise handoff rather than pretending that deployment occurred.
+## Workflow
 
-## Non-negotiable quality gates
+1. **Read the trip.** Use a connected Google Calendar if available, bounded to the relevant travel window. Read flights and lodging; preserve local timezones, distinguish confirmed reservations from suggestions, and infer no nonexistent leg. Otherwise use the user's itinerary/export. See `references/calendar-and-privacy.md`; `scripts/extract_calendar.py` produces an internal draft, not shareable calendar data.
+2. **Find candidates.** Research 3–5 works with meaningful location connections. Show why each fits, scene appeal, evidence strength, travel feasibility and caveats. Rank using `scripts/rank_candidates.py` only as advice. Never invent locations to fill a shortlist. See `references/research-and-ranking.md`.
+3. **Ask the user to choose. STOP HERE.** One main work and up to two side works; explicit delegation also counts. Do not silently choose the highest score. If the user already selected in this conversation, retain the choice instead of repeatedly asking. `scripts/make_ballot.py` is optional; ordinary chat selection is sufficient.
+4. **Verify the chosen story.** Check exact adaptation, episode numbers/titles, manga edition/volume and film scenes. Separate fictional setting, filming location, officially confirmed inspiration, thematic connection and speculation. Verify hours and transit constraints; last admission is not necessarily closing time. Keep source URLs and check dates. Do not imply a character visited a place just because an illustration depicts them there.
+5. **Edit in travel order.** Interleave actual destination → recognizable character/scene fan art → scene recall → real-world observation. Include specific callbacks for fans and enough context for companions unfamiliar with the work. Keep spoilers expandable. Do not reduce the illustrations to a cover or a small decorative strip.
+6. **Lock the design and cast.** Record approved colors, typography, image placement, characters, scene coverage and mobile proportions. Reuse the approved character illustrations where possible. Generate distinct missing art in new compositions. Build a media manifest identifying the depicted characters, associated scene, provenance and non-official status. Never substitute the approved cast without user agreement.
+7. **Implement a real mobile guide.** Use HTML/CSS for text and controls, embedded images for the artwork. Prioritize 360–430px phones, large single-column art, thumb-friendly bottom navigation, swipeable scene cards, accessible detail sheets, image zoom, chapter bookmarks and trip-day switching. Motion should support the story: restrained parallax, transitions and reveals, plus reduced-motion support. No dead controls, autoplay audio or a blocking intro. See `references/mobile-quality.md`.
+8. **Verify the artifact.** Render in a real browser, inspect screenshots for character visibility and clipping, and exercise controls. Run structural/privacy checks and test offline assets. Distinguish desktop browser emulation from physical-phone testing, and simulated storage from real persistence. A static mockup or merely valid HTML is not a finished site. Deliver the actual HTML and a screenshot taken from it.
+9. **Protect the trip.** Remove PNRs, ticket numbers, seats, contact details, guest names, room numbers, private event descriptions and internal links from the companion file. Review sensitive data manually as well as with `scripts/lint_guide.py`. Keep personal itinerary snapshots out of public repository fixtures.
+10. **Sharing is optional.** Offline HTML is a complete deliverable. Do not block delivery on Sites. Publish or update a live site only when explicitly requested; verify the URL before claiming deployment. Unlisted/noindex is not authentication. A public repo change, a generated file and a deployed website are three different outcomes.
 
-- **User choice gate:** 3–5 candidates offered; a user selection/delegation recorded; no default silently chosen.
-- **Grounding gate:** Claims and media relations categorized; primary support for distinctive scene-to-place claims; episode/movie edition checked independently. When uncertain, mark uncertain or cut.
-- **Trip gate:** Real schedule, travel direction, transit feasibility and venue hours verified; no fabricated openings or travel durations. Separate closing time from last entry.
-- **Editorial gate:** Fan scenes woven throughout, not just an intro; understandable to first-timers; exciting progression; clear spoilers.
-- **Visual gate:** A mobile **website**, not a magazine screenshot: usable hierarchy, tap targets, no horizontal overflow, loaded images, tested interactions, visual match to reference. For illustrated guides, distinct native-generated scene art must appear throughout, not only on the cover. Missing ImageGen is a reported limitation, **never an automatic silent SVG fallback**.
-- **Privacy gate:** No sensitive booking details inside HTML. Verify before link sharing.
-- **Rights gate:** Private group sharing is not a blanket copyright exemption. A generated fan image may be derivative even when not copied pixel-for-pixel. Do not call it categorically lawful. Prefer motifs, newly composed characters and locations, licensed materials, and any applicable official guidelines. Document sources/permissions.
+## Non-negotiable gates
 
-## Scripts and data
+- **User choice:** current selection/delegation before guide generation; never inherit consent from a fixture.
+- **Character-retention gate:** approved/requested cast appears prominently on the phone, with scene-specific art in the destination chapters. A scenery-only substitute fails unless explicitly requested.
+- **Grounding:** no invented episode/location match; illustrative composites are not geographical evidence.
+- **Design fidelity:** compare the actual 390/430px screenshots against the approved reference, including the cast and art placement.
+- **Mobile behavior:** navigation, swipe, detail sheets, zoom, local-state fallback and reduced-motion work; images load; no horizontal page overflow.
+- **Privacy:** no sensitive bookings in shared HTML or public samples.
+- **Provenance:** fan art is labelled non-official; licensed photos and actual stills have their own provenance. Generated fan art is not automatically lawful for every publication or licensed under the code's MIT grant. Do not turn this caveat into a blanket removal of requested fictional characters.
+- **Completion honesty:** generated artwork is not an implemented mobile site, and local HTML is not a published URL.
 
-- `scripts/extract_calendar.py` — parse a bounded Google Calendar JSON export into a private trip summary (no raw descriptions).
-- `scripts/rank_candidates.py` — score evidenced alternatives. **Ranking is advisory; never auto-select.**
-- `scripts/make_ballot.py` — generate an optional offline selection HTML that copies a chosen work ID; the chat's selection remains the official gate.
-- `scripts/render_guide.py` — generate a self-contained, image-embedded mobile HTML **only when** `selection.user_confirmed` or `selection.delegated` is explicitly true.
-- `scripts/lint_guide.py` — verify HTML structure, images, privacy strings, required scenes and absence of remote images.
-- `examples/egypt_candidates.json`, `examples/egypt_guide.json` — illustrative test fixtures and sources; not reusable evidence for other trips.
-- `assets/nile-original.webp` — originally generated illustrative art; imagery is *interpretative*, not an accurate geographic composite or an anime screenshot.
+## Bundled helpers
 
-## Run the bundled demo, with plugin root as cwd
+- `scripts/extract_calendar.py`: minimal private travel draft.
+- `scripts/rank_candidates.py`: advisory ranking; no selection.
+- `scripts/make_ballot.py`: optional candidate-choice HTML.
+- `scripts/render_guide.py`: baseline standalone HTML renderer with `--assets-root` and explicit choice check.
+- `scripts/lint_guide.py`: structural and heuristic checks; not a substitute for visual inspection or rights review.
+- `references/guide-contract.md`: baseline input schema.
+- `examples/egypt_candidates.json`, `examples/egypt_guide.json`: illustrative fixtures, not current real travel evidence.
 
-```bash
+Run from the plugin root:
+
+```sh
 python scripts/rank_candidates.py examples/egypt_candidates.json
 python scripts/make_ballot.py examples/egypt_candidates.json --out /tmp/story-choices.html
 python scripts/render_guide.py examples/egypt_guide.json --out /tmp/story-guide.html
 python scripts/lint_guide.py /tmp/story-guide.html --guide examples/egypt_guide.json
 ```
 
-For a real itinerary, save ImageGen output into an authorized trip workspace, set relative paths and `media_rights` in the guide JSON, then call `--assets-root /absolute/path/to/trip-workspace`. No API keys are needed. A native ImageGen tool must be available for automatic new original images.
-
-The sample guide contains an **explicit illustrative user-choice record** for testing. Never carry it over to a new trip. The live conversation must always stop for the current user's choice.
+For a new trip, provide actual local assets with `--assets-root`. The sample selection record is illustrative only; the live conversation must obtain the user's choice.
