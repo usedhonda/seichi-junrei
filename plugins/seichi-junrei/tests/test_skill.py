@@ -83,6 +83,18 @@ class SkillTests(unittest.TestCase):
         flight = parse_export(fixture)["events"][0]
         self.assertNotIn("flight_code", flight)
 
+    def test_japanese_flight_titles_are_not_dropped(self):
+        for title in ("羽田空港からカイロへ", "明日のフライト", "エジプト航空 MS80便", "6E123便で移動"):
+            with self.subTest(title=title):
+                draft = parse_export([{"summary": title, "start": "2027-03-15"}])
+                self.assertEqual(1, len(draft["events"]))
+                self.assertEqual("flight", draft["events"][0]["kind"])
+                self.assertNotIn(title, json.dumps(draft, ensure_ascii=False))
+
+    def test_year_alone_is_not_a_flight(self):
+        draft = parse_export([{"summary": "2027 年度計画", "start": "2027-03-15"}])
+        self.assertEqual([], draft["events"])
+
     def test_renderer_media_and_lint(self):
         html=render(self.data,ROOT)
         errs,parser=lint(html,self.data)

@@ -9,7 +9,7 @@ import re
 import sys
 from pathlib import Path
 
-FLIGHT = re.compile(r"\b(?:flight|flight to|フライト|航空便|航空券|飛行機|空港|[A-Z0-9]{2}\s?\d{2,4})\b", re.I)
+FLIGHT = re.compile(r"\bflight\b|フライト|航空便|航空券|飛行機|空港", re.I)
 STAY = re.compile(r"hotel|resort|check[ -]?in|check[ -]?out|宿泊|滞在|ホテル|旅館", re.I)
 # Never preserve original event titles in the exported summary. Event titles can
 # contain unlabeled names, locations or booking identifiers that regexes miss.
@@ -33,7 +33,7 @@ def parse_export(obj):
         if not title:
             continue
         # Search only event title, not description: descriptions may contain secrets.
-        kind = "flight" if FLIGHT.search(title) else ("stay" if STAY.search(title) else None)
+        kind = "flight" if (FLIGHT.search(title) or FLIGHT_CODE.search(title)) else ("stay" if STAY.search(title) else None)
         if not kind:
             continue
         # Private helper output is intentionally minimal. The guide renderer does not accept raw events.
