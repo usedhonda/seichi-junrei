@@ -254,7 +254,9 @@ def render(data, root):
     primary = next(w for w in data['works'] if w['id'] == data['selection']['primary_work_id'])
     title_lines = meta.get('title_lines') or [meta['title']]
     title = ''.join('<span'+(' class="title-small"' if i in meta.get('title_small_lines', []) else '')+'>'+H(line)+'</span>' for i, line in enumerate(title_lines))
-    hero = f'<div class="hero">{image(meta["hero_image"], "hero-art", True)}<span class="star"></span><span class="star two"></span><p class="vertical">{H(meta.get("cover_line", "あの物語を、旅の隣に。")).replace(chr(10), '<br>')}</p><div class="hero-bottom"><div class="kicker">{H(meta.get('kicker', primary['title']))}</div><h1>{title}</h1><p class="hero-subtitle">{H(meta.get("subtitle", ""))}</p><div class="journey-tag">{H(meta.get("regions", ""))}</div><div class="hero-cta"><a href="#{stages[0]["id"]}" class="btn primary">旅をひらく →</a><a href="#story" class="btn secondary">物語を振り返る →</a></div><div class="art-credit">UNOFFICIAL STORY PILGRIMAGE · {H(meta.get("dates", ""))}</div></div></div>'
+    cover_line = H(meta.get('cover_line', 'あの物語を、旅の隣に。')).replace(chr(10), '<br>')
+    kicker = H(meta.get('kicker', primary['title']))
+    hero = f'<div class="hero">{image(meta["hero_image"], "hero-art", True)}<span class="star"></span><span class="star two"></span><p class="vertical">{cover_line}</p><div class="hero-bottom"><div class="kicker">{kicker}</div><h1>{title}</h1><p class="hero-subtitle">{H(meta.get("subtitle", ""))}</p><div class="journey-tag">{H(meta.get("regions", ""))}</div><div class="hero-cta"><a href="#{stages[0]["id"]}" class="btn primary">旅をひらく →</a><a href="#story" class="btn secondary">物語を振り返る →</a></div><div class="art-credit">UNOFFICIAL STORY PILGRIMAGE · {H(meta.get("dates", ""))}</div></div></div>'
     destinations = ''
     for st in stages:
         spec = st['spec']
