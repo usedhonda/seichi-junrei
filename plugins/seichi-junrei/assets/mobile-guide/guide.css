@@ -55,3 +55,5 @@ body[data-theme="pop-postcard"] .ep-copy{color:#fff7e5}
 body[data-theme="pop-postcard"] .hero .vertical{display:none}
 body[data-theme="pop-postcard"] .topbar .wordmark small{color:#fff0c6;text-shadow:0 1px 4px #102331}
 body[data-theme="pop-postcard"] .subhero .pill{color:#ffd9e8}
+body[data-theme="pop-postcard"] .day-switch{background:#e7f0f0}
+body[data-theme="pop-postcard"] .day-switch button[aria-selected=true]{color:#fff}
