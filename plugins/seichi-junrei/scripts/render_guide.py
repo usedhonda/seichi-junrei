@@ -174,6 +174,11 @@ def render(data, root):
     if theme not in ('night-gold', 'pop-postcard', 'casebook', 'ink-copper'):
         raise ValueError('Unknown mobile theme: '+str(theme))
     css = (runtime_root / 'guide.css').read_text(encoding='utf-8')
+    reading_flow = meta.get('reading_flow', 'sections')
+    if reading_flow not in ('sections', 'journey'):
+        raise ValueError('Unknown reading flow')
+    if reading_flow == 'journey' and meta.get('layout') != 'casefile':
+        raise ValueError('The integrated journey currently uses the casefile layout')
     layout = meta.get('layout', 'immersive')
     if layout not in ('immersive', 'casefile', 'literary', 'pursuit'):
         raise ValueError('Unknown mobile layout: '+str(layout))
@@ -306,7 +311,7 @@ def render(data, root):
         chapters += chapter+'</section>'
     days = data.get('itinerary') or [{'id': str(i+1), 'label': st['spec'].get('date') or 'DAY '+str(i+1), 'events': st['spec'].get('events', [])} for i, st in enumerate(stages)]
     from route_maps import prepare as prepare_map, event_link
-    map_html, map_script = prepare_map(data, days)
+    map_html, map_script = prepare_map(data, days, integrated=reading_flow == 'journey')
     if map_html:
         vendor = runtime_root / 'vendor'
         css += (vendor / 'leaflet.css').read_text(encoding='utf-8') + (runtime_root / 'route-map.css').read_text(encoding='utf-8')
@@ -330,16 +335,27 @@ def render(data, root):
         opening = route.index('>') + 1
         days_start = route.index('<div class="day-switch"')
         route = route[:opening]+'<header class="route-map-page-head"><h1>地図・旅程</h1><p>日程を選んで、行き先と移動を確認。</p></header>'+route[days_start:]
+    journey_navigation = None
+    if reading_flow == 'journey':
+        if not map_html:
+            raise ValueError('Integrated journey needs geographic stops')
+        from journey_layout import compose as compose_journey
+        home, journey_navigation = compose_journey(data, stages, episodes, scenes, missions, image, feature, paragraphs, link, mission_group, H, TYPES, map_html, days)
+        story, chapters, route = '', '', ''
+        css += (runtime_root / 'journey.css').read_text(encoding='utf-8')
+        js += '\n' + (runtime_root / 'journey.js').read_text(encoding='utf-8')
     map_shortcut = '<a class="map-shortcut" href="#route" aria-label="地図と旅程を開く">地図を見る ↗</a>' if map_html else ''
     route += map_script
     navigation = [{'id': 'home', 'label': 'TOP'}, {'id': 'story', 'label': '物語'}]+[{'id': s['id'], 'label': s['label']} for s in stages]+[{'id': 'route', 'label': '地図・旅程' if map_html else '旅程'}]
+    if journey_navigation:
+        navigation = journey_navigation
     public_url = meta.get('public_url', '')
     if public_url:
         url(public_url)
     guide_id = meta.get('id') or hashlib.sha256((meta['title']+meta.get('dates', '')).encode()).hexdigest()[:16]
     if not re.fullmatch(r'[A-Za-z0-9_-]+', guide_id):
         raise ValueError('meta.id must contain only letters, digits, underscores or hyphens')
-    state = {'guideId': guide_id, 'title': meta['title'], 'navigation': navigation, 'stages': [{k: v for k, v in s.items() if k != 'spec'} for s in stages],
+    state = {'readingFlow': reading_flow, 'guideId': guide_id, 'title': meta['title'], 'navigation': navigation, 'stages': [{k: v for k, v in s.items() if k != 'spec'} for s in stages],
              'episodes': episodes, 'scenes': scenes, 'missions': missions, 'publicUrl': public_url,
              'sources': [{'title': s.get('label', s.get('title', '出典')), 'url': s['url']} for s in data['sources']],
              'artNote': meta.get('art_note', '挿絵は非公式の創作イラストです。公式の場面画像や記録写真ではありません。画像ごとの制作記録は以下に掲載しています。'),
@@ -351,7 +367,7 @@ def render(data, root):
     hero_position = meta.get('hero_position', '50% 50%')
     if not re.fullmatch(r'\d{1,3}% \d{1,3}%', hero_position):
         raise ValueError('hero_position must be two percentages')
-    return f'''<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex,nofollow,noarchive"><meta name="referrer" content="no-referrer"><meta name="theme-color" content="#07131e"><meta name="description" content="{H(meta.get('subtitle',''))}"><title>{H(meta['title'])}</title><style>{css}</style></head><body data-theme="{theme}"{layout_attr} style="--hero-position:{hero_position}"><div class="app"><div class="progress" aria-hidden="true"></div><header class="topbar"><a class="wordmark" href="#home"><span>{H(meta.get('wordmark', 'STORY'))}<small>{H(meta.get('regions', 'FIELDGUIDE'))}</small></span></a>{map_shortcut}<button class="circle" data-open="menu" aria-label="メニューを開く">☰</button></header><noscript><p class="no-script">本文と絵は読めます。画面切替・チェック・保存にはJavaScriptが動くブラウザをご利用ください。</p></noscript><main>{home}{story}{chapters}{route}</main><nav class="bottom-nav" aria-label="メインナビゲーション">{nav}</nav></div><dialog class="dialog" id="sheet" aria-labelledby="sheet-title"><div class="dialog-head" data-drag><span class="drag-handle"></span><span class="dialog-title" id="sheet-title"></span><button class="close" data-close="sheet" aria-label="閉じる">×</button></div><div id="sheet-content"></div></dialog><dialog class="full-art" id="artbox" aria-label="挿絵の拡大表示"><button data-close="artbox" aria-label="拡大画像を閉じる">閉じる ×</button><img id="full-art-img" alt=""><p id="full-art-caption"></p></dialog><div class="toast" role="status" aria-live="polite"></div><script type="application/json" id="guide-data">{encoded}</script><script>{js}</script></body></html>'''
+    return f'''<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex,nofollow,noarchive"><meta name="referrer" content="no-referrer"><meta name="theme-color" content="#07131e"><meta name="description" content="{H(meta.get('subtitle',''))}"><title>{H(meta['title'])}</title><style>{css}</style></head><body data-theme="{theme}"{layout_attr} data-reading-flow="{reading_flow}" style="--hero-position:{hero_position}"><div class="app"><div class="progress" aria-hidden="true"></div><header class="topbar"><a class="wordmark" href="#home"><span>{H(meta.get('wordmark', 'STORY'))}<small>{H(meta.get('regions', 'FIELDGUIDE'))}</small></span></a>{map_shortcut}<button class="circle" data-open="menu" aria-label="メニューを開く">☰</button></header><noscript><p class="no-script">本文と絵は読めます。画面切替・チェック・保存にはJavaScriptが動くブラウザをご利用ください。</p></noscript><main>{home}{story}{chapters}{route}</main><nav class="bottom-nav" aria-label="メインナビゲーション">{nav}</nav></div><dialog class="dialog" id="sheet" aria-labelledby="sheet-title"><div class="dialog-head" data-drag><span class="drag-handle"></span><span class="dialog-title" id="sheet-title"></span><button class="close" data-close="sheet" aria-label="閉じる">×</button></div><div id="sheet-content"></div></dialog><dialog class="full-art" id="artbox" aria-label="挿絵の拡大表示"><button data-close="artbox" aria-label="拡大画像を閉じる">閉じる ×</button><img id="full-art-img" alt=""><p id="full-art-caption"></p></dialog><div class="toast" role="status" aria-live="polite"></div><script type="application/json" id="guide-data">{encoded}</script><script>{js}</script></body></html>'''
 
 
 def main():

@@ -51,26 +51,29 @@ def check(specs, out, executable=None, html_file=None, assets_root=None, widths=
                         page.wait_for_function('window.__pilgrimage && document.documentElement.classList.contains("checklists-ready")')
                         payload = page.locator('#guide-data').text_content()
                         data = json.loads(payload)
+                        integrated = data.get('readingFlow') == 'journey'
                         assert page.evaluate('document.documentElement.scrollWidth <= innerWidth+1')
                         assert len(data['stages']) == len(json.loads(spec.read_text())['stages'])
                         if page.locator('#journey-map').count():
                             assert page.locator('.topbar .map-shortcut').is_visible()
-                            assert '地図・旅程' in page.locator('.bottom-nav a[href="#route"]').inner_text()
+                            assert ('見取り図' if integrated else '地図・旅程') in page.locator('.bottom-nav a[href="#route"]').inner_text()
                         mission = data['missions'][0]
                         stage = data['stages'][0]
                         total = len(data['missions'])
                         local_total = sum(m['stage'] == stage['id'] for m in data['missions'])
-                        home_input = page.locator('#home [data-mission]').first
+                        home_input = page.locator('[data-mission-scope="all"] [data-mission]').first
                         home_input.locator('..').locator('..').tap()
-                        assert page.locator('#home [data-mission-count]').inner_text() == f'旅全体 1 / {total} 完了'
+                        assert page.locator('[data-mission-scope="all"] [data-mission-count]').inner_text() == f'旅全体 1 / {total} 完了'
                         page.locator(f'.bottom-nav a[href="#{stage["id"]}"]').tap()
+                        if integrated:
+                            page.locator(f'#{stage["id"]} .visit-checklist summary').tap()
                         assert page.locator(f'#{stage["id"]} [data-mission-count]').inner_text() == f'{stage["label"]} 1 / {local_total} 完了'
                         assert page.locator(f'#{stage["id"]} [data-mission]').first.is_checked()
                         page.locator(f'[data-bookmark="{stage["id"]}"]').tap()
                         page.locator('.bottom-nav a[href="#home"]').tap()
                         page.reload(wait_until='load')
                         page.wait_for_function('window.__pilgrimage')
-                        assert page.locator('#home [data-mission-count]').inner_text() == f'旅全体 1 / {total} 完了'
+                        assert page.locator('[data-mission-scope="all"] [data-mission-count]').inner_text() == f'旅全体 1 / {total} 完了'
                         assert page.locator(f'[data-bookmark="{stage["id"]}"]').get_attribute('aria-pressed') == 'true'
                         # Nonnumeric story IDs and endpoints must navigate by array position.
                         page.locator('#home [data-episode]').first.tap()
@@ -93,13 +96,18 @@ def check(specs, out, executable=None, html_file=None, assets_root=None, widths=
                                 page.keyboard.press('Escape')
                                 break
                         # A short rail can fit entirely at a wider viewport.
-                        overflow = page.eval_on_selector('#home-episodes', 'e=>e.scrollWidth > e.clientWidth+1')
+                        overflow = page.eval_on_selector('#home-episodes', 'e=>e.scrollWidth > e.clientWidth+1') if page.locator('#home-episodes').count() else False
                         if len(data['episodes']) > 1 and overflow:
                             page.locator('[data-rail="home-episodes"] button').last.tap()
                             page.wait_for_function('document.querySelector("#home-episodes").scrollLeft > 0')
                         for destination in data['stages']:
                             page.locator(f'.bottom-nav a[href="#{destination["id"]}"]').tap()
-                            page.wait_for_function('(id) => document.querySelector("#"+id+".active") && scrollY===0', arg=destination['id'])
+                            if integrated:
+                                page.wait_for_function('(id)=>Math.abs(document.getElementById(id).getBoundingClientRect().top-18)<3', arg=destination['id'])
+                                assert page.locator('main .view').count() == 1
+                                assert page.locator('.journey-visit').count() == len(data['stages'])
+                            else:
+                                page.wait_for_function('(id) => document.querySelector("#"+id+".active") && scrollY===0', arg=destination['id'])
                             assert page.evaluate('document.documentElement.scrollWidth <= innerWidth+1')
                             page.locator(f'#{destination["id"]} [data-scene]').first.tap()
                             assert page.locator('#sheet .dialog-image').get_attribute('src').startswith('data:image/')
@@ -109,22 +117,31 @@ def check(specs, out, executable=None, html_file=None, assets_root=None, widths=
                             page.wait_for_function('document.querySelector("#journey-map").dataset.mapReady==="true"')
                             bounds = page.locator('#journey-map').bounding_box()
                             assert bounds and 0 <= bounds['y'] and bounds['y'] + bounds['height'] <= 824, bounds
-                            page.locator('[data-map-view="all"]').tap()
-                            map_data = json.loads(page.locator('#route-map-data').text_content())
-                            assert page.locator('.route-pin').count() == len(map_data['stops'])
-                            page.locator('[data-map-view="day"]').tap()
-                        tabs = page.locator('[data-day]')
-                        tabs.last.tap()
-                        last = tabs.last.get_attribute('data-day')
-                        assert page.locator(f'[data-day-panel="{last}"]').is_visible()
-                        tabs.last.press('Home')
-                        first = tabs.first.get_attribute('data-day')
-                        assert page.locator(f'[data-day-panel="{first}"]').is_visible()
-                        if page.locator('#journey-map').count():
-                            page.wait_for_function('(id)=>document.querySelector("[data-map-caption]").textContent.startsWith("DAY "+id)', arg=first)
-                            page.locator('.map-stop [data-map-stop]').first.tap()
-                            assert page.locator('.leaflet-popup').is_visible()
-                            assert 'https://www.google.com/maps/' in page.locator('.map-popup a').last.get_attribute('href')
+                            if integrated:
+                                assert page.locator('#journey-map .route-pin').count() == len(json.loads(page.locator('#route-map-data').text_content())['stops'])
+                                page.locator(f'.bottom-nav a[href="#{stage["id"]}"]').tap()
+                                page.locator(f'#{stage["id"]} .local-map-details summary').tap()
+                                page.wait_for_function('document.querySelector("[data-local-map]").dataset.mapReady==="true"')
+                                assert page.locator('.journey-visit').last.is_visible()
+                                page.locator(f'#{stage["id"]} .local-map-details summary').tap()
+                            else:
+                                page.locator('[data-map-view="all"]').tap()
+                                map_data = json.loads(page.locator('#route-map-data').text_content())
+                                assert page.locator('.route-pin').count() == len(map_data['stops'])
+                                page.locator('[data-map-view="day"]').tap()
+                        if not integrated:
+                            tabs = page.locator('[data-day]')
+                            tabs.last.tap()
+                            last = tabs.last.get_attribute('data-day')
+                            assert page.locator(f'[data-day-panel="{last}"]').is_visible()
+                            tabs.last.press('Home')
+                            first = tabs.first.get_attribute('data-day')
+                            assert page.locator(f'[data-day-panel="{first}"]').is_visible()
+                            if page.locator('#journey-map').count():
+                                page.wait_for_function('(id)=>document.querySelector("[data-map-caption]").textContent.startsWith("DAY "+id)', arg=first)
+                                page.locator('.map-stop [data-map-stop]').first.tap()
+                                assert page.locator('.leaflet-popup').is_visible()
+                                assert 'https://www.google.com/maps/' in page.locator('.map-popup a').last.get_attribute('href')
                         page.locator('[data-action="motion"]').tap()
                         assert page.locator('body').get_attribute('data-motion') == 'off'
                         with page.expect_download() as saved:
@@ -146,7 +163,10 @@ def check(specs, out, executable=None, html_file=None, assets_root=None, widths=
                             page.wait_for_function('window.__pilgrimage && scrollY===0')
                             page.screenshot(path=str(out / (spec.stem+'-cover.png')))
                             page.locator(f'.bottom-nav a[href="#{stage["id"]}"]').tap()
-                            page.wait_for_function('(id)=>document.querySelector("#"+id+".active")&&scrollY===0', arg=stage['id'])
+                            if integrated:
+                                page.wait_for_function('(id)=>Math.abs(document.getElementById(id).getBoundingClientRect().top-18)<3', arg=stage['id'])
+                            else:
+                                page.wait_for_function('(id)=>document.querySelector("#"+id+".active")&&scrollY===0', arg=stage['id'])
                             page.screenshot(path=str(out / (spec.stem+'-destination.png')))
                             page.locator(f'#{stage["id"]} [data-scene]').first.tap()
                             page.screenshot(path=str(out / (spec.stem+'-detail.png')))
@@ -159,19 +179,19 @@ def check(specs, out, executable=None, html_file=None, assets_root=None, widths=
                     page = context.new_page()
                     page.goto(url)
                     page.wait_for_function('window.__pilgrimage')
-                    page.locator('#home [data-mission]').first.check()
-                    assert '1 /' in page.locator('#home [data-mission-count]').inner_text()
-                    assert '再読み込み後の保存ができません' in page.locator('#home [data-mission-storage]').inner_text()
+                    page.locator('[data-mission-scope="all"] [data-mission]').first.check()
+                    assert '1 /' in page.locator('[data-mission-scope="all"] [data-mission-count]').inner_text()
+                    assert '再読み込み後の保存ができません' in page.locator('[data-mission-scope="all"] [data-mission-storage]').inner_text()
                     context.close()
                 # Guides on the same origin must not inherit each other's progress.
                 if len(specs) > 1:
                     context = browser.new_context()
                     page = context.new_page()
                     page.goto(f'http://127.0.0.1:{server.server_port}/{specs[0].stem}.html')
-                    page.locator('#home [data-mission]').first.check()
+                    page.locator('[data-mission-scope="all"] [data-mission]').first.check()
                     page.goto(f'http://127.0.0.1:{server.server_port}/{specs[1].stem}.html')
                     page.wait_for_function('window.__pilgrimage')
-                    assert not page.locator('#home [data-mission]').first.is_checked()
+                    assert not page.locator('[data-mission-scope="all"] [data-mission]').first.is_checked()
                     context.close()
                 browser.close()
         finally:

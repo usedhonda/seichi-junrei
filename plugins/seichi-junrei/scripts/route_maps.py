@@ -6,7 +6,7 @@ import re
 from urllib.parse import urlencode
 
 
-def prepare(data, days):
+def prepare(data, days, integrated=False):
     config = data.get('route_map')
     if not config:
         return '', ''
@@ -42,12 +42,17 @@ def prepare(data, days):
     for index, stop in enumerate(stops):
         point = str(stop['lat'])+','+str(stop['lon'])
         clean_stops.append({**{k: stop[k] for k in ['id','label','lat','lon']},
-                            'number': index+1, 'stage': 'stage-'+stop['stage_id'] if stop.get('stage_id') else '',
+                            'number': index+1, 'stage': ('stop-'+stop['id'] if integrated else 'stage-'+stop['stage_id']) if stop.get('stage_id') else '',
                             'note': stop.get('note',''),
                             'url': 'https://www.google.com/maps/search/?'+urlencode({'api':1,'query':point})})
     payload = {'stops': clean_stops, 'days': ordered_days}
     encoded = json.dumps(payload, ensure_ascii=False).replace('<','\\u003c').replace('>','\\u003e').replace('&','\\u0026')
     content = '''<section class="route-map-section" aria-labelledby="route-map-title"><div class="route-map-heading"><div><span class="kicker">PLACES & MOVEMENT</span><h2 id="route-map-title">この日の、場所と道のり。</h2></div><div class="map-view-switch" role="group" aria-label="地図の範囲"><button data-map-view="day" aria-pressed="true">この日</button><button data-map-view="all" aria-pressed="false">全体</button></div></div><p class="map-caption" data-map-caption></p><div id="journey-map" class="journey-map" role="region" aria-label="巡礼スポットの地図"></div><p class="map-status" data-map-status role="status">背景地図は通信時に表示します。保存版でも地点と訪問順は確認できます。</p><div class="map-stop-list" data-map-stops></div><p class="map-note">点線は訪問順です。道路や鉄道路線、実際の経路を表していません。地図の点は施設・街の代表位置で、入口や席の指定ではありません。</p></section>'''
+    if integrated:
+        start=content.index('<div class="map-view-switch"')
+        end=content.index('</div>',start)+6
+        content=content[:start]+content[end:]
+        content=content.replace('<div class="map-stop-list" data-map-stops></div>','').replace('この日の、場所と道のり。','今日の見取り図。')
     return content, '<script type="application/json" id="route-map-data">'+encoded+'</script>'
 
 

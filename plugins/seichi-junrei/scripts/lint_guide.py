@@ -27,7 +27,7 @@ def lint(html_text, guide=None):
     issues=[]
     parser=Inspector()
     parser.feed(html_text)
-    for key in ('name="viewport"', '<meta name="robots"', 'STORY PILGRIMAGE', 'home-episodes', 'data-bookmark', 'data-scene', 'data-day-panel', 'data-mission'):
+    for key in ('name="viewport"', '<meta name="robots"', 'STORY PILGRIMAGE', 'data-episode', 'data-bookmark', 'data-scene', 'data-day-panel', 'data-mission'):
         if key not in html_text: issues.append("Missing content: "+key)
     if not parser.images: issues.append('No images')
     for i in parser.images:

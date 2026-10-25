@@ -58,3 +58,7 @@ The renderer never consults `site/` or a sibling repository. Plugin installation
 ```
 
 `stops` needs 1–30 uniquely identified public locations, finite latitude -85..85 and longitude -180..180. `stage_id` is an optional existing stage ID. Keep coordinate sources and map-data attribution in `sources`. Use no private lodging or real-time personal location. Each `itinerary` day supplies ordered `map_stop_ids`; optional `map_mode` is `walking`, `transit` or `driving` when the mode is actually intended. Mixed-mode days may omit it. `events[].map_stop_id` must belong to that day's stops. Unmapped rest/transfer events remain readable. These coordinates support a map, not automatic travel-time verification. Earlier guides without the map contract keep their original output.
+
+## Integrated one-day casebook
+
+`meta.reading_flow="journey"` currently requires `meta.layout="casefile"` and one itinerary day. The default `sections` preserves the earlier view structure. Each main stage must be referenced exactly once by an event's `stage_id`, alongside a matching `map_stop_id`; repeated observations at that stop remain compact chronological entries. An optional detour uses `related_highlight_id`, matching a stable `highlights[].id` marked `kind="related"`. Transfers use `kind="transfer"` and optional `travelmode` (`walking`, `transit`, `driving`) for external directions. The itinerary is the ordering source; do not maintain another independent copy of the day. Places, scenes, missions, rights and coordinate sources retain their existing IDs/contracts.

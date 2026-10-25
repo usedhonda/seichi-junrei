@@ -18,6 +18,14 @@ The bundled layouts are concrete starting points: `immersive` is JoJo's image-le
 
 Inspect covers, chapter openings, story entries, dialogs and itinerary together. Check the composition below the fold, not just the first image. Keep faces and source labels readable, and avoid repeating one illustration several times in the same chapter solely to fill a template.
 
+## Design the reading journey before adding features
+
+Choose the primary reading sequence before generating sections. A pilgrimage booklet should connect the scene to what the traveler sees, where it is, when they visit, and how they reach the next stop. Separating these into story/place/timetable/map screens makes the reader reconstruct the trip. A labelled map shortcut alone does not solve that structural problem. Start with cover -> trip orientation -> geographic overview -> the day/area in travel order. Keep scene and spoiler/source details available at their place. Do not duplicate the complete story/place content in separate primary views.
+
+Implement one complete representative day before propagating a new structure. Check the actual journey: cover -> map -> scene/place -> onsite observations -> next leg, without losing the reading position. Keep the work-specific art direction. Treat transfer-only days honestly; do not fill them with invented stops or times.
+
+`meta.reading_flow="journey"` currently implements this for a **single-day casebook** (the Conan sample). It joins the itinerary events with existing stage/story data through `events[].stage_id`, with inline local maps and optional detail. The other layouts keep their existing section-based structure. Multi-day journey composition needs deliberate design and implementation; do not claim it is already supported or force the one-day casebook onto another work.
+
 ## Build from real data
 
 Copy `examples/egypt_guide.json` or `examples/oxford_alice_guide.json` to a writable trip workspace as a structural starting point. Replace their content, images, sources, consent record and identity. Never inherit sample user selection as real approval.

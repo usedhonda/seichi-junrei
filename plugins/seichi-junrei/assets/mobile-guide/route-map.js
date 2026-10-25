@@ -23,13 +23,13 @@ function create(){
  }
 }
 function draw(force=false){
- if(!document.querySelector('#route.active'))return;
+ if(!root.getClientRects().length)return;
  create();const selected=day(),signature=selected.id+':'+view;
  map.invalidateSize({pan:false});if(currentDay===signature&&!force)return;currentDay=signature;
  const pts=points();layer.clearLayers();markers.clear();
  document.querySelectorAll('[data-map-view]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.mapView===view)));
  document.querySelector('[data-map-caption]').textContent=view==='all'?'旅全体の位置関係':(selected.label==='DAY '+selected.id?selected.label:'DAY '+selected.id+' / '+selected.label);
- document.querySelector('[data-map-stops]').innerHTML=pts.map((s,i)=>{
+ const list=document.querySelector('[data-map-stops]');if(list)list.innerHTML=pts.map((s,i)=>{
   const next=pts[i+1];return '<article class="map-stop"><button data-map-stop="'+esc(s.id)+'" aria-label="'+esc(s.label)+'を地図で選ぶ"><b>'+s.number+'</b><span>'+esc(s.label)+'</span></button><div><a href="'+esc(s.url)+'" target="_blank" rel="noopener noreferrer">地図で開く ↗</a>'+(next?'<a class="directions-link" href="'+esc(direction(s,next,view==='day'?selected.mode:''))+'" target="_blank" rel="noopener noreferrer">'+next.number+'への経路 ↗</a>':'')+'</div></article>';
  }).join('');
  for(const s of pts){

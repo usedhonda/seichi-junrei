@@ -32,7 +32,8 @@
     "checked_note": "作品公式、店舗・地元団体、2019年の訪問記を2026年10月25日に確認。支店や食事場面の対応は訪問者の記録に基づき、本編全編との直接照合は未完了です。制作側が個々の店舗を認定したという案内ではありません。",
     "itinerary_note": "個人予約のない1日モデル。徒歩・MRT・待ち時間は編集上の概算で、実際の経路検索値ではありません。ロング・バーは予約不可の当日来店制。訪問日の営業、待ち時間、交通を確認し、入店できなければ回廊から外観を楽しむルートへ。",
     "closing": "名探偵のように、街を急がず観察する。いつもの朝食が、物語の入口になる。",
-    "layout": "casefile"
+    "layout": "casefile",
+    "reading_flow": "journey"
   },
   "selection": {
     "primary_work_id": "conan-fist-2019",
@@ -139,7 +140,9 @@
           "title": "寄り道：Smith Streetの壁画",
           "description": "地元団体が案内するコナンの壁画。映画の中の舞台ではなく、作品に関連した街のアートとして楽しむ。",
           "source_url": "https://chinatown.sg/visit/detective-conan-in-chinatown/",
-          "map_url": "https://www.google.com/maps/search/?api=1&query=Detective+Conan+Mural+Smith+Street+Singapore"
+          "map_url": "https://www.google.com/maps/search/?api=1&query=Detective+Conan+Mural+Smith+Street+Singapore",
+          "id": "smith-mural",
+          "kind": "related"
         }
       ],
       "missions": [
@@ -387,7 +390,8 @@
           "time": "09:00",
           "title": "China Streetで朝食",
           "description": "50分。店名と住所を確認し、注文してから街の手がかりを探す。",
-          "map_stop_id": "breakfast"
+          "map_stop_id": "breakfast",
+          "stage_id": "china-street"
         },
         {
           "time": "10:00",
@@ -399,18 +403,22 @@
           "time": "10:20",
           "title": "Smith Streetへ寄り道",
           "description": "徒歩と見学を概算40分。コナン壁画は映画内の舞台と区別して楽しむ任意の寄り道。",
-          "map_stop_id": "mural"
+          "map_stop_id": "mural",
+          "related_highlight_id": "smith-mural"
         },
         {
           "time": "11:00",
           "title": "Maxwellへ移動",
-          "description": "徒歩・信号待ちを概算20分。暑ければ途中で休む。"
+          "description": "徒歩・信号待ちを概算20分。暑ければ途中で休む。",
+          "kind": "transfer",
+          "travelmode": "walking"
         },
         {
           "time": "11:30",
           "title": "昼食と場面の振り返り",
           "description": "食事60分。営業中の屋台から各自が選び、席を長く占有しない。",
-          "map_stop_id": "maxwell"
+          "map_stop_id": "maxwell",
+          "stage_id": "maxwell"
         },
         {
           "time": "12:30",
@@ -420,13 +428,16 @@
         {
           "time": "13:00",
           "title": "ラッフルズへ移動",
-          "description": "MRT等と徒歩・駅構内・休憩を概算60分。出発時に地図で実経路を確認。"
+          "description": "MRT等と徒歩・駅構内・休憩を概算60分。出発時に地図で実経路を確認。",
+          "kind": "transfer",
+          "travelmode": "transit"
         },
         {
           "time": "14:00",
           "title": "Raffles Arcadeの入口を探す",
           "description": "観察と入店待ちに最大60分。店の案内を優先。長い列なら入店を省く。",
-          "map_stop_id": "long-bar"
+          "map_stop_id": "long-bar",
+          "stage_id": "long-bar"
         },
         {
           "time": "15:00",

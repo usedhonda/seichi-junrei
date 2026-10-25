@@ -2,6 +2,12 @@
 
 このプロジェクトは開発初期段階のSkillです。明確なリリースタグを作成したときに、ここへ変更履歴を追記します。
 
+## 0.5.0 — 2026-10-25
+
+- Rebuilt Conan as one chronological day: orientation and overview map lead into the actual timed visits, story context, onsite observations, optional mural, rest and next-leg directions.
+- Removed separate Conan story/place/itinerary screens; local maps and source notes open at their stops. Existing progress/bookmark IDs are preserved.
+- Added a one-day casebook reading-flow contract and browser checks for continuous reading and inline maps. Other guides retain their current compositions; multi-day integration is not yet implemented.
+
 ## 0.4.3 — 2026-10-25
 
 - Made maps visible from every guide's cover with a persistent labelled shortcut and an explicit Map/Itinerary navigation label.

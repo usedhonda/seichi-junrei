@@ -100,4 +100,19 @@ class MobileContracts(unittest.TestCase):
         spec['stages'][0]['highlights'][0]['map_url'] = 'javascript:alert(1)'
         with self.assertRaises(ValueError): render(spec, ROOT)
 
+    def test_integrated_day_preserves_one_reading_flow(self):
+        spec=json.loads((ROOT/'examples/conan_singapore_guide.json').read_text())
+        source=render(spec,ROOT)
+        parser=GuideParser();parser.feed(source)
+        self.assertEqual(source.count('class="view active"'),1)
+        self.assertNotIn('class="view" id="story"',source)
+        self.assertNotIn('class="view" id="route"',source)
+        ids=['stage-'+s['id'] for s in spec['stages']]
+        self.assertEqual([parser.ids.count(i) for i in ids],[1]*len(ids))
+        self.assertEqual([parser.ids.index(i) for i in ids],sorted(parser.ids.index(i) for i in ids))
+        self.assertIn('data-local-map="breakfast"',source)
+        self.assertIn('travelmode=walking',source)
+        del spec['itinerary'][0]['events'][4]['stage_id']
+        with self.assertRaisesRegex(ValueError,'exactly once'):render(spec,ROOT)
+
 if __name__ == '__main__': unittest.main()
