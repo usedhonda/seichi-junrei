@@ -6,7 +6,13 @@
 [![MIT License](https://img.shields.io/badge/code%20license-MIT-blue.svg)](LICENSE)
 [![Skill](https://img.shields.io/badge/Agent-Skill-8b5cf6.svg)](SKILL.md)
 
-![スマホガイドのサンプル](docs/preview-mobile.svg)
+**[スマホでサンプルを体験する →](https://usedhonda.github.io/seichi-junrei/)**
+
+実際のエジプト旅行で使った「STARDUST ON THE NILE」を公開サンプルにしました。承太郎・イギー・オインゴとボインゴたちのファンアートと一緒に、物語と現地をめぐるしおりです。場面カードを開く、挿絵を拡大する、ミッションにチェックする操作を試せます。
+
+[![実際に操作できる旅のしおり](docs/stardust-sample.png)](https://usedhonda.github.io/seichi-junrei/)
+
+個人の旅行日・便名・予約時刻を除いたモデルルートです。非公式ファンアートを含みます。ページの保存ボタンで画像入りHTMLを持ち歩けます。
 
 > **「今度の旅、勝手に聖地巡礼にして。」**
 >
@@ -66,9 +72,9 @@ git clone https://github.com/usedhonda/seichi-junrei.git ~/.agents/skills/seichi
 
 | 候補を選ぶ | 旅先で読む |
 | --- | --- |
-| ![作品候補を選ぶ画面](docs/choose-work.png) | ![旅ガイドの画面](docs/preview-mobile.svg) |
+| ![作品候補を選ぶ画面](docs/choose-work.png) | [![旅ガイドの実画面](docs/stardust-sample.png)](https://usedhonda.github.io/seichi-junrei/) |
 
-**[サンプルのHTML](plugins/seichi-junrei/examples/sample-guide.html)** はジョジョ第3部とアスワン・アブ・シンベルを題材にした*説明用デモ*です。公式作品ではありません。デモの日付・内容は実際の旅行の予約情報ではありません。
+**[公開サンプルを開く](https://usedhonda.github.io/seichi-junrei/)** · **[編集可能なソース](site/)**。ジョジョ第3部とアスワン・アブ・シンベルを題材に、キャラ絵7点と情景画2点を収録。チェックリストは各地3件・旅全体6件で、同じ項目を別画面で操作しても同期します。以前の汎用レンダラーによる[説明用HTML](plugins/seichi-junrei/examples/sample-guide.html)も残しています。
 
 ### 会話の例
 

@@ -5,7 +5,7 @@ import sys
 import zipfile
 from pathlib import Path, PurePosixPath
 
-EXPECTED = '027a03180a651e16753752fb165ef62210ecb426d3317eaea041f80447b044b1'
+EXPECTED = '9d609a4a90871f2e7e395ce5d8c504fd740851edb1f6123ebd992f3922245513'
 ASSETS = ('abu', 'anubis', 'aswan', 'boingo', 'brothers', 'hero', 'iggy', 'ndoul', 'tobacco')
 ALLOWED = {'site/'+name for name in ('README.md', 'app.css', 'app.js', 'build.py', 'content.json', 'media.json')}
 ALLOWED.update('site/assets/'+name+'.webp' for name in ASSETS)

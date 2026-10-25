@@ -2,10 +2,14 @@
 
 This repository uses GitHub as the source of truth. Sites and Google Drive are not deployment dependencies.
 
+## Published sample and recovery
+
+The public guide is at https://usedhonda.github.io/seichi-junrei/. The original expired ZIP was rebuilt from the checklist-corrected HTML attachment; original illustration bytes and layout were preserved. Private travel reservations were replaced by an illustrative Day 1 / Day 2 route. Tracked `site/` is now the editable source.
+
 ## Initial setup (once)
 
 1. Repository Settings → Pages → Build and deployment → Source: **GitHub Actions**.
-2. Upload the prepared **stardust-pages-source.zip** (about 1.2 MB) to the repository root on `main`, without renaming or unpacking it. The reviewed archive's SHA-256 is `027a03180a651e16753752fb165ef62210ecb426d3317eaea041f80447b044b1`.
+2. Upload the prepared **stardust-pages-source.zip** (about 1 MB) to the repository root on `main`, without renaming or unpacking it. The reviewed archive's SHA-256 is `9d609a4a90871f2e7e395ce5d8c504fd740851edb1f6123ebd992f3922245513`.
 3. Watch **Actions → Mobile guide · GitHub Pages**. The workflow imports the 15 reviewed files into `site/`, removes the one-time ZIP from the current tree, builds the guide, tests it and deploys. The verified URL is recorded by the deployment job and shown under Settings → Pages. Do not announce a live URL until that deployment succeeds.
 
 If source is not uploaded yet, the workflow prints a setup message and **skips** building and publishing. A successful prepare job is NOT a live-site confirmation.

@@ -1,0 +1,38 @@
+{
+  "hero": {
+    "path": "assets/hero.webp",
+    "mime": "image/webp"
+  },
+  "iggy": {
+    "path": "assets/iggy.webp",
+    "mime": "image/webp"
+  },
+  "ndoul": {
+    "path": "assets/ndoul.webp",
+    "mime": "image/webp"
+  },
+  "brothers": {
+    "path": "assets/brothers.webp",
+    "mime": "image/webp"
+  },
+  "anubis": {
+    "path": "assets/anubis.webp",
+    "mime": "image/webp"
+  },
+  "aswan": {
+    "path": "assets/aswan.webp",
+    "mime": "image/webp"
+  },
+  "abu": {
+    "path": "assets/abu.webp",
+    "mime": "image/webp"
+  },
+  "boingo": {
+    "path": "assets/boingo.webp",
+    "mime": "image/webp"
+  },
+  "tobacco": {
+    "path": "assets/tobacco.webp",
+    "mime": "image/webp"
+  }
+}
