@@ -2,6 +2,13 @@
 
 このプロジェクトは開発初期段階のSkillです。明確なリリースタグを作成したときに、ここへ変更履歴を追記します。
 
+## 0.3.3 — 2026-10-25
+
+- Added scene-level discovery research: distinguish familiar works from famous landmarks and investigate specific branches, corners and visual clues.
+- Separate story evidence, physical identification and current access; preserve originating speculation and inspect images rather than trusting captions.
+- Added a sourced Conan/Singapore research case with observed image-caption mismatches, an unresolved street and a related mural, explicitly distinguished from a completed guide or independent skill evaluation.
+- Kept the renderer, existing sample guides and ranking API unchanged.
+
 ## 0.3.2 — 2026-10-25
 
 - Added a researched London example for the K-On! anime film, with newly generated, labelled unofficial fan art.

@@ -2,7 +2,7 @@
 
 ## Candidate ballot
 
-Prepare 3–5 alternatives spanning relevant media; user picks **one primary** and optionally two secondary works. Do **not** generate the final HTML until selection. If no credible local connection exists, suggest the closest honest cultural theme rather than inventing a pilgrimage.
+Prepare 3–5 alternatives spanning relevant media; user picks **one primary** and optionally two secondary works. Do **not** generate the final HTML until selection. If no credible local connection exists, report the shortage. A cultural theme can be offered separately, but must not silently replace a requested pilgrimage.
 
 For each candidate: title, medium, why the destination matters, memorable scene/sequence, exact place(s), which kinds of place relations are substantiated, practical feasibility, a 1-line caveat, 1–3 URLs to primary/reliable sources, and estimated value. Some trips legitimately have only 1–2 evidenced candidates; explain the shortage instead of padding with invented choices.
 
@@ -15,6 +15,10 @@ For each candidate: title, medium, why the destination matters, memorable scene/
 - **E — unverified fandom speculation:** normally exclude. If included as culture, clearly flag uncertainty.
 
 Rank works by source support (max 35), trip accessibility (max 30), memorable story beats (max 20), appeal for companions (max 15). Add only grounded values; score is advisory; user preference overrides ranking. `scripts/rank_candidates.py` implements this transparently and may flag E or source-less items.
+
+This score is not a scene-match detector. When the user wants discoveries, compare the *particular places* each work unlocks, not just the work's popularity or the city's best-known landmarks. A landmark may orient a route, while a less obvious branch, corner or view provides the reason for a fan to visit. Do not require obscurity when the user wants familiar sightseeing, and do not promote a weak match because it sounds obscure.
+
+Read `scene-research.md` before proposing those places as verified stops. That process separates discovery leads, scene-level evidence, physical identification and current access. The worked case in `../examples/conan_singapore_research.md` includes a plausible branch, an explicitly speculative street and misleading image captions; it is research evidence, not an approved trip or completed guide.
 
 ## Research after selection
 
