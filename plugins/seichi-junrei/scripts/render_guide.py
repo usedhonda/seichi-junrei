@@ -171,7 +171,7 @@ def render(data, root):
     media = Media(data, Path(root))
     runtime_root = Path(__file__).resolve().parents[1] / 'assets/mobile-guide'
     theme = meta.get('theme', 'night-gold')
-    if theme not in ('night-gold', 'pop-postcard'):
+    if theme not in ('night-gold', 'pop-postcard', 'casebook', 'ink-copper'):
         raise ValueError('Unknown mobile theme: '+str(theme))
     css = (runtime_root / 'guide.css').read_text(encoding='utf-8')
     js = (runtime_root / 'guide.js').read_text(encoding='utf-8')

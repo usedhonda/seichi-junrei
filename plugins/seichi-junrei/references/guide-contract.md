@@ -37,7 +37,7 @@ Do not treat the sample's already-selected test fixture as a real user's current
 - `meta.title_lines`: title lines for a portrait cover; `wordmark`, `cover_line`, `hero_position` (`"40% 50%"`) control the composition. Optional `introduction` is a list of paragraphs.
 - `meta.character_art_required`: true when character-led art was requested. Cover, episode and scene images then require nonempty `media_rights[].characters`; rendered pixels still need inspection.
 - `meta.public_url`: optional verified public HTTPS URL. Leave absent for a local companion guide. No sample URL is built into the runtime.
-- `meta.theme`: `night-gold` (default) or `pop-postcard`. Unknown values are rejected. `meta.art_label` is an optional escaped cover credit, for example `AI FAN ART · 非公式`.
+- `meta.theme`: `night-gold` (default), `pop-postcard`, `casebook`, or `ink-copper`. Unknown values are rejected. `meta.art_label` is an optional escaped cover credit, for example `AI FAN ART · 非公式`.
 - `meta.art_note`, `checked_note`, `itinerary_note`, `closing`: accurate reader-facing notes. Dummy itinerary data must be labelled as illustrative.
 - `works[].episodes[].id`: unique story-beat ID across works, including named IDs for films/books. `number` is a display label; navigation does not assume numeric or consecutive episodes. Add `name`, `place`, `tag`, `body` (paragraph list), `spoiler` (optional text) and `note` for rich reading. Every story card needs its own relevant `image` and `source_url`.
 - `stages[].name`: localized navigation label; `location` is the large chapter title. `paragraphs` supplies scene/place prose. Keep `connections` as explicit classifications with sources.

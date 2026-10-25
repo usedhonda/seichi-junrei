@@ -1,0 +1,301 @@
+{
+  "meta": {
+    "id": "conan-singapore-public",
+    "title": "SINGAPORE, ONE CLUE AT A TIME",
+    "title_lines": [
+      "SINGAPORE,",
+      "ONE CLUE",
+      "AT A TIME."
+    ],
+    "title_small_lines": [
+      0
+    ],
+    "wordmark": "THE FIELD FILE",
+    "kicker": "DETECTIVE CONAN · SINGAPORE",
+    "subtitle": "あの朝食と、あの二人。小さな手がかりを探す。",
+    "cover_line": "小さな手がかりが、\n旅を変える。",
+    "dates": "HALF DAY / PUBLIC MODEL",
+    "regions": "CHINA STREET → CHINATOWN → MAXWELL",
+    "hero_image": "assets/conan-singapore/cover.webp",
+    "hero_position": "50% 50%",
+    "theme": "casebook",
+    "character_art_required": true,
+    "public_url": "https://usedhonda.github.io/seichi-junrei/conan/",
+    "art_label": "AI FAN ART · 非公式",
+    "introduction": [
+      "大きなホテルを遠くから眺める旅から、一歩だけ路地へ。劇場版『名探偵コナン 紺青の拳』の朝食と昼食を入口に、同じチェーンの「どの支店か」、何気ない屋根やテラスの形を探す半日です。",
+      "映画をご存じの仲間には場面の記憶を、初めての仲間には朝食と街歩きの楽しみを。本文は現地訪問者の照合情報と店舗の公式情報を分け、確認できていない席や通りを確定地点として案内しません。"
+    ],
+    "story_intro": "2019年の劇場版、舞台はシンガポール。怪盗キッドに連れられたコナンは、現地の少年アーサー・ヒライとして行動します。ここでは映画の全事件を追わず、二つの食事の場面を旅の順に振り返ります。カードの01・02は編集上の番号で、TV版の話数ではありません。",
+    "art_note": "挿絵はAI（ImageGen）で新しく制作した非公式ファンアートです。人物を描く創作構図で、公式アニメ画像や現地写真ではありません。店の座席、窓からの眺め、道路の正確な形の証拠には使わず、実際の位置は地図と現地案内を確認してください。",
+    "checked_note": "作品公式、店舗・地元団体、2019年の訪問記を2026年10月25日に確認。支店や食事場面の対応は訪問者の記録に基づき、本編全編との直接照合は未完了です。制作側が個々の店舗を認定したという案内ではありません。",
+    "itinerary_note": "私的予約を含まない半日のモデルです。徒歩・滞在時間は編集上の概算で、実測や当日の経路検索結果ではありません。雨、暑さ、混雑、店舗やホーカーの休業に合わせて順序を調整してください。",
+    "closing": "名探偵のように、街を急がず観察する。いつもの朝食が、物語の入口になる。"
+  },
+  "selection": {
+    "primary_work_id": "conan-fist-2019",
+    "secondary_work_ids": [],
+    "user_confirmed": true
+  },
+  "works": [
+    {
+      "id": "conan-fist-2019",
+      "title": "名探偵コナン 紺青の拳（2019年・劇場版）",
+      "medium": "anime_film",
+      "episodes": [
+        {
+          "id": "breakfast",
+          "number": "01",
+          "name": "新一に見える、その隣で。",
+          "title": "新一に見える、その隣で。",
+          "summary": "蘭と新一に変装したキッドの朝食。アーサーを名乗るコナンも、同じ街にいます。",
+          "body": [
+            "いつもの新一に見えて、そこにいるのは怪盗キッド。正体を知る観客と、知らない登場人物の間の距離を思い出すと、何気ない朝食にも別の楽しさが生まれます。",
+            "現地の訪問記はこの朝食をヤクンのFar East Square店に結びつけています。ブランド名だけで別支店へ行くのではなく、テラス、庇、背景の位置関係を確かめるのが今回の小さな調査です。"
+          ],
+          "image": "assets/conan-singapore/breakfast.webp",
+          "source_url": "https://singaporeclub.blog.jp/archives/37928898.html",
+          "note": "食事場面の支店対応は現地訪問者の照合記録。正確な席は未特定。"
+        },
+        {
+          "id": "lunch",
+          "number": "02",
+          "name": "強さの横に、普通のランチ。",
+          "title": "強さの横に、普通のランチ。",
+          "summary": "園子と京極真が食事をする、束の間の時間へ。",
+          "body": [
+            "空手の強さだけでなく、園子と一緒に過ごす時の京極真の表情も、この旅で思い出したいもの。にぎやかなホーカーで、二人の食事の空気を重ねてみます。",
+            "訪問記は二人の食事をMaxwell Food Centreとして紹介しています。チキンライスや飲み物を楽しめますが、作中の店番号や同じテーブルまでは確認していません。"
+          ],
+          "image": "assets/conan-singapore/market.webp",
+          "source_url": "https://singaporeclub.blog.jp/archives/37928898.html",
+          "note": "施設としての対応と、特定の屋台・席の特定は別。周囲の人の食事を優先。",
+          "spoiler": "食後の騒動まで振り返りたい人は、本編の該当場面を見返してみよう。"
+        }
+      ]
+    }
+  ],
+  "stages": [
+    {
+      "id": "china-street",
+      "name": "朝食の支店",
+      "location": "CHINA STREET",
+      "label": "FIELD NOTE / CHINA-STREET",
+      "hook": "同じ店名でも、この角を探したい。",
+      "image": "assets/conan-singapore/breakfast.webp",
+      "location_note": "訪問記が挙げるのは、18 China StreetのFar East Square店。蘭と新一に見えるキッドの朝食を思い出して、チェーン店の一店舗が、旅の目的になる感覚を楽しみます。",
+      "paragraphs": [
+        "訪問記が挙げるのは、18 China StreetのFar East Square店。蘭と新一に見えるキッドの朝食を思い出して、チェーン店の一店舗が、旅の目的になる感覚を楽しみます。",
+        "手がかりは庇と支柱、テラスの位置、背景の屋根。記事にある緑の食器だけで特定するのではなく、複数の形を見比べたいところです。公式一覧では再開と案内されていますが、当時の席や外観がそのまま残るとは限りません。",
+        "背景記事はThe Chamber周辺の円錐屋根を手がかりにしています。ただし、掲載画像を確認すると古い実景とStreet Viewで、本編のカットではありませんでした。このガイドでも「同じ席」「この屋根が確定モデル」とは断定しません。"
+      ],
+      "scenes": [
+        {
+          "title": "新一に見える、その隣で。",
+          "episode_id": "breakfast",
+          "episode": "STORY / FIELD NOTE",
+          "description": "カヤトーストを頼んだら、会話の間に庇と通りを見上げる。風景を思い出すための、静かな朝食。",
+          "image": "assets/conan-singapore/breakfast.webp",
+          "source_url": "https://singaporeclub.blog.jp/archives/37928898.html",
+          "spoiler": false
+        }
+      ],
+      "connections": [
+        {
+          "type": "documented_connection",
+          "description": "朝食の支店対応は現地訪問者の記録。現在の所在地は店舗公式で別に確認。制作側の個別店舗認定ではない。",
+          "source_url": "https://singaporeclub.blog.jp/archives/37928898.html"
+        }
+      ],
+      "highlights": [
+        {
+          "title": "Far East Square店の所在地",
+          "description": "18 China Street #01-01。Far East Plazaやほかの支店と混同しない。営業時間は訪問日の公式一覧を確認。",
+          "source_url": "https://app.yakun.com/find-us",
+          "map_url": "https://www.google.com/maps/search/?api=1&query=Ya+Kun+Kaya+Toast+Far+East+Square+18+China+Street+Singapore"
+        },
+        {
+          "title": "庇と背景を、手がかりとして眺める",
+          "description": "食器の色や一つの屋根だけで決めつけず、テラスとの位置関係を観察。本編カットとの直接比較は残る調査課題。",
+          "source_url": "https://minimalist-travel.com/2019/04/20/名探偵コナン紺青の拳　どこより詳しいシンガポ/"
+        },
+        {
+          "title": "寄り道：Smith Streetの壁画",
+          "description": "地元団体が案内するコナンの壁画。映画の中の舞台ではなく、作品に関連した街のアートとして楽しむ。",
+          "source_url": "https://chinatown.sg/visit/detective-conan-in-chinatown/",
+          "map_url": "https://www.google.com/maps/search/?api=1&query=Detective+Conan+Mural+Smith+Street+Singapore"
+        }
+      ],
+      "missions": [
+        {
+          "id": "1",
+          "text": "支店名と住所を確認する",
+          "detail": "別支店の写真や営業時間を混ぜない。"
+        },
+        {
+          "id": "2",
+          "text": "背景の手がかりを一つ見つける",
+          "detail": "一致も違いも、自分の観察として残す。"
+        }
+      ],
+      "practical": "朝食50分、外観と背景の観察20分が目安。店の営業・席の案内を優先し、撮影は周囲に配慮して短く。"
+    },
+    {
+      "id": "maxwell",
+      "name": "二人のランチ",
+      "location": "MAXWELL",
+      "label": "FIELD NOTE / MAXWELL",
+      "hook": "にぎやかな食卓で、二人の距離を思い出す。",
+      "image": "assets/conan-singapore/market.webp",
+      "location_note": "園子と京極真の食事の場面を入口に、1 Kadayanallur StreetのMaxwell Food Centreへ。にぎやかな食堂では、観光地を見る目とは少し違う、生活の街の楽しみが見つかります。",
+      "paragraphs": [
+        "園子と京極真の食事の場面を入口に、1 Kadayanallur StreetのMaxwell Food Centreへ。にぎやかな食堂では、観光地を見る目とは少し違う、生活の街の楽しみが見つかります。",
+        "現地訪問記はこの施設を二人のランチの場所として紹介しています。一方、特定のチキンライス店、店番号、テーブルまで本編と一致する証拠は確認できていません。映画の注文を完全再現したと決めず、その日に営業している屋台を選びましょう。"
+      ],
+      "scenes": [
+        {
+          "title": "強さの横に、普通のランチ。",
+          "episode_id": "lunch",
+          "episode": "STORY / FIELD NOTE",
+          "description": "強い京極真と、彼のそばにいる園子。二人の何気ない時間を思い出しながら、自分たちのランチを楽しむ。",
+          "image": "assets/conan-singapore/market.webp",
+          "source_url": "https://singaporeclub.blog.jp/archives/37928898.html",
+          "spoiler": false
+        }
+      ],
+      "connections": [
+        {
+          "type": "documented_connection",
+          "description": "食事場面と施設の対応は現地訪問記。施設の住所と営業案内は地元団体の情報を参照。",
+          "source_url": "https://singaporeclub.blog.jp/archives/37928898.html"
+        }
+      ],
+      "highlights": [
+        {
+          "title": "施設の入口と通路を見る",
+          "description": "1 Kadayanallur Street。現地の屋台配置や通路を優先し、挿絵を施設図として使わない。",
+          "source_url": "https://chinatown.sg/dine/maxwell-hawker-centre/",
+          "map_url": "https://www.google.com/maps/search/?api=1&query=Maxwell+Food+Centre+1+Kadayanallur+Street+Singapore"
+        },
+        {
+          "title": "屋台は、その日の営業から選ぶ",
+          "description": "施設全体の案内時間と、各屋台が注文を受ける時間は別。特定店が必ず開いているとは案内しない。",
+          "source_url": "https://chinatown.sg/dine/maxwell-hawker-centre/"
+        }
+      ],
+      "missions": [
+        {
+          "id": "1",
+          "text": "好きな一皿を選ぶ",
+          "detail": "作中の店を特定したという主張とは分けて楽しむ。"
+        },
+        {
+          "id": "2",
+          "text": "二人の場面を仲間と振り返る",
+          "detail": "作品を知らない人にも、食事の場面の楽しさを一つ話す。"
+        }
+      ],
+      "practical": "昼食60分と休憩の余白を確保。屋台の休業・売り切れ・清掃による閉鎖は当日確認。暑さや雨が強ければ屋外の寄り道を省略。"
+    }
+  ],
+  "sources": [
+    {
+      "label": "TMS：劇場版の公式紹介",
+      "url": "https://www.tms-e.co.jp/alltitles/conan/087323.html"
+    },
+    {
+      "label": "2019年・現地在住者の訪問記（場面照合）",
+      "url": "https://singaporeclub.blog.jp/archives/37928898.html"
+    },
+    {
+      "label": "背景の形と推測を記した訪問記事",
+      "url": "https://minimalist-travel.com/2019/04/20/名探偵コナン紺青の拳　どこより詳しいシンガポ/"
+    },
+    {
+      "label": "Ya Kun：現在の支店案内",
+      "url": "https://app.yakun.com/find-us"
+    },
+    {
+      "label": "Chinatown Business Association：Maxwell",
+      "url": "https://chinatown.sg/dine/maxwell-hawker-centre/"
+    },
+    {
+      "label": "Chinatown Business Association：コナン壁画",
+      "url": "https://chinatown.sg/visit/detective-conan-in-chinatown/"
+    }
+  ],
+  "media_rights": [
+    {
+      "file": "assets/conan-singapore/cover.webp",
+      "status": "original_generated",
+      "creator": "OpenAI native ImageGen",
+      "characters": [
+        "江戸川コナン",
+        "怪盗キッド"
+      ],
+      "alt": "シンガポールの街角で手がかりを探すコナンと怪盗キッド",
+      "notes": "複数の街並みを組み合わせた表紙。現在の道路や場面の位置を再現しない。"
+    },
+    {
+      "file": "assets/conan-singapore/breakfast.webp",
+      "status": "original_generated",
+      "creator": "OpenAI native ImageGen",
+      "characters": [
+        "毛利蘭",
+        "怪盗キッド（工藤新一に変装）",
+        "江戸川コナン（アーサー・ヒライ）"
+      ],
+      "alt": "テラスでカヤトーストを囲む蘭、変装したキッド、コナン",
+      "notes": "食事の記憶を題材にした創作。店舗の正確な座席、眺め、食器の現況を示さない。"
+    },
+    {
+      "file": "assets/conan-singapore/market.webp",
+      "status": "original_generated",
+      "creator": "OpenAI native ImageGen",
+      "characters": [
+        "鈴木園子",
+        "京極真"
+      ],
+      "alt": "ホーカーでチキンライスを楽しむ園子と京極真",
+      "notes": "映画のカットの複製やMaxwellの実測図ではない。"
+    }
+  ],
+  "itinerary": [
+    {
+      "id": "1",
+      "label": "HALF DAY",
+      "events": [
+        {
+          "time": "09:00",
+          "title": "China Streetで朝食",
+          "description": "50分。店名と住所を確認し、注文してから街の手がかりを探す。"
+        },
+        {
+          "time": "10:00",
+          "title": "テラスと背景を観察",
+          "description": "20分。庇、屋根、街の向きを比較。席や建物の同一性は決めつけない。"
+        },
+        {
+          "time": "10:20",
+          "title": "Smith Streetへ寄り道",
+          "description": "徒歩と見学を概算40分。コナン壁画は映画内の舞台と区別して楽しむ任意の寄り道。"
+        },
+        {
+          "time": "11:00",
+          "title": "Maxwellへ移動",
+          "description": "徒歩・信号待ちを概算20分。暑ければ途中で休む。"
+        },
+        {
+          "time": "11:30",
+          "title": "昼食と場面の振り返り",
+          "description": "食事60分。営業中の屋台から各自が選び、席を長く占有しない。"
+        },
+        {
+          "time": "12:30",
+          "title": "余白と帰路",
+          "description": "休憩30分＋街歩き30分。13:30頃を目安に終了、駅や宿への移動は別途見込む。"
+        }
+      ]
+    }
+  ]
+}

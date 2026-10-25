@@ -78,6 +78,8 @@ jobs:
           touch _site/.nojekyll
           python plugins/seichi-junrei/scripts/render_guide.py plugins/seichi-junrei/examples/oxford_alice_guide.json --out _site/alice/index.html
           python plugins/seichi-junrei/scripts/render_guide.py plugins/seichi-junrei/examples/k_on_london_guide.json --out _site/k-on/index.html
+          python plugins/seichi-junrei/scripts/render_guide.py plugins/seichi-junrei/examples/conan_singapore_guide.json --out _site/conan/index.html
+          python plugins/seichi-junrei/scripts/render_guide.py plugins/seichi-junrei/examples/monster_europe_guide.json --out _site/monster/index.html
       - name: Install browser test dependencies
         run: |
           python -m pip install 'playwright>=1.48,<2'

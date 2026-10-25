@@ -20,7 +20,7 @@ sys.path.insert(0, str(ROOT / 'scripts'))
 from render_guide import render
 
 
-def check(specs, out, executable=None, html_file=None, assets_root=None):
+def check(specs, out, executable=None, html_file=None, assets_root=None, widths=(360, 390, 430, 520)):
     out.mkdir(parents=True, exist_ok=True)
     records = []
     with tempfile.TemporaryDirectory() as directory:
@@ -40,7 +40,7 @@ def check(specs, out, executable=None, html_file=None, assets_root=None):
                 browser = pw.chromium.launch(**options)
                 for spec in specs:
                     url = f'http://127.0.0.1:{server.server_port}/{spec.stem}.html'
-                    for width in (360, 390, 430, 520):
+                    for width in widths:
                         context = browser.new_context(viewport={'width': width, 'height': 900}, has_touch=True, reduced_motion='reduce', accept_downloads=True)
                         page = context.new_page()
                         errors = []
@@ -87,8 +87,9 @@ def check(specs, out, executable=None, html_file=None, assets_root=None):
                                 assert page.locator('#sheet details').get_attribute('open') is not None
                                 page.keyboard.press('Escape')
                                 break
-                        # Native rail scroll and dots are operable.
-                        if len(data['episodes']) > 1:
+                        # A short rail can fit entirely at a wider viewport.
+                        overflow = page.eval_on_selector('#home-episodes', 'e=>e.scrollWidth > e.clientWidth+1')
+                        if len(data['episodes']) > 1 and overflow:
                             page.locator('[data-rail="home-episodes"] button').last.tap()
                             page.wait_for_function('document.querySelector("#home-episodes").scrollLeft > 0')
                         for destination in data['stages']:
@@ -168,5 +169,6 @@ if __name__ == '__main__':
     parser.add_argument('--html', type=Path, help='Test this built artifact for the first guide')
     parser.add_argument('--outdir', type=Path, default=ROOT / 'checks')
     parser.add_argument('--executable', default=os.environ.get('CHROMIUM_EXECUTABLE'))
+    parser.add_argument('--width', type=int, action='append', help='Focused viewport rerun; default tests 360/390/430/520px')
     args = parser.parse_args()
-    check(args.guide or [ROOT/'examples/egypt_guide.json', ROOT/'examples/oxford_alice_guide.json', ROOT/'examples/k_on_london_guide.json'], args.outdir, args.executable, args.html, args.assets_root)
+    check(args.guide or [ROOT/'examples/egypt_guide.json', ROOT/'examples/conan_singapore_guide.json', ROOT/'examples/monster_europe_guide.json'], args.outdir, args.executable, args.html, args.assets_root, args.width or (360, 390, 430, 520))

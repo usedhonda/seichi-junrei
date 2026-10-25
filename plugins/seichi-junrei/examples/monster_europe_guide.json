@@ -1,0 +1,436 @@
+{
+  "meta": {
+    "id": "monster-europe-public",
+    "title": "TRACES OF A MONSTER",
+    "title_lines": [
+      "TRACES OF",
+      "A MONSTER."
+    ],
+    "wordmark": "THE TRAVEL FILE",
+    "kicker": "MONSTER · GERMANY & PRAGUE",
+    "subtitle": "屋根と窓、広場の角。テンマの旅の断片をたどる。",
+    "cover_line": "何気ない風景に、\n物語の記憶が残る。",
+    "dates": "5 DAYS / PUBLIC MODEL",
+    "regions": "HEIDELBERG → KAUFBEUREN → PRAGUE",
+    "hero_image": "assets/monster-europe/cover.webp",
+    "hero_position": "50% 50%",
+    "theme": "ink-copper",
+    "character_art_required": true,
+    "public_url": "https://usedhonda.github.io/seichi-junrei/monster/",
+    "art_label": "AI FAN ART · 非公式",
+    "introduction": [
+      "『MONSTER』を読んだ後では、ヨーロッパの静かな窓や街角にも、物語の気配が重なる。大学の建物、町の小さなホテル、オープニングの広場。国の名所を集めるのではなく、画面やコマの中の細部を探す旅です。",
+      "原作漫画とTVアニメの資料を区別し、比較訪問記の画像は実際に確認した範囲を記します。架空の街と実在の町を丸ごと同一視せず、一つの建物の外観から丁寧にたどります。"
+    ],
+    "story_intro": "浦沢直樹原作の『MONSTER』。テンマ、ニナ、ヨハン、そして旅で出会う人々の記憶を、現実の街と重ねます。このしおりは移動の都合で編集した順序で、物語の時系列をそのまま再現していません。番号は編集上の章番号です。",
+    "art_note": "挿絵はAI（ImageGen）で制作した非公式ファンアートです。公式アニメの画面、漫画のコマ、現地写真ではありません。人物同士の組み合わせや眺めは新しい創作で、同じ場所で同じ場面が起きた証拠には使いません。地理と建物は地図・実景・出典で確認してください。",
+    "checked_note": "作品公式、大学・観光局、2018〜2019年撮影の比較訪問記を2026年10月25日に確認。大学とホテルについては訪問記の原作比較画像を目視。作者・制作側の個別建物認定や、現在の外観との完全一致を意味しません。",
+    "itinerary_note": "個人の旅行日・宿泊予約を含まない5日間のモデル。都市間には移動専用日を置き、列車時刻や予約可能性は未確定です。実際の訪問日にはDB等で乗継・運行・所要時間を確認し、必要なら移動日や宿泊を追加してください。市内の時間は編集上の概算です。",
+    "closing": "同じ形を見つけても、同じ景色にはならない。物語のあとに、自分の旅の記憶を残す。"
+  },
+  "selection": {
+    "primary_work_id": "monster-original",
+    "secondary_work_ids": [],
+    "user_confirmed": true
+  },
+  "works": [
+    {
+      "id": "monster-original",
+      "title": "MONSTER（原作漫画／2004〜2005年TVアニメ）",
+      "medium": "manga_anime",
+      "episodes": [
+        {
+          "id": "student",
+          "number": "01",
+          "name": "ニナが暮らした、学生の街。",
+          "title": "ニナが暮らした、学生の街。",
+          "summary": "ハイデルベルクの大学生活を、物語の入口に。",
+          "body": [
+            "ニナという名前で大学生活を送っている彼女を思い出すと、大学前の広場が観光名所だけではなくなる。大きな建物より先に、窓と入口の並びを見てみたい。",
+            "比較訪問記にある原作の大学外観と実景写真を目視しました。屋上の小塔、窓の列、広場側の入口が手がかりです。漫画の巻・ページは未特定で、アニメの同じ構図のカットまで確認したという意味ではありません。"
+          ],
+          "image": "assets/monster-europe/heidelberg.webp",
+          "source_url": "https://touyokojunrei.com/archives/81949516.html",
+          "note": "原作比較の記録。話数・巻頁の未確認値は掲載しない。"
+        },
+        {
+          "id": "hotel",
+          "number": "02",
+          "name": "小さなホテルに、終盤の記憶。",
+          "title": "小さなホテルに、終盤の記憶。",
+          "summary": "名の知られた観光地より、一軒の建物が気になる。",
+          "body": [
+            "カウフボイレンにあるHotel Hasenは、終盤のホテル外観の候補として比較訪問記に登場します。屋根の折れ方や窓の並びを、自分でも確かめるための短い寄り道です。",
+            "比較画像では、原作の建物と2019年の実景の対応が見えます。ただし記事も内装や駅、町全体は一致しないと明記しています。ルーエンハイムという架空の町そのものが見つかった、と読み替えてはいけません。"
+          ],
+          "image": "assets/monster-europe/hotel.webp",
+          "source_url": "https://touyokojunrei.com/archives/81949947.html",
+          "note": "外観の比較候補。制作側の認定は未確認。内装・町全体の再現ではない。",
+          "spoiler": "終盤の出来事に踏み込む感想は、読了・視聴後に仲間と話そう。"
+        },
+        {
+          "id": "prague",
+          "number": "03",
+          "name": "橋より先に、視点を探す。",
+          "title": "橋より先に、視点を探す。",
+          "summary": "プラハでは、見慣れたオープニングの構図へ。",
+          "body": [
+            "橋を見ただけで終わらず、どちらの塔をどの向きから見たのか、窓や街路の並びに注目する。作品の風景を探すという目的が、普通の街歩きを少し変えます。",
+            "現地の比較訪問記はカレル橋と共和国広場をTVアニメのオープニングに結びつけています。正確な立ち位置や秒数をこのガイドでは確定せず、作品を見返すための候補として紹介します。"
+          ],
+          "image": "assets/monster-europe/prague.webp",
+          "source_url": "https://touyokojunrei.com/archives/81946359.html",
+          "note": "アニメOPの構図についての訪問者の報告。原作の個別コマの場所と混同しない。"
+        }
+      ]
+    }
+  ],
+  "stages": [
+    {
+      "id": "heidelberg",
+      "name": "ニナの大学",
+      "location": "HEIDELBERG",
+      "label": "FIELD NOTE / HEIDELBERG",
+      "hook": "入口と窓の列に、記憶が重なる。",
+      "image": "assets/monster-europe/heidelberg.webp",
+      "location_note": "最初の手がかりは大学の名前より、建物の形。比較訪問記では、ニナの大学として原作の絵と現地の写真が並べられています。小塔と屋根、窓の列、広場側の入口を見比べるところから始めます。",
+      "paragraphs": [
+        "最初の手がかりは大学の名前より、建物の形。比較訪問記では、ニナの大学として原作の絵と現地の写真が並べられています。小塔と屋根、窓の列、広場側の入口を見比べるところから始めます。",
+        "実景の建物を探す目印はAlte Universität（旧大学）。大学公式は大学博物館をこの建物に案内し、広場側の入口をGrabengasse 1としています。博物館の案内住所と入口の説明は別なので、現地の表示を確認しましょう。",
+        "本文は原作比較画像で確認した特徴を扱っています。大学内部がすべて作品に出る、現在も同じ窓が残る、という保証ではありません。外観だけでも、自分が見た一致と違いを残す楽しみがあります。"
+      ],
+      "scenes": [
+        {
+          "title": "ニナが暮らした、学生の街。",
+          "episode_id": "student",
+          "episode": "STORY / FIELD NOTE",
+          "description": "初めて見る大学でも、あの物語の記憶があれば、入口の形が気になり始める。",
+          "image": "assets/monster-europe/heidelberg.webp",
+          "source_url": "https://touyokojunrei.com/archives/81949516.html",
+          "spoiler": false
+        }
+      ],
+      "connections": [
+        {
+          "type": "documented_connection",
+          "description": "原作の大学外観と現地写真を並べた訪問記。比較画像の窓・小塔・入口を目視。大学公式は現在の施設と入口を示す。",
+          "source_url": "https://touyokojunrei.com/archives/81949516.html"
+        }
+      ],
+      "highlights": [
+        {
+          "title": "Alte Universitätの広場側へ",
+          "description": "Universitätsplatz側から屋根と入口の並びを観察。現在の大学案内・立入条件を優先。",
+          "source_url": "https://www.heicollections.uni-heidelberg.de/en/museums-collections/university-museum",
+          "map_url": "https://www.google.com/maps/search/?api=1&query=Alte+Universit%C3%A4t+Grabengasse+1+Heidelberg"
+        },
+        {
+          "title": "窓と小塔を数えてみる",
+          "description": "原作比較の手がかりを自分の観察へ。映画やアニメのカット番号として未確認の数値を持ち込まない。",
+          "source_url": "https://touyokojunrei.com/archives/81949516.html"
+        }
+      ],
+      "missions": [
+        {
+          "id": "1",
+          "text": "窓や入口の対応を一つ探す",
+          "detail": "一致しない部分も、自分の観察として残す。"
+        },
+        {
+          "id": "2",
+          "text": "ニナの大学生活を思い出す",
+          "detail": "作品を知らない仲間には、先の展開を伏せて紹介する。"
+        }
+      ],
+      "practical": "外観中心に45〜60分。博物館内部へ入るなら別途公式の開館・最終入場を確認し、モデル時間へ追加。"
+    },
+    {
+      "id": "kaufbeuren",
+      "name": "ホテルの外観",
+      "location": "KAUFBEUREN",
+      "label": "FIELD NOTE / KAUFBEUREN",
+      "hook": "一軒の屋根を目指して、町へ。",
+      "image": "assets/monster-europe/hotel.webp",
+      "location_note": "観光の主役になりにくい一軒のホテルへ行く。その理由が物語にある、という巡礼です。Hotel Hasenの外観は、終盤のホテルに対応する候補として訪問記に挙げられています。",
+      "paragraphs": [
+        "観光の主役になりにくい一軒のホテルへ行く。その理由が物語にある、という巡礼です。Hotel Hasenの外観は、終盤のホテルに対応する候補として訪問記に挙げられています。",
+        "比較画像では折れた屋根の輪郭、上部の窓、横に張り出す入口が手がかりになります。現在の所在地は地元観光局にGanghoferstraße 7と掲載されていますが、古い写真と現在の外観は改めて現地で確かめます。",
+        "記事はホテルの内装、駅や町全体が一致しないとも記しています。架空のルーエンハイムの実在を断定せず、この外観の観察に絞りましょう。観光局の掲載は、作品との関係を認定する情報ではありません。"
+      ],
+      "scenes": [
+        {
+          "title": "小さなホテルに、終盤の記憶。",
+          "episode_id": "hotel",
+          "episode": "STORY / FIELD NOTE",
+          "description": "看板の文字ではなく、まず屋根と窓を見る。物語の記憶と、今の建物の違いにも目を向ける。",
+          "image": "assets/monster-europe/hotel.webp",
+          "source_url": "https://touyokojunrei.com/archives/81949947.html",
+          "spoiler": true
+        }
+      ],
+      "connections": [
+        {
+          "type": "documented_connection",
+          "description": "訪問記の原作比較画像を目視。ホテルの所在地は観光局で別途確認。外観候補であり、町全体や内部の一致は主張しない。",
+          "source_url": "https://touyokojunrei.com/archives/81949947.html"
+        }
+      ],
+      "highlights": [
+        {
+          "title": "外観を短く観察する",
+          "description": "Ganghoferstraße 7。宿泊・入場予約を前提にしない外観の寄り道。",
+          "source_url": "https://www.kaufbeuren-tourismus.de/gastgeber-reader/hotel-hasen-kaufbeuren",
+          "map_url": "https://www.google.com/maps/search/?api=1&query=Hotel+Hasen+Ganghoferstrasse+7+Kaufbeuren"
+        },
+        {
+          "title": "違いを見つけても、旅の成果",
+          "description": "屋根や入口の形を比較しつつ、現在の看板や窓が変わっていたら、その変化を記録する。",
+          "source_url": "https://touyokojunrei.com/archives/81949947.html"
+        }
+      ],
+      "missions": [
+        {
+          "id": "1",
+          "text": "屋根と窓の並びを見る",
+          "detail": "古い比較写真の特徴と現在の姿を見比べる。"
+        },
+        {
+          "id": "2",
+          "text": "現実の町として一休みする",
+          "detail": "内装や町全体を作品の再現と決めつけない。"
+        }
+      ],
+      "practical": "公共歩道から外観30分程度。営業中のホテルなので入口や車の動線を空け、内部には無断で入らない。"
+    },
+    {
+      "id": "prague",
+      "name": "OPの街角",
+      "location": "PRAGUE",
+      "label": "FIELD NOTE / PRAGUE",
+      "hook": "見慣れた橋の、見慣れない向きを探す。",
+      "image": "assets/monster-europe/prague.webp",
+      "location_note": "プラハで探すのは、カレル橋の名前だけでなく、作品で見た視点。比較訪問記は共和国広場とカレル橋をアニメのオープニングに結びつけています。塔や広場の縁が、風景をたどる目印になります。",
+      "paragraphs": [
+        "プラハで探すのは、カレル橋の名前だけでなく、作品で見た視点。比較訪問記は共和国広場とカレル橋をアニメのオープニングに結びつけています。塔や広場の縁が、風景をたどる目印になります。",
+        "この章は訪問者の構図照合を出発点にするものです。ガイド制作者によるOP全カットとの直接照合や正確な立ち位置の特定は未完了で、秒数や座標を確定値として載せていません。",
+        "三匹のカエルの家、赤いバラの屋敷など、作中の呼び名だけから実在の建物を割り当てないことも大切です。分からない地点は残したまま、確認できる街と自分の記憶を楽しみます。"
+      ],
+      "scenes": [
+        {
+          "title": "橋より先に、視点を探す。",
+          "episode_id": "prague",
+          "episode": "STORY / FIELD NOTE",
+          "description": "物語に登場する町にも、今ここで暮らす人がいる。景色を観察した後は、自分の旅の時間へ戻る。",
+          "image": "assets/monster-europe/prague.webp",
+          "source_url": "https://touyokojunrei.com/archives/81946359.html",
+          "spoiler": false
+        }
+      ],
+      "connections": [
+        {
+          "type": "documented_connection",
+          "description": "TVアニメOPの構図として紹介する2019年撮影の訪問記。正確な立ち位置・現在の見通しの直接確認は残る。",
+          "source_url": "https://touyokojunrei.com/archives/81946359.html"
+        }
+      ],
+      "highlights": [
+        {
+          "title": "共和国広場で、建物の並びを見る",
+          "description": "Náměstí Republiky。OPの報告と照らして、塔と道路の方向を観察する候補。",
+          "source_url": "https://touyokojunrei.com/archives/81946359.html",
+          "map_url": "https://www.google.com/maps/search/?api=1&query=Namesti+Republiky+Prague"
+        },
+        {
+          "title": "橋の両端で、見える塔を比べる",
+          "description": "Charles Bridge。橋上を塞がず、歩きながら視点の違いを楽しむ。",
+          "source_url": "https://touyokojunrei.com/archives/81946359.html",
+          "map_url": "https://www.google.com/maps/search/?api=1&query=Charles+Bridge+Prague"
+        }
+      ],
+      "missions": [
+        {
+          "id": "1",
+          "text": "広場の向きを一つ記録する",
+          "detail": "未照合のカット位置を確定情報にしない。"
+        },
+        {
+          "id": "2",
+          "text": "橋の向こうの塔を見比べる",
+          "detail": "自分が見つけた風景として旅の記憶に残す。"
+        }
+      ],
+      "practical": "広場と橋の周辺を、移動と休憩込みで午前中に。混雑時は撮影位置に固執せず、川沿いの安全な場所から眺める。"
+    }
+  ],
+  "sources": [
+    {
+      "label": "日本テレビ：MONSTER公式",
+      "url": "https://www.ntv.co.jp/monster/"
+    },
+    {
+      "label": "日本テレビ：後半の公式ストーリー",
+      "url": "https://www.ntv.co.jp/monster/static/story2.html"
+    },
+    {
+      "label": "ハイデルベルク・原作比較訪問記",
+      "url": "https://touyokojunrei.com/archives/81949516.html"
+    },
+    {
+      "label": "Heidelberg University：大学博物館",
+      "url": "https://www.heicollections.uni-heidelberg.de/en/museums-collections/university-museum"
+    },
+    {
+      "label": "カウフボイレン・原作比較訪問記",
+      "url": "https://touyokojunrei.com/archives/81949947.html"
+    },
+    {
+      "label": "Kaufbeuren Tourismus：Hotel Hasen",
+      "url": "https://www.kaufbeuren-tourismus.de/gastgeber-reader/hotel-hasen-kaufbeuren"
+    },
+    {
+      "label": "プラハ・アニメ比較訪問記",
+      "url": "https://touyokojunrei.com/archives/81946359.html"
+    },
+    {
+      "label": "DB：実際の都市間移動の確認",
+      "url": "https://int.bahn.de/en"
+    }
+  ],
+  "media_rights": [
+    {
+      "file": "assets/monster-europe/cover.webp",
+      "status": "original_generated",
+      "creator": "OpenAI native ImageGen",
+      "characters": [
+        "天馬賢三",
+        "ヨハン・リーベルト"
+      ],
+      "alt": "ヨーロッパの街角に立つテンマとヨハン",
+      "notes": "ドイツとプラハの景観を組み合わせた創作。実際の一地点ではない。"
+    },
+    {
+      "file": "assets/monster-europe/heidelberg.webp",
+      "status": "original_generated",
+      "creator": "OpenAI native ImageGen",
+      "characters": [
+        "天馬賢三",
+        "ニナ・フォルトナー"
+      ],
+      "alt": "ハイデルベルクを思わせる広場にいるテンマとニナ",
+      "notes": "原作のコマや再会位置の複製ではない新しい構図。"
+    },
+    {
+      "file": "assets/monster-europe/hotel.webp",
+      "status": "original_generated",
+      "creator": "OpenAI native ImageGen",
+      "characters": [
+        "天馬賢三"
+      ],
+      "alt": "小さなホテルの外観を見上げるテンマ",
+      "notes": "外観調査を題材にした創作で、現況の正確な図面ではない。"
+    },
+    {
+      "file": "assets/monster-europe/prague.webp",
+      "status": "original_generated",
+      "creator": "OpenAI native ImageGen",
+      "characters": [
+        "天馬賢三",
+        "ヴォルフガング・グリマー"
+      ],
+      "alt": "プラハの橋のそばを歩くテンマとグリマー",
+      "notes": "新しく想像した道中の場面。作中の同じカットや正確な立ち位置の証拠ではない。"
+    }
+  ],
+  "itinerary": [
+    {
+      "id": "1",
+      "label": "DAY 1",
+      "events": [
+        {
+          "time": "10:00",
+          "title": "ハイデルベルク・大学前",
+          "description": "外観の観察45分。博物館内部は別途、公式の開館・最終入場を確認して任意。"
+        },
+        {
+          "time": "11:00",
+          "title": "旧市街の広場と窓を探す",
+          "description": "徒歩・観察60分、休憩30分。原作の建物と現在の違いも記録。"
+        },
+        {
+          "time": "12:30",
+          "title": "昼食と自由時間",
+          "description": "昼食60分。その後は市内の余白と翌日の移動準備。"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "label": "MOVE",
+      "events": [
+        {
+          "time": "終日",
+          "title": "カウフボイレンへの移動日",
+          "description": "列車・乗継・宿泊場所は訪問日に別途確定。この日に巡礼地点を詰め込まず、遅れの余裕を確保。"
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "label": "DAY 3",
+      "events": [
+        {
+          "time": "10:00",
+          "title": "Hotel Hasenの外観へ",
+          "description": "公共歩道から30分程度。営業施設の入口を塞がず、内部への入場は予定しない。"
+        },
+        {
+          "time": "10:45",
+          "title": "町歩きと休憩",
+          "description": "60分＋休憩30分。町全体を架空のルーエンハイムと呼ばず、現実の町として楽しむ。"
+        },
+        {
+          "time": "12:30",
+          "title": "昼食と旅の整理",
+          "description": "60分。次の都市への移動は翌日、経路と運行を再確認。"
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "label": "MOVE",
+      "events": [
+        {
+          "time": "終日",
+          "title": "プラハへの移動日",
+          "description": "国境を越える乗継と実際の運行を事前確認。所要時間次第で移動・宿泊日を追加し、到着後の巡礼は翌日に回す。"
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "label": "DAY 5",
+      "events": [
+        {
+          "time": "09:00",
+          "title": "共和国広場から街へ",
+          "description": "構図の観察45分。広場の通行を優先。"
+        },
+        {
+          "time": "10:00",
+          "title": "旧市街を通り、橋の方面へ",
+          "description": "徒歩・寄り道・休憩を概算60分。道路と周囲の案内を優先。"
+        },
+        {
+          "time": "11:00",
+          "title": "カレル橋の両岸を眺める",
+          "description": "60分。塔と橋の位置関係を見比べ、混雑時は立ち止まる時間を短くする。"
+        },
+        {
+          "time": "12:00",
+          "title": "昼食と余韻",
+          "description": "60分。帰国便や長距離移動の予約はモデルに含めず、その後の移動は別途。"
+        }
+      ]
+    }
+  ]
+}

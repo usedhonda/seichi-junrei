@@ -17,6 +17,7 @@ The user has explicitly said: **「なんのための聖地巡礼かわからな
 - This file is `skills/seichi-junrei/SKILL.md`. The plugin root is two directories above it, containing `scripts/`, `assets/`, `references/`, `examples/` and `requirements.txt`. Resolve paths from the installed plugin, not from the user's current project by assumption.
 - Check the session's actual calendar, search, local execution, browser and **native image-generation** capabilities. Installing this Skill grants none of them by itself.
 - Native **ImageGen** creates assets, not a frozen screenshot of the final page. Existing user-approved character artwork can be reused. Do not endlessly generate more mockup pictures instead of implementing HTML.
+- Test one representative image for each new guide before generating the rest. On failure, distinguish rejection, transient error and pending status; retain completed work and follow the bounded recovery procedure in `references/editorial-and-art.md`. "Fan art" is a provenance description, not a guarantee of tool acceptance.
 - No extra image API: do not request an API key, call a billed image service or install a local diffusion model as a hidden fallback. If native image generation is unavailable, retain existing suitable images, report the gap and do not silently downgrade the requested art.
 - Write assets, private drafts and output outside the plugin/cache. Run `scripts/render_guide.py <guide.json> --assets-root <trip-workspace> --out <guide.html>` for local image embedding. The default renderer includes the public sample’s mobile design and interactions. Read `references/mobile-production.md` before production; use this engine rather than recreating a simpler page. Adapt visual styling only for the approved design.
 
@@ -53,6 +54,7 @@ The user has explicitly said: **「なんのための聖地巡礼かわからな
 - `assets/mobile-guide/`: the reusable mobile design and runtime, bundled with the plugin.
 - `tests/browser_check.py`: real-origin browser acceptance for a supplied trip and built artifact.
 - `references/mobile-production.md`: art direction, content preparation, generation and verification.
+- `examples/conan_singapore_guide.json` and `examples/monster_europe_guide.json`: selected character-led discovery samples, with source limits and differing destination/day counts.
 - `examples/k_on_london_guide.json`: researched anime-film London example with a bright theme and generated fan art.
 - `examples/oxford_alice_guide.json`: a different-work/destination/day-count production example.
 - `scripts/lint_guide.py`: structural and heuristic checks; not a substitute for visual inspection or rights review.

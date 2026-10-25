@@ -57,3 +57,21 @@ body[data-theme="pop-postcard"] .topbar .wordmark small{color:#fff0c6;text-shado
 body[data-theme="pop-postcard"] .subhero .pill{color:#ffd9e8}
 body[data-theme="pop-postcard"] .day-switch{background:#e7f0f0}
 body[data-theme="pop-postcard"] .day-switch button[aria-selected=true]{color:#fff}
+
+/* Two field-guide directions share the established controls and runtime. */
+body[data-theme="casebook"]{--night:#082e34;--panel:#123d43;--gold:#ffcf82;--gold2:#bb8b50;--cream:#fff0d0;--muted:#c1d8d7;--line:#9abfb74d;background:#041e23}
+body[data-theme="casebook"] .app{background:#082e34}
+body[data-theme="casebook"] .hero h1{font-family:-apple-system,BlinkMacSystemFont,'Hiragino Sans',sans-serif;font-weight:850;letter-spacing:-.06em}
+body[data-theme="casebook"] .bottom-nav,body[data-theme="casebook"] .dialog-head{background:#082e34f5}
+body[data-theme="ink-copper"]{--night:#101d29;--panel:#1b2b38;--gold:#e4bd95;--gold2:#ab815e;--cream:#f0e4d3;--muted:#c5ced3;--line:#bb9c7c55;background:#071019}
+body[data-theme="ink-copper"] .app{background:#101d29}
+body:is([data-theme="casebook"],[data-theme="ink-copper"]) .hero-art{inset:0;height:auto;object-fit:contain;object-position:center top}
+body:is([data-theme="casebook"],[data-theme="ink-copper"]) .hero:after{background:linear-gradient(180deg,#08142033 0,transparent 28%,#07131e12 40%,#07131eaf 65%,var(--night) 100%)}
+body:is([data-theme="casebook"],[data-theme="ink-copper"]) .hero .vertical{display:none}
+body:is([data-theme="casebook"],[data-theme="ink-copper"]) .subhero{background:var(--night)}
+body:is([data-theme="casebook"],[data-theme="ink-copper"]) .subhero img{height:auto;object-fit:contain;object-position:center top}
+body:is([data-theme="casebook"],[data-theme="ink-copper"]) .dialog-image{height:auto;max-height:390px;object-fit:contain;background:var(--night)}
+body:is([data-theme="casebook"],[data-theme="ink-copper"]) .episode-card{flex-basis:220px;aspect-ratio:.9}
+body:is([data-theme="casebook"],[data-theme="ink-copper"]) .episode-card img{height:auto;object-fit:contain;object-position:center top}
+body:is([data-theme="casebook"],[data-theme="ink-copper"]) .episode-card .ep-num{font-size:23px;left:auto;right:10px;top:8px}
+body:is([data-theme="casebook"],[data-theme="ink-copper"]) .hero .star{display:none}

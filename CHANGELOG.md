@@ -2,6 +2,14 @@
 
 このプロジェクトは開発初期段階のSkillです。明確なリリースタグを作成したときに、ここへ変更履歴を追記します。
 
+## 0.4.0 — 2026-10-25
+
+- Selected JoJo/Egypt, Conan/Singapore and MONSTER/Germany–Czechia as the three public showcases; retained earlier example URLs.
+- Added two character-led guides, seven new final illustrations, source limits, branch-specific discoveries, and a five-day Europe model with dedicated transfer days.
+- Added teal casebook and ink/copper visual directions while retaining the same mobile interaction engine.
+- Added representative-image preflight and bounded handling of rejection, transient failure and pending generation, preserving completed work.
+- Pages builds and isolated browser acceptance include the selected three guides.
+
 ## 0.3.3 — 2026-10-25
 
 - Added scene-level discovery research: distinguish familiar works from famous landmarks and investigate specific branches, corners and visual clues.

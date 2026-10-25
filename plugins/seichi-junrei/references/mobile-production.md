@@ -23,7 +23,7 @@ python scripts/render_guide.py /trip/guide.json --assets-root /trip --out /trip/
 python scripts/lint_guide.py /trip/guide.html --guide /trip/guide.json
 ```
 
-Use `meta.title_lines`, `wordmark`, `cover_line`, `hero_position` and the prose fields to art-direct the result. Choose `meta.theme` from `night-gold`, `pop-postcard` (bright cream/aqua/raspberry with an uncropped ensemble cover). Theme changes share the tested interaction runtime; compare actual screenshots for each trip. Do not promise that arbitrary new imagery will always look good without this work.
+Use `meta.title_lines`, `wordmark`, `cover_line`, `hero_position` and the prose fields to art-direct the result. Choose `meta.theme` from `night-gold`, `pop-postcard` (bright cream/aqua/raspberry), `casebook` (teal/amber detective field notes), or `ink-copper` (quiet ink/copper). The latter three preserve portrait covers and landscape chapter art without side cropping. Theme changes share the tested interaction runtime; compare actual screenshots for each trip. Do not promise that arbitrary new imagery will always look good without this work.
 
 ## Verify the actual output
 
@@ -33,7 +33,7 @@ With Playwright available, the reusable acceptance runner tests a supplied JSON 
 python tests/browser_check.py --guide /trip/guide.json --assets-root /trip --html /trip/guide.html --outdir /trip/checks
 ```
 
-It serves a real browser origin, tests 360/390/430/520px, checks local/global mission synchronization and persistence, bookmarks, scene and story dialogs, next/previous stories, zoom, Escape, day switching, native rail scrolling, save/offline reopening, reduced motion and blocked storage. If no guide is supplied it tests all three packaged examples. Browser coverage is Chromium emulation; do not claim physical iPhone or Safari acceptance.
+It serves a real browser origin, tests 360/390/430/520px, checks local/global mission synchronization and persistence, bookmarks, scene and story dialogs, next/previous stories, zoom, Escape, day switching, native rail scrolling, save/offline reopening, reduced motion and blocked storage. If no guide is supplied it tests the selected JoJo/Egypt, Conan/Singapore and MONSTER/Europe showcase guides. Earlier Alice and K-On production examples remain available explicitly. Browser coverage is Chromium emulation; do not claim physical iPhone or Safari acceptance.
 
 Inspect its cover, destination and detail screenshots. Compare with the approved reference for character visibility, art size, typography, density, readability and cropping; tests cannot judge those. When a visual check fails, correct that specific issue and verify the affected view. Also inspect the itinerary and relevant captions in the browser.
 
