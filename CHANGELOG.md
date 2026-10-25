@@ -2,6 +2,13 @@
 
 このプロジェクトは開発初期段階のSkillです。明確なリリースタグを作成したときに、ここへ変更履歴を追記します。
 
+## 0.4.2 — 2026-10-25
+
+- Added geographic daily/whole-trip maps to the three selected guides with sourced public coordinates, timed-stop focus and external directions.
+- Bundled Leaflet controls and license; online basemaps load only in the route view with visible attribution. Offline files retain stops/order and explain the missing road basemap.
+- Added map input safety and daily-stop consistency checks; browser CI checks map selection and fallback while blocking external tiles.
+- Added map and timetable integration to the reusable production instructions.
+
 ## 0.4.1 — 2026-10-25
 
 - Preserved the approved JoJo design and gave Conan and MONSTER distinct document compositions: an investigation notebook and a literary travel journal.

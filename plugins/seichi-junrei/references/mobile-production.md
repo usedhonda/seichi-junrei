@@ -54,3 +54,11 @@ Deliver the editable guide data, assets and standalone HTML. Keep private bookin
 - Film locations and visitor attractions can differ: actual filming platforms and a present-day photo trolley need separate descriptions. Fan anime-location records must not become official production confirmation.
 - For films, editorial story-beat numbers are not episode numbers or verified timestamps. Explain what the numbering means.
 - Budget walking, transfers, meals, rest and queues. Mark unmeasured durations as editorial estimates, and link the current transport operator; do not present a model route as a booked itinerary.
+
+## Put geography next to the timetable
+
+A timed trip needs visible spatial context, not just a list of map-search links buried inside chapters. Put a geographic map beside the daily itinerary, with numbered public stops matching the schedule, an overview for multi-city travel and local detail for the selected day. Use sourced coordinates and distinguish a city/venue representative point from an actual entrance or camera position. Unknown exact positions stay labelled as approximate rather than being invented.
+
+The optional `route_map` contract uses bundled Leaflet for pan/zoom, selected-day/all-trip views, stop popups and external directions. `itinerary[].map_stop_ids` defines the visit order; each timed event may reference `map_stop_id`. A dashed straight connector is a visit-order aid, never a road, train line or calculated route. Actual travel mode, feasibility and duration still need routing/transport evidence. Connect each leg to external directions; do not imply that a straight-line distance proves a walking time.
+
+Only the visible online route map loads OpenStreetMap tiles. Preserve visible attribution and the vendor license; follow tile service rules and send the browser's origin referrer for those public map-image requests. Never fetch tiles in bulk, prefetch or bundle them for offline use. The saved HTML bundles the map controls, coordinates, visit order, story images and text, but the road basemap and external directions need connectivity. State that limit in the guide and delivery. CI blocks tile requests and verifies the map controls/fallback without depending on an external service; inspect one actual online basemap separately.

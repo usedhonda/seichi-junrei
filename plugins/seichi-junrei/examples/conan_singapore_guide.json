@@ -309,6 +309,26 @@
     {
       "label": "ロング・バー公式：入口・当日来店制・店内文化・ドリンク案内",
       "url": "https://www.raffles.com/singapore/dining/long-bar/"
+    },
+    {
+      "label": "地図の代表位置：09:00 / Ya Kun・Far East Square",
+      "url": "https://www.openstreetmap.org/node/1570735721"
+    },
+    {
+      "label": "地図の代表位置：10:20 / Smith Street（任意）",
+      "url": "https://www.openstreetmap.org/way/47298601"
+    },
+    {
+      "label": "地図の代表位置：11:30 / Maxwell Food Centre",
+      "url": "https://www.openstreetmap.org/way/47298639"
+    },
+    {
+      "label": "地図の代表位置：14:00 / Long Bar",
+      "url": "https://www.openstreetmap.org/node/1766486405"
+    },
+    {
+      "label": "背景地図と地点データ：OpenStreetMap contributors / ODbL",
+      "url": "https://www.openstreetmap.org/copyright"
     }
   ],
   "media_rights": [
@@ -366,17 +386,20 @@
         {
           "time": "09:00",
           "title": "China Streetで朝食",
-          "description": "50分。店名と住所を確認し、注文してから街の手がかりを探す。"
+          "description": "50分。店名と住所を確認し、注文してから街の手がかりを探す。",
+          "map_stop_id": "breakfast"
         },
         {
           "time": "10:00",
           "title": "テラスと背景を観察",
-          "description": "20分。庇、屋根、街の向きを比較。席や建物の同一性は決めつけない。"
+          "description": "20分。庇、屋根、街の向きを比較。席や建物の同一性は決めつけない。",
+          "map_stop_id": "breakfast"
         },
         {
           "time": "10:20",
           "title": "Smith Streetへ寄り道",
-          "description": "徒歩と見学を概算40分。コナン壁画は映画内の舞台と区別して楽しむ任意の寄り道。"
+          "description": "徒歩と見学を概算40分。コナン壁画は映画内の舞台と区別して楽しむ任意の寄り道。",
+          "map_stop_id": "mural"
         },
         {
           "time": "11:00",
@@ -386,7 +409,8 @@
         {
           "time": "11:30",
           "title": "昼食と場面の振り返り",
-          "description": "食事60分。営業中の屋台から各自が選び、席を長く占有しない。"
+          "description": "食事60分。営業中の屋台から各自が選び、席を長く占有しない。",
+          "map_stop_id": "maxwell"
         },
         {
           "time": "12:30",
@@ -401,19 +425,67 @@
         {
           "time": "14:00",
           "title": "Raffles Arcadeの入口を探す",
-          "description": "観察と入店待ちに最大60分。店の案内を優先。長い列なら入店を省く。"
+          "description": "観察と入店待ちに最大60分。店の案内を優先。長い列なら入店を省く。",
+          "map_stop_id": "long-bar"
         },
         {
           "time": "15:00",
           "title": "探偵の一杯を、思い出す",
-          "description": "入店できた場合の滞在60分。飲酒は任意。映画と現在の内装を同じと決めつけない。"
+          "description": "入店できた場合の滞在60分。飲酒は任意。映画と現在の内装を同じと決めつけない。",
+          "map_stop_id": "long-bar"
         },
         {
           "time": "16:00",
           "title": "回廊と帰路の余白",
           "description": "外観の観察・休憩30分。駅や宿への帰路は別途確保。"
         }
+      ],
+      "map_stop_ids": [
+        "breakfast",
+        "mural",
+        "maxwell",
+        "long-bar"
       ]
     }
-  ]
+  ],
+  "route_map": {
+    "stops": [
+      {
+        "id": "breakfast",
+        "label": "09:00 / Ya Kun・Far East Square",
+        "lat": 1.2837243,
+        "lon": 103.847899,
+        "stage_id": "china-street",
+        "source_url": "https://www.openstreetmap.org/node/1570735721",
+        "note": "18 China Streetの住所点。当時の席やテラス位置の指定ではありません。"
+      },
+      {
+        "id": "mural",
+        "label": "10:20 / Smith Street（任意）",
+        "lat": 1.2831185,
+        "lon": 103.8427739,
+        "stage_id": "china-street",
+        "source_url": "https://www.openstreetmap.org/way/47298601",
+        "note": "通りの代表点。壁画そのものの正確な位置は未確認です。現地案内と章内のリンクを参照。"
+      },
+      {
+        "id": "maxwell",
+        "label": "11:30 / Maxwell Food Centre",
+        "lat": 1.2803829,
+        "lon": 103.8447131,
+        "stage_id": "maxwell",
+        "source_url": "https://www.openstreetmap.org/way/47298639",
+        "note": "建物の代表位置。屋台や席は特定していません。"
+      },
+      {
+        "id": "long-bar",
+        "label": "14:00 / Long Bar",
+        "lat": 1.2951307,
+        "lon": 103.8534677,
+        "stage_id": "long-bar",
+        "source_url": "https://www.openstreetmap.org/node/1766486405",
+        "note": "施設の地図上の位置。来店入口はNorth Bridge Road側、Raffles Arcade #02-01を確認。"
+      }
+    ]
+  }
 }

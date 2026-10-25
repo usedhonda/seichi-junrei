@@ -1,0 +1,36 @@
+.route-map-section{margin:0 22px 28px;border:1px solid var(--line);padding:18px 14px;background:var(--panel);color:inherit}
+.route-map-heading{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.route-map-heading h2{font-size:18px;line-height:1.6;margin-top:5px}
+.route-map-heading .kicker{font-size:8px}
+.map-view-switch{display:flex;gap:2px;flex-shrink:0}
+.map-view-switch button{min-height:44px;padding:8px;font-size:11px;border:1px solid var(--line)}
+.map-view-switch button[aria-pressed=true]{background:var(--gold);color:var(--night)}
+.map-caption{font:600 10px/1.8 -apple-system,sans-serif;color:var(--muted);margin:14px 0 10px}
+.journey-map{height:300px;width:100%;background:#e4e6de;color:#202b37;isolation:isolate;scroll-margin-top:16px;z-index:0;font-family:-apple-system,BlinkMacSystemFont,sans-serif}
+.journey-map .leaflet-tile{object-fit:fill}
+.journey-map .leaflet-control-zoom a{width:40px;height:40px;line-height:40px;color:#22313c;background:#fff;text-decoration:none;min-height:40px;font-size:24px}
+.journey-map .leaflet-control-attribution{font-size:9px;line-height:1.5;background:#fffffff0;color:#333}
+.journey-map .leaflet-control-attribution a{color:#214f79;font-size:9px;min-height:0;padding:0}
+.journey-map .leaflet-control-scale-line{font-size:10px;color:#26313b}
+.route-pin-wrap{background:none;border:0}
+.route-pin{display:grid;place-items:center;width:32px;height:32px;background:#ad332a;border:2px solid white;border-radius:50%;box-shadow:0 1px 5px #0006;color:white;font:750 13px/1 -apple-system,sans-serif}
+.map-status,.map-note{font:400 10px/1.8 -apple-system,sans-serif;color:var(--muted);margin:12px 0 0}
+.map-note{border-top:1px solid var(--line);padding-top:12px}
+.map-stop{padding:14px 0 8px;border-bottom:1px solid var(--line)}
+.map-stop>button{display:flex;align-items:center;gap:10px;width:100%;min-height:44px;text-align:left;color:inherit}
+.map-stop>button b{display:grid;place-items:center;width:25px;height:25px;border:1px solid var(--gold);color:var(--gold);font:650 12px/1 -apple-system,sans-serif;flex-shrink:0}
+.map-stop>button span{font-size:13px;font-weight:650;line-height:1.6}
+.map-stop>div{padding-left:35px;display:flex;gap:16px;flex-wrap:wrap}
+.map-stop a{display:inline-flex;align-items:center;min-height:44px;font:500 11px/1.5 -apple-system,sans-serif;color:var(--gold)}
+.map-popup strong{display:block;font-size:15px;line-height:1.6;margin-top:5px;color:#22313c}
+.map-popup small{font-size:9px;color:#a63229}
+.map-popup p{font-size:11px;line-height:1.8;margin:10px 0;color:#48525c}
+.map-popup a{display:block;color:#224f78;font-size:11px;padding:8px 0;min-height:36px}
+.timeline-map-link{display:inline-flex;align-items:center;min-height:44px;font:600 11px/1.5 -apple-system,sans-serif;color:var(--gold);text-decoration:underline;text-underline-offset:4px;text-align:left;padding:5px 0}
+body[data-layout] .route-map-section{background:var(--night)}
+body[data-layout] .map-view-switch button[aria-pressed=true]{background:var(--ink);color:var(--night)}
+body[data-layout="literary"] .route-map-heading h2{font:500 17px/1.7 'Hiragino Mincho ProN',Georgia,serif}
+@media(max-width:380px){.route-map-heading{align-items:flex-start;flex-direction:column}.map-view-switch{align-self:flex-end}.journey-map{height:280px}}
+
+.route-map-heading{display:block}
+.map-view-switch{justify-content:flex-end;margin-top:10px}

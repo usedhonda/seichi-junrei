@@ -180,7 +180,8 @@
       "events": [
         {
           "time": "街歩き",
-          "label": "ナイルの街で、ひと休み"
+          "label": "ナイルの街で、ひと休み",
+          "map_stop_id": "aswan-city"
         },
         {
           "time": "移動",
@@ -260,7 +261,8 @@
       "events": [
         {
           "time": "神殿",
-          "label": "大神殿と小神殿へ"
+          "label": "大神殿と小神殿へ",
+          "map_stop_id": "temples"
         },
         {
           "time": "移動",
@@ -312,6 +314,18 @@
     {
       "label": "エジプト政府チケット：最終入場",
       "url": "https://www.egymonuments.com/locations/details/AbuSimbelTemple"
+    },
+    {
+      "label": "地図の代表位置：アスワン市内",
+      "url": "https://www.openstreetmap.org/node/1667671341"
+    },
+    {
+      "label": "地図の代表位置：アブ・シンベル神殿",
+      "url": "https://www.openstreetmap.org/way/594065767"
+    },
+    {
+      "label": "背景地図と地点データ：OpenStreetMap contributors / ODbL",
+      "url": "https://www.openstreetmap.org/copyright"
     }
   ],
   "media_rights": [
@@ -403,6 +417,66 @@
         "ポルナレフ"
       ],
       "notes": "非公式ファンアート。公式場面画像ではありません。"
+    }
+  ],
+  "route_map": {
+    "stops": [
+      {
+        "id": "aswan-city",
+        "label": "アスワン市内",
+        "lat": 24.091071,
+        "lon": 32.897306,
+        "stage_id": "aswan",
+        "source_url": "https://www.openstreetmap.org/node/1667671341",
+        "note": "街の代表点。特定のカフェやホテルを指していません。"
+      },
+      {
+        "id": "temples",
+        "label": "アブ・シンベル神殿",
+        "lat": 22.3371195,
+        "lon": 31.6257973,
+        "stage_id": "abu-simbel",
+        "source_url": "https://www.openstreetmap.org/way/594065767",
+        "note": "神殿群の代表位置。入場口や実際の移動経路は訪問前に確認。"
+      }
+    ]
+  },
+  "itinerary": [
+    {
+      "id": "1",
+      "label": "DAY 1",
+      "events": [
+        {
+          "time": "街歩き",
+          "label": "ナイルの街で、ひと休み",
+          "map_stop_id": "aswan-city"
+        },
+        {
+          "time": "移動",
+          "label": "移動と休息の余裕を確保する"
+        }
+      ],
+      "map_stop_ids": [
+        "aswan-city"
+      ]
+    },
+    {
+      "id": "2",
+      "label": "DAY 2",
+      "events": [
+        {
+          "time": "神殿",
+          "label": "大神殿と小神殿へ",
+          "map_stop_id": "temples"
+        },
+        {
+          "time": "移動",
+          "label": "移動と休息の余裕を確保する"
+        }
+      ],
+      "map_stop_ids": [
+        "temples"
+      ]
     }
   ]
 }

@@ -50,3 +50,11 @@ Do not treat the sample's already-selected test fixture as a real user's current
 The renderer never consults `site/` or a sibling repository. Plugin installation includes its templates, runtime and illustrative fixtures. Runtime code is fixed; text from the JSON is escaped, not executed.
 
 `meta.layout` selects a composition independently of color: `immersive` (default), `casefile`, or `literary`. Existing guides without this field retain their original structure. New compositions may share runtime hooks while changing the document layout.
+
+## Geographic itinerary map (optional)
+
+```json
+"route_map": {"stops":[{"id":"square","label":"Public square","lat":50.08,"lon":14.43,"stage_id":"prague","source_url":"https://www.openstreetmap.org/node/123","note":"Representative point; check the entrance."}]}
+```
+
+`stops` needs 1–30 uniquely identified public locations, finite latitude -85..85 and longitude -180..180. `stage_id` is an optional existing stage ID. Keep coordinate sources and map-data attribution in `sources`. Use no private lodging or real-time personal location. Each `itinerary` day supplies ordered `map_stop_ids`; optional `map_mode` is `walking`, `transit` or `driving` when the mode is actually intended. Mixed-mode days may omit it. `events[].map_stop_id` must belong to that day's stops. Unmapped rest/transfer events remain readable. These coordinates support a map, not automatic travel-time verification. Earlier guides without the map contract keep their original output.

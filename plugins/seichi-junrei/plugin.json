@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "seichi-junrei",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "Evidence-checked pilgrimage guides for user-selected anime, manga, films.",
   "author": {
     "name": "usedhonda"

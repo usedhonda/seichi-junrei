@@ -303,18 +303,27 @@ def render(data, root):
             chapter += f'<a class="next-destination" href="#{nxt["id"]}">{image(nxt["spec"]["image"])}<div><div class="kicker">THE NEXT CHAPTER</div><strong>{H(nxt["title"])}</strong></div><span>→</span></a>'
         chapters += chapter+'</section>'
     days = data.get('itinerary') or [{'id': str(i+1), 'label': st['spec'].get('date') or 'DAY '+str(i+1), 'events': st['spec'].get('events', [])} for i, st in enumerate(stages)]
+    from route_maps import prepare as prepare_map, event_link
+    map_html, map_script = prepare_map(data, days)
+    if map_html:
+        vendor = runtime_root / 'vendor'
+        css += (vendor / 'leaflet.css').read_text(encoding='utf-8') + (runtime_root / 'route-map.css').read_text(encoding='utf-8')
+        library = (vendor / 'leaflet.js').read_text(encoding='utf-8')
+        library = re.sub(r'//# sourceMappingURL=.*', '', library)
+        js += '\n' + library + '\n' + (runtime_root / 'route-map.js').read_text(encoding='utf-8')
     tabs, panels = '', ''
     for i, day in enumerate(days):
         did = str(day['id'])
         if not re.fullmatch(r'[A-Za-z0-9_-]+', did):
             raise ValueError('Day IDs must contain only letters, digits, underscores or hyphens')
         tabs += f'<button role="tab" id="day-tab-{did}" aria-controls="day-{did}" aria-selected="{str(i==0).lower()}" data-day="{did}">{H(day["label"])}</button>'
-        rows = ''.join('<article><div class="time">'+H(e.get('time', ''))+'</div><div><h3>'+H(e.get('title') or e.get('label', ''))+'</h3><p>'+H(e.get('description', ''))+'</p></div></article>' for e in day.get('events', []))
+        rows = ''.join('<article><div class="time">'+H(e.get('time', ''))+'</div><div><h3>'+H(e.get('title') or e.get('label', ''))+'</h3><p>'+H(e.get('description', ''))+'</p>'+event_link(e)+'</div></article>' for e in day.get('events', []))
         panels += f'<div class="timeline" role="tabpanel" aria-labelledby="day-tab-{did}" id="day-{did}" data-day-panel="{did}"{(" hidden" if i else "")}>{rows}</div>'
-    route = '<section class="view" id="route" aria-label="旅程と旅の準備"><div class="page-lead"><div class="kicker">YOUR REAL-WORLD ADVENTURE</div><h1>OUR JOURNEY.<small>物語は、旅の順番で。</small></h1><p>'+H(meta.get('regions', ''))+'</p></div><div class="day-switch" role="tablist" aria-label="日程">'+tabs+'</div>'+panels+'<p class="info-note">'+H(meta.get('itinerary_note', '時刻・営業時間・移動手段は、旅行前に最新の公式情報をご確認ください。'))+'</p><section class="section"><div class="menu-list"><button data-action="save">画像込みのしおりを保存 ↓</button><button data-action="share">旅仲間へ渡す ↗</button><button data-open="howto">使い方 →</button><button data-open="sources">出典と制作記録 →</button><button data-action="motion" aria-pressed="true">ON</button></div></section></section>'
+    route = '<section class="view" id="route" aria-label="旅程と旅の準備"><div class="page-lead"><div class="kicker">YOUR REAL-WORLD ADVENTURE</div><h1>OUR JOURNEY.<small>物語は、旅の順番で。</small></h1><p>'+H(meta.get('regions', ''))+'</p></div><div class="day-switch" role="tablist" aria-label="日程">'+tabs+'</div>'+map_html+panels+'<p class="info-note">'+H(meta.get('itinerary_note', '時刻・営業時間・移動手段は、旅行前に最新の公式情報をご確認ください。'))+'</p><section class="section"><div class="menu-list"><button data-action="save">画像込みのしおりを保存 ↓</button><button data-action="share">旅仲間へ渡す ↗</button><button data-open="howto">使い方 →</button><button data-open="sources">出典と制作記録 →</button><button data-action="motion" aria-pressed="true">ON</button></div></section></section>'
     if layout != 'immersive':
         from editorial_layouts import compose
-        home, story, chapters, route = compose(layout, data, stages, episodes, scenes, missions, primary, image, rail, feature, paragraphs, link, mission_group, H, TYPES, tabs, panels)
+        home, story, chapters, route = compose(layout, data, stages, episodes, scenes, missions, primary, image, rail, feature, paragraphs, link, mission_group, H, TYPES, tabs, panels, map_html)
+    route += map_script
     navigation = [{'id': 'home', 'label': 'TOP'}, {'id': 'story', 'label': '物語'}]+[{'id': s['id'], 'label': s['label']} for s in stages]+[{'id': 'route', 'label': '旅程'}]
     public_url = meta.get('public_url', '')
     if public_url:

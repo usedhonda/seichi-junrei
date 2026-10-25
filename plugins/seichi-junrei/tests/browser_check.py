@@ -42,6 +42,8 @@ def check(specs, out, executable=None, html_file=None, assets_root=None, widths=
                     url = f'http://127.0.0.1:{server.server_port}/{spec.stem}.html'
                     for width in widths:
                         context = browser.new_context(viewport={'width': width, 'height': 900}, has_touch=True, reduced_motion='reduce', accept_downloads=True)
+                        # Background tiles are a live service; CI checks maps without fetching them.
+                        context.route('https://tile.openstreetmap.org/**', lambda route: route.abort())
                         page = context.new_page()
                         errors = []
                         page.on('pageerror', lambda e: errors.append(str(e)))
@@ -100,6 +102,12 @@ def check(specs, out, executable=None, html_file=None, assets_root=None, widths=
                             assert page.locator('#sheet .dialog-image').get_attribute('src').startswith('data:image/')
                             page.keyboard.press('Escape')
                         page.locator('.bottom-nav a[href="#route"]').tap()
+                        if page.locator('#journey-map').count():
+                            page.wait_for_function('document.querySelector("#journey-map").dataset.mapReady==="true"')
+                            page.locator('[data-map-view="all"]').tap()
+                            map_data = json.loads(page.locator('#route-map-data').text_content())
+                            assert page.locator('.route-pin').count() == len(map_data['stops'])
+                            page.locator('[data-map-view="day"]').tap()
                         tabs = page.locator('[data-day]')
                         tabs.last.tap()
                         last = tabs.last.get_attribute('data-day')
@@ -107,6 +115,11 @@ def check(specs, out, executable=None, html_file=None, assets_root=None, widths=
                         tabs.last.press('Home')
                         first = tabs.first.get_attribute('data-day')
                         assert page.locator(f'[data-day-panel="{first}"]').is_visible()
+                        if page.locator('#journey-map').count():
+                            page.wait_for_function('(id)=>document.querySelector("[data-map-caption]").textContent.startsWith("DAY "+id)', arg=first)
+                            page.locator('.map-stop [data-map-stop]').first.tap()
+                            assert page.locator('.leaflet-popup').is_visible()
+                            assert 'https://www.google.com/maps/' in page.locator('.map-popup a').last.get_attribute('href')
                         page.locator('[data-action="motion"]').tap()
                         assert page.locator('body').get_attribute('data-motion') == 'off'
                         with page.expect_download() as saved:

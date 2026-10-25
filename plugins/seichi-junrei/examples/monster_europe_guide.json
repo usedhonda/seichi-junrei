@@ -295,6 +295,26 @@
     {
       "label": "DB：実際の都市間移動の確認",
       "url": "https://int.bahn.de/en"
+    },
+    {
+      "label": "地図の代表位置：ハイデルベルク・旧大学",
+      "url": "https://www.openstreetmap.org/way/35465057"
+    },
+    {
+      "label": "地図の代表位置：カウフボイレン・Hotel Hasen",
+      "url": "https://www.openstreetmap.org/node/9277601609"
+    },
+    {
+      "label": "地図の代表位置：プラハ・共和国広場",
+      "url": "https://www.openstreetmap.org/node/5471247112"
+    },
+    {
+      "label": "地図の代表位置：プラハ・カレル橋",
+      "url": "https://www.openstreetmap.org/way/132415117"
+    },
+    {
+      "label": "背景地図と地点データ：OpenStreetMap contributors / ODbL",
+      "url": "https://www.openstreetmap.org/copyright"
     }
   ],
   "media_rights": [
@@ -350,7 +370,8 @@
         {
           "time": "10:00",
           "title": "ハイデルベルク・大学前",
-          "description": "外観の観察45分。博物館内部は別途、公式の開館・最終入場を確認して任意。"
+          "description": "外観の観察45分。博物館内部は別途、公式の開館・最終入場を確認して任意。",
+          "map_stop_id": "university"
         },
         {
           "time": "11:00",
@@ -362,7 +383,11 @@
           "title": "昼食と自由時間",
           "description": "昼食60分。その後は市内の余白と翌日の移動準備。"
         }
-      ]
+      ],
+      "map_stop_ids": [
+        "university"
+      ],
+      "map_mode": "walking"
     },
     {
       "id": "2",
@@ -373,7 +398,12 @@
           "title": "カウフボイレンへの移動日",
           "description": "列車・乗継・宿泊場所は訪問日に別途確定。この日に巡礼地点を詰め込まず、遅れの余裕を確保。"
         }
-      ]
+      ],
+      "map_stop_ids": [
+        "university",
+        "hotel"
+      ],
+      "map_mode": "transit"
     },
     {
       "id": "3",
@@ -382,7 +412,8 @@
         {
           "time": "10:00",
           "title": "Hotel Hasenの外観へ",
-          "description": "公共歩道から30分程度。営業施設の入口を塞がず、内部への入場は予定しない。"
+          "description": "公共歩道から30分程度。営業施設の入口を塞がず、内部への入場は予定しない。",
+          "map_stop_id": "hotel"
         },
         {
           "time": "10:45",
@@ -394,7 +425,11 @@
           "title": "昼食と旅の整理",
           "description": "60分。次の都市への移動は翌日、経路と運行を再確認。"
         }
-      ]
+      ],
+      "map_stop_ids": [
+        "hotel"
+      ],
+      "map_mode": "walking"
     },
     {
       "id": "4",
@@ -405,7 +440,12 @@
           "title": "プラハへの移動日",
           "description": "国境を越える乗継と実際の運行を事前確認。所要時間次第で移動・宿泊日を追加し、到着後の巡礼は翌日に回す。"
         }
-      ]
+      ],
+      "map_stop_ids": [
+        "hotel",
+        "square"
+      ],
+      "map_mode": "transit"
     },
     {
       "id": "5",
@@ -414,7 +454,8 @@
         {
           "time": "09:00",
           "title": "共和国広場から街へ",
-          "description": "構図の観察45分。広場の通行を優先。"
+          "description": "構図の観察45分。広場の通行を優先。",
+          "map_stop_id": "square"
         },
         {
           "time": "10:00",
@@ -424,14 +465,60 @@
         {
           "time": "11:00",
           "title": "カレル橋の両岸を眺める",
-          "description": "60分。塔と橋の位置関係を見比べ、混雑時は立ち止まる時間を短くする。"
+          "description": "60分。塔と橋の位置関係を見比べ、混雑時は立ち止まる時間を短くする。",
+          "map_stop_id": "bridge"
         },
         {
           "time": "12:00",
           "title": "昼食と余韻",
           "description": "60分。帰国便や長距離移動の予約はモデルに含めず、その後の移動は別途。"
         }
-      ]
+      ],
+      "map_stop_ids": [
+        "square",
+        "bridge"
+      ],
+      "map_mode": "walking"
     }
-  ]
+  ],
+  "route_map": {
+    "stops": [
+      {
+        "id": "university",
+        "label": "ハイデルベルク・旧大学",
+        "lat": 49.4113102,
+        "lon": 8.706201,
+        "stage_id": "heidelberg",
+        "source_url": "https://www.openstreetmap.org/way/35465057",
+        "note": "建物の代表位置。原作の視点・博物館入口とは区別。"
+      },
+      {
+        "id": "hotel",
+        "label": "カウフボイレン・Hotel Hasen",
+        "lat": 47.8781201,
+        "lon": 10.6247096,
+        "stage_id": "kaufbeuren",
+        "source_url": "https://www.openstreetmap.org/node/9277601609",
+        "note": "営業ホテルの代表位置。公共歩道からの外観観察を予定。"
+      },
+      {
+        "id": "square",
+        "label": "プラハ・共和国広場",
+        "lat": 50.0887989,
+        "lon": 14.4306385,
+        "stage_id": "prague",
+        "source_url": "https://www.openstreetmap.org/node/5471247112",
+        "note": "広場の代表位置。OPの正確なカメラ位置は未特定。"
+      },
+      {
+        "id": "bridge",
+        "label": "プラハ・カレル橋",
+        "lat": 50.0869957,
+        "lon": 14.4079481,
+        "stage_id": "prague",
+        "source_url": "https://www.openstreetmap.org/way/132415117",
+        "note": "橋の代表位置。OPの正確な視点や橋の入口の指定ではありません。"
+      }
+    ]
+  }
 }

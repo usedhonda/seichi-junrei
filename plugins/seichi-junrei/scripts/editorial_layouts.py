@@ -7,7 +7,7 @@ from layout; the existing runtime owns navigation, storage, dialogs and download
 
 def compose(layout, data, stages, episodes, scenes, missions, primary,
             image, rail, feature, paragraphs, link, mission_group, H, types,
-            tabs, panels):
+            tabs, panels, map_html=''):
     meta = data['meta']
     case = layout == 'casefile'
     def heading(en, ja):
@@ -62,5 +62,5 @@ def compose(layout, data, stages, episodes, scenes, missions, primary,
             nxt=stages[i+1]
             chapter += f'<a class="editorial-next" href="#{nxt["id"]}"><small>{"NEXT CLUE" if case else "NEXT CHAPTER"} / {i+2:02}</small><strong>{H(nxt["title"])}</strong><span>→</span></a>'
         chapters += chapter+'</section>'
-    route = '<section class="view" id="route"><header class="editorial-page-head">'+heading('THE DAY PLAN' if case else 'TRAVEL ITINERARY','手がかりをつなぐ、一日。' if case else '街から街へ、余白を残して。')+'<p>'+H(meta.get('regions',''))+'</p></header><div class="day-switch" role="tablist" aria-label="日程">'+tabs+'</div>'+panels+'<p class="info-note">'+H(meta.get('itinerary_note',''))+'</p><section class="editorial-block"><div class="menu-list"><button data-action="save">画像込みで保存 ↓</button><button data-action="share">旅仲間に渡す ↗</button><button data-open="howto">使い方</button><button data-open="sources">出典と制作記録</button><button data-action="motion" aria-pressed="true">ON</button></div></section></section>'
+    route = '<section class="view" id="route"><header class="editorial-page-head">'+heading('THE DAY PLAN' if case else 'TRAVEL ITINERARY','手がかりをつなぐ、一日。' if case else '街から街へ、余白を残して。')+'<p>'+H(meta.get('regions',''))+'</p></header><div class="day-switch" role="tablist" aria-label="日程">'+tabs+'</div>'+map_html+panels+'<p class="info-note">'+H(meta.get('itinerary_note',''))+'</p><section class="editorial-block"><div class="menu-list"><button data-action="save">画像込みで保存 ↓</button><button data-action="share">旅仲間に渡す ↗</button><button data-open="howto">使い方</button><button data-open="sources">出典と制作記録</button><button data-action="motion" aria-pressed="true">ON</button></div></section></section>'
     return home,story,chapters,route
