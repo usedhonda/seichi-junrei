@@ -124,6 +124,39 @@ class SkillTests(unittest.TestCase):
             self.assertGreaterEqual(len(parsed.images), 10)
             self.assertTrue(all(x["src"].startswith("data:image/webp;base64,") for x in parsed.images))
 
+    def test_duplicate_and_invalid_ids_rejected(self):
+        for target in ("works", "stages", "missions"):
+            spec = copy.deepcopy(self.data)
+            items = spec["stages"][0]["missions"] if target == "missions" else spec[target]
+            items.append(copy.deepcopy(items[0]))
+            with self.subTest(target=target), self.assertRaises(ValueError):
+                validate(spec)
+        spec = copy.deepcopy(self.data)
+        spec["stages"][0]["id"] = "ambiguous:stage"
+        with self.assertRaises(ValueError):
+            validate(spec)
+
+    def test_progress_identity(self):
+        from html.parser import HTMLParser
+        class Main(HTMLParser):
+            identity = None
+            def handle_starttag(self, tag, attrs):
+                if tag == "main": self.identity = dict(attrs)["data-guide"]
+        def identity(spec):
+            parser = Main()
+            parser.feed(render(spec, ROOT))
+            return parser.identity
+        original = identity(self.data)
+        spec = copy.deepcopy(self.data)
+        spec["stages"][0]["location_note"] += " Updated prose."
+        self.assertEqual(original, identity(spec))
+        spec["meta"]["dates"] = "A different trip"
+        self.assertNotEqual(original, identity(spec))
+        spec["meta"]["guide_id"] = "stable-trip"
+        stable = identity(spec)
+        spec["meta"]["title"] = "New title"
+        self.assertEqual(stable, identity(spec))
+
     def test_remote_media_rejected(self):
         spec=copy.deepcopy(self.data)
         spec['meta']['hero_image']='https://images.example.org/x.jpg'

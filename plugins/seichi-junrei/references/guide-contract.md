@@ -29,3 +29,9 @@ python /path/to/plugin/scripts/render_guide.py /path/to/trip/guide.json --assets
 ```
 
 Do not treat the sample's already-selected test fixture as a real user's current choice. Production requires an actual user selection/delegation record. ImageGen availability is checked by Codex at runtime, not assumed from the plugin manifest.
+
+## Mission identity and persistence
+
+Use unique, nonempty ASCII letters/digits/underscore/hyphen IDs for works, stages and each stage's missions. Reuse a mission ID only while its meaning is unchanged. Secondary work IDs must also be distinct.
+
+Set an optional non-sensitive `meta.guide_id` (for example `egypt-2027-spring`) to keep progress stable across title/date edits. Give separate trips different IDs. Without it, the renderer derives an identity from title, dates, regions, primary work and ordered stage IDs. Prose and image edits do not reset it. Mission keys are scoped to this identity; ambiguous legacy `sp-check:` keys are not migrated. Progress is local to the browser/origin, not synced between companions or devices. Storage failure keeps the checklist usable in memory and shows a notice.

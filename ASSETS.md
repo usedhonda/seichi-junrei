@@ -19,7 +19,7 @@ These examples are shipped so the demonstration can be viewed and tested. **Do n
 Before publication or distribution:
 1. Keep a media-rights manifest with author/creator, original source, usage permission, attribution and restrictions.
 2. Use appropriately licensed location photographs and your own imagery; do not download and republish anime screenshots or movie frames without suitable permission.
-3. AI-generated art may still raise character, trademark or derivative-work issues. Avoid recreating recognizably protected frame compositions, logos or characters without permission.
+3. AI-generated art may still raise character, trademark or derivative-work issues. Do not reproduce existing frames or imply official authorization. Preserve requested fictional characters in newly composed fan art, record its provenance and non-official status, and review the intended distribution against applicable rights and fan-content guidelines. Generation alone is not permission for publication.
 4. Label stylized or composite illustrations clearly so they are not mistaken for actual locations or official artwork.
 5. Respect applicable official fan-content guidelines where they exist. Private group sharing or noncommercial use is not a blanket exception.
 
