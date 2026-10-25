@@ -18,3 +18,40 @@
 .bottom-nav{overflow-x:auto;justify-content:flex-start}.bottom-nav a{flex:1 0 68px;min-width:68px}.hero-bottom h1{overflow-wrap:anywhere}.ep-num{font-size:clamp(18px,7vw,36px)}.route-line a{color:inherit}.view .info-note{margin:18px 22px}.intro-copy p+p{margin-top:16px}.sight p{white-space:pre-line}.hero-art{object-position:var(--hero-position,50% 50%)}
 
 .nav-symbol{font-size:24px;line-height:1.2;font-weight:400}.hero-bottom h1 .title-small{display:block;font-size:.48em;letter-spacing:0}
+
+/* Art direction belongs to the selected story, while controls keep one tested runtime. */
+body[data-theme="pop-postcard"]{--night:#fff9ef;--panel:#fffdf7;--gold:#bd3d65;--gold2:#d78f54;--cream:#203b50;--ink:#203b50;--muted:#536e80;--line:#cfdae0;background:#dceef1;color:#203b50;color-scheme:light}
+body[data-theme="pop-postcard"] .app{background:#fffaf0;border-color:#b9d4dc}
+body[data-theme="pop-postcard"] .hero h1{font-family:-apple-system,BlinkMacSystemFont,'Hiragino Sans',sans-serif;font-weight:900;font-style:italic;letter-spacing:-.065em;color:#fff8dd;text-shadow:0 3px 18px #102739b0}
+body[data-theme="pop-postcard"] .hero,body[data-theme="pop-postcard"] .subhero,body[data-theme="pop-postcard"] .destination{color:#fff9ef}
+body[data-theme="pop-postcard"] .hero .kicker,body[data-theme="pop-postcard"] .hero .journey-tag,body[data-theme="pop-postcard"] .hero .art-credit{color:#ffe6a3}
+body[data-theme="pop-postcard"] .hero-subtitle,body[data-theme="pop-postcard"] .vertical,body[data-theme="pop-postcard"] .subhero h1{color:#fff}
+body[data-theme="pop-postcard"] .topbar .wordmark{color:#fff7df;text-shadow:0 2px 12px #092634a0}
+body[data-theme="pop-postcard"] .topbar .circle{color:#fff;background:#234659d9;border-color:#fff8}
+body[data-theme="pop-postcard"] .btn.primary{background:#bf4269;color:white;border-color:#bf4269;box-shadow:0 4px 12px #bf426929}
+body[data-theme="pop-postcard"] .hero .btn.secondary{background:#143b50ad;color:#fff;border-color:#ffe1ab}
+body[data-theme="pop-postcard"] .paper{background:#e8f2f2;color:#203b50}
+body[data-theme="pop-postcard"] .destination h3{color:#ffdda0}
+body[data-theme="pop-postcard"] .scene-card{background:#fffdf8;border-color:#c8d9de;box-shadow:0 5px 18px #254b5910}
+body[data-theme="pop-postcard"] .scene-card p,body[data-theme="pop-postcard"] .scene-card h3{color:#203b50}
+body[data-theme="pop-postcard"] .bottom-nav{background:#fffaf0f5;border-color:#bfd4da;box-shadow:0 -4px 20px #23465912}
+body[data-theme="pop-postcard"] .bottom-nav a{color:#466579}
+body[data-theme="pop-postcard"] .bottom-nav a[aria-current]{color:#b8305e}
+body[data-theme="pop-postcard"] .dialog{background:#fffaf0;color:#203b50;border-color:#c7d6dd}
+body[data-theme="pop-postcard"] .dialog-head{background:#edf5f4}
+body[data-theme="pop-postcard"] .dialog-body h2{color:#a62c57}
+body[data-theme="pop-postcard"] .toast{background:#203d50;color:#fff9ed}
+body[data-theme="pop-postcard"] .full-art{background:#143448;color:#fff}
+
+/* Preserve the whole ensemble on illustrated postcards. */
+body[data-theme="pop-postcard"] .hero-art{inset:0;height:auto;object-fit:contain;object-position:center top}
+body[data-theme="pop-postcard"] .subhero{background:#15394d}
+body[data-theme="pop-postcard"] .subhero img{height:auto;object-fit:contain;object-position:center top}
+body[data-theme="pop-postcard"] .subhero h1 small{color:#fff0d1}
+body[data-theme="pop-postcard"] .dialog-body p{color:#334f60}
+body[data-theme="pop-postcard"] .dialog .detail-art-note{color:#536e80}
+body[data-theme="pop-postcard"] .dialog-image{height:auto;max-height:390px;object-fit:contain;background:#dae9e9}
+body[data-theme="pop-postcard"] .ep-copy{color:#fff7e5}
+body[data-theme="pop-postcard"] .hero .vertical{display:none}
+body[data-theme="pop-postcard"] .topbar .wordmark small{color:#fff0c6;text-shadow:0 1px 4px #102331}
+body[data-theme="pop-postcard"] .subhero .pill{color:#ffd9e8}

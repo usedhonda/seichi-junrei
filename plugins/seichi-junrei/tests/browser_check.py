@@ -169,4 +169,4 @@ if __name__ == '__main__':
     parser.add_argument('--outdir', type=Path, default=ROOT / 'checks')
     parser.add_argument('--executable', default=os.environ.get('CHROMIUM_EXECUTABLE'))
     args = parser.parse_args()
-    check(args.guide or [ROOT/'examples/egypt_guide.json', ROOT/'examples/oxford_alice_guide.json'], args.outdir, args.executable, args.html, args.assets_root)
+    check(args.guide or [ROOT/'examples/egypt_guide.json', ROOT/'examples/oxford_alice_guide.json', ROOT/'examples/k_on_london_guide.json'], args.outdir, args.executable, args.html, args.assets_root)

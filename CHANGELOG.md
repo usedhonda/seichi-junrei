@@ -2,6 +2,13 @@
 
 このプロジェクトは開発初期段階のSkillです。明確なリリースタグを作成したときに、ここへ変更履歴を追記します。
 
+## 0.3.2 — 2026-10-25
+
+- Added a researched London example for the K-On! anime film, with newly generated, labelled unofficial fan art.
+- Added a bright postcard theme using the same mobile runtime, with full-ensemble artwork and readable light-theme sheets.
+- Distinguished filming locations, visitor attractions, fan location records and illustrative composites; labelled route durations as estimates.
+- Bundled the London guide and its artwork in the distributable skill, with browser acceptance and Pages publication.
+
 ## 0.3.1 — 2026-10-25
 
 - Replaced the static baseline with the public sample's reusable mobile design and runtime inside the installed plugin.

@@ -48,6 +48,18 @@ class MobileContracts(unittest.TestCase):
         self.assertNotIn('aswan', source.lower())
         self.assertFalse(lint(source, self.alice)[0])
 
+    def test_theme_and_cover_credit_do_not_inject_markup(self):
+        spec = copy.deepcopy(self.alice)
+        spec['meta']['theme'] = '\"><script>alert(1)</script>'
+        with self.assertRaisesRegex(ValueError, 'Unknown mobile theme'):
+            render(spec, ROOT)
+        spec['meta']['theme'] = 'pop-postcard'
+        spec['meta']['art_label'] = '<script>unsafe-credit</script>'
+        source = render(spec, ROOT)
+        self.assertIn('data-theme="pop-postcard"', source)
+        self.assertNotIn('<script>unsafe-credit</script>', source)
+        self.assertIn('&lt;script&gt;unsafe-credit&lt;/script&gt;', source)
+
     def test_unselected_candidate_is_not_in_the_guide(self):
         spec = copy.deepcopy(self.alice)
         candidate = copy.deepcopy(spec['works'][0])

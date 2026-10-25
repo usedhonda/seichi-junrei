@@ -1,0 +1,383 @@
+{
+  "meta": {
+    "id": "k-on-london-public",
+    "title": "LONDON AFTER SCHOOL!",
+    "title_lines": [
+      "LONDON",
+      "AFTER",
+      "SCHOOL!"
+    ],
+    "wordmark": "AFTER SCHOOL",
+    "kicker": "K-ON! · A LONDON GRADUATION TRIP",
+    "subtitle": "唯たちと歩く、放課後のつづき。",
+    "cover_line": "いつもの5人で、\nいつもと違う街へ。",
+    "dates": "2 DAYS / PUBLIC MODEL",
+    "regions": "ABBEY ROAD → CAMDEN → SOUTH BANK",
+    "hero_image": "assets/k-on-london/cover.webp",
+    "hero_position": "50% 50%",
+    "theme": "pop-postcard",
+    "character_art_required": true,
+    "public_url": "https://usedhonda.github.io/seichi-junrei/k-on/",
+    "introduction": [
+      "言葉に詰まったり、少し道に迷ったり。それでも隣にいつもの友達がいれば、知らない街まで放課後になる。映画『けいおん！』のロンドン旅行を入口に、音楽とお茶と川辺をつなぐ2日間。",
+      "劇場版の行き先がロンドンであることと、作品に登場する道や建物を一つずつ特定することは別の確認です。このガイドでは、公式の作品情報・現地施設の案内・ファンの舞台照合記録を区別しています。"
+    ],
+    "story_intro": "TVシリーズの放課後から、2011年の劇場版へ。卒業が近い唯・澪・律・紬に梓が加わり、5人でロンドンへ旅立つ物語を楽しみます。TV版の話数を劇場版の場面番号として流用していません。",
+    "art_note": "挿絵はAI（ImageGen）で新しく生成した非公式ファンアートです。挿絵は『けいおん！』のキャラクターを題材に今回制作した非公式ファンアートです。公式アニメの画面や現地写真ではありません。カフェ・建物・道路の細部には創作を含み、実際の登場カットや正確な位置関係を示しません。",
+    "checked_note": "作品・現地・舞台照合の出典を2026年10月25日に確認。ファン照合は制作側の確認を意味しません。営業時間や交通は訪問日向けに公式案内で確認してください。",
+    "itinerary_note": "個人の予約を含まない公開用モデルです。移動時間は2026年10月25日時点の編集上の概算で、時刻表・経路検索結果ではありません。各移動に待ち時間と休憩の余裕を含め、当日はTfLで確認してください。",
+    "closing": "ライブの音がなくても、5人の会話を思い出せば、その街は少しだけ賑やかになる。",
+    "art_label": "AI FAN ART · 非公式"
+  },
+  "selection": {
+    "primary_work_id": "k-on-movie-2011",
+    "user_confirmed": true,
+    "secondary_work_ids": []
+  },
+  "works": [
+    {
+      "id": "k-on-movie-2011",
+      "title": "映画「けいおん！」（2011年・劇場版）",
+      "medium": "anime_film",
+      "episodes": [
+        {
+          "id": "departure",
+          "number": "01",
+          "name": "放課後は、海を越える。",
+          "title": "放課後は、海を越える。",
+          "summary": "卒業前の旅行先はロンドン。梓も一緒に、いつもの5人が知らない街へ。",
+          "body": [
+            "TVシリーズで積み重ねた部室の空気を、海外の街まで連れていく。初めての旅の小さな戸惑いも、5人の関係を知っている人には楽しい読みどころになる。",
+            "このしおりはロンドンの観光順に編集しており、映画のカット順を完全再現したコースではありません。作品を知らない同行者には、まず5人の名前と関係を紹介しておこう。"
+          ],
+          "image": "assets/k-on-london/cover.webp",
+          "source_url": "https://www.tbs.co.jp/tbs-ch/item/a0204/",
+          "note": "公式あらすじで卒業旅行とロンドン行きを確認。場面の正確な分秒は掲載していません。"
+        },
+        {
+          "id": "music",
+          "number": "02",
+          "name": "音楽の街で、少し背伸び。",
+          "title": "音楽の街で、少し背伸び。",
+          "summary": "澪の憧れや、律と唯の賑やかさを思い出しながら音楽の街へ。",
+          "body": [
+            "アビイ・ロードやカムデン周辺は、音楽と旅を一緒に楽しむ入口になる。作品をきっかけに訪れても、現地の音楽文化そのものに目を向けたい。",
+            "アビイ・ロードとカムデンの個別の作品対応は、民間の舞台照合DBを出典として扱う。公式の認定マップや撮影地点だと読み替えない。"
+          ],
+          "image": "assets/k-on-london/abbey.webp",
+          "source_url": "https://anime-tourism.jp/t/21/",
+          "note": "ファンによる舞台照合記録。個々の場所について制作側の一次確認は未取得。"
+        },
+        {
+          "id": "tea",
+          "number": "03",
+          "name": "お茶にすれば、いつもの時間。",
+          "title": "お茶にすれば、いつもの時間。",
+          "summary": "旅の間にも、お茶と甘いもの。風景を見た感想を、5人の会話に重ねて。",
+          "body": [
+            "観光地を多く回ることだけが旅ではない。窓辺で飲み物を頼み、さっき見た景色を仲間と話す時間も、しおりに残したい。",
+            "このカフェの絵は新しい創作シーン。描かれた店舗を映画の登場店と断定したり、架空の住所へ案内したりはしません。"
+          ],
+          "image": "assets/k-on-london/tea.webp",
+          "source_url": "https://www.tbs.co.jp/tbs-ch/item/a0204/",
+          "note": "休憩の編集テーマ。特定の実在カフェや映画のカットを再現していません。"
+        }
+      ]
+    }
+  ],
+  "stages": [
+    {
+      "id": "abbey-road",
+      "name": "アビイ・ロード",
+      "location": "ABBEY ROAD",
+      "label": "LONDON / ABBEY-ROAD",
+      "hook": "澪の憧れに、ついていく。",
+      "image": "assets/k-on-london/abbey.webp",
+      "location_note": "音楽の街に来た、と実感する一歩。横断歩道を前に、澪の目が輝くような気持ちを重ねてみる。音楽好きにはおなじみの場所を、初めての仲間とも楽しみたい。",
+      "paragraphs": [
+        "音楽の街に来た、と実感する一歩。横断歩道を前に、澪の目が輝くような気持ちを重ねてみる。音楽好きにはおなじみの場所を、初めての仲間とも楽しみたい。",
+        "スタジオ公式の案内では、最寄りのSt John’s Wood駅から徒歩でアクセスできます。一般道路なので、写真のために車道を占有せず、普通の横断として渡りましょう。"
+      ],
+      "scenes": [
+        {
+          "title": "音楽の街で、少し背伸び。",
+          "episode_id": "music",
+          "episode": "FILM / MEMORY",
+          "description": "道の向こうにある憧れと、隣で笑っている友達。その両方を見ながら歩く時間を楽しむ。",
+          "image": "assets/k-on-london/abbey.webp",
+          "source_url": "https://anime-tourism.jp/t/21/",
+          "spoiler": false
+        }
+      ],
+      "connections": [
+        {
+          "type": "documented_connection",
+          "description": "アビイ・ロードを映画の舞台照合地点として掲載する民間DBを参照。制作側による個別地点の確認は未取得。",
+          "source_url": "https://anime-tourism.jp/t/21/"
+        }
+      ],
+      "highlights": [
+        {
+          "title": "横断歩道を、普通に渡る",
+          "description": "道路の通行が優先。撮影は短く、歩道で待ち合わせる。",
+          "map_url": "https://www.google.com/maps/search/?api=1&query=Abbey+Road+Studios+London",
+          "source_url": "https://www.abbeyroad.com/crossing"
+        },
+        {
+          "title": "音楽の余韻は、街のカフェへ",
+          "description": "ショップや周辺の街並みを楽しみ、休憩は歩道から離れた場所で。スタジオ内部の入場を前提にしない。",
+          "source_url": "https://www.abbeyroad.com/crossing"
+        }
+      ],
+      "missions": [
+        {
+          "id": "1",
+          "text": "音楽の街の音を一つ見つける",
+          "detail": "自分の旅の思い出として、チェック。"
+        },
+        {
+          "id": "2",
+          "text": "友達の好きな曲を一つ聞く",
+          "detail": "自分の旅の思い出として、チェック。"
+        }
+      ],
+      "practical": "横断歩道と建物外観を中心に45分ほど。内部見学やイベント参加は含めていません。"
+    },
+    {
+      "id": "camden",
+      "name": "カムデン",
+      "location": "CAMDEN TOWN",
+      "label": "LONDON / CAMDEN",
+      "hook": "知らない街の音も、合奏になる。",
+      "image": "assets/k-on-london/tea.webp",
+      "location_note": "音楽、古着、運河、屋台。カムデンでは、目的地を一つに絞りすぎず、街のリズムを眺める余白を作る。楽器の話をする人も、甘いものが気になる人も、同じ旅を楽しめる。",
+      "paragraphs": [
+        "音楽、古着、運河、屋台。カムデンでは、目的地を一つに絞りすぎず、街のリズムを眺める余白を作る。楽器の話をする人も、甘いものが気になる人も、同じ旅を楽しめる。",
+        "カムデン周辺は民間DBの舞台照合記録に掲載されています。具体的なライブ会場や実在の寿司店を、現存・営業確認なしに目的地へ指定していません。挿絵のカフェは創作です。"
+      ],
+      "scenes": [
+        {
+          "title": "お茶にすれば、いつもの時間。",
+          "episode_id": "tea",
+          "episode": "FILM / MEMORY",
+          "description": "しおりを閉じて、今日いちばん面白かったことを話す。紬が喜びそうなお茶も、唯が気になるケーキも、各自の好みで選ぼう。",
+          "image": "assets/k-on-london/tea.webp",
+          "source_url": "https://www.tbs.co.jp/tbs-ch/item/a0204/",
+          "spoiler": false
+        }
+      ],
+      "connections": [
+        {
+          "type": "documented_connection",
+          "description": "カムデン周辺は民間舞台DBの照合記録を参照。個別の店やライブ場所の制作側確認は未取得。",
+          "source_url": "https://anime-tourism.jp/t/21/"
+        },
+        {
+          "type": "thematic",
+          "description": "カフェで過ごす場面は放課後ティータイムに重ねる編集テーマ。特定の店舗が作品に登場するという案内ではない。",
+          "source_url": "https://www.tbs.co.jp/tbs-ch/item/a0204/"
+        }
+      ],
+      "highlights": [
+        {
+          "title": "マーケットと運河の周辺を散歩",
+          "description": "Visit Londonが紹介する市場、音楽文化、運河を入口に。施設や店の営業は訪問日ごとに確認。",
+          "map_url": "https://www.google.com/maps/search/?api=1&query=Camden+Lock+London",
+          "source_url": "https://www.visitlondon.com/things-to-do/london-areas/camden-town"
+        },
+        {
+          "title": "ランチと休憩の時間を先に確保",
+          "description": "お茶の店は好みで選び、しおりの挿絵から店を特定しようとしない。",
+          "source_url": "https://www.visitlondon.com/things-to-do/london-areas/camden-town"
+        }
+      ],
+      "missions": [
+        {
+          "id": "1",
+          "text": "お茶の時間を一緒に楽しむ",
+          "detail": "自分の旅の思い出として、チェック。"
+        },
+        {
+          "id": "2",
+          "text": "映画と今日の旅の違いを一つ話す",
+          "detail": "自分の旅の思い出として、チェック。"
+        }
+      ],
+      "practical": "街歩き60分、ランチとお茶60分、自由時間30分を確保。夜のライブや有料イベントは別手配です。"
+    },
+    {
+      "id": "south-bank",
+      "name": "テムズ川沿い",
+      "location": "SOUTH BANK",
+      "label": "LONDON / SOUTH-BANK",
+      "hook": "5人で来たことが、いちばんの景色。",
+      "image": "assets/k-on-london/cover.webp",
+      "location_note": "翌日は川辺から。大きな空とロンドンの街並みを前に、旅の写真を一枚。「来られてよかった」と言える時間を、予定の最後に残しておく。",
+      "paragraphs": [
+        "翌日は川辺から。大きな空とロンドンの街並みを前に、旅の写真を一枚。「来られてよかった」と言える時間を、予定の最後に残しておく。",
+        "映画の舞台がロンドンであることはTBS公式情報で確認。ロンドン・アイやウェストミンスター周辺の個別対応は民間DBの照合記録です。絵は複数の景色を組み合わせた創作で、地理の案内には地図を使ってください。"
+      ],
+      "scenes": [
+        {
+          "title": "放課後は、海を越える。",
+          "episode_id": "departure",
+          "episode": "FILM / MEMORY",
+          "description": "知らない景色の前でも、いつもの5人。映画の卒業旅行を思い出しながら、自分たちの旅も一枚の写真に残す。",
+          "image": "assets/k-on-london/cover.webp",
+          "source_url": "https://www.tbs.co.jp/tbs-ch/item/a0204/",
+          "spoiler": false
+        }
+      ],
+      "connections": [
+        {
+          "type": "documented_connection",
+          "description": "川沿いの個別地点は民間舞台DBのロンドン・アイ、ビッグ・ベン等の照合記録を参照。公式認定のカット位置とは断定しない。",
+          "source_url": "https://anime-tourism.jp/t/21/"
+        }
+      ],
+      "highlights": [
+        {
+          "title": "川辺の歩道から街を眺める",
+          "description": "ウェストミンスター橋周辺の公共歩道を中心に。観覧車や議会内部への入場はこのモデルに含めない。",
+          "map_url": "https://www.google.com/maps/search/?api=1&query=Westminster+Bridge+London",
+          "source_url": "https://anime-tourism.jp/t/21/"
+        },
+        {
+          "title": "旅のしおりに、今日の一言を",
+          "description": "好きな景色、友達の言葉、お茶の味。ミッションを埋めるだけで終わらない旅に。",
+          "source_url": "https://www.tbs.co.jp/tbs-ch/item/a0204/"
+        }
+      ],
+      "missions": [
+        {
+          "id": "1",
+          "text": "川辺で旅の記念写真を一枚",
+          "detail": "自分の旅の思い出として、チェック。"
+        },
+        {
+          "id": "2",
+          "text": "帰る前に、今日の思い出を一つずつ",
+          "detail": "自分の旅の思い出として、チェック。"
+        }
+      ],
+      "practical": "午前の川辺散歩と休憩で2〜3時間。天候が悪ければ短く切り上げ、帰路の移動を優先。"
+    }
+  ],
+  "sources": [
+    {
+      "label": "TBS公式：映画「けいおん！」紹介",
+      "url": "https://www.tbs.co.jp/tbs-ch/item/a0204/"
+    },
+    {
+      "label": "TBS公式：2011年ロンドン・イメージツアー案内（過去情報）",
+      "url": "https://www.tbs.co.jp/anime/k-on/k-on_tv/news/news1112.html"
+    },
+    {
+      "label": "Anime Tourism：民間の舞台照合DB",
+      "url": "https://anime-tourism.jp/t/21/"
+    },
+    {
+      "label": "Abbey Road Studios：訪問案内",
+      "url": "https://www.abbeyroad.com/crossing"
+    },
+    {
+      "label": "Visit London：カムデン案内",
+      "url": "https://www.visitlondon.com/things-to-do/london-areas/camden-town"
+    },
+    {
+      "label": "TfL：当日の経路・交通確認",
+      "url": "https://tfl.gov.uk/plan-a-journey/"
+    }
+  ],
+  "media_rights": [
+    {
+      "file": "assets/k-on-london/cover.webp",
+      "status": "original_generated",
+      "creator": "OpenAI native ImageGen",
+      "characters": [
+        "平沢唯",
+        "秋山澪",
+        "田井中律",
+        "琴吹紬",
+        "中野梓"
+      ],
+      "alt": "ロンドンの空の下で笑う唯・澪・律・紬・梓のファンアート",
+      "notes": "5人の創作集合シーン。公式キービジュアルや記録写真ではありません。"
+    },
+    {
+      "file": "assets/k-on-london/abbey.webp",
+      "status": "original_generated",
+      "creator": "OpenAI native ImageGen",
+      "characters": [
+        "平沢唯",
+        "秋山澪",
+        "田井中律"
+      ],
+      "alt": "ロンドンの横断歩道のそばで音楽の街を楽しむ澪・律・唯",
+      "notes": "歩道上で待つ創作構図。横断歩道やスタジオの正確な構造を示しません。"
+    },
+    {
+      "file": "assets/k-on-london/tea.webp",
+      "status": "original_generated",
+      "creator": "OpenAI native ImageGen",
+      "characters": [
+        "平沢唯",
+        "秋山澪",
+        "田井中律",
+        "琴吹紬",
+        "中野梓"
+      ],
+      "alt": "ロンドンのカフェでお茶とケーキを楽しむ5人",
+      "notes": "この店が映画に登場するという主張を含まない創作場面。"
+    }
+  ],
+  "itinerary": [
+    {
+      "id": "1",
+      "label": "DAY 1 / MUSIC & TEA",
+      "events": [
+        {
+          "time": "10:00",
+          "title": "アビイ・ロードで音楽の街へ",
+          "description": "見学45分＋休憩15分。スタジオ内部や車道での撮影待機は含めません。"
+        },
+        {
+          "time": "11:00",
+          "title": "カムデン方面へ移動",
+          "description": "公共交通と徒歩の概算45〜60分。実際の経路・運行はTfLで確認。"
+        },
+        {
+          "time": "12:00",
+          "title": "市場、ランチ、お茶",
+          "description": "街歩き60分＋食事60分＋自由時間30分。予約店は指定していません。"
+        },
+        {
+          "time": "14:30",
+          "title": "余白と帰路",
+          "description": "遅れの吸収30分＋帰路60分を見込み、16時前後を目安に終了。"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "label": "DAY 2 / BY THE RIVER",
+      "events": [
+        {
+          "time": "10:30",
+          "title": "ウェストミンスター周辺へ",
+          "description": "宿からの移動は各自の所在地に合わせて別途確保。私的ホテルはモデルに含めません。"
+        },
+        {
+          "time": "11:00",
+          "title": "テムズ川沿いを散歩",
+          "description": "屋外散歩60分、休憩30分、写真と余白30分。入場施設は含めません。"
+        },
+        {
+          "time": "13:00",
+          "title": "ランチと旅の振り返り",
+          "description": "60分の食事・休憩後、帰路へ。出発便の時刻や予約ではありません。"
+        }
+      ]
+    }
+  ]
+}
