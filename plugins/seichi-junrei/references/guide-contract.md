@@ -49,7 +49,7 @@ Do not treat the sample's already-selected test fixture as a real user's current
 
 The renderer never consults `site/` or a sibling repository. Plugin installation includes its templates, runtime and illustrative fixtures. Runtime code is fixed; text from the JSON is escaped, not executed.
 
-`meta.layout` selects a composition independently of color: `immersive` (default), `casefile`, or `literary`. Existing guides without this field retain their original structure. New compositions may share runtime hooks while changing the document layout.
+`meta.layout` selects a composition independently of color: `immersive` (default), `casefile`, `pursuit`, or `literary`. Existing guides without this field retain their original structure. New compositions may share runtime hooks while changing the document layout.
 
 ## Geographic itinerary map (optional)
 

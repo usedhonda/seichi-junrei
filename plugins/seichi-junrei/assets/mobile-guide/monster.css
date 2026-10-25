@@ -1,0 +1,92 @@
+/* MONSTER: a psychological-thriller journey, not a quiet generic brochure. */
+body[data-layout="pursuit"]{--night:#0b0e10;--panel:#151a1f;--ink:#ece8e0;--cream:#ece8e0;--gold:#ed4a43;--gold2:#c5322d;--muted:#b9bab7;--line:#ffffff26;background:#050708;color:#ece8e0;color-scheme:dark;font-family:-apple-system,BlinkMacSystemFont,'Hiragino Sans',sans-serif}
+body[data-layout="pursuit"] .app{background:var(--night)}
+body[data-layout="pursuit"] .topbar{height:64px;border-bottom:1px solid #ffffff26;background:#0b0e10;position:relative}
+body[data-layout="pursuit"] .wordmark{font:700 10px/1.3 -apple-system,sans-serif;letter-spacing:.12em}
+body[data-layout="pursuit"] .wordmark small{display:none}
+body[data-layout="pursuit"] .circle{border:0;color:#ece8e0;font-size:20px}
+.pursuit-poster{position:relative;height:660px;isolation:isolate;overflow:hidden;background:#070b0e}
+body[data-layout="pursuit"] .pursuit-poster .hero-art{position:absolute!important;top:0;left:0;height:100%!important;width:100%;object-fit:cover;object-position:center 42%;z-index:-2}
+.pursuit-poster:after{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(#05090cdf 0%,#05090c10 27%,#05090c00 43%,#05090c33 60%,#0b0e10 100%)}
+.pursuit-brand{padding:26px 20px 0;text-align:center}
+.pursuit-brand>p{font:650 6px/1.5 -apple-system,sans-serif;letter-spacing:.2em;color:#dedad2}
+.pursuit-brand h1{font:400 clamp(58px,19vw,96px)/1.05 Georgia,'Times New Roman',serif;letter-spacing:-.065em;color:#f34b42;margin:8px -8px 4px;text-shadow:0 3px 20px #000}
+.pursuit-brand>span{font:700 9px/1.5 -apple-system,sans-serif;letter-spacing:.45em;padding-left:.45em}
+.pursuit-hero-copy{position:absolute;left:24px;bottom:20px;right:24px}
+.trail-counter{display:flex;align-items:center;gap:12px;color:#f34b42;margin-bottom:16px}
+.trail-counter b{font:800 41px/1 -apple-system,sans-serif;letter-spacing:-.075em}
+.trail-counter span{font:750 8px/1.5 -apple-system,sans-serif;letter-spacing:.12em}
+.pursuit-hero-copy h2{font:850 clamp(29px,9vw,43px)/1.4 'Hiragino Sans',sans-serif;letter-spacing:.015em;color:#fff;filter:drop-shadow(0 2px 12px #000)}
+.pursuit-hero-copy>p{font-size:11px;line-height:1.9;color:#d2d3cf;margin-top:14px}
+.pursuit-cover-tail{padding:10px 24px 26px}
+.pursuit-start{display:flex;align-items:center;justify-content:space-between;min-height:58px;background:#d43932;color:white;text-decoration:none;padding:12px 18px;font-size:14px;font-weight:750;border-left:4px solid #ff8975}
+.pursuit-start b{font-size:27px;line-height:1}
+.pursuit-coordinates{font:700 7px/1.8 -apple-system,sans-serif;letter-spacing:.12em;color:#adadaa;margin:18px 0 10px}
+body[data-layout="pursuit"] .editorial-credit{font-size:7px;color:#9b9e9e;letter-spacing:.03em}
+body[data-layout="pursuit"] .editorial-block{padding:32px 24px}
+body[data-layout="pursuit"] .editorial-heading h2{font:800 24px/1.55 'Hiragino Sans',sans-serif;letter-spacing:-.015em;color:#ece8e0}
+body[data-layout="pursuit"] .editorial-heading>span{font:700 8px/1.7 -apple-system,sans-serif;letter-spacing:.2em;color:#ed4a43}
+.pursuit-cities>.editorial-block{padding-bottom:4px!important}
+.pursuit-city{display:block;position:relative;min-height:335px;overflow:hidden;isolation:isolate;text-decoration:none;border-top:1px solid #ffffff24}
+.pursuit-city:after{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(#0b0e1044,#0b0e1000 24%,#0b0e10e8 85%,#0b0e10)}
+.pursuit-city>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 36%;z-index:-2;opacity:.86}
+.pursuit-city .city-number{position:absolute;left:23px;top:18px;color:#f56257;font:850 44px/1 -apple-system,sans-serif;letter-spacing:-.06em;text-shadow:0 2px 12px #000}
+.pursuit-city>div{position:absolute;left:24px;right:24px;bottom:22px}
+.pursuit-city small{font:700 7px/1.5 -apple-system,sans-serif;letter-spacing:.16em;color:#eeaca2}
+.pursuit-city h3{font:800 clamp(30px,9.5vw,47px)/1.1 -apple-system,sans-serif;letter-spacing:-.06em;color:#fff;margin:9px 0 12px;overflow-wrap:anywhere}
+.pursuit-city p{font-size:14px;line-height:1.7;color:#e8e3d9}
+.pursuit-city>div>span{display:block;margin-top:15px;color:#ff8d7d;font-size:10px;font-weight:700}
+body[data-layout="pursuit"] .pursuit-files .episode-card{grid-template-columns:1fr;gap:0;min-height:78px;padding:17px 0 17px 37px;position:relative}
+body[data-layout="pursuit"] .pursuit-files .episode-card img{display:none}
+body[data-layout="pursuit"] .pursuit-files .ep-num{display:block;position:absolute;left:0;top:21px;font:750 15px/1 -apple-system,sans-serif;color:#ed4a43;background:none}
+body[data-layout="pursuit"] .pursuit-files .ep-copy{font-size:15px;color:#e5e0d6}
+body[data-layout="pursuit"] .pursuit-files .ep-copy small{display:none}
+body[data-layout="pursuit"] .pursuit-prologue{background:#151a1f}
+body[data-layout="pursuit"] .editorial-block p{font-size:13px;line-height:2;color:#b9bab7}
+body[data-layout="pursuit"] .pursuit-still{position:relative}
+body[data-layout="pursuit"] .pursuit-still .feature-art img{height:auto;max-height:none;object-fit:contain}
+body[data-layout="pursuit"] .pursuit-still .still-number{position:absolute;right:18px;bottom:60px;font:850 88px/1 -apple-system,sans-serif;letter-spacing:-.075em;color:#ed4a43;text-shadow:0 3px 18px #0009;opacity:.9;pointer-events:none}
+body[data-layout="pursuit"] .pursuit-still .art-label{padding:10px 24px;border-bottom:0}
+.pursuit-chapter-title{padding:12px 24px 28px;border-bottom:1px solid #ffffff26}
+.pursuit-chapter-title h1{font:850 clamp(34px,11vw,54px)/1.1 -apple-system,sans-serif;letter-spacing:-.06em;margin:10px 0;overflow-wrap:anywhere;color:#fff}
+body[data-layout="pursuit"] .chapter-number{color:#ed4a43;font-size:8px}
+body[data-layout="pursuit"] .chapter-deck{font:750 19px/1.7 'Hiragino Sans',sans-serif;color:#e7e2d8;margin-top:20px}
+body[data-layout="pursuit"] .chapter-tools{border:0;margin:0;padding:10px 24px;background:#151a1f}
+body[data-layout="pursuit"] .chapter-tools button{color:#cdcdc8}
+body[data-layout="pursuit"] .chapter-essay{border-top:0}
+body[data-layout="pursuit"] .chapter-essay>p:first-of-type{font-size:16px;line-height:2;color:#dedad1}
+body[data-layout="pursuit"] .observations{background:#151a1f}
+body[data-layout="pursuit"] .observation h3{font-size:16px;color:#e7e2d8}
+body[data-layout="pursuit"] .evidence{background:#0b0e10}
+body[data-layout="pursuit"] .scene-note{border-top:2px solid #b4312e;border-bottom:1px solid #ffffff26;background:#151a1f;padding:20px}
+body[data-layout="pursuit"] .scene-note strong{color:#fff;font-size:20px;line-height:1.7}
+body[data-layout="pursuit"] .checklist{background:#151a1f}
+body[data-layout="pursuit"] .mission-note{color:#aeb5b6!important}
+body[data-layout="pursuit"] .mission-track{background:#343b40}
+body[data-layout="pursuit"] .editorial-next{background:#9c2928;color:white}
+body[data-layout="pursuit"] .editorial-next strong{font-family:-apple-system,sans-serif;font-weight:800}
+body[data-layout="pursuit"] .editorial-page-head{padding:34px 24px 24px;border-bottom:1px solid #ffffff26}
+body[data-layout="pursuit"] .editorial-page-head h2{font-size:27px;color:#ece8e0}
+body[data-layout="pursuit"] .story-index .episode-card{display:block;padding:20px 0 26px}
+body[data-layout="pursuit"] #story .episode-card img{width:100%;height:auto;margin-bottom:18px}
+body[data-layout="pursuit"] #story .ep-copy{font-size:20px;font-weight:750;line-height:1.6;color:#ece8e0}
+body[data-layout="pursuit"] #story .ep-copy small{font-size:8px;color:#ed4a43;line-height:1.8;letter-spacing:.03em}
+body[data-layout="pursuit"] .day-switch{background:#151a1f;margin-top:24px}
+body[data-layout="pursuit"] .day-switch button{color:#d9d7ce}
+body[data-layout="pursuit"] .day-switch button[aria-selected=true]{background:#9c2928;color:white}
+body[data-layout="pursuit"] .bottom-nav{border-top:1px solid #7b302e;background:#0b0e10;padding-top:2px}
+body[data-layout="pursuit"] .bottom-nav a{color:#b7bab9;border-color:#ffffff13}
+body[data-layout="pursuit"] .bottom-nav a[aria-current]{background:#321719;color:#ff9c8e}
+body[data-layout="pursuit"] .bottom-nav a[aria-current]:before{color:#ed4a43}
+body[data-layout="pursuit"] .dialog{background:#101619;color:#ece8e0;border:1px solid #87403b}
+body[data-layout="pursuit"] .dialog-head{background:#101619}
+body[data-layout="pursuit"] .dialog-body h2{font:800 25px/1.6 -apple-system,'Hiragino Sans',sans-serif;color:#f0e8db}
+body[data-layout="pursuit"] .dialog-body p{color:#bfc4c3}
+body[data-layout="pursuit"] .dialog .btn.primary{background:#ab302b;color:white}
+body[data-layout="pursuit"] .toast{background:#9c2928;color:white}
+@media(min-width:430px){.pursuit-poster{height:710px}.pursuit-hero-copy{bottom:25px}.pursuit-city{min-height:370px}}
+
+body[data-layout="pursuit"] #home .pursuit-files .episode-card{display:block;padding:20px 0 20px 37px;min-height:70px}
+body[data-layout="pursuit"] .location-research{margin:24px 0 0;border-color:#ffffff26}
+body[data-layout="pursuit"] .location-research summary{font-size:11px;font-weight:500;color:#b9bab7}
+body[data-layout="pursuit"] .location-research p{font-size:12px;line-height:2;color:#a8afaf}

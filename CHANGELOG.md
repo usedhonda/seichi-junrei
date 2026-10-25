@@ -4,6 +4,8 @@
 
 ## 0.4.2 — 2026-10-25
 
+- Replaced MONSTER's quiet travel-journal presentation with a psychological-thriller journey: cinematic cover, visual city chapters, story files and optional research notes.
+
 - Added geographic daily/whole-trip maps to the three selected guides with sourced public coordinates, timed-stop focus and external directions.
 - Bundled Leaflet controls and license; online basemaps load only in the route view with visible attribution. Offline files retain stops/order and explain the missing road basemap.
 - Added map input safety and daily-stop consistency checks; browser CI checks map selection and fallback while blocking external tiles.

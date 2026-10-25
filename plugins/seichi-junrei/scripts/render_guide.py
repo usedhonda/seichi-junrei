@@ -175,11 +175,13 @@ def render(data, root):
         raise ValueError('Unknown mobile theme: '+str(theme))
     css = (runtime_root / 'guide.css').read_text(encoding='utf-8')
     layout = meta.get('layout', 'immersive')
-    if layout not in ('immersive', 'casefile', 'literary'):
+    if layout not in ('immersive', 'casefile', 'literary', 'pursuit'):
         raise ValueError('Unknown mobile layout: '+str(layout))
     layout_attr = '' if layout == 'immersive' else f' data-layout="{layout}"'
     if layout != 'immersive':
         css += (runtime_root / 'editorial.css').read_text(encoding='utf-8')
+        if layout == 'pursuit':
+            css += (runtime_root / 'monster.css').read_text(encoding='utf-8')
     js = (runtime_root / 'guide.js').read_text(encoding='utf-8')
     if layout != 'immersive':
         # The editorial lists are vertical; keep their help accurate while the

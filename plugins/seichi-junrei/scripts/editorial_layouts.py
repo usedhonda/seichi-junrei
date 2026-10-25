@@ -10,6 +10,7 @@ def compose(layout, data, stages, episodes, scenes, missions, primary,
             tabs, panels, map_html=''):
     meta = data['meta']
     case = layout == 'casefile'
+    pursuit = layout == 'pursuit'
     def heading(en, ja):
         return f'<div class="editorial-heading"><span>{H(en)}</span><h2>{H(ja)}</h2></div>'
     def index():
@@ -31,6 +32,13 @@ def compose(layout, data, stages, episodes, scenes, missions, primary,
         cover = f'''<header class="case-cover"><div class="issue-line"><span>SINGAPORE / FIELD NOTES</span><span>FIELD GUIDE</span></div><h1><small>{H(primary["title"])}</small>街に残った、<br><em>手がかり。</em></h1><p class="cover-deck">{H(meta['subtitle'])}</p><figure class="case-portrait">{image(meta['hero_image'], 'hero-art', True)}<figcaption>01—{count:02} / 場面の記憶を、手がかりに。</figcaption></figure>{credit}<a class="editorial-start" href="#{stages[0]['id']}">調査をはじめる <span>↓</span></a></header>'''
         intro = heading('THE BRIEF', '観光名所より、場面の手がかり。')+paragraphs(meta.get('introduction', []))
         home = '<section class="view active" id="home">'+cover+'<section class="editorial-block brief">'+intro+'</section><section class="editorial-block">'+heading('THE CLUES', '今回の調査先。')+index()+'</section><section class="editorial-block story-index">'+heading('SCENE FILES', 'あの場面を、もう一度。')+story_list('home-episodes')+'</section><section class="editorial-block checklist">'+heading('YOUR FIELD NOTES', '見つけたものに、チェック。')+mission_group('all','旅全体',missions)+'</section></section>'
+    elif pursuit:
+        teasers = ''
+        for i, st in enumerate(stages):
+            spec = st['spec']
+            teasers += f'<a class="pursuit-city" href="#{st["id"]}">{image(spec["image"])}<span class="city-number">0{i+1}</span><div><small>{H(spec.get("trail_character", "THE TRAIL"))}</small><h3>{H(st["title"])}</h3><p>{H(spec.get("story_heading", spec.get("hook", "")))}</p><span>この街を追う →</span></div></a>'
+        cover = f'''<header class="pursuit-cover"><div class="pursuit-poster">{image(meta['hero_image'],'hero-art',True)}<div class="pursuit-brand"><p>NAOKI URASAWA · UNOFFICIAL PILGRIMAGE</p><h1>MONSTER</h1><span>FOLLOW THE TRAIL</span></div><div class="pursuit-hero-copy"><div class="trail-counter"><b>03</b><span>CITIES.<br>ONE SHADOW.</span></div><h2>あの物語の、<br>痕跡を追え。</h2><p>ニナのいた街。最後のホテル。<br>OPの向こう側へ。</p></div></div><div class="pursuit-cover-tail"><a href="#{stages[0]['id']}" class="pursuit-start"><span>追跡をはじめる</span><b>↗</b></a><p class="pursuit-coordinates">HEIDELBERG / KAUFBEUREN / PRAGUE</p>{credit}</div></header>'''
+        home = '<section class="view active" id="home">'+cover+'<section class="pursuit-cities"><div class="editorial-block">'+heading('THE TRAIL / 01—03','三つの街に、物語の痕跡。')+'</div>'+teasers+'</section><section class="editorial-block story-index pursuit-files">'+heading('STORY FILES','物語の断片を、手がかりに。')+story_list('home-episodes')+'</section><section class="editorial-block pursuit-prologue">'+heading('BEYOND THE SCREEN','画面の向こうに、歩いていく。')+paragraphs(meta.get('introduction',[]))+'</section><section class="editorial-block checklist">'+heading('YOUR TRACE','見つけた痕跡を、残す。')+mission_group('all','旅全体',missions)+'</section></section>'
     else:
         cover = f'''<header class="literary-cover"><p class="edition">A JOURNEY THROUGH GERMANY & CZECHIA</p><h1>MONSTER<span>記憶の街を歩く。</span></h1><figure>{image(meta['hero_image'], 'hero-art', True)}<figcaption>TENMA / JOHAN — AN UNOFFICIAL TRAVEL ESSAY</figcaption></figure><p class="literary-deck">大学の窓。ホテルの屋根。<br>見覚えのある街が、<br>静かに物語へとつながる。</p><a class="editorial-start" href="#{stages[0]['id']}">第一章を読む <span>→</span></a>{credit}</header>'''
         home = '<section class="view active" id="home">'+cover+'<section class="editorial-block essay-intro">'+heading('PROLOGUE', 'テンマの旅の、断片を探す。')+paragraphs(meta.get('introduction',[]))+'</section><section class="editorial-block contents">'+heading('CONTENTS / THREE CITIES', '三つの街、三つの記憶。')+index()+'</section><section class="editorial-block story-index">'+heading('READING THE STORY', '旅の前の、小さな読書。')+story_list('home-episodes')+'</section><section class="editorial-block checklist">'+heading('TRAVEL MARGINALIA', '旅の余白に、記録する。')+mission_group('all','旅全体',missions)+'</section></section>'
@@ -42,6 +50,8 @@ def compose(layout, data, stages, episodes, scenes, missions, primary,
         art = feature(spec['image'], 'AI FAN ART · 非公式の創作イラスト')
         if case:
             opening = '<header class="case-chapter">'+title+'</header>'+art
+        elif pursuit:
+            opening = '<header class="pursuit-chapter"><div class="pursuit-still">'+art+'<span class="still-number">'+str(i+1).zfill(2)+'</span></div><div class="pursuit-chapter-title">'+title+'</div></header>'
         else:
             opening = '<header class="literary-chapter">'+title+'</header><div class="chapter-plate">'+art+'</div>'
         chapter = f'<section class="view" id="{ident}">'+opening+f'<div class="chapter-tools"><button data-bookmark="{ident}" aria-pressed="false">◇ この章を保存</button><button data-action="share">仲間に渡す ↗</button></div>'
@@ -51,7 +61,11 @@ def compose(layout, data, stages, episodes, scenes, missions, primary,
             item = sight if isinstance(sight,dict) else {'title':sight}
             observation += f'<article class="observation"><span>{j+1:02}</span><div><h3>{H(item["title"])}</h3><p>{H(item.get("description", ""))}</p>'+link(item.get('map_url') or spec.get('map_url'),'地図を開く','map-link')+link(item.get('source_url'),'現地情報の出典')+'</div></article>'
         observation += '</section>'
-        narrative = f'<section class="editorial-block chapter-essay" id="{ident}-story">'+heading('THE SCENE' if case else 'STORY / MEMORY',spec.get('story_heading','物語の記憶。'))+paragraphs(spec.get('paragraphs',[]))+scene_notes(ident)+'</section>'
+        copy = spec.get('paragraphs', [])
+        reading = paragraphs(copy)
+        if pursuit and copy:
+            reading = paragraphs(copy[:1])+'<details class="location-research"><summary>場所と作品の照合メモ</summary>'+paragraphs(copy[1:])+'</details>'
+        narrative = f'<section class="editorial-block chapter-essay" id="{ident}-story">'+heading('THE SCENE' if case else 'STORY / MEMORY',spec.get('story_heading','物語の記憶。'))+reading+scene_notes(ident)+'</section>'
         chapter += observation+narrative if case else narrative+observation
         evidence = '<section class="editorial-block evidence">'+heading('EVIDENCE NOTES' if case else 'SOURCE NOTES','場所と場面の、確かめ方。')
         for rel in spec.get('connections',[]):
@@ -63,4 +77,7 @@ def compose(layout, data, stages, episodes, scenes, missions, primary,
             chapter += f'<a class="editorial-next" href="#{nxt["id"]}"><small>{"NEXT CLUE" if case else "NEXT CHAPTER"} / {i+2:02}</small><strong>{H(nxt["title"])}</strong><span>→</span></a>'
         chapters += chapter+'</section>'
     route = '<section class="view" id="route"><header class="editorial-page-head">'+heading('THE DAY PLAN' if case else 'TRAVEL ITINERARY','手がかりをつなぐ、一日。' if case else '街から街へ、余白を残して。')+'<p>'+H(meta.get('regions',''))+'</p></header><div class="day-switch" role="tablist" aria-label="日程">'+tabs+'</div>'+map_html+panels+'<p class="info-note">'+H(meta.get('itinerary_note',''))+'</p><section class="editorial-block"><div class="menu-list"><button data-action="save">画像込みで保存 ↓</button><button data-action="share">旅仲間に渡す ↗</button><button data-open="howto">使い方</button><button data-open="sources">出典と制作記録</button><button data-action="motion" aria-pressed="true">ON</button></div></section></section>'
+    if pursuit:
+        story = story.replace('READING NOTES','STORY FILES')
+        route = route.replace('TRAVEL ITINERARY','FOLLOW THE TRAIL').replace('街から街へ、余白を残して。','物語の痕跡を、つないでいく。')
     return home,story,chapters,route
