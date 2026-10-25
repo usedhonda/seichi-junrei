@@ -1,6 +1,6 @@
 # Produce a guide at the public sample's quality
 
-The default `scripts/render_guide.py` uses the same mobile CSS and interaction runtime as the published STARDUST sample. Those resources are inside `assets/mobile-guide/` and travel with the installed plugin. Do not reconstruct its interaction code for every trip or fall back to the former static brochure.
+`scripts/render_guide.py` supplies shared navigation, dialogs, checklists, storage and offline downloads. Share those behaviors, not a mandatory composition. A new work needs an editorial brief for its own cover, information order, reading rhythm, typography and navigation treatment. The STARDUST design remains one example, not the visual default for every work.
 
 ## Turn research into a production brief
 
@@ -9,6 +9,14 @@ Keep the confirmed work/adaptation, intended readers, trip order, requested cast
 Plan the images before generation: character-led portrait cover; distinct scene illustrations for story beats; scene art repeated prominently inside the corresponding destination; real-world imagery with honest provenance. Generate missing assets separately through available native ImageGen, preserving the cast and visual continuity. A scene image's fictional backdrop does not prove a real location. Use approved supplied or appropriately cleared original book art when that is the requested treatment. Do not ship the demonstration's cast as another work's characters.
 
 Keep a per-image record in `media_rights`: `file`, `status`, `creator`, `alt`, `notes`, optional `source_url` / `license_url`, and `characters` (depicted character names). If the requested design includes characters, set `meta.character_art_required=true`; the renderer then refuses missing cast records for the cover, story cards or destination scenes. This validates the declared manifest, not the actual pixels: inspect the rendered art too.
+
+## Give each work its own composition
+
+Before implementation, state the work's tone, the reader's main activity, and the intended page sequence. Compare the proposed guide with the other showcases at the same viewport. Differences must survive removing the pictures and color: cover hierarchy, site-entry structure, story reading format, itinerary treatment and navigation should reflect the work. A palette swap or new poster over the same cards is insufficient. Preserve any user-approved guide explicitly excluded from redesign.
+
+The bundled layouts are concrete starting points: `immersive` is JoJo's image-led adventure; `casefile` is Conan's ruled investigation notebook with numbered clues, observations before story, and compact scene entries; `literary` is MONSTER's travel journal with a typographic cover, framed art, essay-led chapters, generous margins and a vertical reading list. Set `meta.layout` independently of `meta.theme`. Their compositions are in `scripts/editorial_layouts.py` and scoped styles in `assets/mobile-guide/editorial.css`; the runtime remains shared. For a different work, adapt or create a composition based on its brief rather than choosing a skin mechanically. These examples demonstrate choices, not a guarantee that three layouts fit all works.
+
+Inspect covers, chapter openings, story entries, dialogs and itinerary together. Check the composition below the fold, not just the first image. Keep faces and source labels readable, and avoid repeating one illustration several times in the same chapter solely to fill a template.
 
 ## Build from real data
 

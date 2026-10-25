@@ -23,7 +23,7 @@
 | 作品 × 行き先 | この旅で探すもの | モデル構成 |
 | --- | --- | --- |
 | [ジョジョ × エジプト](https://usedhonda.github.io/seichi-junrei/) | 物語と遺跡をつなぐ冒険の記憶 | 2目的地 |
-| [コナン × シンガポール](https://usedhonda.github.io/seichi-junrei/conan/) | 朝食の支店、庇と屋根、二人のランチ。定番観光から一歩だけ街角へ | 半日・2目的地 |
+| [コナン × シンガポール](https://usedhonda.github.io/seichi-junrei/conan/) | 朝食の支店、二人のランチ、小五郎のバー。番号付きの調査ノートで手がかりを追う | 1日・3目的地 |
 | [MONSTER × ドイツ・チェコ](https://usedhonda.github.io/seichi-junrei/monster/) | 大学の窓、小さなホテルの屋根、OPの広場。テンマの旅の断片を探す | 移動日込み5日・3目的地 |
 
 [![コナン版の実際のスマホ画面](docs/conan-sample.png)](https://usedhonda.github.io/seichi-junrei/conan/)
@@ -35,7 +35,7 @@
 
 ## インストール：Codex（CDX）
 
-**v0.4.0：場面単位の聖地調査手順と、公開サンプルと同じ制作エンジンを同梱しています。Codex専用Skillです。** この旅のしおりでは、単なるSVG装飾ではなく、物語のシーンを思い出すためのオリジナル挿絵が重要です。そこでClaude Code対応は終了し、**Codexで実際に利用可能なネイティブ画像生成機能を優先**します。別途のGemini APIキー、外部画像生成API、ローカル画像生成モデルは不要です。
+**v0.4.1：場面単位の聖地調査手順と、公開サンプルと同じ制作エンジンを同梱しています。Codex専用Skillです。** この旅のしおりでは、単なるSVG装飾ではなく、物語のシーンを思い出すためのオリジナル挿絵が重要です。そこでClaude Code対応は終了し、**Codexで実際に利用可能なネイティブ画像生成機能を優先**します。別途のGemini APIキー、外部画像生成API、ローカル画像生成モデルは不要です。
 
 ### Codexプラグインとして導入
 
@@ -90,6 +90,8 @@ git clone https://github.com/usedhonda/seichi-junrei.git ~/.agents/skills/seichi
 [`場面単位の調査手順`](plugins/seichi-junrei/references/scene-research.md)と[`コナン・シンガポールの調査例`](plugins/seichi-junrei/examples/conan_singapore_research.md)を同梱しました。調査例には、本編未照合の支店候補、画像説明の誤り、採用を保留した通りを含みます。確定済みの巡礼コースや、別セッションでの独立した能力評価ではありません。
 
 ### サンプルの品質は、標準生成処理で再利用できます
+
+作品ごとに構成を変えています。ジョジョは画像から入る冒険のしおり、コナンは現地の観察を先に置く調査ノート、MONSTERは余白と縦の文章で読む紀行誌です。色替えに留めず、表紙・章・物語一覧・旅程・ナビを分けています。
 
 公開中のジョジョ版も、インストールしたskillと同じ `render_guide.py` から生成しています。表紙、場面カード、目的地の章、解説シート、画像拡大、章の保存、日程切替、全体と場所別のチェック集計、画像込みのHTML保存を共通化しました。テンプレート・画像・動作コードはプラグイン内に同梱し、リポジトリ外に単体でコピーしても動きます。
 

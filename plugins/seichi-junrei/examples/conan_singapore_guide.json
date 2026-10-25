@@ -10,12 +10,12 @@
     "title_small_lines": [
       0
     ],
-    "wordmark": "THE FIELD FILE",
+    "wordmark": "THE SINGAPORE CASEBOOK",
     "kicker": "DETECTIVE CONAN · SINGAPORE",
-    "subtitle": "あの朝食と、あの二人。小さな手がかりを探す。",
+    "subtitle": "朝食、二人のランチ、探偵の一杯。三つの場面をたどる。",
     "cover_line": "小さな手がかりが、\n旅を変える。",
-    "dates": "HALF DAY / PUBLIC MODEL",
-    "regions": "CHINA STREET → CHINATOWN → MAXWELL",
+    "dates": "ONE DAY / PUBLIC MODEL",
+    "regions": "CHINA STREET → MAXWELL → RAFFLES",
     "hero_image": "assets/conan-singapore/cover.webp",
     "hero_position": "50% 50%",
     "theme": "casebook",
@@ -24,13 +24,15 @@
     "art_label": "AI FAN ART · 非公式",
     "introduction": [
       "大きなホテルを遠くから眺める旅から、一歩だけ路地へ。劇場版『名探偵コナン 紺青の拳』の朝食と昼食を入口に、同じチェーンの「どの支店か」、何気ない屋根やテラスの形を探す半日です。",
-      "映画をご存じの仲間には場面の記憶を、初めての仲間には朝食と街歩きの楽しみを。本文は現地訪問者の照合情報と店舗の公式情報を分け、確認できていない席や通りを確定地点として案内しません。"
+      "映画をご存じの仲間には場面の記憶を、初めての仲間には朝食と街歩きの楽しみを。本文は現地訪問者の照合情報と店舗の公式情報を分け、確認できていない席や通りを確定地点として案内しません。",
+      "午後はチャイナタウンからラッフルズへ。小五郎とレイチェルの場面に結びつくロング・バーで、店の入口やカウンターを探します。飲酒は旅の条件ではありません。"
     ],
     "story_intro": "2019年の劇場版、舞台はシンガポール。怪盗キッドに連れられたコナンは、現地の少年アーサー・ヒライとして行動します。ここでは映画の全事件を追わず、二つの食事の場面を旅の順に振り返ります。カードの01・02は編集上の番号で、TV版の話数ではありません。",
     "art_note": "挿絵はAI（ImageGen）で新しく制作した非公式ファンアートです。人物を描く創作構図で、公式アニメ画像や現地写真ではありません。店の座席、窓からの眺め、道路の正確な形の証拠には使わず、実際の位置は地図と現地案内を確認してください。",
     "checked_note": "作品公式、店舗・地元団体、2019年の訪問記を2026年10月25日に確認。支店や食事場面の対応は訪問者の記録に基づき、本編全編との直接照合は未完了です。制作側が個々の店舗を認定したという案内ではありません。",
-    "itinerary_note": "私的予約を含まない半日のモデルです。徒歩・滞在時間は編集上の概算で、実測や当日の経路検索結果ではありません。雨、暑さ、混雑、店舗やホーカーの休業に合わせて順序を調整してください。",
-    "closing": "名探偵のように、街を急がず観察する。いつもの朝食が、物語の入口になる。"
+    "itinerary_note": "個人予約のない1日モデル。徒歩・MRT・待ち時間は編集上の概算で、実際の経路検索値ではありません。ロング・バーは予約不可の当日来店制。訪問日の営業、待ち時間、交通を確認し、入店できなければ回廊から外観を楽しむルートへ。",
+    "closing": "名探偵のように、街を急がず観察する。いつもの朝食が、物語の入口になる。",
+    "layout": "casefile"
   },
   "selection": {
     "primary_work_id": "conan-fist-2019",
@@ -71,6 +73,20 @@
           "source_url": "https://singaporeclub.blog.jp/archives/37928898.html",
           "note": "施設としての対応と、特定の屋台・席の特定は別。周囲の人の食事を優先。",
           "spoiler": "食後の騒動まで振り返りたい人は、本編の該当場面を見返してみよう。"
+        },
+        {
+          "id": "long-bar",
+          "number": "03",
+          "name": "探偵の一杯、その向こう。",
+          "title": "探偵の一杯、その向こう。",
+          "summary": "小五郎とレイチェルの接触場面を思い出す、老舗のバー。",
+          "body": [
+            "華やかなホテルの名前より、カウンターで誰と向き合ったか。訪問記がロング・バーに結びつける小五郎とレイチェルの場面は、何気ない会話に事件の影が差す、もうひとつのシンガポールの記憶です。",
+            "木のカウンターや天井の扇、グラスの色を眺めてみる。ただし今の店内と映画の細部を直接照合したわけではなく、同じ席・同じ内装とは断定しません。"
+          ],
+          "image": "assets/conan-singapore/long-bar.webp",
+          "source_url": "https://yucam.hatenablog.com/entry/2019/05/08/184832",
+          "note": "映画の場面対応は巡礼者の記録。本編のカット・時刻との直接照合、席の位置は未確認。"
         }
       ]
     }
@@ -196,6 +212,69 @@
         }
       ],
       "practical": "昼食60分と休憩の余白を確保。屋台の休業・売り切れ・清掃による閉鎖は当日確認。暑さや雨が強ければ屋外の寄り道を省略。"
+    },
+    {
+      "id": "long-bar",
+      "name": "探偵の一杯",
+      "location": "LONG BAR",
+      "label": "FIELD NOTE / RAFFLES",
+      "hook": "ホテル名より、あのカウンターへ。",
+      "image": "assets/conan-singapore/long-bar.webp",
+      "paragraphs": [
+        "小五郎がシンガポール・スリングを楽しみ、レイチェルに接触される場面。2019年の巡礼者がその場所として紹介しているのが、ラッフルズのロング・バーです。映画を思い出すなら、ホテルの正面だけで旅を終えず、バーの入口を探したい。",
+        "入口はNorth Bridge Road側のRaffles Arcade。ホテルの一般住所1 Beach Roadだけを頼りにせず、328 North Bridge Road、#02-01を公式案内で確かめます。宿泊客の空間へ入らず、来店者向けの動線をたどります。",
+        "ピーナツの殻を床に落とす習慣は、この店が公式に紹介する文化。ほかの通りや施設でまねはしないこと。席や内装の映画との一致は未確認ですが、カウンターとグラスを前に、場面の会話を思い出す時間は楽しめます。"
+      ],
+      "scenes": [
+        {
+          "title": "探偵の一杯、その向こう。",
+          "episode_id": "long-bar",
+          "episode": "STORY / FIELD NOTE",
+          "description": "木のカウンター、ピーナツ、ピンクのグラス。小五郎とレイチェルを思い出す新しい創作挿絵。現在の店内の記録写真ではありません。",
+          "image": "assets/conan-singapore/long-bar.webp",
+          "source_url": "https://yucam.hatenablog.com/entry/2019/05/08/184832",
+          "spoiler": false
+        }
+      ],
+      "connections": [
+        {
+          "type": "documented_connection",
+          "description": "小五郎とレイチェルの場面とロング・バーの対応は2019年の訪問者記録に基づく。制作側の個別認定や、現在の席・内装との直接一致を確認したものではない。",
+          "source_url": "https://yucam.hatenablog.com/entry/2019/05/08/184832"
+        }
+      ],
+      "highlights": [
+        {
+          "title": "North Bridge Road側の入口",
+          "description": "Raffles Arcade #02-01、328 North Bridge Road。ホテル正面の住所と入口を区別して、現地の案内に従う。",
+          "source_url": "https://www.raffles.com/singapore/dining/long-bar/",
+          "map_url": "https://www.google.com/maps/search/?api=1&query=Long+Bar+Raffles+Arcade+328+North+Bridge+Road+Singapore"
+        },
+        {
+          "title": "カウンターと、ピーナツの小さな習慣",
+          "description": "木のカウンターや扇の形を観察。ピーナツの殻の習慣はこの店内限定。来店者の撮影やスタッフの案内を優先。",
+          "source_url": "https://www.raffles.com/singapore/dining/long-bar/"
+        },
+        {
+          "title": "飲まなくても、場面は楽しめる",
+          "description": "公式にはノンアルコール版Singapore Sling Zeroも掲載。注文内容・料金・利用条件は当日のメニューを確認。席や映画のグラスとの一致は未特定。",
+          "source_url": "https://www.raffles.com/singapore/dining/long-bar/"
+        }
+      ],
+      "missions": [
+        {
+          "id": "1",
+          "text": "バーの入口を見つける",
+          "detail": "Raffles Arcadeの所在地と一般ホテル住所を区別。"
+        },
+        {
+          "id": "2",
+          "text": "あの会話を思い出す細部を一つ選ぶ",
+          "detail": "カウンターや扇を観察。同じ席と断定しない。"
+        }
+      ],
+      "practical_title": "当日来店制。待つ時間も、予定の中へ。",
+      "practical": "公式案内はwalk-ins only。13:00以降にMRT等で移動し、経路・駅構内・徒歩・休憩に概算60分、入店待ちに最大60分、滞在に60分を確保するモデル。実測ではありません。待ち時間が長い場合は入店を省き、来店者に開放された回廊と外観を楽しむ。"
     }
   ],
   "sources": [
@@ -222,6 +301,14 @@
     {
       "label": "Chinatown Business Association：コナン壁画",
       "url": "https://chinatown.sg/visit/detective-conan-in-chinatown/"
+    },
+    {
+      "label": "2019年の巡礼者記録：小五郎とロング・バーの場面対応",
+      "url": "https://yucam.hatenablog.com/entry/2019/05/08/184832"
+    },
+    {
+      "label": "ロング・バー公式：入口・当日来店制・店内文化・ドリンク案内",
+      "url": "https://www.raffles.com/singapore/dining/long-bar/"
     }
   ],
   "media_rights": [
@@ -258,12 +345,23 @@
       ],
       "alt": "ホーカーでチキンライスを楽しむ園子と京極真",
       "notes": "映画のカットの複製やMaxwellの実測図ではない。"
+    },
+    {
+      "file": "assets/conan-singapore/long-bar.webp",
+      "status": "original_generated",
+      "creator": "OpenAI native ImageGen",
+      "characters": [
+        "毛利小五郎",
+        "レイチェル・チェオング"
+      ],
+      "alt": "老舗のバーを想起する木のカウンターで、小五郎とレイチェルが向き合う非公式ファンアート",
+      "notes": "新規生成した創作。映画フレームの転載でも、現行ロング・バー内装の記録でもない。"
     }
   ],
   "itinerary": [
     {
       "id": "1",
-      "label": "HALF DAY",
+      "label": "ONE DAY",
       "events": [
         {
           "time": "09:00",
@@ -292,8 +390,28 @@
         },
         {
           "time": "12:30",
-          "title": "余白と帰路",
-          "description": "休憩30分＋街歩き30分。13:30頃を目安に終了、駅や宿への移動は別途見込む。"
+          "title": "涼しい場所で休憩",
+          "description": "30分。水分と休憩を優先し、午後の待ち時間に備える。"
+        },
+        {
+          "time": "13:00",
+          "title": "ラッフルズへ移動",
+          "description": "MRT等と徒歩・駅構内・休憩を概算60分。出発時に地図で実経路を確認。"
+        },
+        {
+          "time": "14:00",
+          "title": "Raffles Arcadeの入口を探す",
+          "description": "観察と入店待ちに最大60分。店の案内を優先。長い列なら入店を省く。"
+        },
+        {
+          "time": "15:00",
+          "title": "探偵の一杯を、思い出す",
+          "description": "入店できた場合の滞在60分。飲酒は任意。映画と現在の内装を同じと決めつけない。"
+        },
+        {
+          "time": "16:00",
+          "title": "回廊と帰路の余白",
+          "description": "外観の観察・休憩30分。駅や宿への帰路は別途確保。"
         }
       ]
     }

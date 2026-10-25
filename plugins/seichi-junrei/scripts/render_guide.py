@@ -174,7 +174,19 @@ def render(data, root):
     if theme not in ('night-gold', 'pop-postcard', 'casebook', 'ink-copper'):
         raise ValueError('Unknown mobile theme: '+str(theme))
     css = (runtime_root / 'guide.css').read_text(encoding='utf-8')
+    layout = meta.get('layout', 'immersive')
+    if layout not in ('immersive', 'casefile', 'literary'):
+        raise ValueError('Unknown mobile layout: '+str(layout))
+    layout_attr = '' if layout == 'immersive' else f' data-layout="{layout}"'
+    if layout != 'immersive':
+        css += (runtime_root / 'editorial.css').read_text(encoding='utf-8')
     js = (runtime_root / 'guide.js').read_text(encoding='utf-8')
+    if layout != 'immersive':
+        # The editorial lists are vertical; keep their help accurate while the
+        # original immersive guide and runtime remain byte-for-byte unchanged.
+        js = js.replace('<h3>横にめくる</h3>', '<h3>縦に読み進める</h3>').replace(
+            '話数カードと場面カードは横スワイプ。タップで詳しい読み物が下から開きます。',
+            '物語と場面は縦に並んでいます。見出しや挿絵をタップすると、詳しい読み物が開きます。')
     stages, episodes, scenes, missions = [], [], [], []
     assets, provenance = {}, []
     serial = 0
@@ -300,6 +312,9 @@ def render(data, root):
         rows = ''.join('<article><div class="time">'+H(e.get('time', ''))+'</div><div><h3>'+H(e.get('title') or e.get('label', ''))+'</h3><p>'+H(e.get('description', ''))+'</p></div></article>' for e in day.get('events', []))
         panels += f'<div class="timeline" role="tabpanel" aria-labelledby="day-tab-{did}" id="day-{did}" data-day-panel="{did}"{(" hidden" if i else "")}>{rows}</div>'
     route = '<section class="view" id="route" aria-label="旅程と旅の準備"><div class="page-lead"><div class="kicker">YOUR REAL-WORLD ADVENTURE</div><h1>OUR JOURNEY.<small>物語は、旅の順番で。</small></h1><p>'+H(meta.get('regions', ''))+'</p></div><div class="day-switch" role="tablist" aria-label="日程">'+tabs+'</div>'+panels+'<p class="info-note">'+H(meta.get('itinerary_note', '時刻・営業時間・移動手段は、旅行前に最新の公式情報をご確認ください。'))+'</p><section class="section"><div class="menu-list"><button data-action="save">画像込みのしおりを保存 ↓</button><button data-action="share">旅仲間へ渡す ↗</button><button data-open="howto">使い方 →</button><button data-open="sources">出典と制作記録 →</button><button data-action="motion" aria-pressed="true">ON</button></div></section></section>'
+    if layout != 'immersive':
+        from editorial_layouts import compose
+        home, story, chapters, route = compose(layout, data, stages, episodes, scenes, missions, primary, image, rail, feature, paragraphs, link, mission_group, H, TYPES, tabs, panels)
     navigation = [{'id': 'home', 'label': 'TOP'}, {'id': 'story', 'label': '物語'}]+[{'id': s['id'], 'label': s['label']} for s in stages]+[{'id': 'route', 'label': '旅程'}]
     public_url = meta.get('public_url', '')
     if public_url:
@@ -319,7 +334,7 @@ def render(data, root):
     hero_position = meta.get('hero_position', '50% 50%')
     if not re.fullmatch(r'\d{1,3}% \d{1,3}%', hero_position):
         raise ValueError('hero_position must be two percentages')
-    return f'''<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex,nofollow,noarchive"><meta name="referrer" content="no-referrer"><meta name="theme-color" content="#07131e"><meta name="description" content="{H(meta.get('subtitle',''))}"><title>{H(meta['title'])}</title><style>{css}</style></head><body data-theme="{theme}" style="--hero-position:{hero_position}"><div class="app"><div class="progress" aria-hidden="true"></div><header class="topbar"><a class="wordmark" href="#home"><span>{H(meta.get('wordmark', 'STORY'))}<small>{H(meta.get('regions', 'FIELDGUIDE'))}</small></span></a><button class="circle" data-open="menu" aria-label="メニューを開く">☰</button></header><noscript><p class="no-script">本文と絵は読めます。画面切替・チェック・保存にはJavaScriptが動くブラウザをご利用ください。</p></noscript><main>{home}{story}{chapters}{route}</main><nav class="bottom-nav" aria-label="メインナビゲーション">{nav}</nav></div><dialog class="dialog" id="sheet" aria-labelledby="sheet-title"><div class="dialog-head" data-drag><span class="drag-handle"></span><span class="dialog-title" id="sheet-title"></span><button class="close" data-close="sheet" aria-label="閉じる">×</button></div><div id="sheet-content"></div></dialog><dialog class="full-art" id="artbox" aria-label="挿絵の拡大表示"><button data-close="artbox" aria-label="拡大画像を閉じる">閉じる ×</button><img id="full-art-img" alt=""><p id="full-art-caption"></p></dialog><div class="toast" role="status" aria-live="polite"></div><script type="application/json" id="guide-data">{encoded}</script><script>{js}</script></body></html>'''
+    return f'''<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex,nofollow,noarchive"><meta name="referrer" content="no-referrer"><meta name="theme-color" content="#07131e"><meta name="description" content="{H(meta.get('subtitle',''))}"><title>{H(meta['title'])}</title><style>{css}</style></head><body data-theme="{theme}"{layout_attr} style="--hero-position:{hero_position}"><div class="app"><div class="progress" aria-hidden="true"></div><header class="topbar"><a class="wordmark" href="#home"><span>{H(meta.get('wordmark', 'STORY'))}<small>{H(meta.get('regions', 'FIELDGUIDE'))}</small></span></a><button class="circle" data-open="menu" aria-label="メニューを開く">☰</button></header><noscript><p class="no-script">本文と絵は読めます。画面切替・チェック・保存にはJavaScriptが動くブラウザをご利用ください。</p></noscript><main>{home}{story}{chapters}{route}</main><nav class="bottom-nav" aria-label="メインナビゲーション">{nav}</nav></div><dialog class="dialog" id="sheet" aria-labelledby="sheet-title"><div class="dialog-head" data-drag><span class="drag-handle"></span><span class="dialog-title" id="sheet-title"></span><button class="close" data-close="sheet" aria-label="閉じる">×</button></div><div id="sheet-content"></div></dialog><dialog class="full-art" id="artbox" aria-label="挿絵の拡大表示"><button data-close="artbox" aria-label="拡大画像を閉じる">閉じる ×</button><img id="full-art-img" alt=""><p id="full-art-caption"></p></dialog><div class="toast" role="status" aria-live="polite"></div><script type="application/json" id="guide-data">{encoded}</script><script>{js}</script></body></html>'''
 
 
 def main():

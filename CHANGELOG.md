@@ -2,6 +2,12 @@
 
 このプロジェクトは開発初期段階のSkillです。明確なリリースタグを作成したときに、ここへ変更履歴を追記します。
 
+## 0.4.1 — 2026-10-25
+
+- Preserved the approved JoJo design and gave Conan and MONSTER distinct document compositions: an investigation notebook and a literary travel journal.
+- Added Raffles Long Bar as Conan's third researched stop, a new character illustration, two field checks and a full-day model with transfer/waiting time.
+- Separated layout from palette and strengthened skill guidance against substituting color/image swaps for work-specific art direction.
+
 ## 0.4.0 — 2026-10-25
 
 - Selected JoJo/Egypt, Conan/Singapore and MONSTER/Germany–Czechia as the three public showcases; retained earlier example URLs.
