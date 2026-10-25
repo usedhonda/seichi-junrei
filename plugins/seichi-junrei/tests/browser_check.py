@@ -53,6 +53,9 @@ def check(specs, out, executable=None, html_file=None, assets_root=None, widths=
                         data = json.loads(payload)
                         assert page.evaluate('document.documentElement.scrollWidth <= innerWidth+1')
                         assert len(data['stages']) == len(json.loads(spec.read_text())['stages'])
+                        if page.locator('#journey-map').count():
+                            assert page.locator('.topbar .map-shortcut').is_visible()
+                            assert '地図・旅程' in page.locator('.bottom-nav a[href="#route"]').inner_text()
                         mission = data['missions'][0]
                         stage = data['stages'][0]
                         total = len(data['missions'])
@@ -104,6 +107,8 @@ def check(specs, out, executable=None, html_file=None, assets_root=None, widths=
                         page.locator('.bottom-nav a[href="#route"]').tap()
                         if page.locator('#journey-map').count():
                             page.wait_for_function('document.querySelector("#journey-map").dataset.mapReady==="true"')
+                            bounds = page.locator('#journey-map').bounding_box()
+                            assert bounds and 0 <= bounds['y'] and bounds['y'] + bounds['height'] <= 824, bounds
                             page.locator('[data-map-view="all"]').tap()
                             map_data = json.loads(page.locator('#route-map-data').text_content())
                             assert page.locator('.route-pin').count() == len(map_data['stops'])

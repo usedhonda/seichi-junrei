@@ -2,6 +2,11 @@
 
 このプロジェクトは開発初期段階のSkillです。明確なリリースタグを作成したときに、ここへ変更履歴を追記します。
 
+## 0.4.3 — 2026-10-25
+
+- Made maps visible from every guide's cover with a persistent labelled shortcut and an explicit Map/Itinerary navigation label.
+- Put the map near the top of the route view, replacing the large decorative lead with a compact heading.
+
 ## 0.4.2 — 2026-10-25
 
 - Replaced MONSTER's quiet travel-journal presentation with a psychological-thriller journey: cinematic cover, visual city chapters, story files and optional research notes.
