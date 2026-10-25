@@ -1,11 +1,12 @@
-# STARDUST ON THE NILE — public sample
+# Public skill samples
 
-Recovered from the original character-art, checklist-corrected HTML attachment.
-The layout, illustrations and six deduplicated missions are preserved.
-Personal travel dates, flight numbers and times are replaced by a generic route.
-This is a rebuilt source archive, not the byte-identical expired ZIP.
+`build.py` renders the canonical `plugins/seichi-junrei/examples/egypt_guide.json`
+with the same renderer, CSS and runtime shipped inside the plugin.
+The workflow also renders `oxford_alice_guide.json` to `/alice/`.
+
+Edit the canonical example JSON and its local assets to change the public guide.
+`site/content.json`, `media.json`, `app.css`, `app.js` and `assets/` retain the
+recovered original source as provenance; they are not the active production engine.
+The old one-time ZIP/importer remains available only for archive recovery.
 
 Build: `python site/build.py --out _site/index.html`
-Content and template: content.json; appearance: app.css; interactions: app.js.
-Artwork is embedded into the output for offline reading. Source artwork is
-unofficial AI-generated fan art, not official frames or documentary photographs.

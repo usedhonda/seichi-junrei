@@ -20,7 +20,7 @@
 
 ## インストール：Codex（CDX）
 
-**v0.3.0からCodex専用Skillです。** この旅のしおりでは、単なるSVG装飾ではなく、物語のシーンを思い出すためのオリジナル挿絵が重要です。そこでClaude Code対応は終了し、**Codexで実際に利用可能なネイティブ画像生成機能を優先**します。別途のGemini APIキー、外部画像生成API、ローカル画像生成モデルは不要です。
+**v0.3.1：公開サンプルと同じ制作エンジンを同梱しています。Codex専用Skillです。** この旅のしおりでは、単なるSVG装飾ではなく、物語のシーンを思い出すためのオリジナル挿絵が重要です。そこでClaude Code対応は終了し、**Codexで実際に利用可能なネイティブ画像生成機能を優先**します。別途のGemini APIキー、外部画像生成API、ローカル画像生成モデルは不要です。
 
 ### Codexプラグインとして導入
 
@@ -68,13 +68,25 @@ git clone https://github.com/usedhonda/seichi-junrei.git ~/.agents/skills/seichi
 
 **作品の選択は必須の停止点です。** AIが候補の1位を勝手に採用したり、選ばれる前に本編を作ったりしません。「おまかせ」と明示された場合だけ選定を委任できます。
 
+### サンプルの品質は、標準生成処理で再利用できます
+
+公開中のジョジョ版も、インストールしたskillと同じ `render_guide.py` から生成しています。表紙、場面カード、目的地の章、解説シート、画像拡大、章の保存、日程切替、全体と場所別のチェック集計、画像込みのHTML保存を共通化しました。テンプレート・画像・動作コードはプラグイン内に同梱し、リポジトリ外に単体でコピーしても動きます。
+
+**[別作品のサンプル：アリスと歩くオックスフォード](https://usedhonda.github.io/seichi-junrei/alice/)**。原著小説とArthur Rackhamの挿絵を用い、ジョジョ版とは異なる3目的地・3日構成・4ミッションで生成・検証しています。旅行予約ではなく、汎用性確認のためのモデルルートです。
+
+[![アリス版：同じ生成処理で制作](docs/alice-sample.png)](https://usedhonda.github.io/seichi-junrei/alice/)
+
+**同梱機能と、制作時に必要な仕事は分けています。** 操作や保存は共通エンジンが担当します。新しい旅行の作品調査、移動可能な行程、読み物の編集、キャラと場面に合う画像の生成・選定、顔の切り取りや文字の見やすさの調整は、skillの制作手順と実画面での確認が必要です。今回の別作品検証は既存の原著挿絵を使っており、あらゆる作品の画像生成品質や自律制作の成功を保証するものではありません。
+
+制作手順：[`mobile-production.md`](plugins/seichi-junrei/references/mobile-production.md)。2作品を360 / 390 / 430 / 520pxで検証し、実際の再読み込みによる保存、保存不可時の動作、別の旅との進捗分離も確認するテストをCIに含めています。実機iPhone／Safariは未検証です。
+
 ### 完成イメージ
 
 | 候補を選ぶ | 旅先で読む |
 | --- | --- |
 | ![作品候補を選ぶ画面](docs/choose-work.png) | [![旅ガイドの実画面](docs/stardust-sample.png)](https://usedhonda.github.io/seichi-junrei/) |
 
-**[公開サンプルを開く](https://usedhonda.github.io/seichi-junrei/)** · **[編集可能なソース](site/)**。ジョジョ第3部とアスワン・アブ・シンベルを題材に、キャラ絵7点と情景画2点を収録。チェックリストは各地3件・旅全体6件で、同じ項目を別画面で操作しても同期します。以前の汎用レンダラーによる[説明用HTML](plugins/seichi-junrei/examples/sample-guide.html)も残しています。
+**[公開サンプルを開く](https://usedhonda.github.io/seichi-junrei/)** · **[編集可能なサンプルデータ](plugins/seichi-junrei/examples/egypt_guide.json)**。ジョジョ第3部とアスワン・アブ・シンベルを題材に、キャラ絵7点と情景画2点を収録。チェックリストは各地3件・旅全体6件で、同じ項目を別画面で操作しても同期します。[画像入りHTML](plugins/seichi-junrei/examples/sample-guide.html)も、同じ標準生成処理から出力しています。
 
 ### 会話の例
 

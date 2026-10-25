@@ -2,67 +2,407 @@
   "meta": {
     "title": "STARDUST ON THE NILE",
     "subtitle": "ジョジョ第3部と巡る、エジプト南部の旅",
-    "dates": "15–16 MAR 2027",
+    "dates": "PUBLIC SAMPLE",
     "regions": "ASWAN → ABU SIMBEL",
-    "hero_image": "assets/nile-original.webp",
+    "hero_image": "assets/stardust/hero.webp",
     "theme": "night-gold",
-    "visibility": "companions"
+    "visibility": "companions",
+    "id": "stardust-public-sample",
+    "wordmark": "JOJO",
+    "title_lines": [
+      "STARDUST",
+      "ON THE",
+      "NILE."
+    ],
+    "cover_line": "あの景色の中に、\n俺たちはいる。",
+    "hero_position": "27% 50%",
+    "public_url": "https://usedhonda.github.io/seichi-junrei/",
+    "character_art_required": true,
+    "introduction": [
+      "承太郎、イギー、オインゴ・ボインゴ。あのキャラと、あの場面を連れて、ナイルの旅へ。",
+      "実際に使った旅のしおりをもとにした公開サンプルです。物語の登場舞台と、神話のテーマを楽しむ場所を区別して案内します。"
+    ],
+    "itinerary_note": "個人の旅行日・便名・予約時刻を除いた公開サンプルです。以下は予約済み旅程ではありません。現地情報は旅行前に公式案内で確認してください。",
+    "title_small_lines": [
+      1
+    ],
+    "kicker": "JOJO · STARDUST CRUSADERS"
   },
   "selection": {
-    "primary_work_id": "jojo-3", "secondary_work_ids": [],
-    "user_confirmed": true, "delegated": false
+    "primary_work_id": "jojo-3",
+    "secondary_work_ids": [],
+    "user_confirmed": true,
+    "delegated": false
   },
-  "works": [{
-    "id": "jojo-3", "title": "ジョジョの奇妙な冒険 第3部 スターダストクルセイダース", "medium": "anime",
-    "episodes": [
-      {"number":"25", "title":"『愚者』のイギーと『ゲブ神』のンドゥール その1", "summary":"砂漠で新しい仲間イギーが登場。エジプト編が開幕する。", "image":"assets/water-original.webp", "source_url":"https://jojo-animation.com/sc/contents/story/25.html"},
-      {"number":"26", "title":"『愚者』のイギーと『ゲブ神』のンドゥール その2", "summary":"水のスタンドを操るンドゥールとの戦いの続き。", "image":"assets/water-original.webp", "source_url":"https://jojo-animation.com/sc/contents/story/26.html"},
-      {"number":"27", "title":"『クヌム神』のオインゴと『トト神』のボインゴ", "summary":"アスワンのカフェで予言の漫画本を巡る攻防が始まる。", "image":"assets/book-original.webp", "source_url":"https://jojo-animation.com/sc/contents/story/27.html"},
-      {"number":"28", "title":"『アヌビス神』 その1", "summary":"次なる敵は、剣に宿るスタンド。", "image":"assets/temple-original.webp", "source_url":"https://jojo-animation.com/sc/contents/story/28.html"},
-      {"number":"29", "title":"『アヌビス神』 その2", "summary":"記憶し学習する剣との対決が続く。", "image":"assets/temple-original.webp", "source_url":"https://jojo-animation.com/sc/contents/story/29.html"}
-    ]
-  }],
-  "stages": [
+  "works": [
     {
-      "id":"aswan", "label":"STAGE 01", "location":"ASWAN", "date":"MAR 15",
-      "hook":"予言は当たる。なのに、勝てない。", "image":"assets/nile-portrait.webp",
-      "location_note":"ナイルの岸に広がるアスワン。カフェの風景に、オインゴ・ボインゴ兄弟の騒動を重ねると、いつもの街歩きが一瞬で奇妙な冒険に変わる。",
-      "map_url":"https://www.google.com/maps/search/?api=1&query=Aswan+Egypt",
-      "connections":[{"type":"named_setting", "description":"第27話の公式あらすじにアスワンの街での休息とカフェが明記される。特定の実在カフェを公式聖地とは断定しない。", "source_url":"https://jojo-animation.com/sc/contents/story/27.html"}],
-      "scenes":[
-        {"title":"予言漫画と毒入り紅茶", "episode":"EP.27", "description":"弟ボインゴの漫画本が未来を描き、兄オインゴはカフェで暗殺を仕掛ける。どんなに用意周到でも、思いどおりにいかないのが、この回の面白さ。", "image":"assets/book-original.webp", "spoiler":false, "source_url":"https://jojo-animation.com/sc/contents/story/27.html"},
-        {"title":"なぜか外れない予言", "episode":"EP.27", "description":"未来は確かに示される。しかし、その『意味』が兄弟の期待どおりとは限らない。結末を知る人ほど現地で笑える。", "image":"assets/water-original.webp", "spoiler":true, "source_url":"https://jojo-animation.com/sc/contents/story/27.html"}
-      ],
-      "highlights":["ナイル川沿いの街並みと伝統的な帆船","エレファンティネ島周辺の古代エジプト史","川沿いのカフェで作中の小休止を思い出す"],
-      "events":[{"time":"午前", "label":"アスワンの街とナイル川を楽しむ"},{"time":"午後", "label":"次の目的地アブ・シンベルへ"}],
-      "missions":[{"id":"cafe", "text":"カフェで第27話を思い出す"},{"id":"nile", "text":"ナイルの帆船を見つける"}]
-    },
-    {
-      "id":"abu-simbel", "label":"STAGE 02", "location":"ABU SIMBEL", "date":"MAR 15–16",
-      "hook":"神々の巨大な姿と、運命の物語。", "image":"assets/temple-original.webp",
-      "location_note":"ラムセス2世の巨大な座像が並ぶ大神殿と王妃ネフェルタリの小神殿。エジプト神話の重みを現地で感じながら、物語の『神の名を持つスタンド』を思い返そう。",
-      "map_url":"https://www.google.com/maps/search/?api=1&query=Abu+Simbel+Temple+Egypt",
-      "connections":[{"type":"thematic", "description":"第3部エジプト編の古代神話モチーフと重ねて楽しむ場所。大神殿内部が第27話の公式戦闘舞台であるという主張はしない。", "source_url":"https://jojo-animation.com/sc/contents/bd_dvd/2nd2_bd/01.html"}],
-      "scenes":[
-        {"title":"未来を描く『トト神』", "episode":"EP.27", "description":"予言漫画という現代的な道具と、数千年前の神殿の対比。『神の名』の意味を考えながら古代の壁画を眺めよう。", "image":"assets/book-original.webp", "spoiler":false, "source_url":"https://jojo-animation.com/sc/contents/story/27.html"}
-      ],
-      "highlights":["正面に並ぶ4体のラムセス2世座像","至聖所と二度の採光現象の仕組み","王妃ネフェルタリの小神殿","UNESCOによる神殿移設の歴史"],
-      "events":[{"time":"午後", "label":"神殿見学は現地の最終入場時刻を確認"},{"time":"翌朝", "label":"アスワンへ戻る移動日"}],
-      "missions":[{"id":"four-statues", "text":"4体の巨大座像を正面から眺める"},{"id":"sunlight", "text":"太陽光が至聖所に届く仕組みを知る"}]
+      "id": "jojo-3",
+      "title": "ジョジョの奇妙な冒険 第3部 スターダストクルセイダース",
+      "medium": "anime",
+      "episodes": [
+        {
+          "id": "25",
+          "number": "25",
+          "title": "「愚者」のイギーと「ゲブ神」のンドゥール その1",
+          "name": "イギー、旅に加わる。",
+          "place": "エジプトの砂漠",
+          "tag": "EGYPT ARC BEGINS",
+          "summary": "仲間が増える。ただし、こちらの都合では動いてくれない。砂漠の旅に現れたイギーの存在感から、エジプト編が始まる。",
+          "body": [
+            "砂漠を進む一行のもとへ、スピードワゴン財団のヘリがやって来る。新しい仲間として降り立つのは、誰もが想像していたような人物ではない。ここからの旅を知っているファンほど、この出会いを大切に見返したくなる。",
+            "水と砂の気配があるだけで、エジプト編の緊張感がよみがえる。アスワンに着く前の車窓でも、イギーがどこかでそっぽを向いている姿を想像してみよう。"
+          ],
+          "note": "第25話は砂漠での出来事。アスワンのカフェ回は第27話。",
+          "spoiler": "",
+          "image": "assets/stardust/iggy.webp",
+          "source_url": "https://jojo-animation.com/sc/contents/story/25.html"
+        },
+        {
+          "id": "26",
+          "number": "26",
+          "title": "「愚者」のイギーと「ゲブ神」のンドゥール その2",
+          "name": "姿の見えない敵。",
+          "place": "砂漠の死闘 → 次の刺客",
+          "tag": "JOTARO × IGGY",
+          "summary": "遠くの敵が、一滴の水を脅威に変える。承太郎とイギーのちぐはぐな共闘が、絶望的な状況を動かしていく。",
+          "body": [
+            "花京院が重傷を負い、アヴドゥルの策も敵に見破られる。ンドゥールの本体は遠く、攻撃はどこから来るかわからない。一方で、イギーは人間たちの焦りなどお構いなしだ。",
+            "この緊張の後だから、第27話のアスワンの小休止が効いてくる。旅先の休憩にも、次の物語へ進むための大切な時間がある。"
+          ],
+          "note": "この絵は水のスタンド戦を題材にしたファンアート。公式の画面を再現したものではありません。",
+          "spoiler": "",
+          "image": "assets/stardust/ndoul.webp",
+          "source_url": "https://jojo-animation.com/sc/contents/story/26.html"
+        },
+        {
+          "id": "27",
+          "number": "27",
+          "title": "「クヌム神」のオインゴと「トト神」のボインゴ",
+          "name": "予言は当たる。なのに。",
+          "place": "アスワン",
+          "tag": "ASWAN / MAIN EPISODE",
+          "summary": "未来が描かれる漫画と、姿を変えられる兄。完璧に見えた暗殺計画は、あまりにも奇妙な方向へ。",
+          "body": [
+            "治療中の仲間を待つ間、承太郎・ジョセフ・ポルナレフはアスワンでひと休み。店選びを偶然に任せたはずが、そのカフェに兄弟はすでに潜んでいた。",
+            "毒入りの紅茶、変装した承太郎、そしてオレンジ。ファンならば名前を並べるだけで思い出せるあの騒動を、ナイルのカフェで反芻したい。あの3人がすぐ隣の席にいるような気分になる。"
+          ],
+          "note": "公式あらすじにアスワンとカフェの記載あり。特定の実在店舗が舞台と確認されたわけではありません。",
+          "spoiler": "未来を見たことと、その意味を正しく受け取ったことは別。「承太郎の顔」が爆発する予言は、承太郎に化けたオインゴ自身へ降りかかる。予言は外れていない。それでも兄弟は勝てない。",
+          "image": "assets/stardust/brothers.webp",
+          "source_url": "https://jojo-animation.com/sc/contents/story/27.html"
+        },
+        {
+          "id": "28",
+          "number": "28",
+          "title": "「アヌビス神」その1",
+          "name": "その刀を、抜くな。",
+          "place": "カイロへ向かう道中",
+          "tag": "THE NEXT CHAPTER",
+          "summary": "承太郎たちが帆船を探す頃、農夫チャカは一本の刀を拾う。剣を握った瞬間、物語の主導権が変わる。",
+          "body": [
+            "カイロを目指してナイルを下る。そのための小型帆船を探している間に、奇妙な刀に魅入られたチャカが現れる。持ち主よりも、剣そのものに目を向けるべき戦いだ。",
+            "アスワンの帆船を眺めるときに重ねたい、旅の続き。今回のアブ・シンベル観光をアヌビス神戦の場所と取り違えないようにしよう。"
+          ],
+          "note": "第28〜29話は今回の旅の「続き」として掲載。アブ・シンベル戦ではありません。",
+          "spoiler": "",
+          "image": "assets/stardust/anubis.webp",
+          "source_url": "https://jojo-animation.com/sc/contents/story/28.html"
+        },
+        {
+          "id": "29",
+          "number": "29",
+          "title": "「アヌビス神」その2",
+          "name": "昨日の剣は、通じない。",
+          "place": "コム・オンボ",
+          "tag": "POLNAREFF × JOTARO",
+          "summary": "戦い方を覚えた剣は、さらに強くなる。危機に陥ったポルナレフのもとに、承太郎が現れる。",
+          "body": [
+            "チャカを倒して終わりではなかった。別の人間の手に渡った刀が、ポルナレフの技を記憶したまま迫る。コム・オンボでの剣戟から、アヌビス神の本当の怖さが見えてくる。",
+            "この先のカイロへ向かう前に、二人の関係を思い出す一話。現実の旅はアスワンから南へ、物語の旅はカイロへ。それぞれの向きまで意識すると、地図にもドラマが宿る。"
+          ],
+          "note": "この話のカードは剣戟のファンアートで表示します。コム・オンボは今回の確定旅程に含めていません。",
+          "spoiler": "",
+          "image": "assets/stardust/anubis.webp",
+          "source_url": "https://jojo-animation.com/sc/contents/story/29.html"
+        }
+      ]
     }
   ],
-  "sources":[
-    {"label":"公式：第25話あらすじ", "url":"https://jojo-animation.com/sc/contents/story/25.html"},
-    {"label":"公式：第27話あらすじ", "url":"https://jojo-animation.com/sc/contents/story/27.html"},
-    {"label":"公式：エジプト編DVD第25〜28話収録", "url":"https://jojo-animation.com/sc/contents/bd_dvd/2nd2_bd/01.html"},
-    {"label":"エジプト観光考古省：アブ・シンベル", "url":"https://egymonuments.gov.eg/en/archaeological-sites/abu-simbel/"},
-    {"label":"エジプト政府チケット：最終入場", "url":"https://www.egymonuments.com/locations/details/AbuSimbelTemple"}
+  "stages": [
+    {
+      "id": "aswan",
+      "label": "STAGE 01",
+      "location": "ASWAN",
+      "date": "DAY 1",
+      "hook": "予言は当たる。なのに、勝てない。",
+      "image": "assets/stardust/aswan.webp",
+      "location_note": "ナイルの岸に広がるアスワン。カフェの風景に、オインゴ・ボインゴ兄弟の騒動を重ねると、いつもの街歩きが一瞬で奇妙な冒険に変わる。",
+      "map_url": "https://www.google.com/maps/search/?api=1&query=Aswan+Egypt",
+      "connections": [
+        {
+          "type": "named_setting",
+          "description": "第27話の公式あらすじにアスワンの街での休息とカフェが明記される。特定の実在カフェを公式聖地とは断定しない。",
+          "source_url": "https://jojo-animation.com/sc/contents/story/27.html"
+        }
+      ],
+      "scenes": [
+        {
+          "title": "この店にも、あの兄弟が。",
+          "episode": "EP. 27",
+          "episode_id": "27",
+          "description": "くつろいでいるつもりの3人と、必死に計画を実行する兄弟。同じカフェに、まったく別の物語が流れている。そのズレを思い出しながらお茶を。",
+          "image": "assets/stardust/brothers.webp",
+          "source_url": "https://jojo-animation.com/sc/contents/story/27.html"
+        },
+        {
+          "title": "その特技、できる？",
+          "episode": "EP. 27",
+          "episode_id": "27",
+          "description": "承太郎の姿に化ければ万事解決、とはいかない。ポルナレフの無邪気な要求で追い詰められるオインゴ。ファン同士なら、この絵を見せるだけで話が弾むはず。",
+          "image": "assets/stardust/tobacco.webp",
+          "source_url": "https://jojo-animation.com/sc/contents/story/27.html"
+        }
+      ],
+      "highlights": [
+        {
+          "title": "ナイル川沿いのひと休み",
+          "description": "帆船を眺めて、カフェで休む。劇中の休息の空気に重ねるだけで、何げない時間が特別になる。"
+        },
+        {
+          "title": "エレファンティネ島へ目を向ける",
+          "description": "川の上に広がる島の風景を、今回の街歩きのもう一つの視点に。第27話の特定の戦闘場所とは断定しない。"
+        },
+        {
+          "title": "余裕があれば、フィラエ神殿",
+          "description": "イシスを祀る島の神殿。ホルスの母でもある女神の物語を知ると、スタンド名で覚えていた神々に奥行きが出る。"
+        }
+      ],
+      "events": [
+        {
+          "time": "街歩き",
+          "label": "ナイルの街で、ひと休み"
+        },
+        {
+          "time": "移動",
+          "label": "移動と休息の余裕を確保する"
+        }
+      ],
+      "missions": [
+        {
+          "id": "cafe",
+          "text": "カフェで第27話を思い出す",
+          "detail": "兄弟に会ったつもりで、一杯のお茶を。"
+        },
+        {
+          "id": "iggy",
+          "text": "イギーの登場回をみんなで振り返る",
+          "detail": "旅に新しい仲間が加わった、あの瞬間。"
+        },
+        {
+          "id": "sail",
+          "text": "ナイルに帆船を見つける",
+          "detail": "第28話、一行も船を探していた。"
+        }
+      ],
+      "name": "アスワン",
+      "paragraphs": [
+        "ンドゥール戦の後、仲間の治療を待つ一行はアスワンで休む。偶然に任せて入ったカフェなのに、そこにはオインゴ・ボインゴ兄弟が待っていた。",
+        "この回の楽しさは、普通の旅の時間と暗殺劇が同時に進むこと。現地でお茶を飲んだら、隣の席の承太郎、ジョセフ、ポルナレフを想像してみよう。",
+        "作中のカフェと一致する実在店舗は確認していません。カフェの場面を、アスワンの空気に重ねる楽しみ方です。",
+        "変身したオインゴを追い込むのは、敵の攻撃ではなく仲間の何げないひと言。このタバコ芸の絵を見て笑える人が一緒なら、その旅行はもう半分成功している。",
+        "これから先の物語を知っているほど、初登場の生意気さまで愛おしくなる。街を移る前に、第25話の出会いをもう一度。"
+      ]
+    },
+    {
+      "id": "abu-simbel",
+      "label": "STAGE 02",
+      "location": "ABU SIMBEL",
+      "date": "DAY 2",
+      "hook": "神々の巨大な姿と、運命の物語。",
+      "image": "assets/stardust/abu.webp",
+      "location_note": "ラムセス2世の巨大な座像が並ぶ大神殿と王妃ネフェルタリの小神殿。エジプト神話の重みを現地で感じながら、物語の『神の名を持つスタンド』を思い返そう。",
+      "map_url": "https://www.google.com/maps/search/?api=1&query=Abu+Simbel+Temple+Egypt",
+      "connections": [
+        {
+          "type": "thematic",
+          "description": "第3部エジプト編の古代神話モチーフと重ねて楽しむ場所。大神殿内部が第27話の公式戦闘舞台であるという主張はしない。",
+          "source_url": "https://jojo-animation.com/sc/contents/bd_dvd/2nd2_bd/01.html"
+        }
+      ],
+      "scenes": [
+        {
+          "title": "本は、まだ先を知っている。",
+          "episode": "EP. 27",
+          "episode_id": "27",
+          "description": "笑えるのに、不気味。その理由は「未来が見える」ことの恐ろしさが消えていないから。巨大神殿を前に、予言と運命の物語をもう一度。",
+          "image": "assets/stardust/boingo.webp",
+          "source_url": "https://jojo-animation.com/sc/contents/story/27.html"
+        }
+      ],
+      "highlights": [
+        {
+          "title": "4体のラムセス2世像",
+          "description": "正面に座る巨大な王の像。古代の地震で一体が崩れ、破片が足元に残っていることにも注目。"
+        },
+        {
+          "title": "光の届く至聖所",
+          "description": "神殿最奥に並ぶ4体の神像。公式案内では2月22日と10月22日に朝日が奥へ差し込む。特別な採光の朝を外しても、入口からの軸線を意識して見たい。"
+        },
+        {
+          "title": "ネフェルタリの小神殿",
+          "description": "王妃ネフェルタリとハトホルに捧げられた神殿。正面では王妃の像が王と同じ大きさで表されている。"
+        },
+        {
+          "title": "「移設された神殿」という現実",
+          "description": "ダム建設で水没の危機にあった二つの神殿は、国際的な救済事業によって移された。古代だけでなく、現代の人々の意思がこの景色を残した。"
+        }
+      ],
+      "events": [
+        {
+          "time": "神殿",
+          "label": "大神殿と小神殿へ"
+        },
+        {
+          "time": "移動",
+          "label": "移動と休息の余裕を確保する"
+        }
+      ],
+      "missions": [
+        {
+          "id": "statues",
+          "text": "4体の巨像を正面から見る",
+          "detail": "まずは画面を閉じて、実物の大きさを。"
+        },
+        {
+          "id": "book",
+          "text": "「トト神」の予言を思い返す",
+          "detail": "当たる未来と、思いどおりになる未来は違う。"
+        },
+        {
+          "id": "small",
+          "text": "王妃の小神殿も訪れる",
+          "detail": "大神殿だけで旅を終わらせない。"
+        }
+      ],
+      "name": "アブ・シンベル",
+      "paragraphs": [
+        "ボインゴが抱えている、未来を描く奇妙な漫画本。古代エジプトの「神の名」と、現代の漫画という道具。その取り合わせを思うと、神殿の石壁にも違う物語が見えてくる。",
+        "オインゴ・ボインゴ回が残す、笑いと不気味さ。あの兄弟の結末を知ってから巨像を見上げると、「未来」や「運命」という言葉にも少し実感が湧いてくる。",
+        "神殿とキャラを組み合わせた挿絵は創作です。大神殿の内部で承太郎たちが第27話の戦闘を行う、という意味ではありません。"
+      ]
+    }
   ],
-  "media_rights":[
-    {"file":"assets/nile-original.webp", "status":"original_generated", "creator":"OpenAI-generated original composition", "notes":"創作上の合成風景。実際の地理的位置関係を示さない"},
-    {"file":"assets/nile-portrait.webp", "status":"original_generated", "creator":"OpenAI-generated original composition", "notes":"創作上の風景"},
-    {"file":"assets/temple-original.webp", "status":"original_generated", "creator":"OpenAI-generated original composition", "notes":"創作上の神殿風景"},
-    {"file":"assets/book-original.webp", "status":"original_generated", "creator":"Original geometric illustration prepared for demonstration", "notes":"予言・本という概念を抽象的に表現"},
-    {"file":"assets/water-original.webp", "status":"original_generated", "creator":"Original geometric illustration prepared for demonstration", "notes":"水流の抽象表現"}
+  "sources": [
+    {
+      "label": "公式：第25話あらすじ",
+      "url": "https://jojo-animation.com/sc/contents/story/25.html"
+    },
+    {
+      "label": "公式：第27話あらすじ",
+      "url": "https://jojo-animation.com/sc/contents/story/27.html"
+    },
+    {
+      "label": "公式：エジプト編DVD第25〜28話収録",
+      "url": "https://jojo-animation.com/sc/contents/bd_dvd/2nd2_bd/01.html"
+    },
+    {
+      "label": "エジプト観光考古省：アブ・シンベル",
+      "url": "https://egymonuments.gov.eg/en/archaeological-sites/abu-simbel/"
+    },
+    {
+      "label": "エジプト政府チケット：最終入場",
+      "url": "https://www.egymonuments.com/locations/details/AbuSimbelTemple"
+    }
+  ],
+  "media_rights": [
+    {
+      "file": "assets/stardust/hero.webp",
+      "status": "original_generated",
+      "creator": "OpenAI-generated original fan art",
+      "alt": "ナイルの夕日を見つめる承太郎のファンアート",
+      "characters": [
+        "承太郎"
+      ],
+      "notes": "非公式ファンアート。公式場面画像ではありません。"
+    },
+    {
+      "file": "assets/stardust/iggy.webp",
+      "status": "original_generated",
+      "creator": "OpenAI-generated original fan art",
+      "alt": "砂漠のイギーのファンアート",
+      "characters": [
+        "イギー"
+      ],
+      "notes": "非公式ファンアート。公式場面画像ではありません。"
+    },
+    {
+      "file": "assets/stardust/ndoul.webp",
+      "status": "original_generated",
+      "creator": "OpenAI-generated original fan art",
+      "alt": "水を操るンドゥールのファンアート",
+      "characters": [
+        "ンドゥール"
+      ],
+      "notes": "非公式ファンアート。公式場面画像ではありません。"
+    },
+    {
+      "file": "assets/stardust/brothers.webp",
+      "status": "original_generated",
+      "creator": "OpenAI-generated original fan art",
+      "alt": "予言漫画を読むオインゴ・ボインゴ兄弟のファンアート",
+      "characters": [
+        "オインゴ",
+        "ボインゴ"
+      ],
+      "notes": "非公式ファンアート。公式場面画像ではありません。"
+    },
+    {
+      "file": "assets/stardust/anubis.webp",
+      "status": "original_generated",
+      "creator": "OpenAI-generated original fan art",
+      "alt": "アヌビス神とシルバーチャリオッツの剣戟を想起させるファンアート",
+      "characters": [
+        "ポルナレフ",
+        "シルバーチャリオッツ"
+      ],
+      "notes": "非公式ファンアート。公式場面画像ではありません。"
+    },
+    {
+      "file": "assets/stardust/aswan.webp",
+      "status": "original_generated",
+      "creator": "OpenAI-generated landscape illustration",
+      "alt": "アスワンのナイル川とファルーカを描いた情景イラスト",
+      "characters": [],
+      "notes": "創作上の情景。記録写真や地理の証拠ではありません。"
+    },
+    {
+      "file": "assets/stardust/abu.webp",
+      "status": "original_generated",
+      "creator": "OpenAI-generated landscape illustration",
+      "alt": "アブ・シンベル大神殿の四巨像を描いた情景イラスト",
+      "characters": [],
+      "notes": "創作上の情景。記録写真や地理の証拠ではありません。"
+    },
+    {
+      "file": "assets/stardust/boingo.webp",
+      "status": "original_generated",
+      "creator": "OpenAI-generated original fan art",
+      "alt": "神殿を背景に予言漫画を持つボインゴのファンアート",
+      "characters": [
+        "ボインゴ"
+      ],
+      "notes": "非公式ファンアート。公式場面画像ではありません。"
+    },
+    {
+      "file": "assets/stardust/tobacco.webp",
+      "status": "original_generated",
+      "creator": "OpenAI-generated original fan art",
+      "alt": "偽承太郎のタバコ芸とポルナレフを想起させるファンアート",
+      "characters": [
+        "偽承太郎",
+        "ポルナレフ"
+      ],
+      "notes": "非公式ファンアート。公式場面画像ではありません。"
+    }
   ]
 }

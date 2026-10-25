@@ -2,7 +2,7 @@
 
 ## Scope of licenses
 
-The repository's [MIT License](LICENSE) covers original **source code, Skill instructions and original documentation text**. It **does not grant a license to reuse** the separate illustrative media in `plugins/seichi-junrei/assets/`, screenshot images in `docs/`, or embedded illustrations inside `plugins/seichi-junrei/examples/sample-guide.html`.
+The repository's [MIT License](LICENSE) covers original **source code, Skill instructions and original documentation text**. It **does not grant a license to reuse** the separate illustrative media in `plugins/seichi-junrei/assets/stardust/`, `plugins/seichi-junrei/assets/alice/`, the other illustrative media under `plugins/seichi-junrei/assets/`, screenshot images in `docs/`, or embedded illustrations inside `plugins/seichi-junrei/examples/sample-guide.html`.
 
 These examples are shipped so the demonstration can be viewed and tested. **Do not assume the images or franchise-related story content may be separately copied, published, or commercially used** just because the code is open source.
 
@@ -26,3 +26,14 @@ Before publication or distribution:
 References to titles, creators, scenes and fictional characters in sample data are provided for identification and commentary; they do not imply endorsement or association with their rights holders.
 
 For third-party assets added by contributors, use a separate license/permission entry in the media manifest. If permissions are uncertain, omit the file.
+
+
+## Mobile engine and new example artwork
+
+`plugins/seichi-junrei/assets/mobile-guide/` contains reusable source CSS and JavaScript covered by the code license. It is the engine used both by installed skills and the public Pages build.
+
+`assets/stardust/` contains the nine original illustrations recovered from the user-approved character-art booklet. `examples/egypt_guide.json` records depicted characters and non-official provenance. Original image bytes are preserved for suitable WebP inputs; their inclusion does not extend the code's MIT license to franchise imagery.
+
+`assets/alice/` contains four Arthur Rackham illustrations from the 1907 edition in [Project Gutenberg eBook 28885](https://www.gutenberg.org/ebooks/28885). The provider identifies the edition as public domain in the USA. The exact source image URLs, creator and descriptions are recorded in `examples/oxford_alice_guide.json`. These are original book illustrations, not AI-generated art, anime frames or Oxford documentary photos. The source edition's reuse notice and applicable territorial status remain relevant.
+
+`docs/stardust-sample.png` and `docs/alice-sample.png` are actual screenshots of outputs from the same renderer. The Oxford example is a model trip for technical/visual validation, not a current reservation or a tested live guided-tour itinerary.

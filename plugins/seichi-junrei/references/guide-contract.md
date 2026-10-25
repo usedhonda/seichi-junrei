@@ -1,6 +1,6 @@
 # Input data contracts
 
-The renderer accepts a UTF-8 JSON guide specification. Use plain Unicode text. All `image` fields point to **local image files**; never use a third-party remote image for the final offline build.
+The renderer accepts a UTF-8 JSON guide specification and produces the same interactive mobile system used by the public sample. Use plain Unicode text. All `image` fields point to **local image files**; never use a third-party remote image for the final offline build.
 
 ```json
 {
@@ -29,3 +29,21 @@ python /path/to/plugin/scripts/render_guide.py /path/to/trip/guide.json --assets
 ```
 
 Do not treat the sample's already-selected test fixture as a real user's current choice. Production requires an actual user selection/delegation record. ImageGen availability is checked by Codex at runtime, not assumed from the plugin manifest.
+
+
+## Sample-quality editorial fields
+
+- `meta.id`: stable safe identifier for a trip's local progress. Use a distinct ID for another trip.
+- `meta.title_lines`: title lines for a portrait cover; `wordmark`, `cover_line`, `hero_position` (`"40% 50%"`) control the composition. Optional `introduction` is a list of paragraphs.
+- `meta.character_art_required`: true when character-led art was requested. Cover, episode and scene images then require nonempty `media_rights[].characters`; rendered pixels still need inspection.
+- `meta.public_url`: optional verified public HTTPS URL. Leave absent for a local companion guide. No sample URL is built into the runtime.
+- `meta.art_note`, `checked_note`, `itinerary_note`, `closing`: accurate reader-facing notes. Dummy itinerary data must be labelled as illustrative.
+- `works[].episodes[].id`: unique story-beat ID across works, including named IDs for films/books. `number` is a display label; navigation does not assume numeric or consecutive episodes. Add `name`, `place`, `tag`, `body` (paragraph list), `spoiler` (optional text) and `note` for rich reading. Every story card needs its own relevant `image` and `source_url`.
+- `stages[].name`: localized navigation label; `location` is the large chapter title. `paragraphs` supplies scene/place prose. Keep `connections` as explicit classifications with sources.
+- `stages[].scenes[].episode_id`: optional reference to a story ID. Omit when no corresponding beat exists; the UI will not show a dead link. `spoiler=true` hides the description in normal cards and body until opened. Images are required.
+- `stages[].highlights`: strings or `{title, description, map_url, source_url}` objects. Use objects for practical, sourced observations. `practical` and `practical_title` supply travel advice grounded in the actual schedule.
+- `stages[].missions`: `{id, text, detail}`. IDs must be unique within a stage; the engine namespaces them across destinations and deduplicates home/chapter views.
+- `itinerary`: optional list of `{id, label, events:[{time, title, description}]}`. Any number of days is supported. When absent, stage `date` and `events` produce one tab per stage. These are display data, not automatically computed routing or current opening-hours evidence.
+- `media_rights`: local file, status, creator, descriptive `alt`, notes, optional characters and source/license URL. Existing suitable WebP files are preserved without another lossy compression pass. The default theme is navy/gold; it does not impose a franchise on another trip.
+
+The renderer never consults `site/` or a sibling repository. Plugin installation includes its templates, runtime and illustrative fixtures. Runtime code is fixed; text from the JSON is escaped, not executed.

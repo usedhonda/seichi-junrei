@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - 'site/**'
+      - 'plugins/seichi-junrei/**'
       - 'stardust-pages-source.zip'
       - 'scripts/pages/**'
       - '.github/workflows/mobile-pages.yml'
@@ -68,11 +69,14 @@ jobs:
       - uses: actions/setup-python@v6
         with:
           python-version: '3.12'
+      - name: Install guide rendering dependency
+        run: python -m pip install -r plugins/seichi-junrei/requirements.txt
       - name: Build self-contained public guide
         run: |
           python site/build.py --out _site/index.html
           printf 'User-agent: *\nDisallow: /\n' > _site/robots.txt
           touch _site/.nojekyll
+          python plugins/seichi-junrei/scripts/render_guide.py plugins/seichi-junrei/examples/oxford_alice_guide.json --out _site/alice/index.html
       - name: Install browser test dependencies
         run: |
           python -m pip install 'playwright>=1.48,<2'

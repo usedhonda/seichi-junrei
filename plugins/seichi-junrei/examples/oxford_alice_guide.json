@@ -1,0 +1,300 @@
+{
+  "meta": {
+    "id": "alice-oxford-demo",
+    "title": "ALICE, OFF THE PAGE",
+    "title_lines": [
+      "ALICE,",
+      "OFF THE",
+      "PAGE."
+    ],
+    "wordmark": "ALICE",
+    "subtitle": "本の中の不思議を、オックスフォードの散歩へ。",
+    "dates": "ILLUSTRATIVE ROUTE",
+    "regions": "OXFORD / ENGLAND",
+    "hero_image": "assets/alice/hero.jpg",
+    "character_art_required": true,
+    "cover_line": "ページを閉じても、物語は続く。",
+    "introduction": [
+      "川辺から始まった物語を、本が好きな仲間と歩く。大学の足跡、川辺の散歩、お茶の時間をひと続きのしおりに。"
+    ],
+    "art_note": "Arthur Rackhamによる原著の挿絵を使用しています。非公式の旅行サンプルで、現地写真やAI生成画像ではありません。",
+    "itinerary_note": "汎用性検証のための架空の3日構成です。予約情報ではありません。各場所の入場・営業時間・交通は旅行前に公式案内でご確認ください。"
+  },
+  "selection": {
+    "primary_work_id": "alice-book",
+    "user_confirmed": true,
+    "secondary_work_ids": []
+  },
+  "works": [
+    {
+      "id": "alice-book",
+      "title": "不思議の国のアリス（Lewis Carroll、原著小説）",
+      "medium": "literature",
+      "episodes": [
+        {
+          "id": "riverbank",
+          "number": "I",
+          "title": "川辺から始まる冒険",
+          "summary": "退屈な日常から、白ウサギを追いかける物語が動き出す。川辺の景色を眺め、いつもの散歩が冒険になる瞬間を思い出す。",
+          "image": "assets/alice/tears.jpg",
+          "source_url": "https://www.gutenberg.org/files/28885/28885-h/28885-h.htm",
+          "spoiler": ""
+        },
+        {
+          "id": "questions",
+          "number": "V",
+          "title": "問いかけるイモムシ",
+          "summary": "自分が誰なのかを問われ、言葉に詰まるアリス。不思議の国では、当たり前の答えさえ変わってしまう。",
+          "image": "assets/alice/caterpillar.jpg",
+          "source_url": "https://www.gutenberg.org/files/28885/28885-h/28885-h.htm",
+          "spoiler": ""
+        },
+        {
+          "id": "mad-tea",
+          "number": "VII",
+          "title": "終わらないお茶会",
+          "summary": "お茶の時間から進めない、不思議な卓を囲む面々。旅の休憩で、お気に入りの場面を一つずつ話してみよう。",
+          "image": "assets/alice/tea.jpg",
+          "source_url": "https://www.gutenberg.org/files/28885/28885-h/28885-h.htm",
+          "spoiler": "物語の展開を確かめるには、原著の対応する章を開こう。"
+        }
+      ]
+    }
+  ],
+  "stages": [
+    {
+      "id": "christ-church",
+      "name": "クライスト・チャーチ",
+      "location": "CHRIST CHURCH",
+      "label": "CHAPTER 1",
+      "hook": "物語が生まれた街へ。",
+      "image": "assets/alice/tears.jpg",
+      "location_note": "アリスと作者の足跡をたどる。大学の実在の場所と、不思議の国の場面は分けて楽しむ。",
+      "paragraphs": [
+        "アリスと作者の足跡をたどる。大学の実在の場所と、不思議の国の場面は分けて楽しむ。",
+        "退屈な日常から、白ウサギを追いかける物語が動き出す。川辺の景色を眺め、いつもの散歩が冒険になる瞬間を思い出す。"
+      ],
+      "connections": [
+        {
+          "type": "documented_connection",
+          "description": "アリスと作者の足跡をたどる。大学の実在の場所と、不思議の国の場面は分けて楽しむ。",
+          "source_url": "https://www.experienceoxfordshire.org/alice-in-wonderland-oxford/"
+        }
+      ],
+      "scenes": [
+        {
+          "title": "川辺から始まる冒険",
+          "episode": "CHAPTER I",
+          "episode_id": "riverbank",
+          "description": "退屈な日常から、白ウサギを追いかける物語が動き出す。川辺の景色を眺め、いつもの散歩が冒険になる瞬間を思い出す。",
+          "image": "assets/alice/tears.jpg",
+          "source_url": "https://www.gutenberg.org/files/28885/28885-h/28885-h.htm",
+          "spoiler": false
+        }
+      ],
+      "highlights": [
+        {
+          "title": "物語が生まれた街へ。",
+          "description": "アリスと作者の足跡をたどる。大学の実在の場所と、不思議の国の場面は分けて楽しむ。",
+          "source_url": "https://www.experienceoxfordshire.org/alice-in-wonderland-oxford/"
+        }
+      ],
+      "missions": [
+        {
+          "id": "observe",
+          "text": "アリスの足跡を一つ見つける"
+        },
+        {
+          "id": "pause",
+          "text": "休憩と次の移動を確認する"
+        }
+      ]
+    },
+    {
+      "id": "meadow",
+      "name": "川辺の草地",
+      "location": "THE MEADOW",
+      "label": "CHAPTER 2",
+      "hook": "いつもの川辺が、物語の入口。",
+      "image": "assets/alice/caterpillar.jpg",
+      "location_note": "草地から川を眺め、物語の発想が育った環境を想像する。架空のウサギ穴の実在場所とは断定しない。",
+      "paragraphs": [
+        "草地から川を眺め、物語の発想が育った環境を想像する。架空のウサギ穴の実在場所とは断定しない。",
+        "自分が誰なのかを問われ、言葉に詰まるアリス。不思議の国では、当たり前の答えさえ変わってしまう。"
+      ],
+      "connections": [
+        {
+          "type": "documented_connection",
+          "description": "草地から川を眺め、物語の発想が育った環境を想像する。架空のウサギ穴の実在場所とは断定しない。",
+          "source_url": "https://www.chch.ox.ac.uk/sites/default/files/2023-08/meadow-trail-winter21-min.pdf"
+        }
+      ],
+      "scenes": [
+        {
+          "title": "問いかけるイモムシ",
+          "episode": "CHAPTER V",
+          "episode_id": "questions",
+          "description": "自分が誰なのかを問われ、言葉に詰まるアリス。不思議の国では、当たり前の答えさえ変わってしまう。",
+          "image": "assets/alice/caterpillar.jpg",
+          "source_url": "https://www.gutenberg.org/files/28885/28885-h/28885-h.htm",
+          "spoiler": false
+        }
+      ],
+      "highlights": [
+        {
+          "title": "いつもの川辺が、物語の入口。",
+          "description": "草地から川を眺め、物語の発想が育った環境を想像する。架空のウサギ穴の実在場所とは断定しない。",
+          "source_url": "https://www.chch.ox.ac.uk/sites/default/files/2023-08/meadow-trail-winter21-min.pdf"
+        }
+      ],
+      "missions": [
+        {
+          "id": "observe",
+          "text": "景色と物語を一つ結びつける"
+        }
+      ]
+    },
+    {
+      "id": "tea-stop",
+      "name": "お茶と読書",
+      "location": "TEA TIME",
+      "label": "CHAPTER 3",
+      "hook": "時計を置いて、お茶にしよう。",
+      "image": "assets/alice/tea.jpg",
+      "location_note": "お茶会の場面を読み返す休憩。どの店も作中の実在モデルとは断定しない。",
+      "paragraphs": [
+        "お茶会の場面を読み返す休憩。どの店も作中の実在モデルとは断定しない。",
+        "お茶の時間から進めない、不思議な卓を囲む面々。旅の休憩で、お気に入りの場面を一つずつ話してみよう。"
+      ],
+      "connections": [
+        {
+          "type": "thematic",
+          "description": "お茶会の場面を読み返す休憩。どの店も作中の実在モデルとは断定しない。",
+          "source_url": "https://www.gutenberg.org/files/28885/28885-h/28885-h.htm"
+        }
+      ],
+      "scenes": [
+        {
+          "title": "終わらないお茶会",
+          "episode": "CHAPTER VII",
+          "episode_id": "mad-tea",
+          "description": "お茶の時間から進めない、不思議な卓を囲む面々。旅の休憩で、お気に入りの場面を一つずつ話してみよう。",
+          "image": "assets/alice/tea.jpg",
+          "source_url": "https://www.gutenberg.org/files/28885/28885-h/28885-h.htm",
+          "spoiler": true
+        }
+      ],
+      "highlights": [
+        {
+          "title": "時計を置いて、お茶にしよう。",
+          "description": "お茶会の場面を読み返す休憩。どの店も作中の実在モデルとは断定しない。",
+          "source_url": "https://www.gutenberg.org/files/28885/28885-h/28885-h.htm"
+        }
+      ],
+      "missions": [
+        {
+          "id": "observe",
+          "text": "景色と物語を一つ結びつける"
+        }
+      ]
+    }
+  ],
+  "itinerary": [
+    {
+      "id": "1",
+      "label": "DAY 1",
+      "events": [
+        {
+          "time": "モデル枠",
+          "title": "クライスト・チャーチ",
+          "description": "移動・休憩を含めて、予定に合わせて調整。"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "label": "DAY 2",
+      "events": [
+        {
+          "time": "モデル枠",
+          "title": "川辺の草地",
+          "description": "移動・休憩を含めて、予定に合わせて調整。"
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "label": "DAY 3",
+      "events": [
+        {
+          "time": "モデル枠",
+          "title": "お茶と読書",
+          "description": "移動・休憩を含めて、予定に合わせて調整。"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "label": "原著とArthur Rackhamの挿絵",
+      "url": "https://www.gutenberg.org/files/28885/28885-h/28885-h.htm"
+    },
+    {
+      "label": "観光局：アリスとオックスフォード",
+      "url": "https://www.experienceoxfordshire.org/alice-in-wonderland-oxford/"
+    },
+    {
+      "label": "Christ Church公式：Meadow Trail",
+      "url": "https://www.chch.ox.ac.uk/sites/default/files/2023-08/meadow-trail-winter21-min.pdf"
+    }
+  ],
+  "media_rights": [
+    {
+      "file": "assets/alice/hero.jpg",
+      "status": "public_domain",
+      "creator": "Arthur Rackham (1907), Project Gutenberg eBook 28885",
+      "alt": "アリスの肖像",
+      "characters": [
+        "Alice"
+      ],
+      "source_url": "https://www.gutenberg.org/files/28885/28885-h/images/f0002-image.jpg",
+      "notes": "原著の挿絵。生成画像・現地写真ではありません。Public domain in the USA; see source edition."
+    },
+    {
+      "file": "assets/alice/tears.jpg",
+      "status": "public_domain",
+      "creator": "Arthur Rackham (1907), Project Gutenberg eBook 28885",
+      "alt": "涙の池のアリス",
+      "characters": [
+        "Alice"
+      ],
+      "source_url": "https://www.gutenberg.org/files/28885/28885-h/images/p0022-insert2.jpg",
+      "notes": "原著の挿絵。生成画像・現地写真ではありません。Public domain in the USA; see source edition."
+    },
+    {
+      "file": "assets/alice/caterpillar.jpg",
+      "status": "public_domain",
+      "creator": "Arthur Rackham (1907), Project Gutenberg eBook 28885",
+      "alt": "アリスとイモムシ",
+      "characters": [
+        "Alice",
+        "Caterpillar"
+      ],
+      "source_url": "https://www.gutenberg.org/files/28885/28885-h/images/p0050-insert2.jpg",
+      "notes": "原著の挿絵。生成画像・現地写真ではありません。Public domain in the USA; see source edition."
+    },
+    {
+      "file": "assets/alice/tea.jpg",
+      "status": "public_domain",
+      "creator": "Arthur Rackham (1907), Project Gutenberg eBook 28885",
+      "alt": "不思議なお茶会",
+      "characters": [
+        "Alice",
+        "Hatter",
+        "March Hare"
+      ],
+      "source_url": "https://www.gutenberg.org/files/28885/28885-h/images/p0084-insert2.jpg",
+      "notes": "原著の挿絵。生成画像・現地写真ではありません。Public domain in the USA; see source edition."
+    }
+  ]
+}

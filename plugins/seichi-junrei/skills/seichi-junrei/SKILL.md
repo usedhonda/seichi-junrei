@@ -18,7 +18,7 @@ The user has explicitly said: **「なんのための聖地巡礼かわからな
 - Check the session's actual calendar, search, local execution, browser and **native image-generation** capabilities. Installing this Skill grants none of them by itself.
 - Native **ImageGen** creates assets, not a frozen screenshot of the final page. Existing user-approved character artwork can be reused. Do not endlessly generate more mockup pictures instead of implementing HTML.
 - No extra image API: do not request an API key, call a billed image service or install a local diffusion model as a hidden fallback. If native image generation is unavailable, retain existing suitable images, report the gap and do not silently downgrade the requested art.
-- Write assets, private drafts and output outside the plugin/cache. Run `scripts/render_guide.py <guide.json> --assets-root <trip-workspace> --out <guide.html>` for local image embedding. The default renderer is a baseline, not a requirement to preserve an inferior layout: adapt it for the approved mobile design.
+- Write assets, private drafts and output outside the plugin/cache. Run `scripts/render_guide.py <guide.json> --assets-root <trip-workspace> --out <guide.html>` for local image embedding. The default renderer includes the public sample’s mobile design and interactions. Read `references/mobile-production.md` before production; use this engine rather than recreating a simpler page. Adapt visual styling only for the approved design.
 
 ## Workflow
 
@@ -29,7 +29,7 @@ The user has explicitly said: **「なんのための聖地巡礼かわからな
 5. **Edit in travel order.** Interleave actual destination → recognizable character/scene fan art → scene recall → real-world observation. Include specific callbacks for fans and enough context for companions unfamiliar with the work. Keep spoilers expandable. Do not reduce the illustrations to a cover or a small decorative strip.
 6. **Lock the design and cast.** Record approved colors, typography, image placement, characters, scene coverage and mobile proportions. Reuse the approved character illustrations where possible. Generate distinct missing art in new compositions. Build a media manifest identifying the depicted characters, associated scene, provenance and non-official status. Never substitute the approved cast without user agreement.
 7. **Implement a real mobile guide.** Use HTML/CSS for text and controls, embedded images for the artwork. Prioritize 360–430px phones, large single-column art, thumb-friendly bottom navigation, swipeable scene cards, accessible detail sheets, image zoom, chapter bookmarks and trip-day switching. Motion should support the story: restrained parallax, transitions and reveals, plus reduced-motion support. No dead controls, autoplay audio or a blocking intro. See `references/mobile-quality.md`.
-8. **Verify the artifact.** Render in a real browser, inspect screenshots for character visibility and clipping, and exercise controls. Run structural/privacy checks and test offline assets. Distinguish desktop browser emulation from physical-phone testing, and simulated storage from real persistence. A static mockup or merely valid HTML is not a finished site. Deliver the actual HTML and a screenshot taken from it.
+8. **Verify the artifact.** Render in a real browser, inspect screenshots for character visibility and clipping, and exercise controls. Run structural/privacy checks and the reusable browser acceptance runner against the actual built HTML. Inspect its cover, destination and detail screenshots against the approved reference; test offline assets. Distinguish desktop browser emulation from physical-phone testing, and simulated storage from real persistence. A static mockup or merely valid HTML is not a finished site. Deliver the actual HTML and a screenshot taken from it.
 9. **Protect the trip.** Remove PNRs, ticket numbers, seats, contact details, guest names, room numbers, private event descriptions and internal links from the companion file. Review sensitive data manually as well as with `scripts/lint_guide.py`. Keep personal itinerary snapshots out of public repository fixtures.
 10. **Sharing is optional.** Offline HTML is a complete deliverable. Do not block delivery on Sites. Publish or update a live site only when explicitly requested; verify the URL before claiming deployment. Unlisted/noindex is not authentication. A public repo change, a generated file and a deployed website are three different outcomes.
 
@@ -49,7 +49,11 @@ The user has explicitly said: **「なんのための聖地巡礼かわからな
 - `scripts/extract_calendar.py`: minimal private travel draft.
 - `scripts/rank_candidates.py`: advisory ranking; no selection.
 - `scripts/make_ballot.py`: optional candidate-choice HTML.
-- `scripts/render_guide.py`: baseline standalone HTML renderer with `--assets-root` and explicit choice check.
+- `scripts/render_guide.py`: the sample-quality mobile renderer, with `--assets-root`, explicit choice check and optional character manifest enforcement.
+- `assets/mobile-guide/`: the reusable mobile design and runtime, bundled with the plugin.
+- `tests/browser_check.py`: real-origin browser acceptance for a supplied trip and built artifact.
+- `references/mobile-production.md`: art direction, content preparation, generation and verification.
+- `examples/oxford_alice_guide.json`: a different-work/destination/day-count production example.
 - `scripts/lint_guide.py`: structural and heuristic checks; not a substitute for visual inspection or rights review.
 - `references/guide-contract.md`: baseline input schema.
 - `examples/egypt_candidates.json`, `examples/egypt_guide.json`: illustrative fixtures, not current real travel evidence.

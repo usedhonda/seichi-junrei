@@ -10,7 +10,7 @@ class DistributionTests(unittest.TestCase):
         manifest = json.loads((ROOT / "plugin.json").read_text())
         cdx = json.loads((ROOT / ".codex-plugin/plugin.json").read_text())
         self.assertEqual({"seichi-junrei"}, {manifest["name"], cdx["name"]})
-        self.assertEqual({"0.3.0"}, {manifest["version"], cdx["version"]})
+        self.assertEqual(manifest["version"], cdx["version"])
         self.assertEqual("./skills/", cdx["skills"])
         self.assertFalse((ROOT / ".claude-plugin").exists())
         self.assertFalse((ROOT / "commands").exists())
@@ -21,7 +21,8 @@ class DistributionTests(unittest.TestCase):
             "references/codex.md", "references/editorial-and-art.md",
             "references/mobile-quality.md", "scripts/render_guide.py",
             "scripts/make_ballot.py", "assets/nile-original.webp",
-            "examples/egypt_guide.json", "requirements.txt",
+            "examples/egypt_guide.json", "examples/oxford_alice_guide.json", "requirements.txt",
+            "assets/mobile-guide/guide.css", "assets/mobile-guide/guide.js", "references/mobile-production.md",
         ]
         for path in required:
             with self.subTest(path=path):

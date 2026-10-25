@@ -36,3 +36,24 @@ jobs:
           python -m unittest discover -s tests -v
           python scripts/render_guide.py examples/egypt_guide.json --out /tmp/seichi-isolated-demo.html
           python scripts/lint_guide.py /tmp/seichi-isolated-demo.html --guide examples/egypt_guide.json
+
+  mobile-guides:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Install rendering and browser dependencies
+        run: |
+          python -m pip install -r plugins/seichi-junrei/requirements.txt 'playwright>=1.48,<2'
+          python -m playwright install --with-deps chromium
+      - name: Test two works and trips from the distributable plugin in isolation
+        run: |
+          cp -R plugins/seichi-junrei /tmp/seichi-mobile-isolated
+          python /tmp/seichi-mobile-isolated/tests/browser_check.py --outdir checks/mobile
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mobile-guide-acceptance
+          path: checks/mobile

@@ -100,7 +100,7 @@ class SkillTests(unittest.TestCase):
         errs,parser=lint(html,self.data)
         self.assertFalse(errs,errs)
         self.assertGreaterEqual(len(parser.images),10)
-        self.assertTrue(all(x['src'].startswith('data:image/webp;base64,') for x in parser.images))
+        self.assertTrue(all(x.get('id') == 'full-art-img' or x['src'].startswith('data:image/webp;base64,') for x in parser.images))
 
     def test_codex_generated_image_assets_root(self):
         # Mimic ImageGen-exported art in a writable, per-trip workspace.
@@ -122,7 +122,7 @@ class SkillTests(unittest.TestCase):
             issues, parsed = lint(html, self.data)
             self.assertFalse(issues, issues)
             self.assertGreaterEqual(len(parsed.images), 10)
-            self.assertTrue(all(x["src"].startswith("data:image/webp;base64,") for x in parsed.images))
+            self.assertTrue(all(x.get("id") == "full-art-img" or x["src"].startswith("data:image/webp;base64,") for x in parsed.images))
 
     def test_remote_media_rejected(self):
         spec=copy.deepcopy(self.data)

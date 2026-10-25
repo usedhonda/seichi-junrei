@@ -2,7 +2,16 @@
 
 このプロジェクトは開発初期段階のSkillです。明確なリリースタグを作成したときに、ここへ変更履歴を追記します。
 
-## Unreleased
+## 0.3.1 — 2026-10-25
+
+- Replaced the static baseline with the public sample's reusable mobile design and runtime inside the installed plugin.
+- Added data-driven destinations, story IDs, days, synchronized missions, bookmarks, sheets, zoom, motion and offline save/share.
+- Public Pages builds now use the same renderer as installed skills; original character art and full scene prose are bundled.
+- Added Oxford/Alice as a second, sourced example with three destinations/days and different mission counts.
+- Added isolated-plugin browser acceptance for both trips and instructions for inspecting the actual generated output.
+- Fixed privacy lint false positives on base64 image bytes and preserved suitable WebP artwork without recompression.
+
+## Earlier changes
 
 - v0.3.0: Codex-only direction. Removed CC marketplace, command and plugin manifest.
 - Native ImageGen-first illustration workflow, no external image API keys or local diffusion installation.
