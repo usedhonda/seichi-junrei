@@ -10,6 +10,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT/'scripts'))
 from render_guide import render, validate
 from lint_guide import lint
+from journey_fixture import independent_input
 
 class GuideParser(HTMLParser):
     def __init__(self):
@@ -18,9 +19,11 @@ class GuideParser(HTMLParser):
         self.links = []
         self.in_data = False
         self.payload = ''
+        self.art_ids = set()
     def handle_starttag(self, tag, attrs):
         attrs = dict(attrs)
         if attrs.get('id'): self.ids.append(attrs['id'])
+        if tag=='img' and attrs.get('data-art'):self.art_ids.add(attrs['data-art'])
         if tag == 'a' and attrs.get('href', '').startswith('#'): self.links.append(attrs['href'][1:])
         if tag == 'script' and attrs.get('id') == 'guide-data': self.in_data = True
     def handle_endtag(self, tag):
@@ -114,5 +117,29 @@ class MobileContracts(unittest.TestCase):
         self.assertIn('travelmode=walking',source)
         del spec['itinerary'][0]['events'][4]['stage_id']
         with self.assertRaisesRegex(ValueError,'exactly once'):render(spec,ROOT)
+
+    def test_multiday_input_owns_copy_order_and_transfer_days(self):
+        spec=independent_input(ROOT)
+        source=render(spec,ROOT);parser=GuideParser();parser.feed(source)
+        state=json.loads(parser.payload)
+        expected=['stage-'+e['stage_id'] for d in spec['itinerary'] for e in d['events'] if e.get('stage_id')]
+        self.assertEqual(expected,[n['id'] for n in state['navigation'][2:]])
+        self.assertTrue({e['art'] for e in state['episodes']}.issubset(parser.art_ids | set(state.get('supportArt',{}))))
+        self.assertLess(parser.ids.index('day-arrival'),parser.ids.index('day-between'))
+        self.assertLess(parser.ids.index('day-between'),parser.ids.index('day-after'))
+        self.assertIn('次の場所への経路候補を開く',source)
+        for copied in ['朝食から、探偵の一杯まで。','小五郎','SINGAPORE / ONE-DAY CASEBOOK']:
+            self.assertNotIn(copied,source)
+        self.assertFalse(lint(source,spec)[0])
+        self.assertTrue(set(parser.links).issubset(parser.ids))
+        self.assertEqual(len(parser.ids),len(set(parser.ids)))
+
+    def test_all_requested_scenes_remain_visible_assets(self):
+        for name in ['egypt_guide','monster_europe_guide']:
+            spec=json.loads((ROOT/'examples'/(name+'.json')).read_text())
+            source=render(spec,ROOT);parser=GuideParser();parser.feed(source)
+            state=json.loads(parser.payload)
+            self.assertTrue({s['art'] for s in state['scenes']}.issubset(parser.art_ids))
+            if name=='monster_europe_guide':self.assertIn('class="scene-spoiler"',source)
 
 if __name__ == '__main__': unittest.main()

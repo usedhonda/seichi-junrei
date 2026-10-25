@@ -1,0 +1,41 @@
+/* The reading structure is shared; the adventure and thriller remain distinct. */
+body[data-theme="night-gold"][data-reading-flow="journey"] .journey-orientation{background:var(--cream);color:var(--ink);border-color:var(--gold2)}
+body[data-theme="night-gold"][data-reading-flow="journey"] .journey-orientation h2{font:650 29px/1.6 'Hiragino Mincho ProN',Georgia,serif;color:var(--ink)}
+body[data-theme="night-gold"][data-reading-flow="journey"] .journey-orientation p{color:#475762}
+body[data-theme="night-gold"][data-reading-flow="journey"] .journey-orientation .kicker{color:#8b6430}
+body[data-theme="night-gold"][data-reading-flow="journey"] .journey-facts span{border-color:#98743e;color:var(--ink)}
+body[data-theme="night-gold"][data-reading-flow="journey"] .journey-visit{border-color:var(--gold2)}
+body[data-theme="night-gold"][data-reading-flow="journey"] .journey-visit-head h2{color:var(--gold);font:600 clamp(36px,11vw,56px)/1.2 Georgia,serif;letter-spacing:-.035em}
+body[data-theme="night-gold"][data-reading-flow="journey"] .journey-visit .feature-art img{height:auto;max-height:none;object-fit:contain}
+body[data-theme="night-gold"][data-reading-flow="journey"] .scene-memory h3{font:600 25px/1.7 'Hiragino Mincho ProN',Georgia,serif;color:var(--gold)}
+body[data-theme="night-gold"][data-reading-flow="journey"] .onsite-clue h4{color:var(--cream)}
+body[data-theme="night-gold"][data-reading-flow="journey"] .local-map-details{background:var(--panel);border-color:var(--line)}
+body[data-theme="night-gold"][data-reading-flow="journey"] .local-map-details summary{color:var(--gold)}
+body[data-theme="night-gold"][data-reading-flow="journey"] .visit-practical>span{color:var(--cream)}
+body[data-theme="night-gold"][data-reading-flow="journey"] .journey-finish{border-color:var(--gold2)}
+body[data-theme="night-gold"][data-reading-flow="journey"] .journey-finish h2{font:600 28px/1.7 'Hiragino Mincho ProN',Georgia,serif;color:var(--gold)}
+body[data-theme="night-gold"][data-reading-flow="journey"] .journey-finish .mission-group,body[data-theme="night-gold"][data-reading-flow="journey"] .visit-checklist .mission-group{color:var(--cream)}
+body[data-theme="night-gold"][data-reading-flow="journey"] .mission small,body[data-theme="night-gold"][data-reading-flow="journey"] .mission-note{color:#bfcacc!important}
+body[data-theme="night-gold"][data-reading-flow="journey"] .journey-transfer{background:#152b3c;border:1px solid var(--gold2)}
+body[data-theme="night-gold"][data-reading-flow="journey"] .journey-transfer .journey-time{color:var(--gold)}
+body[data-theme="night-gold"][data-reading-flow="journey"] .directions-link{color:var(--gold)}
+body[data-layout="pursuit"][data-reading-flow="journey"] .journey-orientation{background:#151a1f;color:var(--cream);border-color:#9c2928}
+body[data-layout="pursuit"][data-reading-flow="journey"] .journey-orientation .kicker{color:var(--gold)}
+body[data-layout="pursuit"][data-reading-flow="journey"] .journey-orientation p{color:#c7cdcb}
+body[data-layout="pursuit"][data-reading-flow="journey"] .journey-visit{border-color:#6d2826}
+body[data-layout="pursuit"][data-reading-flow="journey"] .journey-visit-head h2{font-size:clamp(34px,11vw,52px);line-height:1.1;overflow-wrap:anywhere;color:#fff}
+body[data-layout="pursuit"][data-reading-flow="journey"] .visit-hook{color:var(--cream)}
+body[data-layout="pursuit"][data-reading-flow="journey"] .journey-visit .feature-art img{height:auto;max-height:none;object-fit:contain}
+body[data-layout="pursuit"][data-reading-flow="journey"] .journey-transfer{background:#26191b;border-left:3px solid var(--gold)}
+body[data-layout="pursuit"][data-reading-flow="journey"] .journey-transfer h3{font-size:23px;line-height:1.6;letter-spacing:-.025em}
+body[data-layout="pursuit"][data-reading-flow="journey"] .journey-transfer .journey-time{color:var(--gold);font-size:30px}
+body[data-layout="pursuit"][data-reading-flow="journey"] .local-map-details{background:#151a1f;border-color:var(--line)}
+body[data-layout="pursuit"][data-reading-flow="journey"] .local-map-details summary{color:#ece8e0}
+body[data-layout="pursuit"][data-reading-flow="journey"] .journey-finish{border-color:#6d2826}
+body[data-layout="pursuit"][data-reading-flow="journey"] .journey-finish h2{color:#fff;font-weight:850}
+body[data-layout="pursuit"][data-reading-flow="journey"] .journey-pause{background:#101619}
+body[data-layout="pursuit"][data-reading-flow="journey"] .journey-observation{background:#151a1f}
+body[data-layout="pursuit"][data-reading-flow="journey"] .journey-day-heading{border-color:#6d2826}
+body[data-layout="pursuit"][data-reading-flow="journey"] .journey-day-heading h2{font-weight:850;font-size:28px}
+body[data-layout="pursuit"][data-reading-flow="journey"] .transfer-day>.journey-day-heading{background:linear-gradient(125deg,#29171b,#0b0e10)}
+body[data-theme="night-gold"][data-reading-flow="journey"] .journey-watchlist,body[data-theme="night-gold"][data-reading-flow="journey"] .journey-watchlist button{border-color:#ae9467}

@@ -66,3 +66,27 @@ body[data-reading-flow="journey"] .bottom-nav a{font-size:10px}
 @media(max-width:380px){.journey-visit-head h2{font-size:29px}.journey-orientation h2{font-size:23px}.journey-pause{grid-template-columns:52px 1fr;gap:12px}}
 body[data-reading-flow="journey"] .bottom-nav a:before{display:none}
 .local-map-offline{font-size:10px!important;line-height:1.8;color:var(--muted)}
+.journey-watchlist{margin:22px 0 0;border-color:#ffffff55}
+.journey-watchlist summary{font-size:12px;color:inherit}
+.journey-watchlist>p{font-size:12px;line-height:1.9;color:inherit}
+.journey-watchlist button{display:block;text-align:left;width:100%;min-height:48px;border-bottom:1px solid #ffffff33;padding:12px 0;font-size:12px;line-height:1.8}
+.journey-day-index{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px;margin:20px 22px 28px}
+.journey-day-index a{display:block;text-decoration:none;border:1px solid var(--line);padding:12px;min-height:70px}
+.journey-day-index small{display:block;color:var(--gold);font:700 9px/1.6 -apple-system,sans-serif;letter-spacing:.1em}
+.journey-day-index span{display:block;font-size:12px;line-height:1.7;margin-top:7px}
+.journey-day-heading{padding:30px 24px 24px;border-top:3px solid var(--gold2);margin-top:28px}
+.journey-day-heading>span{color:var(--gold);font:750 10px/1.6 -apple-system,sans-serif;letter-spacing:.13em}
+.journey-day-heading h2{font-size:25px;line-height:1.6;margin:14px 0}
+.journey-day-heading p{font-size:13px;line-height:2;color:var(--muted)}
+.journey-day>.journey-visit:first-of-type{margin-top:0}
+.journey-day-geography{padding:0 24px 5px}
+.journey-day-geography .local-stop-map{height:280px}
+.journey-observation{padding:28px 24px;border-top:1px solid var(--line)}
+.journey-observation h3{font-size:23px;line-height:1.6;margin:14px 0}
+.journey-observation>p{font-size:13px;line-height:2;color:var(--muted)}
+.transport-link{display:flex;align-items:center;min-height:44px;font-size:12px;color:inherit;margin-top:10px}
+.journey-visit-body>.feature-art{margin:24px -24px 0}
+body[data-reading-flow="journey"] .scene-spoiler summary{font-size:12px;color:var(--gold)}
+.transfer-day .day-city{display:block}
+.day-route-arrow{display:block;font:700 17px/1.6 -apple-system,sans-serif;color:var(--gold);padding:2px 0}
+.journey-orientation h2{white-space:pre-line;text-wrap:balance}

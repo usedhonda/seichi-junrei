@@ -9,7 +9,7 @@
     "wordmark": "MONSTER / FOLLOW THE TRAIL",
     "kicker": "MONSTER · GERMANY & PRAGUE",
     "subtitle": "屋根と窓、広場の角。テンマの旅の断片をたどる。",
-    "cover_line": "何気ない風景に、\n物語の記憶が残る。",
+    "cover_line": "あの物語の、\n痕跡を追え。",
     "dates": "5 DAYS / PUBLIC MODEL",
     "regions": "HEIDELBERG → KAUFBEUREN → PRAGUE",
     "hero_image": "assets/monster-europe/cover.webp",
@@ -27,7 +27,26 @@
     "checked_note": "作品公式、大学・観光局、2018〜2019年撮影の比較訪問記を2026年10月25日に確認。大学とホテルについては訪問記の原作比較画像を目視。作者・制作側の個別建物認定や、現在の外観との完全一致を意味しません。",
     "itinerary_note": "個人の旅行日・宿泊予約を含まない5日間のモデル。都市間には移動専用日を置き、列車時刻や予約可能性は未確定です。実際の訪問日にはDB等で乗継・運行・所要時間を確認し、必要なら移動日や宿泊を追加してください。市内の時間は編集上の概算です。",
     "closing": "同じ形を見つけても、同じ景色にはならない。物語のあとに、自分の旅の記憶を残す。",
-    "layout": "pursuit"
+    "layout": "pursuit",
+    "reading_flow": "journey",
+    "cover_title": "MONSTER",
+    "cover_credit": "NAOKI URASAWA · UNOFFICIAL PILGRIMAGE",
+    "cover_tagline": "FOLLOW THE TRAIL",
+    "cover_description": "ニナのいた街。最後のホテル。\nOPの向こう側へ。",
+    "journey_start": "追跡をはじめる",
+    "journey_intro": {
+      "kicker": "GERMANY → CZECHIA / 5 DAYS",
+      "title": "三つの街で、物語の痕跡を追う。",
+      "body": [
+        "ニナのいた学生の街から、小さなホテルへ。そしてプラハで、何度も見たオープニングの景色を歩く。テンマたちの記憶を、旅の順番につないでいきます。"
+      ],
+      "facts": [
+        "3つの街",
+        "見学3日＋移動2日",
+        "鉄道・徒歩のモデル"
+      ],
+      "note": "個人の旅行日・宿泊予約を含まない5日間のモデル。都市間には移動専用日を置き、列車時刻や予約可能性は未確定です。実際の訪問日にはDB等で乗継・運行・所要時間を確認し、必要なら移動日や宿泊を追加してください。市内の時間は編集上の概算です。"
+    }
   },
   "selection": {
     "primary_work_id": "monster-original",
@@ -380,7 +399,8 @@
           "time": "10:00",
           "title": "ハイデルベルク・大学前",
           "description": "外観の観察45分。博物館内部は別途、公式の開館・最終入場を確認して任意。",
-          "map_stop_id": "university"
+          "map_stop_id": "university",
+          "stage_id": "heidelberg"
         },
         {
           "time": "11:00",
@@ -396,23 +416,33 @@
       "map_stop_ids": [
         "university"
       ],
-      "map_mode": "walking"
+      "map_mode": "walking",
+      "title": "ニナのいた、学生の街へ。",
+      "description": "ハイデルベルクの旧大学から。窓と屋根の形を、原作の記憶に重ねる日。"
     },
     {
       "id": "2",
-      "label": "MOVE",
+      "label": "DAY 2",
       "events": [
         {
           "time": "終日",
-          "title": "カウフボイレンへの移動日",
-          "description": "列車・乗継・宿泊場所は訪問日に別途確定。この日に巡礼地点を詰め込まず、遅れの余裕を確保。"
+          "title": "カウフボイレンへ",
+          "description": "列車・乗継・宿泊場所は訪問日に別途確定。この日に巡礼地点を詰め込まず、遅れの余裕を確保。",
+          "kind": "transfer",
+          "from_stop_id": "university",
+          "to_stop_id": "hotel",
+          "travelmode": "transit",
+          "transport_url": "https://int.bahn.de/en"
         }
       ],
       "map_stop_ids": [
         "university",
         "hotel"
       ],
-      "map_mode": "transit"
+      "map_mode": "transit",
+      "title": "ハイデルベルク → カウフボイレン",
+      "description": "今日は次の街へ向かう日。見学を詰め込まず、移動と休憩に余裕を残す。",
+      "kind": "transfer"
     },
     {
       "id": "3",
@@ -422,7 +452,8 @@
           "time": "10:00",
           "title": "Hotel Hasenの外観へ",
           "description": "公共歩道から30分程度。営業施設の入口を塞がず、内部への入場は予定しない。",
-          "map_stop_id": "hotel"
+          "map_stop_id": "hotel",
+          "stage_id": "kaufbeuren"
         },
         {
           "time": "10:45",
@@ -438,23 +469,33 @@
       "map_stop_ids": [
         "hotel"
       ],
-      "map_mode": "walking"
+      "map_mode": "walking",
+      "title": "小さなホテル、その面影へ。",
+      "description": "大きな名所より、一軒の建物。テンマを思い出しながら、町を静かに歩く。"
     },
     {
       "id": "4",
-      "label": "MOVE",
+      "label": "DAY 4",
       "events": [
         {
           "time": "終日",
-          "title": "プラハへの移動日",
-          "description": "国境を越える乗継と実際の運行を事前確認。所要時間次第で移動・宿泊日を追加し、到着後の巡礼は翌日に回す。"
+          "title": "プラハへ",
+          "description": "国境を越える乗継と実際の運行を事前確認。所要時間次第で移動・宿泊日を追加し、到着後の巡礼は翌日に回す。",
+          "kind": "transfer",
+          "from_stop_id": "hotel",
+          "to_stop_id": "square",
+          "travelmode": "transit",
+          "transport_url": "https://int.bahn.de/en"
         }
       ],
       "map_stop_ids": [
         "hotel",
         "square"
       ],
-      "map_mode": "transit"
+      "map_mode": "transit",
+      "title": "カウフボイレン → プラハ",
+      "description": "国境を越えて、オープニングの街へ。乗継と到着条件を確認する移動日。",
+      "kind": "transfer"
     },
     {
       "id": "5",
@@ -464,18 +505,24 @@
           "time": "09:00",
           "title": "共和国広場から街へ",
           "description": "構図の観察45分。広場の通行を優先。",
-          "map_stop_id": "square"
+          "map_stop_id": "square",
+          "stage_id": "prague"
         },
         {
           "time": "10:00",
           "title": "旧市街を通り、橋の方面へ",
-          "description": "徒歩・寄り道・休憩を概算60分。道路と周囲の案内を優先。"
+          "description": "徒歩・寄り道・休憩を概算60分。道路と周囲の案内を優先。",
+          "kind": "transfer",
+          "from_stop_id": "square",
+          "to_stop_id": "bridge",
+          "travelmode": "walking"
         },
         {
           "time": "11:00",
           "title": "カレル橋の両岸を眺める",
           "description": "60分。塔と橋の位置関係を見比べ、混雑時は立ち止まる時間を短くする。",
-          "map_stop_id": "bridge"
+          "map_stop_id": "bridge",
+          "kind": "observation"
         },
         {
           "time": "12:00",
@@ -487,7 +534,9 @@
         "square",
         "bridge"
       ],
-      "map_mode": "walking"
+      "map_mode": "walking",
+      "title": "OPの向こう側へ。",
+      "description": "共和国広場からカレル橋へ。塔と街並みの重なりを、自分の足で探す。"
     }
   ],
   "route_map": {

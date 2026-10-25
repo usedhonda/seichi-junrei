@@ -53,6 +53,8 @@ jobs:
         run: |
           cp -R plugins/seichi-junrei /tmp/seichi-mobile-isolated
           python /tmp/seichi-mobile-isolated/tests/browser_check.py --outdir checks/mobile
+      - name: Test a different journey from an isolated runtime and external assets
+        run: python plugins/seichi-junrei/tests/portability_check.py --outdir checks/portability
       - uses: actions/upload-artifact@v4
         with:
           name: mobile-guide-acceptance

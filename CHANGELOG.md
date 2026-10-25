@@ -2,6 +2,13 @@
 
 このプロジェクトは開発初期段階のSkillです。明確なリリースタグを作成したときに、ここへ変更履歴を追記します。
 
+## 0.6.0 — 2026-10-25
+
+- Applied the integrated reading journey to JoJo and MONSTER, preserving their distinct adventure/thriller covers and all scene illustrations.
+- Added multi-day reading, transfer-only chapters, day/leg maps, secondary observations and explicit cross-day endpoints; captions and order derive from trip input.
+- Removed Conan-specific copy/count assumptions, added independent-work/day-order portability checks, and retained dialog-only story art in the offline asset manifest.
+- Updated the skill's production/schema guidance and local execution path for the same distributable engine.
+
 ## 0.5.0 — 2026-10-25
 
 - Rebuilt Conan as one chronological day: orientation and overview map lead into the actual timed visits, story context, onsite observations, optional mural, rest and next-leg directions.

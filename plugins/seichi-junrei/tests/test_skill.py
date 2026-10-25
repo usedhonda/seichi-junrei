@@ -99,7 +99,8 @@ class SkillTests(unittest.TestCase):
         html=render(self.data,ROOT)
         errs,parser=lint(html,self.data)
         self.assertFalse(errs,errs)
-        self.assertGreaterEqual(len(parser.images),10)
+        required={self.data['meta']['hero_image'],*(s['image'] for s in self.data['stages']),*(q['image'] for s in self.data['stages'] for q in s['scenes'])}
+        self.assertGreaterEqual(len({i['data-art'] for i in parser.images if i.get('data-art')}),len(required))
         self.assertTrue(all(x.get('id') == 'full-art-img' or x['src'].startswith('data:image/webp;base64,') for x in parser.images))
 
     def test_codex_generated_image_assets_root(self):
@@ -121,7 +122,8 @@ class SkillTests(unittest.TestCase):
             html = output.read_text(encoding="utf-8")
             issues, parsed = lint(html, self.data)
             self.assertFalse(issues, issues)
-            self.assertGreaterEqual(len(parsed.images), 10)
+            required={self.data['meta']['hero_image'],*(s['image'] for s in self.data['stages']),*(q['image'] for s in self.data['stages'] for q in s['scenes'])}
+            self.assertGreaterEqual(len({i['data-art'] for i in parsed.images if i.get('data-art')}),len(required))
             self.assertTrue(all(x.get("id") == "full-art-img" or x["src"].startswith("data:image/webp;base64,") for x in parsed.images))
 
     def test_remote_media_rejected(self):

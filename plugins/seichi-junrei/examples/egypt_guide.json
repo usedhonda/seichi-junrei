@@ -26,7 +26,21 @@
     "title_small_lines": [
       1
     ],
-    "kicker": "JOJO · STARDUST CRUSADERS"
+    "kicker": "JOJO · STARDUST CRUSADERS",
+    "reading_flow": "journey",
+    "journey_intro": {
+      "kicker": "ASWAN → ABU SIMBEL / 2 DAYS",
+      "title": "ナイルの旅へ。\nあの場面と、一緒に。",
+      "body": [
+        "アスワンでオインゴとボインゴの場面を思い出し、翌日はアブ・シンベルへ。街の記憶と、神殿の神話をたどる二日間です。"
+      ],
+      "facts": [
+        "アスワンとアブ・シンベル",
+        "街歩き・神殿・休息",
+        "時刻未指定のモデル"
+      ],
+      "note": "個人の便名・予約時刻を除いた公開モデルです。アスワンから神殿への移動手段と所要時間を確定してから、一日の予定を組んでください。神殿を作品の実在ロケ地とは断定せず、神話のテーマとして楽しみます。"
+    }
   },
   "selection": {
     "primary_work_id": "jojo-3",
@@ -449,34 +463,53 @@
         {
           "time": "街歩き",
           "label": "ナイルの街で、ひと休み",
-          "map_stop_id": "aswan-city"
+          "map_stop_id": "aswan-city",
+          "stage_id": "aswan",
+          "description": "街歩き、食事、水分補給を、自分のペースで。正確な訪問時刻はこのモデルに指定していません。"
         },
         {
-          "time": "移動",
-          "label": "移動と休息の余裕を確保する"
+          "time": "休息",
+          "label": "街の一日を振り返り、翌日に備える",
+          "description": "食事と休憩を取りながら、翌日の移動手段・出発条件を確認します。具体的な予約はこの公開モデルに含みません。"
         }
       ],
       "map_stop_ids": [
         "aswan-city"
-      ]
+      ],
+      "title": "あの兄弟を思い出す、ナイルの街。",
+      "description": "街歩きと休息を楽しむ一日。特定のカフェや席を再現する予定ではありません。"
     },
     {
       "id": "2",
       "label": "DAY 2",
       "events": [
         {
-          "time": "神殿",
-          "label": "大神殿と小神殿へ",
-          "map_stop_id": "temples"
+          "time": "出発前",
+          "title": "アスワンから神殿への移動を確認",
+          "description": "移動手段・所要時間・現地での到着条件を確定してから出発。便や車の予約は、この公開モデルには含めません。",
+          "kind": "transfer",
+          "from_stop_id": "aswan-city",
+          "to_stop_id": "temples"
         },
         {
-          "time": "移動",
-          "label": "移動と休息の余裕を確保する"
+          "time": "神殿",
+          "label": "大神殿と小神殿へ",
+          "map_stop_id": "temples",
+          "stage_id": "abu-simbel",
+          "description": "到着条件と開館時間に合わせて見学。神殿前の休憩と水分補給も確保します。"
+        },
+        {
+          "time": "見学後",
+          "label": "余韻と、次の旅への余白",
+          "description": "暑さを避けて休憩し、水分を補給。帰路や次の予定は、自分の手配に合わせて余裕を見込みます。"
         }
       ],
       "map_stop_ids": [
+        "aswan-city",
         "temples"
-      ]
+      ],
+      "title": "神話の景色、アブ・シンベルへ。",
+      "description": "神殿の前に、移動の条件を確かめる日。作品の記憶と、実在の神話の景色をつなぐ。"
     }
   ]
 }

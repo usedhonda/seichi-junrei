@@ -33,7 +33,28 @@
     "itinerary_note": "個人予約のない1日モデル。徒歩・MRT・待ち時間は編集上の概算で、実際の経路検索値ではありません。ロング・バーは予約不可の当日来店制。訪問日の営業、待ち時間、交通を確認し、入店できなければ回廊から外観を楽しむルートへ。",
     "closing": "名探偵のように、街を急がず観察する。いつもの朝食が、物語の入口になる。",
     "layout": "casefile",
-    "reading_flow": "journey"
+    "reading_flow": "journey",
+    "cover_title_lines": [
+      "街に残った、",
+      "手がかり。"
+    ],
+    "cover_issue": "SINGAPORE / ONE-DAY CASEBOOK",
+    "cover_caption": "一日の旅に、三つの場面を。",
+    "journey_start": "今日の旅をはじめる",
+    "journey_closing_heading": "今日の街が、\n物語の記憶になる。",
+    "journey_intro": {
+      "kicker": "ONE DAY / SINGAPORE",
+      "title": "朝食から、探偵の一杯まで。",
+      "body": [
+        "『紺青の拳』の何気ない場面を、街の中で探す一日。朝食の支店から二人のランチへ。午後はラッフルズへ足を延ばします。"
+      ],
+      "facts": [
+        "09:00—16:30",
+        "3つの舞台候補＋任意の壁画",
+        "徒歩・MRT等"
+      ],
+      "note": "個人予約を含まないモデルです。時刻・移動時間は編集上の概算。各場所の案内と当日の交通を確認してください。"
+    }
   },
   "selection": {
     "primary_work_id": "conan-fist-2019",

@@ -20,6 +20,15 @@ sys.path.insert(0, str(ROOT / 'scripts'))
 from render_guide import render
 
 
+def open_scene(page, ident):
+    # The same accessible path is used for interaction checks and captures.
+    for disclosure in page.locator(f'#{ident} .scene-spoiler').all():
+        if disclosure.get_attribute('open') is None:
+            disclosure.locator('summary').tap()
+    page.locator(f'#{ident} [data-scene]').first.tap()
+    page.locator('#sheet').wait_for(state='visible')
+
+
 def check(specs, out, executable=None, html_file=None, assets_root=None, widths=(360, 390, 430, 520)):
     out.mkdir(parents=True, exist_ok=True)
     records = []
@@ -75,8 +84,11 @@ def check(specs, out, executable=None, html_file=None, assets_root=None, widths=
                         page.wait_for_function('window.__pilgrimage')
                         assert page.locator('[data-mission-scope="all"] [data-mission-count]').inner_text() == f'旅全体 1 / {total} 完了'
                         assert page.locator(f'[data-bookmark="{stage["id"]}"]').get_attribute('aria-pressed') == 'true'
+                        if integrated:
+                            page.locator('.journey-watchlist summary').tap()
                         # Nonnumeric story IDs and endpoints must navigate by array position.
                         page.locator('#home [data-episode]').first.tap()
+                        page.locator('#sheet').wait_for(state='visible')
                         assert page.locator('#sheet').is_visible()
                         assert not page.locator('#sheet [data-ep-step="-1"]').is_enabled()
                         if len(data['episodes']) > 1:
@@ -90,7 +102,7 @@ def check(specs, out, executable=None, html_file=None, assets_root=None, widths=
                         assert not page.locator('#sheet').is_visible()
                         for ep in data['episodes']:
                             if ep.get('spoiler'):
-                                page.locator(f'#home [data-episode="{ep["id"]}"]').tap()
+                                page.locator(f'#home [data-episode="{ep["id"]}"]').first.tap()
                                 page.locator('#sheet details summary').tap()
                                 assert page.locator('#sheet details').get_attribute('open') is not None
                                 page.keyboard.press('Escape')
@@ -109,10 +121,12 @@ def check(specs, out, executable=None, html_file=None, assets_root=None, widths=
                             else:
                                 page.wait_for_function('(id) => document.querySelector("#"+id+".active") && scrollY===0', arg=destination['id'])
                             assert page.evaluate('document.documentElement.scrollWidth <= innerWidth+1')
-                            page.locator(f'#{destination["id"]} [data-scene]').first.tap()
+                            open_scene(page, destination['id'])
                             assert page.locator('#sheet .dialog-image').get_attribute('src').startswith('data:image/')
                             page.keyboard.press('Escape')
                         page.locator('.bottom-nav a[href="#route"]').tap()
+                        if integrated:
+                            page.wait_for_function('Math.abs(document.getElementById("route").getBoundingClientRect().top-18)<3')
                         if page.locator('#journey-map').count():
                             page.wait_for_function('document.querySelector("#journey-map").dataset.mapReady==="true"')
                             bounds = page.locator('#journey-map').bounding_box()
@@ -121,7 +135,7 @@ def check(specs, out, executable=None, html_file=None, assets_root=None, widths=
                                 assert page.locator('#journey-map .route-pin').count() == len(json.loads(page.locator('#route-map-data').text_content())['stops'])
                                 page.locator(f'.bottom-nav a[href="#{stage["id"]}"]').tap()
                                 page.locator(f'#{stage["id"]} .local-map-details summary').tap()
-                                page.wait_for_function('document.querySelector("[data-local-map]").dataset.mapReady==="true"')
+                                page.wait_for_function('(id)=>document.getElementById(id).querySelector("[data-local-map]").dataset.mapReady==="true"', arg=stage['id'])
                                 assert page.locator('.journey-visit').last.is_visible()
                                 page.locator(f'#{stage["id"]} .local-map-details summary').tap()
                             else:
@@ -168,7 +182,7 @@ def check(specs, out, executable=None, html_file=None, assets_root=None, widths=
                             else:
                                 page.wait_for_function('(id)=>document.querySelector("#"+id+".active")&&scrollY===0', arg=stage['id'])
                             page.screenshot(path=str(out / (spec.stem+'-destination.png')))
-                            page.locator(f'#{stage["id"]} [data-scene]').first.tap()
+                            open_scene(page, stage['id'])
                             page.screenshot(path=str(out / (spec.stem+'-detail.png')))
                         assert not errors, errors
                         records.append({'guide': spec.name, 'width': width, 'missions': total, 'destinations': len(data['stages']), 'result': 'PASS'})

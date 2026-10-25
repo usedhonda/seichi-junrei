@@ -1,7 +1,7 @@
 (()=>{'use strict';
 const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
 const data=JSON.parse($('#guide-data').textContent),viewIds=data.navigation.map(x=>x.id);
-const media={};$$('img[data-art]').forEach(i=>{if(!media[i.dataset.art])media[i.dataset.art]={src:i.src,alt:i.alt};});
+const media={...(data.supportArt||{})};$$('img[data-art]').forEach(i=>{if(!media[i.dataset.art])media[i.dataset.art]={src:i.src,alt:i.alt};});
 const originalHtml='<!doctype html>\n'+document.documentElement.outerHTML;
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const storageKey='pilgrimage:'+data.guideId;let saved={},storageOK=true;

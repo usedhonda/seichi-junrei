@@ -2,7 +2,7 @@
 const configNode=document.getElementById('route-map-data');if(!configNode)return;
 const d=JSON.parse(configNode.textContent),root=document.getElementById('journey-map');
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-let map,layer,tiles,view='day',currentDay='',markers=new Map();
+let map,layer,tiles,view=d.initialView||'day',currentDay='',markers=new Map();
 const status=document.querySelector('[data-map-status]');
 function day(){return d.days.find(x=>x.id===document.querySelector('[data-day][aria-selected="true"]')?.dataset.day)||d.days[0];}
 function points(){return view==='all'?d.stops:day().stops.map(id=>d.stops.find(s=>s.id===id));}

@@ -177,8 +177,8 @@ def render(data, root):
     reading_flow = meta.get('reading_flow', 'sections')
     if reading_flow not in ('sections', 'journey'):
         raise ValueError('Unknown reading flow')
-    if reading_flow == 'journey' and meta.get('layout') != 'casefile':
-        raise ValueError('The integrated journey currently uses the casefile layout')
+    if reading_flow == 'journey' and meta.get('layout', 'immersive') not in ('casefile', 'pursuit', 'immersive'):
+        raise ValueError('Unsupported integrated journey layout')
     layout = meta.get('layout', 'immersive')
     if layout not in ('immersive', 'casefile', 'literary', 'pursuit'):
         raise ValueError('Unknown mobile layout: '+str(layout))
@@ -276,9 +276,11 @@ def render(data, root):
     primary = next(w for w in data['works'] if w['id'] == data['selection']['primary_work_id'])
     title_lines = meta.get('title_lines') or [meta['title']]
     title = ''.join('<span'+(' class="title-small"' if i in meta.get('title_small_lines', []) else '')+'>'+H(line)+'</span>' for i, line in enumerate(title_lines))
+    start_href = '#trip-start' if reading_flow == 'journey' else '#'+stages[0]['id']
+    story_href = '#trip-reading' if reading_flow == 'journey' else '#story'
     cover_line = H(meta.get('cover_line', 'あの物語を、旅の隣に。')).replace(chr(10), '<br>')
     kicker = H(meta.get('kicker', primary['title']))
-    hero = f'<div class="hero">{image(meta["hero_image"], "hero-art", True)}<span class="star"></span><span class="star two"></span><p class="vertical">{cover_line}</p><div class="hero-bottom"><div class="kicker">{kicker}</div><h1>{title}</h1><p class="hero-subtitle">{H(meta.get("subtitle", ""))}</p><div class="journey-tag">{H(meta.get("regions", ""))}</div><div class="hero-cta"><a href="#{stages[0]["id"]}" class="btn primary">旅をひらく →</a><a href="#story" class="btn secondary">物語を振り返る →</a></div><div class="art-credit">{H(meta.get("art_label", "UNOFFICIAL STORY PILGRIMAGE"))} · {H(meta.get("dates", ""))}</div></div></div>'
+    hero = f'<div class="hero">{image(meta["hero_image"], "hero-art", True)}<span class="star"></span><span class="star two"></span><p class="vertical">{cover_line}</p><div class="hero-bottom"><div class="kicker">{kicker}</div><h1>{title}</h1><p class="hero-subtitle">{H(meta.get("subtitle", ""))}</p><div class="journey-tag">{H(meta.get("regions", ""))}</div><div class="hero-cta"><a href="{start_href}" class="btn primary">旅をひらく →</a><a href="{story_href}" class="btn secondary">物語を振り返る →</a></div><div class="art-credit">{H(meta.get("art_label", "UNOFFICIAL STORY PILGRIMAGE"))} · {H(meta.get("dates", ""))}</div></div></div>'
     destinations = ''
     for st in stages:
         spec = st['spec']
@@ -340,9 +342,11 @@ def render(data, root):
         if not map_html:
             raise ValueError('Integrated journey needs geographic stops')
         from journey_layout import compose as compose_journey
-        home, journey_navigation = compose_journey(data, stages, episodes, scenes, missions, image, feature, paragraphs, link, mission_group, H, TYPES, map_html, days)
+        home, journey_navigation = compose_journey(data, stages, episodes, scenes, missions, image, feature, paragraphs, link, mission_group, H, TYPES, map_html, days, hero)
         story, chapters, route = '', '', ''
         css += (runtime_root / 'journey.css').read_text(encoding='utf-8')
+        if layout != 'casefile':
+            css += (runtime_root / 'journey-variants.css').read_text(encoding='utf-8')
         js += '\n' + (runtime_root / 'journey.js').read_text(encoding='utf-8')
     map_shortcut = '<a class="map-shortcut" href="#route" aria-label="地図と旅程を開く">地図を見る ↗</a>' if map_html else ''
     route += map_script
@@ -361,6 +365,10 @@ def render(data, root):
              'artNote': meta.get('art_note', '挿絵は非公式の創作イラストです。公式の場面画像や記録写真ではありません。画像ごとの制作記録は以下に掲載しています。'),
              'checkedNote': meta.get('checked_note', '料金・営業時間・交通は変更されることがあります。最新の公式案内を優先してください。'),
              'provenance': provenance, 'characterArtCount': sum(bool(x.get('characters')) for x in data.get('media_rights', []))}
+    visible_art = set(re.findall(r'data-art="([^"]+)"', home+story+chapters+route))
+    support_art = {a['id']: {'src': a['src'], 'alt': a['alt']} for a in assets.values() if a['id'] not in visible_art}
+    if support_art:
+        state['supportArt'] = support_art
     encoded = json.dumps(state, ensure_ascii=False).replace('<', '\\u003c').replace('>', '\\u003e').replace('&', '\\u0026')
     icons = ['⌂', '▤'] + ['♧'] * len(stages) + ['↝']
     nav = ''.join(f'<a href="#{n["id"]}"{(" aria-current=page" if n["id"]=="home" else "")}><span class="nav-symbol" aria-hidden="true">{icons[i]}</span><span>{H(n["label"])}</span></a>' for i, n in enumerate(navigation))
