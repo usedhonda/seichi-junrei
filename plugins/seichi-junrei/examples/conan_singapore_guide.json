@@ -54,6 +54,11 @@
         "徒歩・MRT等"
       ],
       "note": "個人予約を含まないモデルです。時刻・移動時間は編集上の概算。各場所の案内と当日の交通を確認してください。"
+    },
+    "closing_illustration": {
+      "role": "scene",
+      "image": "assets/conan-singapore/closing-collage.png",
+      "caption": "旅の終わりに、今日の手がかりを持ち寄る。非公式の創作挿絵であり、映画の場面・実在店舗の再現ではありません。"
     }
   },
   "selection": {
@@ -400,6 +405,29 @@
       ],
       "alt": "老舗のバーを想起する木のカウンターで、小五郎とレイチェルが向き合う非公式ファンアート",
       "notes": "新規生成した創作。映画フレームの転載でも、現行ロング・バー内装の記録でもない。"
+    },
+    {
+      "file": "assets/conan-singapore/travel-stamps.png",
+      "status": "original_generated",
+      "creator": "OpenAI native ImageGen",
+      "characters": [
+        "江戸川コナン"
+      ],
+      "alt": "地図・休憩・案内・帰路の表情をそろえたコナンのデフォルメスタンプ",
+      "notes": "同じキャラを4ポーズで描いた透明背景の非公式創作。各ポーズはCSSの表示枠で切り替え、地理的証拠には使わない。"
+    },
+    {
+      "file": "assets/conan-singapore/closing-collage.png",
+      "status": "original_generated",
+      "creator": "OpenAI native ImageGen",
+      "characters": [
+        "江戸川コナン",
+        "毛利蘭",
+        "怪盗キッド",
+        "毛利小五郎"
+      ],
+      "alt": "夕暮れに旅の絵葉書を見せ合うコナン、蘭、キッド、小五郎の切り絵風イラスト",
+      "notes": "全員を同じデフォルメ表現にした旅の締めの創作。実際の映画場面や店舗、眺め、訪問行程を示さない。"
     }
   ],
   "itinerary": [
@@ -425,7 +453,13 @@
           "title": "Smith Streetへ寄り道",
           "description": "徒歩と見学を概算40分。コナン壁画は映画内の舞台と区別して楽しむ任意の寄り道。",
           "map_stop_id": "mural",
-          "related_highlight_id": "smith-mural"
+          "related_highlight_id": "smith-mural",
+          "illustration": {
+            "role": "sticker",
+            "image": "assets/conan-singapore/travel-stamps.png",
+            "panel": "top-left",
+            "caption": "寄り道は気分と体力しだい。壁画は映画の舞台とは分けて楽しもう。"
+          }
         },
         {
           "time": "11:00",
@@ -444,7 +478,13 @@
         {
           "time": "12:30",
           "title": "涼しい場所で休憩",
-          "description": "30分。水分と休憩を優先し、午後の待ち時間に備える。"
+          "description": "30分。水分と休憩を優先し、午後の待ち時間に備える。",
+          "illustration": {
+            "role": "sticker",
+            "image": "assets/conan-singapore/travel-stamps.png",
+            "panel": "top-right",
+            "caption": "午後も楽しむために、まず水分と休憩。急いで全部回らなくて大丈夫。"
+          }
         },
         {
           "time": "13:00",
@@ -464,12 +504,24 @@
           "time": "15:00",
           "title": "探偵の一杯を、思い出す",
           "description": "入店できた場合の滞在60分。飲酒は任意。映画と現在の内装を同じと決めつけない。",
-          "map_stop_id": "long-bar"
+          "map_stop_id": "long-bar",
+          "illustration": {
+            "role": "sticker",
+            "image": "assets/conan-singapore/travel-stamps.png",
+            "panel": "bottom-left",
+            "caption": "一杯の楽しみ方は人それぞれ。飲酒は任意、注文は当日のメニューで。"
+          }
         },
         {
           "time": "16:00",
           "title": "回廊と帰路の余白",
-          "description": "外観の観察・休憩30分。駅や宿への帰路は別途確保。"
+          "description": "外観の観察・休憩30分。駅や宿への帰路は別途確保。",
+          "illustration": {
+            "role": "sticker",
+            "image": "assets/conan-singapore/travel-stamps.png",
+            "panel": "bottom-right",
+            "caption": "見つけた手がかりを一つ残したら、帰り道にも余白を。"
+          }
         }
       ],
       "map_stop_ids": [

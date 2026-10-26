@@ -10,6 +10,16 @@ from route_maps import ordered_stops
 def compose(data, stages, episodes, scenes, missions, image, feature,
             paragraphs, link, mission_group, H, types, map_html, days, hero=''):
     meta=data['meta'];layout=meta.get('layout','immersive')
+    def illustration(spec):
+        if not spec:return ''
+        role=spec.get('role','scene')
+        if role not in ('scene','sticker'):raise ValueError('Unknown journey illustration role')
+        if role=='scene':return feature(spec['image'],spec.get('caption','非公式の創作挿絵'))
+        art=image(spec['image'],'travel-mascot')
+        if spec.get('panel'):
+            if spec['panel'] not in ('top-left','top-right','bottom-left','bottom-right'):raise ValueError('Unknown sticker panel')
+            art='<span class="sticker-viewport '+spec['panel']+'">'+art+'</span>'
+        return '<figure class="journey-sticker">'+art+'<figcaption>'+H(spec.get('caption',''))+'</figcaption></figure>'
     by_stage={s['spec']['id']:s for s in stages}
     visits=[e['stage_id'] for d in days for e in d['events'] if e.get('stage_id')]
     if len(visits)!=len(set(visits)) or set(visits)!=set(by_stage):
@@ -101,9 +111,10 @@ def compose(data, stages, episodes, scenes, missions, image, feature,
                 body+='<aside class="journey-observation" id="stop-'+H(point['id'])+'">'+time+'<h3>'+H(event.get('title',event.get('label','')))+'</h3><p>'+H(event.get('description',''))+'</p>'+local_map(point)+'</aside>'
             else:
                 body+='<aside class="journey-pause">'+time+'<div><h3>'+H(event.get('title',event.get('label','')))+'</h3><p>'+H(event.get('description',''))+'</p></div></aside>'
+            body+=illustration(event.get('illustration'))
             if point:previous=point
         body+='</section>'
     footer='<section class="journey-finish"><span class="kicker">YOUR JOURNEY / YOUR MEMORIES</span><h2>'+H(meta.get('journey_closing_heading','物語の景色が、\n自分の記憶になる。')).replace('\n','<br>')+'</h2><p>'+H(meta.get('closing',''))+'</p><details open><summary>旅の記録を見る</summary>'+mission_group('all','旅全体',missions)+'</details><div class="menu-list"><button data-action="save">画像込みでこの旅を保存 ↓</button><button data-action="share">旅仲間に渡す ↗</button><button data-open="sources">出典・挿絵の制作記録</button><button data-open="howto">使い方</button><button data-action="motion" aria-pressed="true">ON</button></div></section>'
-    home='<section class="view active" id="home">'+cover+intro+overview+body+footer+'</section>'
+    home='<section class="view active" id="home">'+cover+intro+overview+body+illustration(meta.get('closing_illustration'))+footer+'</section>'
     navigation=[{'id':'home','label':'表紙'},{'id':'route','label':'見取り図'}]+[{'id':by_stage[i]['id'],'label':by_stage[i]['label']} for i in visits]
     return home,navigation

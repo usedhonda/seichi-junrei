@@ -61,6 +61,10 @@ The renderer never consults `site/` or a sibling repository. Plugin installation
 
 ## Integrated travel reading flow
 
+Optional `events[].illustration` and `meta.closing_illustration` take `{role: "sticker" | "scene", image: "assets/local-file.png", caption: "live text"}`. Register their local files in `media_rights` as for other images. A sticker preserves transparency and renders beside its caption; a scene renders as a large zoomable figure. Omit these fields when the work does not call for that treatment. They illustrate a travel moment, not additional factual itinerary events.
+
+For an evenly divided 2×2 transparent sticker sheet, optional `panel` selects `top-left`, `top-right`, `bottom-left` or `bottom-right`. This clips the display in CSS while embedding the original complete sheet. Generate generous gutters and inspect each selected pose on the phone; omit `panel` for a single-sticker asset. Keep the same sheet's character design consistent across poses.
+
 `meta.reading_flow="journey"` supports `meta.layout="immersive"` (default), `casefile` and `pursuit`, with one or more itinerary days. The default `sections` mode preserves earlier guides. Each main stage is introduced exactly once across the trip with an event's `stage_id` and matching `map_stop_id`. Later visits/observations may reuse the map point without duplicating the full stage article.
 
 - `meta.journey_intro`: `{kicker,title,body:[...],facts:[...],note}`. Defaults use the trip's own existing meta fields. `cover_title_lines`, `cover_issue`, `cover_caption`, `journey_start` and `journey_closing_heading` art-direct a casebook. A pursuit cover additionally supports `cover_title`, `cover_credit`, `cover_tagline`, `cover_description` and `cover_line`. All copy comes from input and is escaped.

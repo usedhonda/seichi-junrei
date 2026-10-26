@@ -153,7 +153,7 @@ class Media:
         if Image is None:
             raise RuntimeError("Pillow required to embed and optimize images")
         with Image.open(p) as raw:
-            im = raw.convert("RGB")
+            im = raw.convert("RGBA" if 'A' in raw.getbands() or 'transparency' in raw.info else "RGB")
             im.thumbnail((1600, 1400))
             buf = io.BytesIO()
             im.save(buf, "WEBP", quality=80, method=5)

@@ -36,6 +36,8 @@ The user has explicitly said: **「なんのための聖地巡礼かわからな
 
 ## Non-negotiable gates
 
+For mixed illustration treatments, read the visual-rhythm patterns in `references/editorial-and-art.md`. Plan the whole reading sequence, including the afternoon and ending: combine scene art, a consistent recurring stamp character and occasional stylized ensemble art when appropriate. These are selectable roles, not a required look for every work; preserve the user's chosen balance. Generate comparisons when the user wants to choose, then carry the accepted direction through implementation and delivery rather than stopping at the comparison.
+
 - **User choice:** current selection/delegation before guide generation; never inherit consent from a fixture.
 - **Character-retention gate:** approved/requested cast appears prominently on the phone, with scene-specific art in the destination chapters. A scenery-only substitute fails unless explicitly requested.
 - **Grounding:** no invented episode/location match; illustrative composites are not geographical evidence.

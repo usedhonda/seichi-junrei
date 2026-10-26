@@ -142,4 +142,28 @@ class MobileContracts(unittest.TestCase):
             self.assertTrue({s['art'] for s in state['scenes']}.issubset(parser.art_ids))
             if name=='monster_europe_guide':self.assertIn('class="scene-spoiler"',source)
 
+    def test_supplemental_art_uses_external_trip_fields(self):
+        spec=independent_input(ROOT)
+        art=spec['stages'][0]['image']
+        spec['itinerary'][0]['events'][0]['illustration']={'role':'sticker','image':art,'panel':'top-right','caption':'<unsafe-note>'}
+        spec['meta']['closing_illustration']={'role':'scene','image':art,'caption':'A new trip ending'}
+        source=render(spec,ROOT)
+        self.assertIn('sticker-viewport top-right',source)
+        self.assertIn('&lt;unsafe-note&gt;',source)
+        self.assertNotIn('<unsafe-note>',source)
+        self.assertIn('A new trip ending',source)
+        spec['itinerary'][0]['events'][0]['illustration']['role']='unexpected'
+        with self.assertRaisesRegex(ValueError,'illustration role'):render(spec,ROOT)
+
+    def test_transparent_stamp_survives_offline_embedding(self):
+        import base64,io
+        from PIL import Image
+        from render_guide import Media
+        spec=json.loads((ROOT/'examples/conan_singapore_guide.json').read_text())
+        stamp=next(e['illustration']['image'] for e in spec['itinerary'][0]['events'] if e.get('illustration'))
+        payload=Media(spec,ROOT).embed(stamp).split(',',1)[1]
+        with Image.open(io.BytesIO(base64.b64decode(payload))) as im:
+            self.assertIn('A',im.getbands())
+            self.assertEqual((0,255),im.getchannel('A').getextrema())
+
 if __name__ == '__main__': unittest.main()

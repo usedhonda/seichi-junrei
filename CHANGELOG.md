@@ -2,6 +2,12 @@
 
 このプロジェクトは開発初期段階のSkillです。明確なリリースタグを作成したときに、ここへ変更履歴を追記します。
 
+## 0.6.1 — 2026-10-26
+
+- Added recurring transparent character stamps through Conan’s day and a stylized ensemble closing illustration. Existing scene art is retained.
+- Added reusable event/closing illustration roles, stamp-sheet display panels and alpha-preserving image embedding.
+- Added skill guidance for whole-guide image pacing and user-selected combinations of scene, stamp and ensemble treatments.
+
 ## 0.6.0 — 2026-10-25
 
 - Applied the integrated reading journey to JoJo and MONSTER, preserving their distinct adventure/thriller covers and all scene illustrations.

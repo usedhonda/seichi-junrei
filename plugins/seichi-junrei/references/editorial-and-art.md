@@ -47,6 +47,20 @@ Fan art and private companion sharing do not guarantee every distribution is per
 
 ## Mobile presentation
 
+### Selectable illustration roles and reading rhythm
+
+Use a small set of intentional roles rather than a single treatment for every image:
+
+- Scene art: a large composition for a story/place beat; retain the approved cast and scene context.
+- Recurring stamp: a consistent, deliberately simplified character with transparent background, bold outline and expressive gestures, appearing beside occasional notes, breaks or transitions. Keep the same proportions, face and palette across poses. This can repeat as a travel companion; do not repeat a full scene solely as filler.
+- Stylized ensemble: an occasional whole scene in which all characters share the chosen chibi, comic or cut-paper treatment. It can provide a change of pace or closing memory without changing every image to that style.
+
+For a requested comparison, keep subject/action constant so the user can judge style. Confirm whether they want scene illustrations or small messaging-style stamps: merely shortening anime proportions while retaining a detailed backdrop does not produce a stamp. Once the user accepts a direction, continue into the actual guide; candidate generation alone is not the promised revision.
+
+Plan placements from start to finish before generating: opening, visits, afternoon/transfers, final stop and closing. Inspect the last third of the actual phone page as carefully as the cover. Long stretches of prose after an image-rich opening need an editorial decision; a tiny stamp does not replace a missing requested scene illustration. Vary placement naturally, avoid stamping every chapter identically, and keep faces away from live labels and controls. Do not make cheerful comic reactions mandatory for a serious thriller.
+
+The journey renderer supports `events[].illustration` and `meta.closing_illustration` as `{role: "sticker" | "scene", image: "local/file.png", caption: "..."}`. Register each asset in `media_rights`; use truthful character/provenance metadata and captions that identify imagined scenes. Stickers retain alpha transparency and sit alongside live text; scene art uses the existing large image and zoom control. These fields add visual rhythm to the itinerary without inventing factual stops or separate navigation screens.
+
 Follow `mobile-quality.md`: actual portrait layout, strong art and legible live text, 44px controls, safe-area bottom navigation, horizontal card swipes, detail sheets, image zoom and motion controls. Preserve the approved palette and hierarchy. Prefer larger image files over visibly broken or overly compressed art; embed images for reliable offline display.
 
 Judge the implementation from real browser screenshots at 390 and 430px, not from an image-generator mockup. Inspect faces, scene placement, tap targets and overflowing captions. State physical-device and browser-engine coverage honestly.
