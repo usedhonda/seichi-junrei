@@ -65,6 +65,8 @@ Optional `events[].illustration` and `meta.closing_illustration` take `{role: "s
 
 For an evenly divided 2×2 transparent sticker sheet, optional `panel` selects `top-left`, `top-right`, `bottom-left` or `bottom-right`. This clips the display in CSS while embedding the original complete sheet. Generate generous gutters and inspect each selected pose on the phone; omit `panel` for a single-sticker asset. Keep the same sheet's character design consistent across poses.
 
+An `illustration` may also be an ordered list of those objects when a planned transition needs both a small companion and a large scene. Keep the order in the storyboard; do not use the list to fill space with repeated scene art. Optional `meta.journey_labels` supplies work-specific `scene`, `onsite`, `practical`, `research` and `record` headings. Values are escaped live text; omitted keys keep the existing defaults.
+
 `meta.reading_flow="journey"` supports `meta.layout="immersive"` (default), `casefile` and `pursuit`, with one or more itinerary days. The default `sections` mode preserves earlier guides. Each main stage is introduced exactly once across the trip with an event's `stage_id` and matching `map_stop_id`. Later visits/observations may reuse the map point without duplicating the full stage article.
 
 - `meta.journey_intro`: `{kicker,title,body:[...],facts:[...],note}`. Defaults use the trip's own existing meta fields. `cover_title_lines`, `cover_issue`, `cover_caption`, `journey_start` and `journey_closing_heading` art-direct a casebook. A pursuit cover additionally supports `cover_title`, `cover_credit`, `cover_tagline`, `cover_description` and `cover_line`. All copy comes from input and is escaped.

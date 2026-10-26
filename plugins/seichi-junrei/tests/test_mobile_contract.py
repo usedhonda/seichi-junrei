@@ -166,4 +166,13 @@ class MobileContracts(unittest.TestCase):
             self.assertIn('A',im.getbands())
             self.assertEqual((0,255),im.getchannel('A').getextrema())
 
+    def test_storyboard_keeps_role_order_and_escapes_work_labels(self):
+        spec=independent_input(ROOT)
+        spec['meta']['journey_labels']['scene']='<script>chapter-label</script>'
+        source=render(spec,ROOT)
+        self.assertLess(source.index('QA: another work supplies'),source.index('QA: the planned wide transition'))
+        self.assertIn('&lt;script&gt;chapter-label&lt;/script&gt;',source)
+        self.assertNotIn('<script>chapter-label</script>',source)
+        self.assertIn('街で確かめる。',source)
+
 if __name__ == '__main__': unittest.main()

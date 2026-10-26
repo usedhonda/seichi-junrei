@@ -2,6 +2,13 @@
 
 このプロジェクトは開発初期段階のSkillです。明確なリリースタグを作成したときに、ここへ変更履歴を追記します。
 
+## 0.7.0 — 2026-10-26
+
+- Replanned JoJo and MONSTER end to end from distinct whole-guide visual storyboards, including chapter copy, artwork count, movement, camera scale, companions, transfer-day rhythm and endings.
+- Added eight selected new assets: JoJo desert distance, Iggy poses and a deformed ensemble; MONSTER courtyard, rail travel, over-shoulder street, restrained margin figures and a quiet deformed epilogue. Approved covers and story artwork are preserved.
+- Added ordered mixed illustration roles for transitions and escaped work-specific chapter labels, with independent-input and offline-browser coverage.
+- Updated the distributable skill, production examples, public screenshots and embedded JoJo demonstration to match the complete reading journeys.
+
 ## 0.6.2 — 2026-10-26
 
 - Replaced Conan’s repeated seated compositions with an overhead active hawker scene and a low-angle, full-body walking ensemble closing.

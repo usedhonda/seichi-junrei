@@ -18,6 +18,7 @@ def independent_input(root):
         {'id':'arrival','label':'FIRST DAY','title':'最初の場所へ','map_stop_ids':['first-point'],'events':[{'time':'朝','title':first['name'],'stage_id':first['id'],'map_stop_id':'first-point','description':'検証用の観察時間。'}]},
         {'id':'between','label':'TRAVEL DAY','title':'次の場所へ','kind':'transfer','map_stop_ids':['first-point','last-point'],'events':[{'time':'終日','title':'移動の検証','kind':'transfer','from_stop_id':'first-point','to_stop_id':'last-point','travelmode':'walking','description':'実際の移動時間ではありません。'}]},
         {'id':'after','label':'LAST DAY','title':'次の場面へ','map_stop_ids':['last-point'],'events':[{'time':'午後','title':last['name'],'stage_id':last['id'],'map_stop_id':'last-point','description':'検証用の観察時間。'}]}]
-    data['itinerary'][1]['events'][0]['illustration']={'role':'sticker','image':first['image'],'caption':'QA: another work supplies its own companion art.'}
+    data['itinerary'][1]['events'][0]['illustration']=[{'role':'sticker','image':first['image'],'caption':'QA: another work supplies its own companion art.'},{'role':'scene','image':last['image'],'caption':'QA: the planned wide transition follows the margin figure.'}]
+    data['meta']['journey_labels']={'scene':'ページに残る記憶。','onsite':'街で確かめる。'}
     data['meta']['closing_illustration']={'role':'scene','image':last['image'],'caption':'QA: a separate trip closing illustration.'}
     return data

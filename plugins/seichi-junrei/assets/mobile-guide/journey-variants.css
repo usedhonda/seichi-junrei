@@ -39,3 +39,14 @@ body[data-layout="pursuit"][data-reading-flow="journey"] .journey-day-heading{bo
 body[data-layout="pursuit"][data-reading-flow="journey"] .journey-day-heading h2{font-weight:850;font-size:28px}
 body[data-layout="pursuit"][data-reading-flow="journey"] .transfer-day>.journey-day-heading{background:linear-gradient(125deg,#29171b,#0b0e10)}
 body[data-theme="night-gold"][data-reading-flow="journey"] .journey-watchlist,body[data-theme="night-gold"][data-reading-flow="journey"] .journey-watchlist button{border-color:#ae9467}
+body[data-theme="night-gold"][data-reading-flow="journey"] .journey-day-heading{background:linear-gradient(150deg,#142b39,#08121b);border-top:2px solid var(--gold2)}
+body[data-theme="night-gold"][data-reading-flow="journey"] .journey-day-heading h2{font:600 28px/1.65 'Hiragino Mincho ProN',Georgia,serif;color:var(--gold)}
+body[data-theme="night-gold"][data-reading-flow="journey"] .journey-sticker{background:#152b3c;border:1px solid #a3854d66;padding:14px;border-radius:2px}
+body[data-theme="night-gold"][data-reading-flow="journey"] .journey-sticker figcaption{color:#e0d9c9}
+body[data-layout="pursuit"][data-reading-flow="journey"] .journey-sticker{border-left:2px solid #914c42;background:#151a1d;padding:14px 12px}
+body[data-layout="pursuit"][data-reading-flow="journey"] .journey-sticker figcaption{color:#d1d1c8}
+body[data-layout="pursuit"][data-reading-flow="journey"] .journey-sticker .travel-mascot{filter:none}
+.journey-day>.feature-art{margin:18px 0 32px}
+body[data-theme="night-gold"][data-reading-flow="journey"] .feature-art>.art-label{position:static;display:grid;grid-template-columns:minmax(0,1fr) 72px;gap:12px;align-items:center;padding:12px 20px;background:#0c1923;border-bottom:1px solid var(--line);pointer-events:auto}
+body[data-theme="night-gold"][data-reading-flow="journey"] .feature-art>.art-label>span{background:none;backdrop-filter:none;padding:0;color:#c2cbd0;font-size:10px;line-height:1.8}
+body[data-theme="night-gold"][data-reading-flow="journey"] .feature-art>.art-label>button{width:72px;min-width:72px;min-height:44px;height:44px;white-space:nowrap;font-size:12px;line-height:1;border-radius:2px;border:1px solid var(--gold2);background:none}

@@ -40,6 +40,8 @@ For mixed illustration treatments, read the visual-rhythm patterns in `reference
 
 Plan composition separately from style: vary action, camera height/distance and subject placement when the story calls for it. Compare the main images together in reading order; changing the medium does not fix repeated figures seated behind a table. Use the composition guidance in `references/editorial-and-art.md` before generating the set.
 
+When revising another guide, adapt the whole storyboard and chapter voice rather than copying the last sample's treatment. Deformed art can be an exuberant adventure interlude or a quiet thriller epilogue; choose its timing and emotional register with the text, maps and page sequence. See the distinct JoJo and MONSTER plans linked in `references/editorial-and-art.md`.
+
 - **User choice:** current selection/delegation before guide generation; never inherit consent from a fixture.
 - **Character-retention gate:** approved/requested cast appears prominently on the phone, with scene-specific art in the destination chapters. A scenery-only substitute fails unless explicitly requested.
 - **Grounding:** no invented episode/location match; illustrative composites are not geographical evidence.

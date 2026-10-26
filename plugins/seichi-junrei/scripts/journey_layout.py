@@ -10,8 +10,10 @@ from route_maps import ordered_stops
 def compose(data, stages, episodes, scenes, missions, image, feature,
             paragraphs, link, mission_group, H, types, map_html, days, hero=''):
     meta=data['meta'];layout=meta.get('layout','immersive')
+    def label(key,default):return H(meta.get('journey_labels',{}).get(key,default))
     def illustration(spec):
         if not spec:return ''
+        if isinstance(spec,list):return ''.join(illustration(item) for item in spec)
         role=spec.get('role','scene')
         if role not in ('scene','sticker'):raise ValueError('Unknown journey illustration role')
         if role=='scene':return feature(spec['image'],spec.get('caption','非公式の創作挿絵'))
@@ -88,16 +90,16 @@ def compose(data, stages, episodes, scenes, missions, image, feature,
                     if ep:reading+='<button data-episode="'+H(scene['episode'])+'">物語を振り返る ↗</button>'
                     reading+='<button data-scene="'+H(scene['id'])+'">挿絵と場面を読む ↗</button></div>'
                     if scene.get('spoiler'):reading='<details class="scene-spoiler"><summary>物語の終盤を振り返る（ネタバレ）</summary>'+reading+'</details>'
-                    body+='<div class="scene-memory"><span class="kicker">あの場面を、ここで。</span><h3>'+H(scene['name'])+'</h3>'+reading+'</div>'
-                body+='<section class="onsite-clues"><h3>現地で探す、手がかり。</h3>'
+                    body+='<div class="scene-memory"><span class="kicker">'+label('scene','あの場面を、ここで。')+'</span><h3>'+H(scene['name'])+'</h3>'+reading+'</div>'
+                body+='<section class="onsite-clues"><h3>'+label('onsite','現地で探す、手がかり。')+'</h3>'
                 for h in spec['highlights']:
                     item=h if isinstance(h,dict) else {'title':h}
                     if item.get('kind')=='related':continue
                     body+='<div class="onsite-clue"><h4>'+H(item['title'])+'</h4><p>'+H(item.get('description',''))+'</p>'+link(item.get('source_url'),'現地情報の出典')+'</div>'
-                body+='</section>'+local_map(point)+'<div class="visit-practical"><span>この場所で過ごす時間</span><p>'+H(event.get('description',''))+'</p><p>'+H(spec.get('practical',''))+'</p></div>'
-                body+='<details class="visit-research"><summary>場所と作品の照合メモ</summary>'+paragraphs(spec.get('paragraphs',[]))
+                body+='</section>'+local_map(point)+'<div class="visit-practical"><span>'+label('practical','この場所で過ごす時間')+'</span><p>'+H(event.get('description',''))+'</p><p>'+H(spec.get('practical',''))+'</p></div>'
+                body+='<details class="visit-research"><summary>'+label('research','場所と作品の照合メモ')+'</summary>'+paragraphs(spec.get('paragraphs',[]))
                 for rel in spec.get('connections',[]):body+='<strong>'+H(types[rel['type']])+'</strong><p>'+H(rel['description'])+'</p>'+link(rel['source_url'],'関係の根拠')
-                body+='</details><details class="visit-checklist"><summary>ここで見つけたものを記録</summary>'+mission_group(st['id'],st['label'],[m for m in missions if m['stage']==st['id']])+'</details><div class="chapter-tools"><button data-bookmark="'+st['id']+'" aria-pressed="false">◇ この場所を保存</button><button data-action="share">仲間に渡す ↗</button></div></div></article>'
+                body+='</details><details class="visit-checklist"><summary>'+label('record','ここで見つけたものを記録')+'</summary>'+mission_group(st['id'],st['label'],[m for m in missions if m['stage']==st['id']])+'</details><div class="chapter-tools"><button data-bookmark="'+st['id']+'" aria-pressed="false">◇ この場所を保存</button><button data-action="share">仲間に渡す ↗</button></div></div></article>'
             elif event.get('related_highlight_id'):
                 h=highlights.get(event['related_highlight_id'])
                 if not h or not point:raise ValueError('Optional visit needs an existing highlight and geographic stop')

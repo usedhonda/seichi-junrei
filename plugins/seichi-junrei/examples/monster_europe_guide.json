@@ -26,7 +26,7 @@
     "art_note": "挿絵はAI（ImageGen）で制作した非公式ファンアートです。公式アニメの画面、漫画のコマ、現地写真ではありません。人物同士の組み合わせや眺めは新しい創作で、同じ場所で同じ場面が起きた証拠には使いません。地理と建物は地図・実景・出典で確認してください。",
     "checked_note": "作品公式、大学・観光局、2018〜2019年撮影の比較訪問記を2026年10月25日に確認。大学とホテルについては訪問記の原作比較画像を目視。作者・制作側の個別建物認定や、現在の外観との完全一致を意味しません。",
     "itinerary_note": "個人の旅行日・宿泊予約を含まない5日間のモデル。都市間には移動専用日を置き、列車時刻や予約可能性は未確定です。実際の訪問日にはDB等で乗継・運行・所要時間を確認し、必要なら移動日や宿泊を追加してください。市内の時間は編集上の概算です。",
-    "closing": "同じ形を見つけても、同じ景色にはならない。物語のあとに、自分の旅の記憶を残す。",
+    "closing": "同じ形を見つけても、同じ景色にはならない。窓を見上げ、路地を曲がり、橋の先へ。ここからは、自分だけの旅の続き。",
     "layout": "pursuit",
     "reading_flow": "journey",
     "cover_title": "MONSTER",
@@ -36,9 +36,10 @@
     "journey_start": "追跡をはじめる",
     "journey_intro": {
       "kicker": "GERMANY → CZECHIA / 5 DAYS",
-      "title": "三つの街で、物語の痕跡を追う。",
+      "title": "窓を見上げ、\n次の街へ。",
       "body": [
-        "ニナのいた学生の街から、小さなホテルへ。そしてプラハで、何度も見たオープニングの景色を歩く。テンマたちの記憶を、旅の順番につないでいきます。"
+        "大学の広場に残る、ニナの記憶。一軒のホテルの屋根。そして、何度も見たオープニングの街。三つの場所を五日でつなぐ、静かな追跡の旅です。",
+        "近づいて細部を見る日と、街から街へ移る日を分けました。建物の形、車窓の向こう、路地の奥。視点を変えながら、物語と自分の記憶が重なる場所を探します。"
       ],
       "facts": [
         "3つの街",
@@ -46,6 +47,19 @@
         "鉄道・徒歩のモデル"
       ],
       "note": "個人の旅行日・宿泊予約を含まない5日間のモデル。都市間には移動専用日を置き、列車時刻や予約可能性は未確定です。実際の訪問日にはDB等で乗継・運行・所要時間を確認し、必要なら移動日や宿泊を追加してください。市内の時間は編集上の概算です。"
+    },
+    "journey_labels": {
+      "scene": "記憶の断片。",
+      "onsite": "街で照合する、形と視点。",
+      "practical": "ここから先の、現実の歩き方。",
+      "research": "物語と街を照合した記録",
+      "record": "自分が見た痕跡を残す"
+    },
+    "journey_closing_heading": "物語のあとに、\n自分の記憶を。",
+    "closing_illustration": {
+      "role": "scene",
+      "image": "assets/monster-europe/quiet-epilogue.png",
+      "caption": "追跡のあとに、静かな余韻。テンマとグリマーを控えめにデフォルメした非公式の創作。作中の場面や実際の眺めの再現ではありません。"
     }
   },
   "selection": {
@@ -112,7 +126,7 @@
       "location": "HEIDELBERG",
       "label": "FIELD NOTE / HEIDELBERG",
       "hook": "入口と窓の列に、記憶が重なる。",
-      "image": "assets/monster-europe/heidelberg.webp",
+      "image": "assets/monster-europe/courtyard.png",
       "location_note": "最初の手がかりは大学の名前より、建物の形。比較訪問記では、ニナの大学として原作の絵と現地の写真が並べられています。小塔と屋根、窓の列、広場側の入口を見比べるところから始めます。",
       "paragraphs": [
         "旅は、ニナのいた街から始まる。明るい広場、屋根の小塔、並んだ窓。穏やかな学生の街にも、あの物語を知っている自分だけが気づく影がある。画面を閉じて、まずはその窓を見上げてみよう。",
@@ -125,8 +139,8 @@
           "title": "ニナが暮らした、学生の街。",
           "episode_id": "student",
           "episode": "STORY / FIELD NOTE",
-          "description": "初めて見る大学でも、あの物語の記憶があれば、入口の形が気になり始める。",
-          "image": "assets/monster-europe/heidelberg.webp",
+          "description": "俯瞰の広場で、窓の列を指し示すニナとテンマ。観察する視点を題材にした創作で、実在の大学内部や原作の再会場面の再現ではありません。",
+          "image": "assets/monster-europe/courtyard.png",
           "source_url": "https://touyokojunrei.com/archives/81949516.html",
           "spoiler": false
         }
@@ -234,7 +248,7 @@
       "location": "PRAGUE",
       "label": "FIELD NOTE / PRAGUE",
       "hook": "見慣れた橋の、見慣れない向きを探す。",
-      "image": "assets/monster-europe/prague.webp",
+      "image": "assets/monster-europe/street-viewpoint.png",
       "location_note": "プラハで探すのは、カレル橋の名前だけでなく、作品で見た視点。比較訪問記は共和国広場とカレル橋をアニメのオープニングに結びつけています。塔や広場の縁が、風景をたどる目印になります。",
       "paragraphs": [
         "何度も見たオープニングの景色を、今度は自分の足でつなぐ。広場から旧市街へ、そして橋の向こうへ。テンマとグリマーを思い出しながら、塔と空の重なる角度を探してみよう。",
@@ -247,8 +261,8 @@
           "title": "橋より先に、視点を探す。",
           "episode_id": "prague",
           "episode": "STORY / FIELD NOTE",
-          "description": "物語に登場する町にも、今ここで暮らす人がいる。景色を観察した後は、自分の旅の時間へ戻る。",
-          "image": "assets/monster-europe/prague.webp",
+          "description": "二人の肩越しに、路地の奥へ目を向ける。テンマとグリマーを思い出す創作挿絵。OPの正確な視点や道路配置を示すものではありません。",
+          "image": "assets/monster-europe/street-viewpoint.png",
           "source_url": "https://touyokojunrei.com/archives/81946359.html",
           "spoiler": false
         }
@@ -388,6 +402,59 @@
       ],
       "alt": "プラハの橋のそばを歩くテンマとグリマー",
       "notes": "新しく想像した道中の場面。作中の同じカットや正確な立ち位置の証拠ではない。"
+    },
+    {
+      "file": "assets/monster-europe/courtyard.png",
+      "status": "original_generated",
+      "creator": "OpenAI native ImageGen",
+      "characters": [
+        "天馬賢三",
+        "ニナ・フォルトナー"
+      ],
+      "alt": "大学の窓を観察するニナとテンマを高い斜め視点から描く創作",
+      "notes": "人物と建物の観察を題材にした新しい構図。旧大学の正確な配置や原作の同一場面ではない。"
+    },
+    {
+      "file": "assets/monster-europe/platform.png",
+      "status": "original_generated",
+      "creator": "OpenAI native ImageGen",
+      "characters": [
+        "天馬賢三"
+      ],
+      "alt": "列車の窓と余白が広がるホームで、小さく立つテンマ",
+      "notes": "架空の道中の情景。特定駅、列車、乗車予約を示さない。"
+    },
+    {
+      "file": "assets/monster-europe/street-viewpoint.png",
+      "status": "original_generated",
+      "creator": "OpenAI native ImageGen",
+      "characters": [
+        "天馬賢三",
+        "ヴォルフガング・グリマー"
+      ],
+      "alt": "テンマとグリマーの肩越しに路地と塔を探す創作挿絵",
+      "notes": "眺めと道路は組み合わせた想像。正確な地理、OPカット、登場人物の訪問を裏付けない。"
+    },
+    {
+      "file": "assets/monster-europe/quiet-epilogue.png",
+      "status": "original_generated",
+      "creator": "OpenAI native ImageGen",
+      "characters": [
+        "天馬賢三",
+        "ヴォルフガング・グリマー"
+      ],
+      "alt": "小さくデフォルメしたテンマとグリマーが川辺で静かに余韻を楽しむ挿絵",
+      "notes": "緊張をほどく想像のエピローグ。実在の撮影地点や作中場面ではない。"
+    },
+    {
+      "file": "assets/monster-europe/tenma-margin.png",
+      "status": "original_generated",
+      "creator": "OpenAI native ImageGen",
+      "characters": [
+        "天馬賢三"
+      ],
+      "alt": "手帳を読む・旅の鞄を運ぶテンマの控えめな統一人物カット",
+      "notes": "透明背景の小さな人物カット。四つのうち二つを照合メモと移動日に使う非公式創作。"
     }
   ],
   "itinerary": [
@@ -417,8 +484,8 @@
         "university"
       ],
       "map_mode": "walking",
-      "title": "ニナのいた、学生の街へ。",
-      "description": "ハイデルベルクの旧大学から。窓と屋根の形を、原作の記憶に重ねる日。"
+      "title": "最初の痕跡は、窓の列。",
+      "description": "広場を遠くから見て、入口と窓へ近づく。穏やかな学生の街に、物語を知る自分だけの視点を持つ日。"
     },
     {
       "id": "2",
@@ -432,7 +499,12 @@
           "from_stop_id": "university",
           "to_stop_id": "hotel",
           "travelmode": "transit",
-          "transport_url": "https://int.bahn.de/en"
+          "transport_url": "https://int.bahn.de/en",
+          "illustration": {
+            "role": "scene",
+            "image": "assets/monster-europe/platform.png",
+            "caption": "街と街のあいだに、ひと呼吸。非公式の創作挿絵で、特定駅・実際の便・予約済み列車を示しません。"
+          }
         }
       ],
       "map_stop_ids": [
@@ -441,7 +513,7 @@
       ],
       "map_mode": "transit",
       "title": "ハイデルベルク → カウフボイレン",
-      "description": "今日は次の街へ向かう日。見学を詰め込まず、移動と休憩に余裕を残す。",
+      "description": "今日の主役は、街と街のあいだ。列車の乗継と休憩を確保し、明日の一軒の建物へ向かう。",
       "kind": "transfer"
     },
     {
@@ -458,7 +530,13 @@
         {
           "time": "10:45",
           "title": "町歩きと休憩",
-          "description": "60分＋休憩30分。町全体を架空のルーエンハイムと呼ばず、現実の町として楽しむ。"
+          "description": "60分＋休憩30分。町全体を架空のルーエンハイムと呼ばず、現実の町として楽しむ。",
+          "illustration": {
+            "role": "sticker",
+            "image": "assets/monster-europe/tenma-margin.png",
+            "panel": "top-left",
+            "caption": "見つけた一致も、変わっていた細部も、どちらも旅の記録。架空の町と現実の町は分けて残す。"
+          }
         },
         {
           "time": "12:30",
@@ -470,8 +548,8 @@
         "hotel"
       ],
       "map_mode": "walking",
-      "title": "小さなホテル、その面影へ。",
-      "description": "大きな名所より、一軒の建物。テンマを思い出しながら、町を静かに歩く。"
+      "title": "一軒の屋根で、立ち止まる。",
+      "description": "看板よりも、屋根と窓。物語の終盤をたどる記憶は折りたたみ、いま営業する建物の前を静かに歩く。"
     },
     {
       "id": "4",
@@ -485,7 +563,13 @@
           "from_stop_id": "hotel",
           "to_stop_id": "square",
           "travelmode": "transit",
-          "transport_url": "https://int.bahn.de/en"
+          "transport_url": "https://int.bahn.de/en",
+          "illustration": {
+            "role": "sticker",
+            "image": "assets/monster-europe/tenma-margin.png",
+            "panel": "top-right",
+            "caption": "道中も旅の一章。運行と乗継を確認し、必要なら移動日や宿泊を追加する。"
+          }
         }
       ],
       "map_stop_ids": [
@@ -494,7 +578,7 @@
       ],
       "map_mode": "transit",
       "title": "カウフボイレン → プラハ",
-      "description": "国境を越えて、オープニングの街へ。乗継と到着条件を確認する移動日。",
+      "description": "次の街の景色を急がない。乗継と到着条件を見直し、プラハを歩く時間は翌日に残す。",
       "kind": "transfer"
     },
     {
@@ -535,8 +619,8 @@
         "bridge"
       ],
       "map_mode": "walking",
-      "title": "OPの向こう側へ。",
-      "description": "共和国広場からカレル橋へ。塔と街並みの重なりを、自分の足で探す。"
+      "title": "風景の名前より、その視点へ。",
+      "description": "広場から路地、橋へ。二人の肩越しに見えた景色を、自分の足で確かめる。最後は川のそばに余韻を残す。"
     }
   ],
   "route_map": {

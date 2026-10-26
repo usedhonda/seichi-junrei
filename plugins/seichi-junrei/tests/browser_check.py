@@ -172,6 +172,8 @@ def check(specs, out, executable=None, html_file=None, assets_root=None, widths=
                         page.locator('.bottom-nav a[href="#home"]').tap()
                         page.eval_on_selector_all('img[data-art]', 'els=>els.forEach(e=>e.loading="eager")')
                         page.wait_for_function('[...document.querySelectorAll("img[data-art]")].every(e=>e.complete&&e.naturalWidth>0)')
+                        if page.locator('body').get_attribute('data-reading-flow') == 'journey':
+                            assert page.locator('#home .art-label button').evaluate_all('els=>els.every(e=>e.getBoundingClientRect().width>=44&&e.getBoundingClientRect().height>=44&&e.scrollWidth<=e.clientWidth+1&&e.scrollHeight<=e.clientHeight+1)'), 'Artwork zoom label is clipped or its tap target is too small'
                         if width == 390:
                             page.goto(url, wait_until='load')
                             page.wait_for_function('window.__pilgrimage && scrollY===0')
