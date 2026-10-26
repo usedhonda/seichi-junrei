@@ -2,6 +2,12 @@
 
 このプロジェクトは開発初期段階のSkillです。明確なリリースタグを作成したときに、ここへ変更履歴を追記します。
 
+## 0.7.1 — 2026-10-26
+
+- Added trip intake before production for mostly fixed, early-planning and mixed itineraries, using calendar/text together while retaining per-item booking certainty.
+- Added a concise trip brief, grouped material questions and stage-appropriate readiness before full image/layout work; preserve unaffected material when constraints change.
+- Documented natural-language starting requests and the distinction between an extraction helper and booking-status interpretation. Guide renderer and existing samples are unchanged.
+
 ## 0.7.0 — 2026-10-26
 
 - Replanned JoJo and MONSTER end to end from distinct whole-guide visual storyboards, including chapter copy, artwork count, movement, camera scale, companions, transfer-day rhythm and endings.

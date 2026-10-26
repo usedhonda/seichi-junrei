@@ -1,5 +1,7 @@
 # Calendar reading, timing and privacy
 
+Use `trip-intake.md` first to determine what is already decided and what this pass should produce. Calendar and text may be combined; keep confirmed, tentative, agent-suggested and unknown items distinct. The export helper is a source-extraction aid, not a complete booking-status or planning-readiness classifier. User-confirmed reservations remain fixed anchors even when their calendar export is incomplete.
+
 ## Read a bounded range
 
 - Search visible Google Calendars with an explicit trip date span. Do not scan all calendars unbounded. For "next trip", search upcoming travel events in a bounded window (e.g. 90 days), then refine to the relevant stay. Event attendees and body text should not appear in the public guide.
