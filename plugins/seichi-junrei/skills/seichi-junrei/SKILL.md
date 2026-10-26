@@ -11,6 +11,12 @@ This is a **story pilgrimage**, not a generic sightseeing brochure. When the use
 
 The user has explicitly said: **「なんのための聖地巡礼かわからないので、絵をなくさないで。」** Treat character retention as a product acceptance criterion. Refer to `references/editorial-and-art.md` and `references/mobile-quality.md`.
 
+## Intended use and rights
+
+Read `references/rights-and-use.md` before production or distribution. This project is for personal, noncommercial trips with companions. The policy covers the **whole booklet**, including travel-agency/customer materials, packaged tours, paid production/distribution and business advertising/promotion, even when handed out free. Establish the actual use during intake; do not narrow the policy to selling character pictures. Explain when a commercial brief falls outside this intended use, without claiming that GPT Image or the unchanged MIT code license universally forbids commerce.
+
+OpenAI output ownership, third-party character/work permissions and code licensing are separate. Keep AI/non-official labels, honest permission records and a whole-booklet use notice in `meta.art_note`. Do not treat private/noncommercial use, deformation, successful generation or a disclaimer as legal clearance. User authorization to publish is not a franchise license. Preserve the user's selected cast while discussing a compliant plan; do not silently remove it or bypass a generation refusal.
+
 ## Codex execution
 
 - Target **Codex only**. Invoke `$seichi-junrei:seichi-junrei` for the plugin, or `$seichi-junrei` for a discovered direct skill. Do not invent commands.

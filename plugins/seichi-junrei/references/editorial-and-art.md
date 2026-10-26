@@ -41,6 +41,9 @@ Use clear provenance records: creator/method, supplied or generated origin, depi
 
 ## Rights and labels
 
+Read `rights-and-use.md` for official OpenAI sources and the project’s whole-booklet noncommercial policy, including travel-agency business/customer uses. Code MIT permissions and output/character permissions are separate. Provenance status records do not establish clearance.
+
+
 Do not represent newly generated fan art as official anime frames, manga scans, authorized merchandise or documentary photography. Do not scrape and republish original frames or panels merely because fan art was requested. Suitable supplied/permission-cleared images can be used within their conditions.
 
 Fan art and private companion sharing do not guarantee every distribution is permitted. Record limitations and review before optional public distribution. The code's MIT license does not automatically cover franchise imagery. These caveats **do not require deleting the requested fictional characters from original fan art**.

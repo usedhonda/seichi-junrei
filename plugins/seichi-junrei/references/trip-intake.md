@@ -24,6 +24,7 @@ Collect what affects this task, using existing evidence whenever possible:
 - Flights, accommodation, fixed commitments and usable free time, with each item's status. A hotel name or public area can inform travel feasibility without exposing private booking details.
 - Party and material constraints: who the guide serves, mobility/walking tolerance, travel pace, budget range and relevant transport preferences. Ask only where the answer changes the proposal.
 - Interests: selected work(s), familiar genres/characters, discovery versus famous landmarks, detour tolerance and spoiler preference.
+- Intended use: personal/companion travel or business/customer/promotion. Apply the whole-booklet policy in `rights-and-use.md`; free customer handouts can still be business use. Do not ask again when the purpose is already known.
 - This pass's deliverable: destination/work candidates, a tentative route, or a usable finished booklet; intended private/group/public sharing and whether dates/identities should be dummy model data.
 - Remaining assumptions and unresolved decisions, identifying which ones could change the route, artwork or page structure.
 

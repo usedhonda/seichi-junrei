@@ -2,6 +2,12 @@
 
 このプロジェクトは開発初期段階のSkillです。明確なリリースタグを作成したときに、ここへ変更履歴を追記します。
 
+## 0.7.2 — 2026-10-26
+
+- Documented official OpenAI output-rights rules separately from franchise permissions, private/public sharing and code licensing, with dated primary sources.
+- Clarified the project’s noncommercial policy covers complete booklets, travel-agency/customer materials, paid production/distribution and business advertising/promotion, not just character image sales.
+- Aligned README, asset policy, skill intake/art guidance and the three guide production notes; retained the existing MIT license and explicitly disclosed its commercial permissions.
+
 ## 0.7.1 — 2026-10-26
 
 - Added trip intake before production for mostly fixed, early-planning and mixed itineraries, using calendar/text together while retaining per-item booking certainty.
