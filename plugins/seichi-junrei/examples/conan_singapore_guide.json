@@ -57,8 +57,8 @@
     },
     "closing_illustration": {
       "role": "scene",
-      "image": "assets/conan-singapore/closing-collage.png",
-      "caption": "旅の終わりに、今日の手がかりを持ち寄る。非公式の創作挿絵であり、映画の場面・実在店舗の再現ではありません。"
+      "image": "assets/conan-singapore/closing-walk.png",
+      "caption": "一日の締めは、もうひと歩き。仲間と街へ踏み出す非公式の創作挿絵。映画の場面や、実在する店舗・眺めの再現ではありません。"
     }
   },
   "selection": {
@@ -96,7 +96,7 @@
             "空手の強さだけでなく、園子と一緒に過ごす時の京極真の表情も、この旅で思い出したいもの。にぎやかなホーカーで、二人の食事の空気を重ねてみます。",
             "訪問記は二人の食事をMaxwell Food Centreとして紹介しています。チキンライスや飲み物を楽しめますが、作中の店番号や同じテーブルまでは確認していません。"
           ],
-          "image": "assets/conan-singapore/market.webp",
+          "image": "assets/conan-singapore/market-overhead.png",
           "source_url": "https://singaporeclub.blog.jp/archives/37928898.html",
           "note": "施設としての対応と、特定の屋台・席の特定は別。周囲の人の食事を優先。",
           "spoiler": "食後の騒動まで振り返りたい人は、本編の該当場面を見返してみよう。"
@@ -191,7 +191,7 @@
       "location": "MAXWELL",
       "label": "FIELD NOTE / MAXWELL",
       "hook": "にぎやかな食卓で、二人の距離を思い出す。",
-      "image": "assets/conan-singapore/market.webp",
+      "image": "assets/conan-singapore/market-overhead.png",
       "location_note": "園子と京極真の食事の場面を入口に、1 Kadayanallur StreetのMaxwell Food Centreへ。にぎやかな食堂では、観光地を見る目とは少し違う、生活の街の楽しみが見つかります。",
       "paragraphs": [
         "園子と京極真の食事の場面を入口に、1 Kadayanallur StreetのMaxwell Food Centreへ。にぎやかな食堂では、観光地を見る目とは少し違う、生活の街の楽しみが見つかります。",
@@ -202,8 +202,8 @@
           "title": "強さの横に、普通のランチ。",
           "episode_id": "lunch",
           "episode": "STORY / FIELD NOTE",
-          "description": "強い京極真と、彼のそばにいる園子。二人の何気ない時間を思い出しながら、自分たちのランチを楽しむ。",
-          "image": "assets/conan-singapore/market.webp",
+          "description": "屋台を選ぶ園子と、料理を運ぶ京極真。二人のランチの記憶を入口にした創作で、映画のカットや施設の実際の配置を再現するものではありません。",
+          "image": "assets/conan-singapore/market-overhead.png",
           "source_url": "https://singaporeclub.blog.jp/archives/37928898.html",
           "spoiler": false
         }
@@ -428,6 +428,30 @@
       ],
       "alt": "夕暮れに旅の絵葉書を見せ合うコナン、蘭、キッド、小五郎の切り絵風イラスト",
       "notes": "全員を同じデフォルメ表現にした旅の締めの創作。実際の映画場面や店舗、眺め、訪問行程を示さない。"
+    },
+    {
+      "file": "assets/conan-singapore/market-overhead.png",
+      "status": "original_generated",
+      "creator": "OpenAI native ImageGen",
+      "characters": [
+        "鈴木園子",
+        "京極真"
+      ],
+      "alt": "屋台を選ぶ園子と料理を運ぶ京極真を、斜め上から描いた全身の挿絵",
+      "notes": "食事の記憶を題材に、動きと俯瞰構図を加えた創作。映画の場面、Maxwellの店舗配置や通路の現況を示さない。"
+    },
+    {
+      "file": "assets/conan-singapore/closing-walk.png",
+      "status": "original_generated",
+      "creator": "OpenAI native ImageGen",
+      "characters": [
+        "江戸川コナン",
+        "毛利蘭",
+        "怪盗キッド",
+        "毛利小五郎"
+      ],
+      "alt": "地面に近い視点で、手前のコナンと奥を歩く蘭、キッド、小五郎を描いたデフォルメの一枚絵",
+      "notes": "低い視点と奥行きを使った切り絵風の創作。映画の実際の場面、訪問経路、建物と眺めの位置関係を示さない。"
     }
   ],
   "itinerary": [

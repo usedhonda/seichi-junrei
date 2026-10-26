@@ -47,7 +47,21 @@ Fan art and private companion sharing do not guarantee every distribution is per
 
 ## Mobile presentation
 
+### Whole-guide visual storyboard (before generation)
+
+During the overall structure pass, write an art plan in the trip workspace alongside the reading outline. Count unique asset files, distinct poses/illustrations and actual page placements separately: a four-pose sheet is one file, four drawings and potentially four placements. For each placement record the reading position, purpose/emotional beat, subjects and action, visual treatment, camera height/distance and foreground arrangement, aspect ratio/phone crop, and whether it reuses approved art or needs generation. Also note what remains text or map only. Plan the ending with the same care as the opening.
+
+Choose when to use deformed art based on the reading experience: a small consistent companion may lighten an operational note, while an occasional whole-cast stylized scene can create a playful break or closing release. Main scene illustrations still carry place/story context. Decide that balance before commissioning the set, and retain the chosen style anchors across all poses. Neither a fixed image count nor a universal percentage of chibi art fits every work.
+
+Read through the planned page sequence as a storyboard: where the reader slows, looks closely, moves, rests and finishes. Compare consecutive shots and the whole set for repeated framing and missing visual beats. Translate each planned shot into an explicit generation prompt; inspect completed art against the plan and actual phone crops. Revise the plan coherently if a scene fails, rather than adding unrelated pictures late. The worked `examples/conan_singapore_art_plan.md` shows counts, treatments and placement choices; it is an example, not the default blueprint for every trip.
+
 ### Selectable illustration roles and reading rhythm
+
+Plan composition independently of rendering style. Before generating a set, note each image's action, camera height, distance, subject scale and foreground/background arrangement. An anime scene, watercolor scene and paper collage can still repeat the same seated waist-up figures behind a table. Changing the medium, cast or expressions alone does not vary the composition.
+
+Use story-appropriate differences: an establishing view with small figures, an oblique overhead view of movement, an over-the-shoulder observation, an expressive close-up or a low-angle full-body scene. Specify the intended action and camera geometry in each prompt. These are options, not a mandatory rotation; a meal may need a seated scene, while a closing memory need not become another meal. Inspect all main images together in reading order, then the actual phone crops. If several share the same silhouette and tabletop/counter arrangement, recompose the redundant scenes rather than merely recoloring them. Preserve recognizable cast and distinguish newly imagined action from a verified scene match.
+
+For each generation prompt, include a concrete action and camera instruction (for example, "oblique overhead wide view; both characters walking through a stall aisle, full bodies visible"). Include relevant exclusions when correcting repetition (for example, "no seated figures behind a foreground table"). Do not rely on vague words such as "dynamic", "different" or "cinematic" to change the shot. A deliberate quiet moment is useful; accidental repetition across the guide is not. Judge variety across the set rather than forcing every image into an exaggerated action pose.
 
 Use a small set of intentional roles rather than a single treatment for every image:
 

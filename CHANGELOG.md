@@ -2,6 +2,11 @@
 
 このプロジェクトは開発初期段階のSkillです。明確なリリースタグを作成したときに、ここへ変更履歴を追記します。
 
+## 0.6.2 — 2026-10-26
+
+- Replaced Conan’s repeated seated compositions with an overhead active hawker scene and a low-angle, full-body walking ensemble closing.
+- Added whole-guide visual storyboarding before image generation: asset/drawing/placement counts, reading position, purpose, cast/action, treatment and camera geometry, with a worked Conan plan.
+
 ## 0.6.1 — 2026-10-26
 
 - Added recurring transparent character stamps through Conan’s day and a stylized ensemble closing illustration. Existing scene art is retained.
