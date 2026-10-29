@@ -86,7 +86,7 @@ jobs:
           python -m playwright install --with-deps chromium
       - name: Test touch, counts, real reload persistence and character art
         run: python scripts/pages/test_mobile.py _site/index.html
-      - uses: actions/upload-pages-artifact@v4
+      - uses: actions/upload-pages-artifact@v5
         with:
           path: _site
 
